@@ -36,15 +36,15 @@ body {
   width: 30px;
 }
 
-.profileNav {
+#profileNav {
   position: absolute;
   top: 100px;
+  right: 10px;
   display: flex;
   flex-direction: column;
-  right: 40px;
   padding: 10px;
   width: fit-content;
-  margin: auto 60px;
+  margin: auto 30px;
   border-radius: 11px;
   /* background: #0b092f;
   box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
@@ -53,23 +53,75 @@ body {
   z-index: 1;
 }
 
-.profileNav .icon {
+#profileNav .icon {
   margin: 25px;
 }
 
 #navBlock {
   position: absolute;
   top: 100px;
-  left: 40px;
   padding: 10px 20px;
   width: fit-content;
-  margin: auto 60px;
+  margin: auto 30px;
   border-radius: 11px;
   /* background: #0b092f;
   box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
   background: #121212;
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   z-index: 1;
+}
+
+.slide-right {
+  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s
+    both;
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+}
+@keyframes slide-right {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+  }
+}
+
+.slide-left {
+  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+}
+
+@-webkit-keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
+}
+@keyframes slide-left {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+  }
 }
 
 .navTab {
