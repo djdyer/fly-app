@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-image: linear-gradient(#061934, #05082a);
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  width: auto;
+  overflow-x: hidden;
+}
+
+#logo {
+  display: block;
+  margin: 50px;
+  width: 180px;
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  margin: 20px;
+  width: 50px;
+}
