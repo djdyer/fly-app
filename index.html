@@ -6,18 +6,53 @@
     <title>Fly App</title>
     <link rel="icon" href="/images/fly_logo.png" type="image/png" />
     <link rel="stylesheet" href="/css/style.css" />
+    <!-- Quicksand Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    <nav>
+    <div class="profileNav">
+          <img class="icon" src="assets/images/user.png" />
+          <img class="icon" src="assets/images/notifications.png" />
+      </div>
+    </div>
+    <nav id="navBlock">
       <img id="logo" src="assets/images/fly_logo.png" />
-      <img class="icon" src="assets/images/profile.png" />
-      <img class="icon" src="assets/images/notifications.png" />
-      <img class="icon" src="assets/images/settings.png" />
-      <img class="icon" src="assets/images/search.png" />
-      <img class="icon" src="assets/images/transfers.png" />
-      <img class="icon" src="assets/images/documents.png" />
-      <img class="icon" src="assets/images/plus.png" />
+      <div class="navTab">
+        <img class="icon" src="assets/images/search.png" />
+        <h1 class="glow">Search</h1>
+      </div>
+
+      <div class="navTab">
+        <img class="icon" src="assets/images/settings.png" />
+        <h1 class="glow">Settings</h1>
+      </div>
+      <div class="navTab">
+        <img class="icon" src="assets/images/transfers.png" />
+        <h1 class="glow">Payment</h1>
+      </div>
+      <div class="navTab">
+        <img class="icon" src="assets/images/documents.png" />
+        <h1 class="glow">Documents</h1>
+      </div>
+      <div class="navTab">
+        <img class="icon" src="assets/images/plus.png" />
+        <h1 class="glow">More</h1>
+      </div>
     </nav>
-    <main></main>
+    <main>
+      <div id="map"></div>
+    </main>
+    <script src="./js/map.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-RuWSCkmZwh_RKF5GZKhWWkbbwVKkrdQ&callback=initMap"
+    ></script>
   </body>
 </html>

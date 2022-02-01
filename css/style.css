@@ -1,3 +1,8 @@
+:root {
+  --dark: rgb(14, 25, 47);
+  --light: rgb(121, 237, 255);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +11,9 @@
 
 html,
 body {
-  background-image: linear-gradient(#061934, #05082a);
+  /* background-image: linear-gradient(#0b092f, #0b092f); */
+  background-image: linear-gradient(#121212, #121212);
+
   text-align: center;
   height: 100vh;
   width: 100vw;
@@ -15,14 +22,95 @@ body {
 }
 
 #logo {
+  top: 30px;
   display: block;
-  margin: 50px;
-  width: 180px;
+  margin: 30px;
+  width: auto;
+  height: 130px;
   text-align: center;
 }
 
 .icon {
   display: block;
-  margin: 20px;
-  width: 50px;
+  margin: 20px 10px;
+  width: 30px;
+}
+
+.profileNav {
+  position: absolute;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  right: 40px;
+  padding: 10px;
+  width: fit-content;
+  margin: auto 60px;
+  border-radius: 11px;
+  /* background: #0b092f;
+  box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
+  background: #121212;
+  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
+  z-index: 1;
+}
+
+.profileNav .icon {
+  margin: 25px;
+}
+
+#navBlock {
+  position: absolute;
+  top: 100px;
+  left: 40px;
+  padding: 10px 20px;
+  width: fit-content;
+  margin: auto 60px;
+  border-radius: 11px;
+  /* background: #0b092f;
+  box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
+  background: #121212;
+  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
+  z-index: 1;
+}
+
+.navTab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h1 {
+  color: var(--light);
+  font-family: "Quicksand", sans-serif;
+  font-size: 15pt;
+  margin: auto 20px;
+}
+
+h1:hover.glow {
+  color: var(--light);
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073,
+      0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+#map {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
 }
