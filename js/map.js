@@ -26,6 +26,8 @@ async function mapApiCall() {
   }
 }
 
+let map;
+
 async function initMap() {
   const coords = await mapApiCall();
 
@@ -264,4 +266,34 @@ async function initMap() {
       },
     ],
   });
+
+  const icon = url("../assets/images/location.png");
+
+  const airports = [
+    {
+      position: new google.maps.LatLng(33.6404, -84.4198),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(33.9779, -83.9567),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(33.3543, -84.5698),
+      type: "info",
+    },
+    {
+      position: new google.maps.LatLng(33.8768, -84.3079),
+      type: "info",
+    },
+  ];
+
+  // Create markers
+  for (let i = 0; i < airports.length; i++) {
+    const marker = new google.maps.Marker({
+      position: airports[i].position,
+      location: icon[airports[i].type],
+      map: map,
+    });
+  }
 }

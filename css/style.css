@@ -13,7 +13,6 @@ html,
 body {
   /* background-image: linear-gradient(#0b092f, #0b092f); */
   background-image: linear-gradient(#121212, #121212);
-
   text-align: center;
   height: 100vh;
   width: 100vw;
@@ -36,51 +35,55 @@ body {
   width: 30px;
 }
 
-#profileNav {
+.navigation {
   position: absolute;
-  top: 100px;
+  width: fit-content;
+  margin: 100px 30px;
+  border-radius: 11px;
+  /* background: #0b092f;
+  box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
+  background: #121212;
+  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
+  z-index: 1;
+  opacity: 95%;
+}
+
+#profileNav {
   right: 10px;
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: fit-content;
-  margin: auto 30px;
-  border-radius: 11px;
-  /* background: #0b092f;
-  box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
-  background: #121212;
-  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
-  z-index: 1;
 }
 
 #profileNav .icon {
-  margin: 25px;
+  margin: 20px 15px;
+}
+
+#mobileNav {
+  position: absolute;
+  width: 88%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30px;
+  z-index: 1;
+  visibility: hidden;
 }
 
 #navBlock {
-  position: absolute;
-  top: 100px;
   padding: 10px 20px;
-  width: fit-content;
-  margin: auto 30px;
-  border-radius: 11px;
-  /* background: #0b092f;
-  box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
-  background: #121212;
-  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
-  z-index: 1;
 }
 
+/* Full Nav animation */
 .slide-right {
-  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s
+  -webkit-animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s
     both;
-  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+  animation: slide-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s both;
 }
-
 @-webkit-keyframes slide-right {
   0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(-500px);
+    transform: translateX(-500px);
   }
   100% {
     -webkit-transform: translateX(100px);
@@ -89,8 +92,8 @@ body {
 }
 @keyframes slide-right {
   0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(-500px);
+    transform: translateX(-500px);
   }
   100% {
     -webkit-transform: translateX(100px);
@@ -99,14 +102,14 @@ body {
 }
 
 .slide-left {
-  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s both;
+  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s
+    both;
+  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s both;
 }
-
 @-webkit-keyframes slide-left {
   0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(500px);
+    transform: translateX(500px);
   }
   100% {
     -webkit-transform: translateX(-100px);
@@ -115,8 +118,8 @@ body {
 }
 @keyframes slide-left {
   0% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transform: translateX(500px);
+    transform: translateX(500px);
   }
   100% {
     -webkit-transform: translateX(-100px);
@@ -130,13 +133,16 @@ body {
   align-items: center;
 }
 
+/* Nav links */
 h1 {
   color: var(--light);
+  display: inline;
   font-family: "Quicksand", sans-serif;
   font-size: 15pt;
   margin: auto 20px;
 }
 
+/* Glowing nav links */
 h1:hover.glow {
   color: var(--light);
   text-align: center;
@@ -145,6 +151,7 @@ h1:hover.glow {
   animation: glow 1s ease-in-out infinite alternate;
 }
 
+/* Glowing nav links animation */
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073,
@@ -165,4 +172,50 @@ h1:hover.glow {
   height: 100%;
   width: 100%;
   z-index: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  #logo {
+    display: none;
+  }
+
+  h1 {
+    display: none;
+  }
+
+  .navigation {
+    margin: 60px auto;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #navBlock {
+    margin: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 0;
+    bottom: 0;
+    opacity: 100%;
+  }
+
+  .slide-right {
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+
+  .slide-left {
+    -webkit-animation: none !important;
+    animation: none !important;
+  }
+
+  #profileNav {
+    display: none;
+  }
+
+  #mobileNav {
+    visibility: visible;
+  }
 }

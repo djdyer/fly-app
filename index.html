@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fly App</title>
-    <link rel="icon" href="/images/fly_logo.png" type="image/png" />
+    <link rel="icon" href="./assets/images/fly_logo.png" type="image/png" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Quicksand Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,18 +16,25 @@
   </head>
 
   <body>
-    <div id="profileNav" class="slide-left">
-          <img class="icon" src="assets/images/user.png" />
-          <img class="icon" src="assets/images/notifications.png" />
-      </div>
+    <!-- Side Nav (Mobile) -->
+    <div id="mobileNav">
+      <img class="icon" src="assets/images/user.png" />
+      <img class="icon" src="assets/images/notifications.png" />
     </div>
-    <nav id="navBlock" class="slide-right">
+
+    <!-- Side Nav (Desktop) -->
+    <div id="profileNav" class="navigation slide-left">
+      <img class="icon" src="assets/images/user.png" />
+      <img class="icon" src="assets/images/notifications.png" />
+    </div>
+
+    <!-- Main Nav -->
+    <nav id="navBlock" class="navigation slide-right">
       <img id="logo" src="assets/images/fly_logo.png" />
       <div class="navTab">
         <img class="icon" src="assets/images/search.png" />
         <h1 class="glow">Search</h1>
       </div>
-
       <div class="navTab">
         <img class="icon" src="assets/images/settings.png" />
         <h1 class="glow">Settings</h1>
@@ -45,9 +52,13 @@
         <h1 class="glow">More</h1>
       </div>
     </nav>
+
+    <!-- Google Map (Entire window) -->
     <main>
       <div id="map"></div>
     </main>
+
+    <!-- Google Map Scripts -->
     <script src="./js/map.js"></script>
     <script
       async
