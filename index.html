@@ -4,7 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Fly App</title>
-    <link rel="icon" href="./assets/images/fly_logo.png" type="image/png" />
+    <link
+      rel="icon"
+      href="./assets/icons/icons/fly_logo.png"
+      type="image/png"
+    />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- Quicksand Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,40 +22,77 @@
   <body>
     <!-- Side Nav (Mobile) -->
     <div id="mobileNav">
-      <img class="icon" src="assets/images/user.png" />
-      <img class="icon" src="assets/images/notifications.png" />
+      <img class="icon" src="assets/icons/user2.png" />
+      <img class="icon" src="assets/icons/notifications2.png" />
     </div>
 
     <!-- Side Nav (Desktop) -->
     <div id="profileNav" class="navigation slide-left">
-      <img class="icon" src="assets/images/user.png" />
-      <img class="icon" src="assets/images/notifications.png" />
+      <img class="icon" src="assets/icons/user2.png" />
+      <img class="icon" src="assets/icons/notifications2.png" />
+      <img class="icon" id="filter" src="assets/icons/filter.png" />
     </div>
 
     <!-- Main Nav -->
     <nav id="navBlock" class="navigation slide-right">
-      <img id="logo" src="assets/images/fly_logo.png" />
+      <img id="logo" src="assets/icons/fly_logo.png" />
       <div class="navTab">
-        <img class="icon" src="assets/images/search.png" />
+        <img class="icon" src="assets/icons/search.png" />
         <h1 class="glow">Search</h1>
       </div>
       <div class="navTab">
-        <img class="icon" src="assets/images/settings.png" />
+        <img class="icon" src="assets/icons/settings.png" />
         <h1 class="glow">Settings</h1>
       </div>
       <div class="navTab">
-        <img class="icon" src="assets/images/transfers.png" />
+        <img class="icon" src="assets/icons/transfers.png" />
         <h1 class="glow">Payment</h1>
       </div>
       <div class="navTab">
-        <img class="icon" src="assets/images/documents.png" />
+        <img class="icon" src="assets/icons/documents.png" />
         <h1 class="glow">Documents</h1>
       </div>
       <div class="navTab">
-        <img class="icon" src="assets/images/plus.png" />
+        <img class="icon" src="assets/icons/plus.png" />
         <h1 class="glow">More</h1>
       </div>
     </nav>
+
+    <!-- Search Fields  -->
+    <div id="searchFields" class="slide-down">
+      <input class="shadow-pop-br" placeholder="ATLANTA" id="origin" />
+
+      <input class="shadow-pop-br" placeholder="DESTINATION" id="destination" />
+
+      <button class="shadow-pop-br" id="searchBtn">
+        <h1>SEARCH</h1>
+      </button>
+    </div>
+
+    <!-- Search Results -->
+    <div class="results">
+      <div id="result1">
+        <div id="header1">
+          <div id="trip">
+            <h2>Origin</h2>
+            <img class="planeIcon" src="assets/icons/plane.png" />
+            <h2>Destination</h2>
+          </div>
+          <div id="costDetail">
+            <h2>$ Cost</h2>
+            <img class="icon" id="moreBtn" src="assets/icons/more.png" />
+          </div>
+        </div>
+
+        <div id="planeImg">
+          <div id="header2">
+            <h3>Flight Num</h3>
+            <h3>Cabin Size</h3>
+            <h3>Date/Time</h3>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Google Map (Entire window) -->
     <main>
