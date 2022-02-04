@@ -37,7 +37,7 @@ body {
 }
 
 .navigation {
-  position: absolute;
+  position: fixed;
   width: fit-content;
   margin: 100px auto;
   border-radius: 11px;
@@ -59,7 +59,7 @@ body {
 }
 
 #mobileNav {
-  position: absolute;
+  position: fixed;
   width: 88%;
   display: flex;
   flex-direction: row;
@@ -74,7 +74,7 @@ body {
 }
 
 #searchFields {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -362,7 +362,7 @@ h3 {
 }
 
 #map {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   bottom: 0;
   left: 0;
