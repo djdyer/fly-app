@@ -40,8 +40,6 @@ body {
   width: fit-content;
   margin: 100px auto;
   border-radius: 11px;
-  /* background: #0b092f;
-  box-shadow: 18px 18px 36px #090828, -18px -18px 36px #0d0a36; */
   background: #121212;
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   z-index: 1;
@@ -295,7 +293,7 @@ h1:hover.glow {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(14, 14, 14);
+  background-color: 121212;
   color: rgb(240, 240, 240);
   padding: 20px;
 }
@@ -309,6 +307,7 @@ h1:hover.glow {
 
 #moreBtn {
   margin-left: 25px;
+  margin-right: 0;
 }
 
 .planeIcon {
@@ -318,8 +317,10 @@ h1:hover.glow {
 }
 
 #planeImg {
-  background-image: url(./assets/images/plane1.jpg);
+  background-image: url(../assets/images/plane1.jpg);
   height: 240px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #header1 {

@@ -267,7 +267,7 @@ async function initMap() {
     ],
   });
 
-  const icon = url("../assets/images/location.png");
+  const icon = "../assets/icons/location.png";
 
   const airports = [
     {
@@ -292,7 +292,7 @@ async function initMap() {
   for (let i = 0; i < airports.length; i++) {
     const marker = new google.maps.Marker({
       position: airports[i].position,
-      location: icon[airports[i].type],
+      icon: icon,
       map: map,
     });
   }
