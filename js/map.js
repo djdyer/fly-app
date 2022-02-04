@@ -33,7 +33,7 @@ async function initMap() {
 
   map = new google.maps.Map(document.getElementById("map"), {
     center: new google.maps.LatLng(coords.lat, coords.lng),
-    zoom: 10,
+    zoom: 9,
     disableDefaultUI: true,
     styles: [
       {

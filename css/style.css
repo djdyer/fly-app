@@ -1,6 +1,7 @@
 :root {
   --dark: rgb(14, 25, 47);
   --light: rgb(121, 237, 255);
+  --select: (#b52d87);
 }
 
 * {
@@ -132,40 +133,44 @@ input:focus {
 }
 @-webkit-keyframes shadow-pop-br {
   0% {
-    -webkit-box-shadow: 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb,
-      0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb;
-    box-shadow: 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb,
-      0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb;
+    -webkit-box-shadow: 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light), 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light);
+    box-shadow: 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light), 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light);
     -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
   }
   100% {
-    -webkit-box-shadow: 1px 1px #2cffeb, 2px 2px #2cffeb, 3px 3px #2cffeb,
-      4px 4px #2cffeb, 5px 5px #2cffeb, 6px 6px #2cffeb, 7px 7px #2cffeb,
-      8px 8px #2cffeb;
-    box-shadow: 1px 1px #2cffeb, 2px 2px #2cffeb, 3px 3px #2cffeb,
-      4px 4px #2cffeb, 5px 5px #2cffeb, 6px 6px #2cffeb, 7px 7px #2cffeb,
-      8px 8px #2cffeb;
+    -webkit-box-shadow: 1px 1px var(--light), 2px 2px var(--light),
+      3px 3px var(--light), 4px 4px var(--light), 5px 5px var(--light),
+      6px 6px var(--light), 7px 7px var(--light), 8px 8px var(--light);
+    box-shadow: 1px 1px var(--light), 2px 2px var(--light), 3px 3px var(--light),
+      4px 4px var(--light), 5px 5px var(--light), 6px 6px var(--light),
+      7px 7px var(--light), 8px 8px var(--light);
     -webkit-transform: translateX(-8px) translateY(-8px);
     transform: translateX(-8px) translateY(-8px);
   }
 }
 @keyframes shadow-pop-br {
   0% {
-    -webkit-box-shadow: 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb,
-      0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb;
-    box-shadow: 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb,
-      0 0 #2cffeb, 0 0 #2cffeb, 0 0 #2cffeb;
+    -webkit-box-shadow: 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light), 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light);
+    box-shadow: 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light), 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
+      0 0 var(--light);
     -webkit-transform: translateX(0) translateY(0);
     transform: translateX(0) translateY(0);
   }
   100% {
-    -webkit-box-shadow: 1px 1px #2cffeb, 2px 2px #2cffeb, 3px 3px #2cffeb,
-      4px 4px #2cffeb, 5px 5px #2cffeb, 6px 6px #2cffeb, 7px 7px #2cffeb,
-      8px 8px #2cffeb;
-    box-shadow: 1px 1px #2cffeb, 2px 2px #2cffeb, 3px 3px #2cffeb,
-      4px 4px #2cffeb, 5px 5px #2cffeb, 6px 6px #2cffeb, 7px 7px #2cffeb,
-      8px 8px #2cffeb;
+    -webkit-box-shadow: 1px 1px var(--light), 2px 2px var(--light),
+      3px 3px var(--light), 4px 4px var(--light), 5px 5px var(--light),
+      6px 6px var(--light), 7px 7px var(--light), 8px 8px var(--light);
+    box-shadow: 1px 1px var(--light), 2px 2px var(--light), 3px 3px var(--light),
+      4px 4px var(--light), 5px 5px var(--light), 6px 6px var(--light),
+      7px 7px var(--light), 8px 8px var(--light);
     -webkit-transform: translateX(-8px) translateY(-8px);
     transform: translateX(-8px) translateY(-8px);
   }
@@ -269,7 +274,7 @@ h1:hover.glow {
   width: 50px;
 } */
 
-.results {
+.allResults {
   position: absolute;
   z-index: 2;
   right: 0;
@@ -280,9 +285,14 @@ h1:hover.glow {
   border-radius: 10px;
 }
 
-#result1 {
+#result {
   height: 300px;
+  border: 1px solid var(--light);
 }
+
+/* #result:hover {
+  border-color: #b52d87;
+} */
 
 #header1,
 #header2 {
@@ -316,20 +326,39 @@ h1:hover.glow {
   margin: auto 15px;
 }
 
-#planeImg {
-  background-image: url(../assets/images/plane1.jpg);
+#planeImg1,
+#planeImg2,
+#planeImg3 {
+  background-image: url(../assets/images/plane8.png);
   height: 240px;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-#header1 {
-  border-radius: 10px 10px 0 0;
+#planeImg2 {
+  background-image: url(../assets/images/plane7.png);
+}
+
+#planeImg3 {
+  background-image: url(../assets/images/plane6.png);
 }
 
 #header2 {
   background: #212121;
-  opacity: 90%;
+  opacity: 50%;
+}
+
+h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 14pt;
+  color: rgb(240, 240, 240);
+}
+
+h3 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 12pt;
+  color: rgb(240, 240, 240);
+  opacity: 100%;
 }
 
 #map {
@@ -366,7 +395,7 @@ h1:hover.glow {
     margin: 60px auto;
   }
 
-  .results {
+  .allResults {
     width: 60%;
   }
 }
@@ -382,6 +411,7 @@ h1:hover.glow {
     border-radius: 0;
     bottom: 0;
     opacity: 100%;
+    z-index: 4;
   }
 
   .slide-right {
@@ -402,13 +432,16 @@ h1:hover.glow {
     visibility: visible;
   }
 
-  .results {
-    width: 75%;
+  .allResults {
+    width: 80%;
   }
 
-  #header1,
-  #header2 {
-    font-size: 8pt;
+  h2 {
+    font-size: 12pt;
+  }
+
+  h3 {
+    font-size: 10pt;
   }
 
   #moreBtn {
