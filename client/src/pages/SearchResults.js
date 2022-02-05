@@ -1,11 +1,11 @@
-import MyComponent from "../components/MyComponent"
+import Map from "../components/Map";
 
 function SearchResults() {
-    return (
-        <div>
-         <MyComponent/>
-        </div>
-    )
+  return (
+    <div>
+      <Map />
+    </div>
+  );
 }
 
-export default SearchResults
+export default SearchResults;

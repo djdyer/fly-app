@@ -1,12 +1,14 @@
-import React from 'react'
-import SearchResults from './pages/SearchResults'
+import React from "react";
+import SearchResults from "./pages/SearchResults";
+import Navigation from "./pages/Navigation";
 
 function App() {
-    return (
-        <div>
-        <SearchResults/>
-        </div>
-    )
+  return (
+    <div>
+      <Navigation />
+      <SearchResults />
+    </div>
+  );
 }
 
-export default App
+export default App;
