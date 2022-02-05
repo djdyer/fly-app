@@ -365,16 +365,6 @@ h3 {
   opacity: 100%;
 }
 
-#map {
-  position: fixed !important;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-}
 
 @media screen and (max-width: 1200px) {
   #logo {

@@ -1,9 +1,9 @@
-import Map from "../components/Map";
+import FlyMap from "../components/Map";
 
 function SearchResults() {
   return (
     <div>
-      <Map />
+      <FlyMap />
     </div>
   );
 }
