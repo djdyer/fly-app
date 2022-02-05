@@ -303,4 +303,3 @@ export default function FlyMap() {
     <></>
   );
 }
-
