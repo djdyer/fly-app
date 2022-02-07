@@ -23,12 +23,12 @@ export default function Navigation({ currentPage, handlePageChange }) {
     <>
       {/* Side Nav (Mobile) */}
       <div id="mobileNav">
-        <a href="#register" onClick={() => handlePageChange("Register")}>
+        <a href="register" onClick={() => handlePageChange("Register")}>
           <img className="icon default" alt="register" src={user} />
           <img className="icon hover" alt="userHover" src={userHover} />
         </a>
         <a
-          href="#notifications"
+          href="notifications"
           onClick={() => handlePageChange("Notifications")}
         >
           <img
@@ -46,12 +46,12 @@ export default function Navigation({ currentPage, handlePageChange }) {
 
       {/* Side Nav (Desktop) */}
       <div id="profileNav" className="navigation slide-left">
-        <a href="#register" onClick={() => handlePageChange("Register")}>
+        <a href="register" onClick={() => handlePageChange("Register")}>
           <img className="icon default" alt="register" src={user} />
           <img className="icon hover" alt="registerHover" src={userHover} />
         </a>
         <a
-          href="#notifications"
+          href="notifications"
           onClick={() => handlePageChange("Notifications")}
         >
           <img
@@ -65,7 +65,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
             src={notificationsHover}
           />
         </a>
-        <a href="#filter" onClick={() => handlePageChange("Filter")}>
+        <a href="filter" onClick={() => handlePageChange("Filter")}>
           <img className="icon default" alt="filter" src={filter} />
           <img className="icon hover" alt="filterHover" src={filterHover} />
         </a>
@@ -74,7 +74,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
       {/* Main Nav */}
       <nav id="navBlock" className="navigation slide-right">
         <img id="logo" alt="fly-logo" src={logo} />
-        <a href="#search" onClick={() => handlePageChange("Search")}>
+        <a href="search" onClick={() => handlePageChange("Search")}>
           <div className="navTab">
             <img className="icon default" alt="search" src={search} />
             <img className="icon hover" alt="searchHover" src={searchHover} />
@@ -82,7 +82,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
 
-        <a href="#settings" onClick={() => handlePageChange("Settings")}>
+        <a href="settings" onClick={() => handlePageChange("Settings")}>
           <div className="navTab">
             <img className="icon default" alt="settings" src={settings} />
             <img
@@ -94,7 +94,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
 
-        <a href="#payment" onClick={() => handlePageChange("Payment")}>
+        <a href="payment" onClick={() => handlePageChange("Payment")}>
           <div className="navTab">
             <img className="icon default" alt="payment" src={payment} />
             <img className="icon hover" alt="paymentHover" src={paymentHover} />
@@ -102,7 +102,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
 
-        <a href="#documents" onClick={() => handlePageChange("Documents")}>
+        <a href="documents" onClick={() => handlePageChange("Documents")}>
           <div className="navTab">
             <img className="icon default" alt="documents" src={documents} />
             <img
@@ -114,7 +114,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
 
-        <a href="#more" onClick={() => handlePageChange("More")}>
+        <a href="more" onClick={() => handlePageChange("More")}>
           <div className="navTab">
             <img className="icon default" alt="more" src={more} />
             <img className="icon hover" alt="moreHover" src={moreHover} />
