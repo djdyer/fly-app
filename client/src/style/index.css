@@ -169,6 +169,16 @@ input:focus {
   align-items: left;
 }
 
+.register input,
+select,
+textarea {
+  color: var(--dark);
+  font-family: "Quicksand", sans-serif;
+  font-size: 14pt;
+  text-align: left;
+  padding-left: 15px;
+}
+
 #signupBtn,
 #loginBtn,
 #submitBtn {
@@ -201,10 +211,10 @@ h1:hover {
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
 
-button h1:hover {
+/* button h1:hover {
   color: var(--light);
   text-shadow: none;
-}
+} */
 
 /* #filter {
   position: absolute;
@@ -367,14 +377,19 @@ h5 {
 .register a {
   text-decoration: none;
   color: var(--light);
-  margin-left: 5px;
+  margin-left: 3px;
+}
+
+.register a:hover {
+  color: #ff4dc4;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+  font-weight: 900;
 }
 
 .register ::placeholder {
   color: rgb(155, 155, 155);
   text-align: left;
   font-size: 12pt;
-  padding-left: 15px;
 }
 
 @media screen and (max-width: 1200px) {
