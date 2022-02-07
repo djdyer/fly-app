@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 const styles = require("../assets/styles/backgroundmap");
@@ -19,17 +19,32 @@ export default function FlyMap() {
     googleMapsApiKey: "AIzaSyD-RuWSCkmZwh_RKF5GZKhWWkbbwVKkrdQ",
   });
 
-  const [map, setMap] = React.useState(null);
+  // const [map, setMap] = useState(null);
 
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map);
-  }, []);
+  // const onLoad = useCallback(function callback(map) {
+  //   const bounds = new window.google.maps.LatLngBounds();
+  //   map.fitBounds(bounds);
+  //   setMap(map);
+  // }, []);
 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null);
-  }, []);
+  // const onUnmount = useCallback(function callback(map) {
+  //   setMap(null);
+  // }, []);
+
+
+  const mapRef = useRef(null);
+  const [position, setPosition] = useState(center);
+
+  function handleLoad(map) {
+    mapRef.current = map;
+  }
+
+  function handleCenter() {
+    if (!mapRef.current) return;
+
+    const newPos = mapRef.current.getCenter().toJSON();
+    setPosition(newPos);
+  }
 
   //const icon = "../assets/icons/location.png";
 
@@ -52,23 +67,28 @@ export default function FlyMap() {
     },
   ];
 
-  return isLoaded ? (
-    <>
-      <GoogleMap
-        // className={mapStyle}
-        //defaultCenter={{ lat: 33.749, lng: -84.388 }}
-        options={{ styles, disableDefaultUI: true }}
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-      >
-        {airports.map((marker) => (
-          <Marker position={{ ...marker }} />
-        ))}
-      </GoogleMap>
-    </>
+
+  //////////////
+
+  return isLoaded ? (<>
+    <GoogleMap
+      onLoad={handleLoad}
+      center={position}
+      onDragEnd={handleCenter}
+      // className={mapStyle}
+      //defaultCenter={{ lat: 33.749, lng: -84.388 }}
+      options={{ styles, disableDefaultUI: true }}
+      mapContainerStyle={containerStyle}
+      zoom={9}
+      // onUnmount={onUnmount}
+
+    > 
+    {airports.map((marker) => (  
+    <Marker position={marker}/>))}
+    </GoogleMap>
+
+          </>
+
   ) : (
     <>Loadind map .....</>
   );
