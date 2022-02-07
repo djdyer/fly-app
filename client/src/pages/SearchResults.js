@@ -1,6 +1,6 @@
 import React from "react";
 
-function Results() {
+function SearchResults() {
   const plane = require("../../src/assets/icons/plane.png");
   const more = require("../../src/assets/icons/more.png");
   const moreHover = require("../../src/assets/icons/more2.png");
@@ -116,12 +116,12 @@ function Results() {
           </div>
         </a>
       </div>
-
+      {/* 
       <main>
-        <div id="map"></div>
-      </main>
+        <div id="map" class="mapStyle"></div>
+      </main> */}
     </div>
   );
 }
 
-export default Results;
+export default SearchResults;
