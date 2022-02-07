@@ -188,7 +188,8 @@ textarea {
 .enterBid {
   display: flex;
   flex-direction: row;
-  margin: 20px auto;
+  margin: auto 20px;
+  align-items: center;
 }
 
 .navTab {
@@ -227,17 +228,15 @@ h1:hover {
 
 .allResultsContainer {
   position: absolute;
-  z-index: 2;  
+  z-index: 2;
   width: 100%;
   right: 0;
   left: 0;
-
-
 }
 
 .allResults {
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
-  border-radius: 10px;  
+  border-radius: 10px;
   margin-top: 600px;
   margin-bottom: 100px;
   width: 40%;
@@ -288,7 +287,8 @@ h1:hover {
 
 #planeImg1,
 #planeImg2,
-#planeImg3 {
+#planeImg3,
+#myPlane {
   background-image: url(../assets/images/plane8.png);
   height: 240px;
   background-size: cover;
@@ -308,7 +308,8 @@ h1:hover {
   opacity: 95%;
 }
 
-#header2 {
+#header2,
+#auctionBody {
   background: #212121;
   opacity: 50%;
 }
@@ -326,6 +327,10 @@ h3 {
   opacity: 100%;
 }
 
+#myPlane {
+  border-radius: 10px;
+}
+
 .auction {
   background-image: url("../assets/images/runway.png");
   background-size: cover;
@@ -336,7 +341,70 @@ h3 {
   height: 100vh;
   z-index: 3;
   position: fixed;
-  padding-top: 100px;
+  padding-top: 25px;
+}
+
+.auctionDetail {
+  display: absolute;
+  z-index: 2;
+  width: 40%;
+  background-color: #262626, transparency 50%;
+  margin: 80px auto;
+  padding: auto 30px;
+  border-radius: 10px;
+  box-shadow: 12px 12px 40px #36c3ff, -10px -10px 40px #1ef3fe;
+}
+
+#auctionBody {
+  font-family: "Quicksand", sans-serif;
+  font-size: 12pt;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: left;
+  background-color: 121212;
+  color: rgb(240, 240, 240);
+  padding: 20px;
+  align-items: start;
+}
+
+.auctionBodyColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+}
+
+#auctionBody h3 {
+  margin-bottom: 10px;
+}
+
+#bidHeader {
+  font-family: "Quicksand", sans-serif;
+  font-size: 12pt;
+  height: 40px;
+  background-color: #0e0e0e;
+  color: rgb(240, 240, 240);
+  text-align: left;
+  padding-left: 15px;
+  padding-top: 10px;
+  margin-bottom: 5px;
+}
+
+.bidHistory {
+  margin: 20px;
+  margin-bottom: 0px;
+  background-color: #161616;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+.otherBid {
+  margin: 5px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .auction input {
@@ -344,7 +412,6 @@ h3 {
   height: 50px;
   right: 0;
   left: 0;
-  margin: 30px;
   border-radius: 5px;
 }
 
@@ -379,7 +446,7 @@ h5 {
 .watchOption {
   display: flex;
   flex-direction: row;
-  margin: 10px auto;
+  margin: auto 15px;
   align-items: center;
 }
 
