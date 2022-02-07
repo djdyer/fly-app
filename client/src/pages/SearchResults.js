@@ -6,7 +6,7 @@ function SearchResults() {
   const moreHover = require("../../src/assets/icons/more2.png");
 
   return (
-    <div>
+    <div className="allResultsContainer">
       <div className="allResults">
         <a href="result1">
           <div id="result">
@@ -116,10 +116,7 @@ function SearchResults() {
           </div>
         </a>
       </div>
-      {/* 
-      <main>
-        <div id="map" class="mapStyle"></div>
-      </main> */}
+    
     </div>
   );
 }

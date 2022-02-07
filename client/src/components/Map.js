@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import "./map.css"
 
 const styles = require("../assets/styles/backgroundmap");
 
@@ -70,7 +71,7 @@ export default function FlyMap() {
 
   //////////////
 
-  return isLoaded ? (<>
+  return isLoaded ? (<div className="mapStyle" >
     <GoogleMap
       onLoad={handleLoad}
       center={position}
@@ -87,9 +88,9 @@ export default function FlyMap() {
     <Marker key={marker.lat + marker.lng} position={marker}/>))}
     </GoogleMap>
 
-          </>
+          </div>
 
   ) : (
-    <>Loadind map .....</>
+    <>Loading map .....</>
   );
 }
