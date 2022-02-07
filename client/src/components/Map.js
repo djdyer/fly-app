@@ -3,18 +3,15 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 const styles = require("../assets/styles/backgroundmap");
 
-
 const containerStyle = {
   width: "100vw",
-  height: "100vh"
+  height: "100vh",
 };
 
 const center = {
   lat: 33.749,
-  lng: -84.388
+  lng: -84.388,
 };
-
-
 
 export default function FlyMap() {
   const { isLoaded } = useJsApiLoader({
@@ -34,6 +31,7 @@ export default function FlyMap() {
   //   setMap(null);
   // }, []);
 
+
   const mapRef = useRef(null);
   const [position, setPosition] = useState(center);
 
@@ -52,18 +50,23 @@ export default function FlyMap() {
 
   const airports = [
     {
-      lat: 33.6404, lng: -84.4198
+      lat: 33.6404,
+      lng: -84.4198,
     },
     {
-      lat: 33.9779, lng: -83.9567
+      lat: 33.9779,
+      lng: -83.9567,
     },
     {
-      lat: 33.3543, lng: -84.5698
+      lat: 33.3543,
+      lng: -84.5698,
     },
     {
-      lat: 33.8768, lng: -84.3079
+      lat: 33.8768,
+      lng: -84.3079,
     },
   ];
+
 
   //////////////
 
@@ -85,6 +88,7 @@ export default function FlyMap() {
     </GoogleMap>
 
           </>
+
   ) : (
     <>Loadind map .....</>
   );
