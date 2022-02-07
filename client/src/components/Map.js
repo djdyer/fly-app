@@ -84,7 +84,7 @@ export default function FlyMap() {
 
     > 
     {airports.map((marker) => (  
-    <Marker position={marker}/>))}
+    <Marker key={marker.lat + marker.lng} position={marker}/>))}
     </GoogleMap>
 
           </>
