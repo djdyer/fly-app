@@ -3,11 +3,13 @@ import SearchResults from "./SearchResults";
 import SearchFields from "./SearchFields";
 import Signup from "./Signup";
 import Login from "./Login";
+import Auction from "./Auction";
 
 function Home() {
   return (
     <div>
-      <Signup />
+      <Auction />
+      {/* <Signup /> */}
       {/* <Login /> */}
       <SearchResults />
       <SearchFields />
