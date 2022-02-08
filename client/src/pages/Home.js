@@ -1,4 +1,4 @@
-import FlyMap from "../components/Map";
+import FlyMap from "../components/FlyMap";
 import SearchResults from "./SearchResults";
 import SearchFields from "./SearchFields";
 import Signup from "./Signup";

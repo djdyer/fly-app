@@ -13,10 +13,8 @@ function App() {
   return (
     <div>
       <Router>
-
-      
-        <Switch>
         <Navigation />
+        <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/login'>
             <Login/>
