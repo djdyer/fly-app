@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Route, Switch } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 
 import Home from "./pages/Home";
 import Navigation from "./pages/Navigation";
@@ -8,10 +10,30 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Auction from "./pages/Auction";
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
 
 function App() {
   return (
-    <div>
+ 
+      <ApolloProvider client={client}>
       <Router>
         <Navigation />
         <Switch>
@@ -42,16 +64,9 @@ function App() {
         </Switch>
 
       </Router>
-
+      </ApolloProvider>
     
-
-
-
-
-
-
-
-    </div>
+  
   );
 }
 
