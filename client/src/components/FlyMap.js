@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import "./map.css"
+import "./map.css";
 
 const styles = require("../assets/styles/backgroundmap");
 
@@ -32,7 +32,6 @@ export default function FlyMap() {
   //   setMap(null);
   // }, []);
 
-
   const mapRef = useRef(null);
   const [position, setPosition] = useState(center);
 
@@ -62,34 +61,28 @@ export default function FlyMap() {
       lat: 33.3543,
       lng: -84.5698,
     },
-    {
-      lat: 33.8768,
-      lng: -84.3079,
-    },
   ];
-
 
   //////////////
 
-  return isLoaded ? (<div className="mapStyle" >
-    <GoogleMap
-      onLoad={handleLoad}
-      center={position}
-      onDragEnd={handleCenter}
-      // className={mapStyle}
-      //defaultCenter={{ lat: 33.749, lng: -84.388 }}
-      options={{ styles, disableDefaultUI: true }}
-      mapContainerStyle={containerStyle}
-      zoom={9}
-      // onUnmount={onUnmount}
-
-    > 
-    {airports.map((marker) => (  
-    <Marker key={marker.lat + marker.lng} position={marker}/>))}
-    </GoogleMap>
-
-          </div>
-
+  return isLoaded ? (
+    <div className="mapStyle">
+      <GoogleMap
+        onLoad={handleLoad}
+        center={position}
+        onDragEnd={handleCenter}
+        // className={mapStyle}
+        //defaultCenter={{ lat: 33.749, lng: -84.388 }}
+        options={{ styles, disableDefaultUI: true }}
+        mapContainerStyle={containerStyle}
+        zoom={9}
+        // onUnmount={onUnmount}
+      >
+        {airports.map((marker) => (
+          <Marker key={marker.lat + marker.lng} position={marker} />
+        ))}
+      </GoogleMap>
+    </div>
   ) : (
     <>Loading map .....</>
   );
