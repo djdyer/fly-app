@@ -23,8 +23,8 @@ export default function Navigation({ currentPage, handlePageChange }) {
     <>
       {/* Side Nav (Mobile) */}
       <div id="mobileNav">
-        <a href="register" onClick={() => handlePageChange("Register")}>
-          <img className="icon default" alt="register" src={user} />
+        <a href="signup" onClick={() => handlePageChange("Signup")}>
+          <img className="icon default" alt="signup" src={user} />
           <img className="icon hover" alt="userHover" src={userHover} />
         </a>
         <a
@@ -46,9 +46,9 @@ export default function Navigation({ currentPage, handlePageChange }) {
 
       {/* Side Nav (Desktop) */}
       <div id="profileNav" className="navigation slide-left">
-        <a href="register" onClick={() => handlePageChange("Register")}>
-          <img className="icon default" alt="register" src={user} />
-          <img className="icon hover" alt="registerHover" src={userHover} />
+        <a href="signup" onClick={() => handlePageChange("Signup")}>
+          <img className="icon default" alt="signup" src={user} />
+          <img className="icon hover" alt="signupHover" src={userHover} />
         </a>
         <a
           href="notifications"
