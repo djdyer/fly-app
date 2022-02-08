@@ -1,4 +1,4 @@
 const User = require('./User');
-const Flight = require('./Flight');
+const Auction = require('./Auction');
 
-module.exports = { User, Flight };
+module.exports = { User, Auction };
