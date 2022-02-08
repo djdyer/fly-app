@@ -17,32 +17,32 @@ const auctionInfo = new Schema({
     required: true
   },
   flightDate:{
-    required:true,
+    required: true,
     type: Date
   },
   currentBid:{
-    type:float,
-    required:true
+    type: Number,
+    required: true
   },
   aircraft:{
     type: String,
-    required:true
+    required: true
   },
   flightNum:{
     type: String,
-    required:true
+    required: true
   },
   cabinSize:{
     type: Number,
-    required:true
+    required: true
   },
   operator:{
     type: String,
     required:true
   },
   termsAndConds:{
-    required:true,
-    type:boolean
+    type: Boolean,
+    required: true,
   }
 
 });
