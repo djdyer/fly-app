@@ -180,15 +180,18 @@ textarea {
 }
 
 #signupBtn,
-#loginBtn,
-#submitBtn {
+#loginBtn {
   margin-top: 30px;
+}
+
+#submitBtn {
+  margin: 0 auto;
 }
 
 .enterBid {
   display: flex;
   flex-direction: row;
-  margin: auto 20px;
+  margin: 0 20px 20px 20px;
   align-items: center;
 }
 
@@ -314,6 +317,10 @@ h1:hover {
   opacity: 50%;
 }
 
+/* #auctionBody .auctionBodyColumn h3 {
+  opacity: 100% !important;
+} */
+
 h2 {
   font-family: "Quicksand", sans-serif;
   font-size: 14pt;
@@ -331,6 +338,11 @@ h3 {
   border-radius: 10px;
 }
 
+/* @font-face {
+  font-family: "Digital";
+  src: local("Digital"), url(fonts/digital.ttf) format("ttf");
+} */
+
 .auction {
   background-image: url("../assets/images/runway.png");
   background-size: cover;
@@ -344,6 +356,21 @@ h3 {
   padding-top: 25px;
 }
 
+#auctionHeader {
+  font-family: "Quicksand", sans-serif;
+  font-size: 12pt;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: 121212;
+  color: rgb(240, 240, 240);
+  background-color: #0e0e0e;
+  opacity: 95%;
+  padding: 20px 0 20px 20px;
+}
+
 .auctionDetail {
   display: absolute;
   z-index: 2;
@@ -355,6 +382,15 @@ h3 {
   box-shadow: 12px 12px 40px #36c3ff, -10px -10px 40px #1ef3fe;
 }
 
+#countdown {
+  background-color: black;
+  font-size: 20pt;
+  height: 60px;
+  color: #e434a9;
+  font-weight: 900;
+  padding: 13px 10px 0 10px;
+}
+
 #auctionBody {
   font-family: "Quicksand", sans-serif;
   font-size: 12pt;
@@ -364,7 +400,7 @@ h3 {
   align-items: left;
   background-color: 121212;
   color: rgb(240, 240, 240);
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   align-items: start;
 }
 
@@ -386,13 +422,12 @@ h3 {
   background-color: #0e0e0e;
   color: rgb(240, 240, 240);
   text-align: left;
-  padding-left: 15px;
+  padding-left: 20px;
   padding-top: 10px;
   margin-bottom: 5px;
 }
 
 .bidHistory {
-  margin: 20px;
   margin-bottom: 0px;
   background-color: #161616;
   display: flex;
@@ -440,13 +475,14 @@ h5 {
 
 #watchIcon,
 #watchIcon2 {
+  margin: 5px 10px 5px 20px;
   width: 50px;
 }
 
 .watchOption {
   display: flex;
   flex-direction: row;
-  margin: auto 15px;
+  margin: 5px 15px;
   align-items: center;
 }
 
@@ -493,7 +529,8 @@ h5 {
     margin: 60px auto;
   }
 
-  .allResults, .auctionDetail {
+  .allResults,
+  .auctionDetail {
     width: 60%;
   }
 }
@@ -520,7 +557,8 @@ h5 {
     visibility: visible;
   }
 
-  .allResults, .auctionDetail {
+  .allResults,
+  .auctionDetail {
     width: 80%;
   }
 
@@ -539,5 +577,22 @@ h5 {
   .planeIcon {
     height: 18px;
     margin: auto 10px;
+  }
+
+  #countdown {
+    background-color: black;
+    font-size: 15pt;
+    height: 60px;
+    padding: 17px 7px 0 7px;
+  }
+
+  #enterBid {
+    margin-bottom: 25px;
+  }
+
+  .enterBid {
+    flex-direction: column;
+    margin: 0 20px 20px 20px;
+    justify-content: left;
   }
 }

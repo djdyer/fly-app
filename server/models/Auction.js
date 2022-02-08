@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
@@ -6,47 +6,46 @@ const auctionInfo = new Schema({
   auctionEndDate: {
     type: Date,
     default: Date.now,
-    required: true
-  },
-  destination: {
-    type: String,
-    required: true
+    required: true,
   },
   origin: {
     type: String,
-    required: true
-  },
-  flightDate:{
     required: true,
-    type: Date
   },
-  currentBid:{
+  destination: {
+    type: String,
+    required: true,
+  },
+  flightDate: {
+    required: true,
+    type: Date,
+  },
+  currentBid: {
     type: Number,
-    required: true
+    required: true,
   },
-  aircraft:{
+  aircraft: {
     type: String,
-    required: true
+    required: true,
   },
-  flightNum:{
+  flightNum: {
     type: String,
-    required: true
+    required: true,
   },
-  cabinSize:{
+  cabinSize: {
     type: Number,
-    required: true
+    required: true,
   },
-  operator:{
+  operator: {
     type: String,
-    required:true
+    required: true,
   },
-  termsAndConds:{
+  termsConfirm: {
     type: Boolean,
     required: true,
-  }
-
+  },
 });
 
-const Auction = mongoose.model('Auction', auctionInfo);
+const Auction = mongoose.model("Auction", auctionInfo);
 
 module.exports = Auction;

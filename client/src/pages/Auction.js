@@ -12,16 +12,14 @@ function Auction() {
       <div className="auction">
         <div className="auctionDetail">
           <div id="myPlane"></div>
-          
-          <div id="header1">
+
+          <div id="auctionHeader">
             <div id="trip">
               <h2>Origin</h2>
               <img className="planeIcon" alt="plane icon" src={plane} />
               <h2>Destination</h2>
             </div>
-            <div id="currentBid">
-              <h2>COUNTDOWN</h2>
-            </div>
+            <div id="countdown">COUNTDOWN</div>
           </div>
           <AuctionMap />
           <div id="auctionBody">
@@ -72,7 +70,7 @@ function Auction() {
                 src={watchHover}
               />
             </a>
-            <h5>Watch this auction </h5>
+            <h3>Watch this Auction </h3>
           </div>
           <div className="enterBid">
             <input id="enterBid" placeholder="enter your bid" />
