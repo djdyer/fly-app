@@ -229,7 +229,7 @@ h1:hover {
   width: 50px;
 } */
 
-.allResultsContainer {
+.topResultsContainer {
   position: absolute;
   z-index: 2;
   width: 100%;
@@ -237,7 +237,7 @@ h1:hover {
   left: 0;
 }
 
-.allResults {
+.topResults {
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   border-radius: 10px;
   margin-top: 600px;
@@ -529,7 +529,7 @@ h5 {
     margin: 60px auto;
   }
 
-  .allResults,
+  .topResults,
   .auctionDetail {
     width: 60%;
   }
@@ -557,7 +557,7 @@ h5 {
     visibility: visible;
   }
 
-  .allResults,
+  .topResults,
   .auctionDetail {
     width: 80%;
   }

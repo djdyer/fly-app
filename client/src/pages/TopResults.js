@@ -1,13 +1,13 @@
 import React from "react";
 
-function SearchResults() {
+function TopResults() {
   const plane = require("../../src/assets/icons/plane.png");
   const more = require("../../src/assets/icons/more.png");
   const moreHover = require("../../src/assets/icons/more2.png");
 
   return (
-    <div className="allResultsContainer">
-      <div className="allResults">
+    <div className="topResultsContainer">
+      <div className="topResults">
         <a href="auction/:id">
           <div id="result">
             <div id="header1">
@@ -116,9 +116,8 @@ function SearchResults() {
           </div>
         </a>
       </div>
-    
     </div>
   );
 }
 
-export default SearchResults;
+export default TopResults;
