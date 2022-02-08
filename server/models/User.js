@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Flight = require('./Flight');
+const Auction = require('./Auction');
 
 const userSchema = new Schema({
   firstName: {
@@ -25,7 +25,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  flights: [Flight.schema]
+  auctions: [Auction.schema]
 });
 
 // set up pre-save middleware to create password
