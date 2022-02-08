@@ -1,4 +1,5 @@
 import React from "react";
+import Auth from "../utils/auth";
 
 export default function Navigation({ currentPage, handlePageChange }) {
   const logo = require("../../src/assets/icons/fly_logo.png");
@@ -46,10 +47,16 @@ export default function Navigation({ currentPage, handlePageChange }) {
 
       {/* Side Nav (Desktop) */}
       <div id="profileNav" className="navigation slide-left">
-        <a href="signup" onClick={() => handlePageChange("Signup")}>
-          <img className="icon default" alt="signup" src={user} />
-          <img className="icon hover" alt="signupHover" src={userHover} />
-        </a>
+      {Auth.loggedIn() ? (
+                <>
+                <a href="/" onClick={Auth.logout}> Logout</a>
+                </>
+              ) : (
+                <a href="signup" onClick={() => handlePageChange("Signup")}>
+                <img className="icon default" alt="signup" src={user} />
+                <img className="icon hover" alt="signupHover" src={userHover} />
+              </a>              )}
+
         <a
           href="notifications"
           onClick={() => handlePageChange("Notifications")}

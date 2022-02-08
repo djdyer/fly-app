@@ -1,22 +1,63 @@
-import React from "react";
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
-function Signup() {
+function Signup(props) {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [addUser] = useMutation(ADD_USER);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+
   return (
-    <div>
-      <div className="register">
-        <input id="username" placeholder="user name" />
-        <input id="email" placeholder="email" />
-        <input id="password" placeholder="password" />
-        <input id="confirm" placeholder="confirm" />
-        <h5>
-          {" "}
-          Login instead, click <a href="/login">here</a>
-        </h5>
-        <button className="shadow-pop-br" id="signupBtn">
-          <h1>CREATE ACCOUNT</h1>
-        </button>
-      </div>
+
+    <div className="register">
+      <form onSubmit={handleFormSubmit}>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="firstName">First Name:</label>
+          <input placeholder="First" name="firstName" type="firstName" id="firstName"
+            onChange={handleChange} />
+          <label htmlFor="lastName">Last Name:</label>
+          <input placeholder="Last" name="lastName" type="lastName" id="lastName"
+            onChange={handleChange} />
+          <label htmlFor="email">Email:</label>
+          <input placeholder="youremail@test.com" name="email" type="email" id="email"
+            onChange={handleChange} />
+          <label htmlFor="pwd">Password:</label>
+          <input placeholder="******" name="password" type="password" id="pwd"
+            onChange={handleChange} />
+          <h5>
+            {/* {" "} */}
+            Login instead, click <a href="/login">here</a>
+          </h5>
+          <button className="shadow-pop-br" id="signupBtn">
+            <h1>CREATE ACCOUNT</h1>
+          </button>
+        </div>
+      </form>
     </div>
+
   );
 }
 
