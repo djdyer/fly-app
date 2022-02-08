@@ -493,7 +493,7 @@ h5 {
     margin: 60px auto;
   }
 
-  .allResults {
+  .allResults, .auctionDetail {
     width: 60%;
   }
 }
@@ -520,7 +520,7 @@ h5 {
     visibility: visible;
   }
 
-  .allResults {
+  .allResults, .auctionDetail {
     width: 80%;
   }
 

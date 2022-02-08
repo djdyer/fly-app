@@ -1,12 +1,11 @@
 import React, { useState, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import "./map.css";
+import "./auctionMap.css";
 
 const styles = require("../assets/styles/backgroundmap");
 
 const containerStyle = {
-  width: "400px",
-  height: "200px",
+  height: "150px",
 };
 
 const center = {

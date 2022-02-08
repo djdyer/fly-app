@@ -12,7 +12,7 @@ function Auction() {
       <div className="auction">
         <div className="auctionDetail">
           <div id="myPlane"></div>
-          <AuctionMap />
+          
           <div id="header1">
             <div id="trip">
               <h2>Origin</h2>
@@ -23,8 +23,9 @@ function Auction() {
               <h2>COUNTDOWN</h2>
             </div>
           </div>
+          <AuctionMap />
           <div id="auctionBody">
-            <div class="auctionBodyColumn">
+            <div className="auctionBodyColumn">
               <h3>Date/Time:</h3>
               <h3>Aircraft:</h3>
               <h3>Flight Num:</h3>
@@ -32,25 +33,25 @@ function Auction() {
               <h3>Flight Time:</h3>
               <h3>Operator:</h3>
             </div>
-            <div class="auctionBodyColumn">
+            <div className="auctionBodyColumn">
               <h3>Leading Bid:</h3>
               <h3>Terms+Conditions</h3>
               <h3>Service Detail</h3>
             </div>
           </div>
-          <div class="bidHistory">
+          <div className="bidHistory">
             <div id="bidHeader">Bid History</div>
-            <div class="otherBid">
+            <div className="otherBid">
               <h5>Username</h5>
               <h5>Time Stamp</h5>
               <h5>Bid Amount</h5>
             </div>
-            <div class="otherBid">
+            <div className="otherBid">
               <h5>Username</h5>
               <h5>Time Stamp</h5>
               <h5>Bid Amount</h5>
             </div>
-            <div class="otherBid">
+            <div className="otherBid">
               <h5>Username</h5>
               <h5>Time Stamp</h5>
               <h5>Bid Amount</h5>
