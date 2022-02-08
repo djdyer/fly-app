@@ -1,5 +1,5 @@
 import FlyMap from "../components/FlyMap";
-import SearchResults from "./SearchResults";
+import TopResults from "./TopResults";
 import SearchFields from "./SearchFields";
 import Signup from "./Signup";
 import Login from "./Login";
@@ -11,7 +11,7 @@ function Home() {
       <Auction />
       {/* <Signup /> */}
       {/* <Login /> */}
-      {/* <SearchResults /> */}
+      {/* <TopResults /> */}
       {/* <SearchFields /> */}
       <FlyMap />
     </div>
