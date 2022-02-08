@@ -4,7 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from "./pages/Home";
 import Navigation from "./pages/Navigation";
-
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Auction from "./pages/Auction";
 
 
 function App() {
@@ -12,9 +14,21 @@ function App() {
     <div>
       <Router>
 
-        <Navigation />
+      
         <Switch>
+        <Navigation />
           <Route exact path='/' component={Home} />
+          <Route exact path='/login'>
+            <Login/>
+          </Route>
+          <Route exact path='/signup'>
+            <Signup/>
+          </Route>
+          {/* <Route exact path='/auction'>
+            <Auction/>
+          </Route> */}
+        
+
           {/* <Route exact path='/search' component={Search} />
           <Route exact path='/settings' component={Settings} />
           <Route exact path='/payment' component={Payment} />

@@ -11,8 +11,8 @@ function Home() {
       <Auction />
       {/* <Signup /> */}
       {/* <Login /> */}
-      <SearchResults />
-      <SearchFields />
+      {/* <SearchResults /> */}
+      {/* <SearchFields /> */}
       <FlyMap />
     </div>
   );

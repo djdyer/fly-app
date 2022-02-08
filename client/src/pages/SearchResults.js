@@ -8,7 +8,7 @@ function SearchResults() {
   return (
     <div className="allResultsContainer">
       <div className="allResults">
-        <a href="result1">
+        <a href="auction/:id">
           <div id="result">
             <div id="header1">
               <div id="trip">
