@@ -1,4 +1,4 @@
-.mapStyle {
+.auctionMapStyle {
     position: relative;
     /* top: 0;
     left: 0;
@@ -6,3 +6,13 @@
     width: 100%;
     z-index: -1; */
   }
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
+img[src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png"], a[href^="http://maps.google.com/maps"]{
+  display:none !important;}

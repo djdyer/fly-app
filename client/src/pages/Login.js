@@ -30,13 +30,11 @@ function Login() {
 
   return (
 
-      <div className="register">
-    <form onSubmit={handleFormSubmit}>
-        <label htmlFor="email">Email address:</label>
-        <input name="email" type="email" id="email"
+      <div>
+    <form className="register" onSubmit={handleFormSubmit}>
+        <input name="email" type="email" id="email" placeholder="e-mail"
           onChange={handleChange} />
-        <label htmlFor="pwd">Password:</label>
-        <input name="password" type="password" id="password"
+        <input name="password" type="password" id="password" placeholder="password"
           onChange={handleChange} />
       <h5>
         {/* {" "} */}
