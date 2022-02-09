@@ -12,7 +12,7 @@ const typeDefs = gql`
     flightNum: String!
     cabinSize: String!
     operator: String!
-    termsAndConds: String!
+    termsConfirm: Boolean!
   }
 
   type User {
