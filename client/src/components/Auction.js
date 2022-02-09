@@ -4,6 +4,11 @@ function Auction({auction}) {
     const plane = require("../../src/assets/icons/plane.png");
     const more = require("../../src/assets/icons/more.png");
     const moreHover = require("../../src/assets/icons/more2.png");
+
+
+      // scr={`/images/${auction.image}`}       //use this for images. actual images should go into a client/public/images
+                                           // update seeders/auctionsData.js with correct image file name
+
   
     return (
         <a href={`auction/${auction._id}`}>
