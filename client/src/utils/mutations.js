@@ -31,3 +31,25 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const UPDATE_BID = gql`
+mutation updateBid($_id: ID!, $currentBid: Float!) {
+  updateBid(_id: $_id, currentBid: $currentBid){
+    currentBid
+    _id
+   }
+  }
+`
+export const SAVE_FLIGHT = gql`
+  mutation saveflight($_id: ID!) {
+    saveflight(_id: $_id) {
+      _id
+      firstName
+      lastName
+      email
+      auctions{
+        _id
+      }
+    }
+  }
+`;
