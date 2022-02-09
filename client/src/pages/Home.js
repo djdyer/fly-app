@@ -8,11 +8,11 @@ import Auction from "./Auction";
 function Home() {
   return (
     <div>
-      {/* <Auction /> */}
+      <Auction />
       {/* <Signup /> */}
       {/* <Login /> */}
-      <TopResults />
-      <SearchFields />
+      {/* <TopResults /> */}
+      {/* <SearchFields /> */}
       <FlyMap />
     </div>
   );
