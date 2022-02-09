@@ -29,6 +29,10 @@ const resolvers = {
     auctions: async () => {
       return await Auction.find({});
     },
+    auction: async (parent, args) => {
+        return await Auction.findOne({ _id: args._id });
+    },
+
     // checkout: async (parent, args, context) => {
     //   const url = new URL(context.headers.referer).origin;
     //   const order = new Order({ products: args.products });
@@ -73,6 +77,30 @@ const resolvers = {
 
       return { token, user };
     },
+    updateBid: async (parent, args) => {
+        const updatedBidSum =  await Auction.findByIdAndUpdate(
+          { _id: args._id },
+          {  currentBid: args.currentBid },
+          { new: true }
+        );
+      return updatedBidSum;    
+      
+    },
+    saveflight: async (parent, args, context) => {
+      if (context.user) {
+        const updatedUser =  await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { auctions: args._id } },
+          { new: true }
+        );
+  
+      return updatedUser;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+      
+    },
+
     updateUser: async (parent, args, context) => {
       if (context.user) {
         return await User.findByIdAndUpdate(context.user._id, args, { new: true });

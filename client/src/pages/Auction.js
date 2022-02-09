@@ -7,6 +7,10 @@ function Auction() {
   const plane = require("../../src/assets/icons/plane.png");
   const more = require("../../src/assets/icons/more.png");
 
+
+  // scr={`/images/${auction.image}`}       //use this for images. actual images should go into a client/public/images
+                                           // update seeders/auctionsData.js with correct image file name
+
   return (
     <div>
       <div className="auction">
