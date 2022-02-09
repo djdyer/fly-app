@@ -47,15 +47,15 @@ export default function Navigation({ currentPage, handlePageChange }) {
 
       {/* Side Nav (Desktop) */}
       <div id="profileNav" className="navigation slide-left">
-      {Auth.loggedIn() ? (
-                <>
-                <a href="/" onClick={Auth.logout}> Logout</a>
-                </>
-              ) : (
-                <a href="signup" onClick={() => handlePageChange("Signup")}>
-                <img className="icon default" alt="signup" src={user} />
-                <img className="icon hover" alt="signupHover" src={userHover} />
-              </a>              )}
+        {Auth.loggedIn() ? (
+          <>
+            <a href="/" onClick={Auth.logout}> Logout</a>
+          </>
+        ) : (
+          <a href="signup" onClick={() => handlePageChange("Signup")}>
+            <img className="icon default" alt="signup" src={user} />
+            <img className="icon hover" alt="signupHover" src={userHover} />
+          </a>)}
 
         <a
           href="notifications"
@@ -80,55 +80,57 @@ export default function Navigation({ currentPage, handlePageChange }) {
 
       {/* Main Nav */}
       <nav id="navBlock" className="navigation slide-right">
+        <a href="/">
         <img id="logo" alt="fly-logo" src={logo} />
-        <a href="search" onClick={() => handlePageChange("Search")}>
-          <div className="navTab">
-            <img className="icon default" alt="search" src={search} />
-            <img className="icon hover" alt="searchHover" src={searchHover} />
-            <h1>Search</h1>
-          </div>
-        </a>
+      </a>
+      <a href="search" onClick={() => handlePageChange("Search")}>
+        <div className="navTab">
+          <img className="icon default" alt="search" src={search} />
+          <img className="icon hover" alt="searchHover" src={searchHover} />
+          <h1>Search</h1>
+        </div>
+      </a>
 
-        <a href="settings" onClick={() => handlePageChange("Settings")}>
-          <div className="navTab">
-            <img className="icon default" alt="settings" src={settings} />
-            <img
-              className="icon hover"
-              alt="settingsHover"
-              src={settingsHover}
-            />
-            <h1>Settings</h1>
-          </div>
-        </a>
+      <a href="settings" onClick={() => handlePageChange("Settings")}>
+        <div className="navTab">
+          <img className="icon default" alt="settings" src={settings} />
+          <img
+            className="icon hover"
+            alt="settingsHover"
+            src={settingsHover}
+          />
+          <h1>Settings</h1>
+        </div>
+      </a>
 
-        <a href="payment" onClick={() => handlePageChange("Payment")}>
-          <div className="navTab">
-            <img className="icon default" alt="payment" src={payment} />
-            <img className="icon hover" alt="paymentHover" src={paymentHover} />
-            <h1>Payment</h1>
-          </div>
-        </a>
+      <a href="payment" onClick={() => handlePageChange("Payment")}>
+        <div className="navTab">
+          <img className="icon default" alt="payment" src={payment} />
+          <img className="icon hover" alt="paymentHover" src={paymentHover} />
+          <h1>Payment</h1>
+        </div>
+      </a>
 
-        <a href="documents" onClick={() => handlePageChange("Documents")}>
-          <div className="navTab">
-            <img className="icon default" alt="documents" src={documents} />
-            <img
-              className="icon hover"
-              alt="documentsHover"
-              src={documentsHover}
-            />
-            <h1>Documents</h1>
-          </div>
-        </a>
+      <a href="documents" onClick={() => handlePageChange("Documents")}>
+        <div className="navTab">
+          <img className="icon default" alt="documents" src={documents} />
+          <img
+            className="icon hover"
+            alt="documentsHover"
+            src={documentsHover}
+          />
+          <h1>Documents</h1>
+        </div>
+      </a>
 
-        <a href="more" onClick={() => handlePageChange("More")}>
-          <div className="navTab">
-            <img className="icon default" alt="more" src={more} />
-            <img className="icon hover" alt="moreHover" src={moreHover} />
-            <h1>More</h1>
-          </div>
-        </a>
-      </nav>
+      <a href="more" onClick={() => handlePageChange("More")}>
+        <div className="navTab">
+          <img className="icon default" alt="more" src={more} />
+          <img className="icon hover" alt="moreHover" src={moreHover} />
+          <h1>More</h1>
+        </div>
+      </a>
+    </nav>
     </>
   );
 }

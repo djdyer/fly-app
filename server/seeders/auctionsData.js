@@ -7,6 +7,7 @@ module.exports = [
     currentBid: 150.0,
     aircraft: "Gulfstream GIV-SP",
     flightNum: "N624PD",
+    image: 'test.jpg',
     cabinSize: 16,
     operator: "NetJets Inc.",
     termsConfirm: false
@@ -19,6 +20,7 @@ module.exports = [
     currentBid: 250.0,
     aircraft: "Hawker 800XPi",
     flightNum: "L813VZ",
+    image: 'test.jpg',
     cabinSize: 8,
     operator: "Vista Global Holding",
     termsConfirm: false
@@ -31,6 +33,7 @@ module.exports = [
     currentBid: 100.0,
     aircraft: "Bombardier Challenger 605",
     flightNum: "S224ER",
+    image: 'test.jpg',
     cabinSize: 12,
     operator: "Jet Linx",
     termsConfirm: false
@@ -43,6 +46,7 @@ module.exports = [
     currentBid: 500.0,
     aircraft: "Citation Latitude",
     flightNum: "U631BW",
+    image: 'test.jpg',
     cabinSize: 8,
     operator: "Solairus Aviation",
     termsConfirm: false
@@ -55,6 +59,7 @@ module.exports = [
     currentBid: 450.0,
     aircraft: "Hawker 400XP",
     flightNum: "N362EA",
+    image: 'test.jpg',
     cabinSize: 8,
     operator: "Airshare",
     termsConfirm: false
@@ -67,6 +72,7 @@ module.exports = [
     currentBid: 675.0,
     aircraft: "Hawker 900XP",
     flightNum: "V978TQ",
+    image: 'test.jpg',
     cabinSize: 10,
     operator: "Worldwide Jet Charter",
     termsConfirm: false
@@ -79,6 +85,7 @@ module.exports = [
     currentBid: 325.0,
     aircraft: "Embraer Legacy 450",
     flightNum: "Y843AU",
+    image: 'test.jpg',
     cabinSize: 12,
     operator: "Nicholas Air",
     termsConfirm: false
@@ -91,6 +98,7 @@ module.exports = [
     currentBid: 850.0,
     aircraft: "Embraer Legacy 500",
     flightNum: "U557TO",
+    image: 'test.jpg',
     cabinSize: 8,
     operator: "Jet Edge",
     termsConfirm: false
