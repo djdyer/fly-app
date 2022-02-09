@@ -1,25 +1,30 @@
 import React from "react";
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Route, Switch } from 'react-router-dom';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
 import Home from "./pages/Home";
 import Navigation from "./pages/Navigation";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Auction from "./pages/Auction";
+import AuctionDetail from "./pages/AuctionDetail";
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -29,26 +34,22 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 function App() {
   return (
- 
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <Navigation />
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/login'>
-            <Login/>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login">
+            <Login />
           </Route>
-          <Route exact path='/signup'>
-            <Signup/>
+          <Route exact path="/signup">
+            <Signup />
           </Route>
-          <Route exact path='/auction'>
-            <Auction/>
+          <Route exact path="/auctiondetail">
+            <AuctionDetail />
           </Route>
-        
-          {/* <Route exact path="/auction/:id" component={Detail} /> */}
 
           {/* <Route exact path='/search' component={Search} />
           <Route exact path='/settings' component={Settings} />
@@ -63,11 +64,8 @@ function App() {
             }}
           />
         </Switch>
-
       </Router>
-      </ApolloProvider>
-    
-  
+    </ApolloProvider>
   );
 }
 

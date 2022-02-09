@@ -283,6 +283,11 @@ h1:hover {
   margin: auto 15px;
 }
 
+#filterIcon,
+#filterIcon2 {
+  margin: 0 10px 0 0;
+}
+
 #planeImg1,
 #planeImg2,
 #planeImg3,
@@ -310,6 +315,26 @@ h1:hover {
 #auctionBody {
   background: #212121;
   opacity: 70%;
+}
+
+.filterFields {
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#filterContainer {
+  background-color: var(--dark);
+  opacity: 90%;
+  padding: 20px;
+}
+
+#filterOrigin::placeholder,
+#filterDestination::placeholder {
+  color: var(--dark);
 }
 
 h2 {
@@ -370,6 +395,43 @@ h3 {
   margin-bottom: 200px;
 }
 
+.filter {
+  position: absolute;
+  z-index: 3;
+  background-image: none;
+  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
+  border-radius: 10px;
+  width: 40%;
+  margin: 100px auto;
+  right: 0;
+  left: 0;
+}
+
+.filterFields .filterRow input {
+  height: 40px;
+  width: 220px;
+  margin: 5px;
+  color: var(--dark);
+}
+
+.filterBody {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  justify-content: space-between;
+}
+
+.filterRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.filterColumn h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 #countdown {
   background-color: black;
   font-size: 30pt;
@@ -395,11 +457,22 @@ h3 {
   align-items: start;
 }
 
-.auctionBodyColumn {
+.auctionBodyColumn,
+.filterColumn {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   text-align: left;
+}
+
+.filterColumn {
+  margin: 20px;
+  text-align: right;
+}
+
+.filterColumn form select {
+  width: 150px;
+  margin: 4px auto;
 }
 
 #auctionBody h3 {
@@ -472,10 +545,6 @@ textarea {
   justify-content: start;
 }
 
-#addService {
-  margin-left: 8px;
-}
-
 li {
   font-size: 10px;
   margin-top: 8px;
@@ -500,6 +569,14 @@ li {
   height: 17px;
   width: 17px;
   margin: 0 8px 5px 0;
+}
+
+#addService,
+#addPremiumBar,
+#addWiFi {
+  height: 17px;
+  width: 17px;
+  margin: 7px;
 }
 
 .auction ::placeholder {
@@ -576,7 +653,8 @@ h5 {
   }
 
   .topResults,
-  .auctionDetail {
+  .auctionDetail,
+  .filter {
     width: 60%;
   }
 }
@@ -604,7 +682,8 @@ h5 {
   }
 
   .topResults,
-  .auctionDetail {
+  .auctionDetail,
+  .filter {
     width: 85%;
   }
 

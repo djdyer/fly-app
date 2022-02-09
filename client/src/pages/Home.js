@@ -3,12 +3,14 @@ import TopResults from "./TopResults";
 import SearchFields from "./SearchFields";
 import Signup from "./Signup";
 import Login from "./Login";
-import Auction from "./Auction";
+import AuctionDetail from "./AuctionDetail";
+import AllResultsFilter from "./AllResultsFilter";
 
 function Home() {
   return (
     <div>
-      <Auction />
+      <AllResultsFilter />
+      {/* <AuctionDetail /> */}
       {/* <Signup /> */}
       {/* <Login /> */}
       {/* <TopResults /> */}

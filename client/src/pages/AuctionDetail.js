@@ -3,7 +3,7 @@ import AuctionMap from "../components/AuctionMap";
 import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 
-function Auction() {
+function AuctionDetail() {
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
   const plane = require("../../src/assets/icons/plane.png");
@@ -151,4 +151,4 @@ function Auction() {
   );
 }
 
-export default Auction;
+export default AuctionDetail;
