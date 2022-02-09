@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route exact path="/auctiondetail">
+          <Route exact path="/auctiondetail/:id">
             <AuctionDetail />
           </Route>
 

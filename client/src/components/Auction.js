@@ -11,7 +11,7 @@ function Auction({auction}) {
 
   
     return (
-        <a href={`auction/${auction._id}`}>
+        <a href={`auctiondetail/${auction._id}`}>
         <div id="result">
           <div id="header1">
             <div id="trip">
