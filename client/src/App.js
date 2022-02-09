@@ -44,9 +44,9 @@ function App() {
           <Route exact path='/signup'>
             <Signup/>
           </Route>
-          {/* <Route exact path='/auction'>
+          <Route exact path='/auction'>
             <Auction/>
-          </Route> */}
+          </Route>
         
 
           {/* <Route exact path='/search' component={Search} />
