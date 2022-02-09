@@ -25,7 +25,7 @@ db.once('open', async () => {
     lastName: "Dyer",
     email: "davidrossdyer@gmail.com",
     password: "Password2",
-    auctions: [auctionsinsert[0], auctionsinsert[1], auctionsinsert[3], auctionsinsert[4]]
+    auctions: [auctionsinsert[1], auctionsinsert[3]]
   });
 
   await User.create({
@@ -33,7 +33,7 @@ db.once('open', async () => {
     lastName: "Markauskas",
     email: "juliusmarkauskas@gmail.com",
     password: "Password3",
-    auctions: [auctionsinsert[1], auctionsinsert[3], auctionsinsert[4], auctionsinsert[5]]
+    auctions: [auctionsinsert[5]]
   });
 
   await User.create({
@@ -41,7 +41,7 @@ db.once('open', async () => {
     lastName: "Trulock",
     email: "toddtrulock@gmail.com",
     password: "Password4",
-    auctions: [auctionsinsert[0], auctionsinsert[3], auctionsinsert[4], auctionsinsert[6], auctionsinsert[7]]
+    auctions: [auctionsinsert[4], auctionsinsert[7]]
   });
 
   console.log('users seeded');

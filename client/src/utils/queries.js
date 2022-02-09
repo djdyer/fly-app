@@ -8,6 +8,7 @@ query auctions {
     destination
     origin
     flightDate
+    image
     currentBid
     aircraft
     flightNum

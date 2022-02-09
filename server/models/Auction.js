@@ -28,6 +28,10 @@ const auctionInfo = new Schema({
     type: String,
     required: true,
   },
+  image : {
+    type: String,
+    required: true,
+  },
   flightNum: {
     type: String,
     required: true,

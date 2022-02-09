@@ -7,6 +7,7 @@ const typeDefs = gql`
     destination: String!
     origin: String!
     flightDate: String!
+    image: String!
     currentBid: Float!
     aircraft: String!
     flightNum: String!
