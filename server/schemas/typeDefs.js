@@ -2,7 +2,7 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type Auction {
-    _id: ID
+    _id: ID!
     auctionEndDate: String!
     destination: String!
     origin: String!
@@ -38,6 +38,7 @@ const typeDefs = gql`
     users: [User]
     user(_id: ID!): User
     me: User
+    auction(_id: ID!): Auction
     auctions: [Auction]
     checkout(products: [ID]!): Checkout
   }
@@ -46,6 +47,8 @@ const typeDefs = gql`
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    saveflight(auction: ID!): User
+    updateBid(_id: ID!, currentBid: Float!): Auction
   }
 `;
 

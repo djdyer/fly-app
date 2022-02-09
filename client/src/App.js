@@ -48,6 +48,7 @@ function App() {
             <Auction/>
           </Route>
         
+          {/* <Route exact path="/auction/:id" component={Detail} /> */}
 
           {/* <Route exact path='/search' component={Search} />
           <Route exact path='/settings' component={Settings} />
