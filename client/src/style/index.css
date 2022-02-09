@@ -1,3 +1,8 @@
+@font-face{
+font-family: digital;
+src:url(../assets/fonts/digital.ttf)
+}
+
 :root {
   --dark: rgb(14, 25, 47);
   --light: rgb(121, 237, 255);
@@ -77,11 +82,11 @@ body {
 
 #mobileNav {
   position: fixed;
-  width: 88%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 30px;
+  padding: 16px;
   z-index: 4;
   visibility: hidden;
 }
@@ -199,6 +204,11 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.navTab:hover h1{ 
+  color: #e434a9;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
 
 /* Nav links */
@@ -354,6 +364,7 @@ h3 {
   z-index: 3;
   position: fixed;
   padding-top: 25px;
+  overflow-y: auto;
 }
 
 #auctionHeader {
@@ -384,11 +395,15 @@ h3 {
 
 #countdown {
   background-color: black;
-  font-size: 20pt;
+  font-size: 30pt;
   height: 60px;
   color: #e434a9;
   font-weight: 900;
-  padding: 13px 10px 0 10px;
+  padding:  10px;
+  display: flex;
+  justify-content: center;
+  align-items: right;
+  font-family: digital;
 }
 
 #auctionBody {

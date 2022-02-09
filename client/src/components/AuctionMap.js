@@ -33,7 +33,7 @@ export default function AuctionMap() {
     setPosition(newPos);
   }
 
-  //const icon = "../assets/icons/location.png";
+  const icon = require("../assets/icons/location.png");
 
   const airports = [
     {
@@ -43,7 +43,7 @@ export default function AuctionMap() {
   ];
 
   return isLoaded ? (
-    <div className="mapStyle">
+    <div className="auctionMapStyle">
       <GoogleMap
         onLoad={handleLoad}
         center={position}
@@ -56,7 +56,7 @@ export default function AuctionMap() {
         // onUnmount={onUnmount}
       >
         {airports.map((marker) => (
-          <Marker key={marker.lat + marker.lng} position={marker} />
+          <Marker key={marker.lat + marker.lng} position={marker} icon={icon}/>
         ))}
       </GoogleMap>
     </div>

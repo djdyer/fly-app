@@ -46,7 +46,7 @@ export default function FlyMap() {
     setPosition(newPos);
   }
 
-  //const icon = "../assets/icons/location.png";
+  const icon = require("../assets/icons/location.png");
 
   const airports = [
     {
@@ -79,7 +79,7 @@ export default function FlyMap() {
         // onUnmount={onUnmount}
       >
         {airports.map((marker) => (
-          <Marker key={marker.lat + marker.lng} position={marker} />
+          <Marker key={marker.lat + marker.lng} position={marker} icon={icon} />
         ))}
       </GoogleMap>
     </div>
