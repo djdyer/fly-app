@@ -1,6 +1,6 @@
-@font-face{
-font-family: digital;
-src:url(../assets/fonts/digital.ttf)
+@font-face {
+  font-family: digital;
+  src: url(../assets/fonts/digital.ttf);
 }
 
 :root {
@@ -34,7 +34,6 @@ a:hover img.default {
 
 html,
 body {
-  /* background-image: linear-gradient(#0b092f, #0b092f); */
   background-image: linear-gradient(#121212, #121212);
   text-align: center;
   height: 100vh;
@@ -86,7 +85,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 16px;
+  padding: 10px;
   z-index: 4;
   visibility: hidden;
 }
@@ -196,8 +195,12 @@ textarea {
 .enterBid {
   display: flex;
   flex-direction: row;
-  margin: 0 20px 20px 20px;
+  margin: 0 25px 25px 25px;
   align-items: center;
+}
+
+#enterBid {
+  text-align: center;
 }
 
 .navTab {
@@ -206,7 +209,7 @@ textarea {
   align-items: center;
 }
 
-.navTab:hover h1{ 
+.navTab:hover h1 {
   color: #e434a9;
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
@@ -224,20 +227,6 @@ h1:hover {
   color: #e434a9;
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
-
-/* button h1:hover {
-  color: var(--light);
-  text-shadow: none;
-} */
-
-/* #filter {
-  position: absolute;
-  z-index: 2;
-  right: 10;
-  left: 0;
-  margin: 425px auto;
-  width: 50px;
-} */
 
 .topResultsContainer {
   position: absolute;
@@ -261,10 +250,6 @@ h1:hover {
   height: 300px;
   border: 1px solid var(--light);
 }
-
-/* #result:hover {
-  border-color: #b52d87;
-} */
 
 #header1,
 #header2 {
@@ -324,12 +309,8 @@ h1:hover {
 #header2,
 #auctionBody {
   background: #212121;
-  opacity: 50%;
+  opacity: 70%;
 }
-
-/* #auctionBody .auctionBodyColumn h3 {
-  opacity: 100% !important;
-} */
 
 h2 {
   font-family: "Quicksand", sans-serif;
@@ -345,13 +326,8 @@ h3 {
 }
 
 #myPlane {
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0;
 }
-
-/* @font-face {
-  font-family: "Digital";
-  src: local("Digital"), url(fonts/digital.ttf) format("ttf");
-} */
 
 .auction {
   background-image: url("../assets/images/runway.png");
@@ -391,6 +367,7 @@ h3 {
   padding: auto 30px;
   border-radius: 10px;
   box-shadow: 12px 12px 40px #36c3ff, -10px -10px 40px #1ef3fe;
+  margin-bottom: 200px;
 }
 
 #countdown {
@@ -399,10 +376,9 @@ h3 {
   height: 60px;
   color: #e434a9;
   font-weight: 900;
-  padding:  10px;
+  padding: 13px 10px 10px 10px;
   display: flex;
-  justify-content: center;
-  align-items: right;
+  align-items: center;
   font-family: digital;
 }
 
@@ -428,6 +404,11 @@ h3 {
 
 #auctionBody h3 {
   margin-bottom: 10px;
+}
+
+.auctionBodyColumn h3 {
+  color: rgb(240, 240, 240);
+  opacity: 100% !important;
 }
 
 #bidHeader {
@@ -463,6 +444,7 @@ h3 {
   right: 0;
   left: 0;
   border-radius: 5px;
+  padding-right: 10px;
 }
 
 .auction input,
@@ -471,8 +453,53 @@ textarea {
   color: var(--dark);
   font-family: "Quicksand", sans-serif;
   font-size: 12pt;
-  text-align: right;
-  padding-right: 15px;
+  text-align: center;
+}
+
+.termsContainer,
+.leadingBidContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+
+.serviceContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+
+#addService {
+  margin-left: 8px;
+}
+
+li {
+  font-size: 10px;
+  margin-top: 8px;
+}
+
+.leadingBidContainer {
+  font-family: "Quicksand", sans-serif;
+  font-size: 14pt;
+  color: rgb(240, 240, 240);
+}
+
+#leadingBid {
+  background-color: #262626;
+  padding: 8px;
+  margin-left: 8px;
+  width: 113px;
+  align-items: right;
+  text-align: end;
+}
+
+#termsConfirm {
+  height: 17px;
+  width: 17px;
+  margin: 0 8px 5px 0;
 }
 
 .auction ::placeholder {
@@ -490,7 +517,7 @@ h5 {
 
 #watchIcon,
 #watchIcon2 {
-  margin: 5px 10px 5px 20px;
+  margin: 5px 10px 5px 5px;
   width: 50px;
 }
 
@@ -501,13 +528,17 @@ h5 {
   align-items: center;
 }
 
-.register a {
+.register a,
+.termsContainer a,
+.serviceContainer a {
   text-decoration: none;
   color: var(--light);
   margin-left: 3px;
 }
 
-.register a:hover {
+.register a:hover,
+.termsContainer a:hover,
+.serviceContainer a:hover {
   color: #ff4dc4;
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
   font-weight: 900;
@@ -574,7 +605,12 @@ h5 {
 
   .topResults,
   .auctionDetail {
-    width: 80%;
+    width: 85%;
+  }
+
+  #auctionBody {
+    padding-top: 10px;
+    padding-bottom: 5px;
   }
 
   h2 {
@@ -595,10 +631,7 @@ h5 {
   }
 
   #countdown {
-    background-color: black;
-    font-size: 15pt;
-    height: 60px;
-    padding: 17px 7px 0 7px;
+    font-size: 25pt;
   }
 
   #enterBid {
@@ -607,7 +640,31 @@ h5 {
 
   .enterBid {
     flex-direction: column;
-    margin: 0 20px 20px 20px;
     justify-content: left;
+  }
+
+  .leadingBidContainer {
+    font-size: 12pt;
+    margin-bottom: 5px;
+  }
+  #leadingBid {
+    width: 90px;
+  }
+
+  #termsConfirm {
+    height: 13px;
+    width: 13px;
+  }
+
+  .serviceContainer {
+    font-size: 10pt;
+  }
+
+  li {
+    font-size: 6pt;
+  }
+
+  .watchOption {
+    justify-content: center;
   }
 }
