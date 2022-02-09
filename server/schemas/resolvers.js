@@ -22,9 +22,12 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return await User.findOne({ _id: context.user._id });
+        return await User.findOne({ _id: context.user._id }).populate("Auction");
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    auctions: async () => {
+      return await Auction.find({});
     },
     // checkout: async (parent, args, context) => {
     //   const url = new URL(context.headers.referer).origin;

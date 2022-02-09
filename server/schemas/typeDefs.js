@@ -37,6 +37,7 @@ const typeDefs = gql`
     users: [User]
     user(_id: ID!): User
     me: User
+    auctions: [Auction]
     checkout(products: [ID]!): Checkout
   }
 
