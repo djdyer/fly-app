@@ -8,12 +8,12 @@ import AllResultsFilter from "./AllResultsFilter";
 function Home() {
   return (
     <div>
-      <AllResultsFilter />
+      {/* <AllResultsFilter /> */}
       {/* <AuctionDetail /> */}
       {/* <Signup /> */}
       {/* <Login /> */}
-      {/* <TopResults /> */}
-      {/* <SearchFields /> */}
+      <TopResults />
+      <SearchFields />
     </div>
   );
 }
