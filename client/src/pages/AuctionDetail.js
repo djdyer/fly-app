@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }  from "react";
 import AuctionMap from "../components/AuctionMap";
 import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
@@ -11,41 +11,44 @@ function AuctionDetail() {
   const auctionId = pathArray[pathArray.length - 1];
   // console.log(auctionId)
   const { loading, data } = useQuery(QUERY_AUCTION, { variables: { _id: auctionId } });
-  console.log("x", loading)
-  console.log("y", data)
 
   const auctionData = data?.auction || {};
-  console.log(auctionData);
-  const { _id }= auctionData;
-  console.log("ccc",_id);
-  // const [updatedBid, setBid] = useState("");
 
-  // const [updateBid, { error }] = useMutation(UPDATE_BID);
+  const [bid, setBid] = useState("");
+  
+  const [updateBid, { error }] = useMutation(UPDATE_BID);
 
-  // const [saveflight, { error }] = useMutation(SAVE_FLIGHT);
+  const handleInputChange = (e) => {
+    // Getting the value and name of the input which triggered the change
+    const { target } = e;
+    // const inputType = target.name;
+    const inputValue = target.value;
+    setBid(inputValue)
 
-  // const handleUpdateBid = async (flightId) => {
-  //   const bidToUpdate = ""; /////////
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+    console.log(bid)
+  };
 
-  //   if (!token) {
-  //     return false;
-  //   }
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (!(+bid)) {
+      console.log('Not a number');
+      setBid('');
+      return;
+    }
+    try {
+      const response = await updateBid({
+        variables: { currentBid: (+bid), _id: auctionId },
+      });
 
-  //   try {
-  //     const response = await updateBid({
-  //       variables: {...bidToUpdate},
-  //     });
+      if (!response) {
+        throw new Error('something went wrong!');
+      }
+    } catch (err) {
+      console.error(error);
+    }
 
-  //     if (!response) {
-  //       throw new Error('something went wrong!');
-  //     }
-
-  //     setBid(bid);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
+    setBid('');
+  }
 
   return (
     <div>
@@ -148,8 +151,8 @@ function AuctionDetail() {
             <h3>Watch this Auction </h3>
           </div>
           <div className="enterBid">
-            <input id="enterBid" placeholder="enter your bid" />
-            <button className="shadow-pop-br" id="submitBtn">
+            <input id="enterBid" placeholder="enter your bid" value={bid} name="number" onChange={handleInputChange} />
+            <button className="shadow-pop-br" id="submitBtn" type="submit" onClick={handleFormSubmit}>
               <h1>PLACE BID</h1>
             </button>
           </div>
