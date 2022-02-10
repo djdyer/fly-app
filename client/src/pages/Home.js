@@ -1,4 +1,3 @@
-import FlyMap from "../components/FlyMap";
 import TopResults from "./TopResults";
 import SearchFields from "./SearchFields";
 import Signup from "./Signup";
@@ -15,7 +14,6 @@ function Home() {
       {/* <Login /> */}
       {/* <TopResults /> */}
       {/* <SearchFields /> */}
-      <FlyMap />
     </div>
   );
 }

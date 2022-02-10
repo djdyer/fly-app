@@ -2,12 +2,22 @@ import React from "react";
 import AuctionMap from "../components/AuctionMap";
 import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
-
+import { QUERY_AUCTION } from "../utils/queries"
 function AuctionDetail() {
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
   const plane = require("../../src/assets/icons/plane.png");
+  const pathArray = window.location.pathname.split("/");
+  const auctionId = pathArray[pathArray.length - 1];
+  // console.log(auctionId)
+  const { loading, data } = useQuery(QUERY_AUCTION, { variables: { _id: auctionId } });
+  console.log("x", loading)
+  console.log("y", data)
 
+  const auctionData = data?.auction || {};
+  console.log(auctionData);
+  const { _id }= auctionData;
+  console.log("ccc",_id);
   // const [updatedBid, setBid] = useState("");
 
   // const [updateBid, { error }] = useMutation(UPDATE_BID);
@@ -39,6 +49,7 @@ function AuctionDetail() {
 
   return (
     <div>
+
       <div className="auction">
         <div className="auctionDetail">
           <div id="myPlane"></div>
@@ -56,42 +67,39 @@ function AuctionDetail() {
             <div className="auctionBodyColumn">
               <h3>
                 Date:
-                {/* {auction.flightDate} */}
+                {auctionData.flightDate}
               </h3>
               <h3>
                 Time:
-                {/* {auction.flightTime} */}
+                {auctionData.flightTime}
               </h3>
               <h3>
-                Aircraft:
-                {/* {auction.aircraft} */}
+                Aircraft:  
+                {auctionData.aircraft}
               </h3>
               <h3>
-                Flight Num:
-                {/* {auction.flightNum} */}
+                Flight Num:   
+                {auctionData.flightNum}
               </h3>
               <h3>
-                Cabin Size:
-                {/* {auction.cabinSize} */}
+                Cabin Size:  
+                {auctionData.cabinSize}
               </h3>
-              <h3>
-                Operator:
-                {/* {auction.operator} */}
-              </h3>
+              <h3>Operator: {auctionData.operator}</h3>
             </div>
             <div className="auctionBodyColumn">
               <div className="leadingBidContainer">
                 Leading Bid:
                 <div id="leadingBid">
-                  $00.00
-                  {/* {auction.currentBid} */}
+                  $
+                  {auctionData.currentBid}
                 </div>
               </div>
               <div className="termsContainer">
                 <input type="checkbox" id="termsConfirm"></input>
                 <h3>
                   Agree to <a href="/termsandcondtions">Terms+Conditions</a>
-                  {/* {auction.termsConfirm} */}
+                  {auctionData.termsConfirm}
                 </h3>
               </div>
               <div className="serviceContainer">

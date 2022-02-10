@@ -14,6 +14,9 @@ import Navigation from "./pages/Navigation";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AuctionDetail from "./pages/AuctionDetail";
+import AllResultsFilter from "./pages/AllResultsFilter";
+import FlyMap from "./components/FlyMap";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -39,6 +42,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navigation />
+        <FlyMap />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login">
@@ -51,8 +55,10 @@ function App() {
             <AuctionDetail />
           </Route>
 
-          {/* <Route exact path='/search' component={Search} />
-          <Route exact path='/settings' component={Settings} />
+          <Route exact path='/search'>
+          <AllResultsFilter/>
+          </Route>
+          {/* <Route exact path='/settings' component={Settings} />
           <Route exact path='/payment' component={Payment} />
           <Route exact path='/documents' component={Documents} />
           <Route exact path='/more' component={More} />

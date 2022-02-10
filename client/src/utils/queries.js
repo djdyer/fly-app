@@ -40,3 +40,23 @@ query user{
     }
   }
 `;
+
+export const QUERY_AUCTION = gql`
+query auction($_id: ID!) {
+  auction(_id: $_id) {
+    _id
+    auctionEndDate
+    destination
+    origin
+    flightDate
+    image
+    currentBid
+    aircraft
+    flightNum
+    cabinSize
+    operator
+    termsConfirm
+  }
+}
+`;
+
