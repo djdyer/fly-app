@@ -5,7 +5,6 @@ function Auction({auction}) {
     const more = require("../../src/assets/icons/more.png");
     const moreHover = require("../../src/assets/icons/more2.png");
 
-
       // scr={`/images/${auction.image}`}       //use this for images. actual images should go into a client/public/images
                                            // update seeders/auctionsData.js with correct image file name
 
@@ -37,10 +36,13 @@ function Auction({auction}) {
             </div>
           </div>
 
-          <div id="planeImg1">
+          
+          {/* <div id="planeImg1"> */}
+          <div >
+          <img alt="plane" src={`/images/planes/${auction.image}`} />
             <div id="header2">
-              <h3>{auction.flightNum}</h3>
-              <h3>{auction.cabinSize}</h3>
+              <h3>Flight No: {auction.flightNum}</h3>
+              <h3>Cabin Size: {auction.cabinSize}</h3>
               <h3>{new Date(+auction.flightDate).toLocaleDateString()}</h3>
             </div>
           </div>

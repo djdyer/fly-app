@@ -292,7 +292,7 @@ h1:hover {
 #planeImg2,
 #planeImg3,
 #myPlane {
-  background-image: url(../assets/images/plane8.png);
+  /* background-image: url(../assets/images/plane8.png); */
   height: 240px;
   background-size: cover;
   background-repeat: no-repeat;
