@@ -236,10 +236,21 @@ h1:hover {
   left: 0;
 }
 
+#topResultsHeader h2 {
+  text-align: left;
+  margin-top: 550px;
+  margin-bottom: 15px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16pt;
+  color: #e434a9;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+}
+
 .topResults {
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   border-radius: 10px;
-  margin-top: 600px;
   margin-bottom: 100px;
   width: 40%;
   margin-left: auto;
@@ -247,8 +258,14 @@ h1:hover {
 }
 
 #result {
-  height: 300px;
-  border: 1px solid var(--light);
+  height: 270px;
+  border: 2px solid var(--light);
+  display: flex;
+  flex-direction: column;
+}
+
+#result:hover {
+  border: 2px solid #e434a9;
 }
 
 #header1,
@@ -263,6 +280,18 @@ h1:hover {
   background-color: 121212;
   color: rgb(240, 240, 240);
   padding: 20px;
+}
+
+#resultsHeader {
+  height: 60px;
+  background-color: #000000;
+  padding: 20px;
+  margin: 5px -20px 20px -20px;
+}
+
+#result #header2 {
+  position: absolute;
+  margin-top: 60px;
 }
 
 #trip,
@@ -288,22 +317,15 @@ h1:hover {
   margin: 0 10px 0 0;
 }
 
-#planeImg1,
-#planeImg2,
-#planeImg3,
+.plane {
+  width: stretch;
+  height: 208px;
+}
+
 #myPlane {
-  /* background-image: url(../assets/images/plane8.png); */
-  height: 240px;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-#planeImg2 {
-  background-image: url(../assets/images/plane7.png);
-}
-
-#planeImg3 {
-  background-image: url(../assets/images/plane6.png);
+  width: fit-content;
+  height: 200px;
+  border-radius: 10px 10px 0 0;
 }
 
 #header1 {
@@ -348,10 +370,6 @@ h3 {
   font-size: 12pt;
   color: rgb(240, 240, 240);
   opacity: 100%;
-}
-
-#myPlane {
-  border-radius: 10px 10px 0 0;
 }
 
 .auction {
@@ -421,13 +439,20 @@ h3 {
   justify-content: space-between;
 }
 
-.filterRow {
+.filterRow,
+.auctionRow {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.filterColumn h3 {
+.filterRow h2 {
+  font-size: 16pt;
+  color: #ff4dc4;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+}
+
+.filterColumn h5 {
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -454,7 +479,7 @@ h3 {
   background-color: 121212;
   color: rgb(240, 240, 240);
   padding: 20px 20px 10px 20px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .auctionBodyColumn,
@@ -466,22 +491,24 @@ h3 {
 }
 
 .filterColumn {
-  margin: 20px;
+  margin: 10px;
   text-align: right;
 }
 
 .filterColumn form select {
-  width: 150px;
+  width: 100px;
   margin: 4px auto;
 }
 
 #auctionBody h3 {
-  margin-bottom: 10px;
+  margin: 4px 7px 4px 0;
+  color: var(--light);
 }
 
 .auctionBodyColumn h3 {
   color: rgb(240, 240, 240);
   opacity: 100% !important;
+  margin-right: 3px;
 }
 
 #bidHeader {
@@ -534,15 +561,19 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   margin-bottom: 10px;
+}
+
+.leadingBidContainer {
+  justify-content: space-between;
 }
 
 .serviceContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 li {
@@ -550,17 +581,12 @@ li {
   margin-top: 8px;
 }
 
-.leadingBidContainer {
-  font-family: "Quicksand", sans-serif;
-  font-size: 14pt;
-  color: rgb(240, 240, 240);
-}
-
 #leadingBid {
-  background-color: #262626;
+  background-color: #484848;
   padding: 8px;
   margin-left: 8px;
-  width: 113px;
+  margin-bottom: 6px;
+  width: 127px;
   align-items: right;
   text-align: end;
 }
@@ -568,7 +594,7 @@ li {
 #termsConfirm {
   height: 17px;
   width: 17px;
-  margin: 0 8px 5px 0;
+  margin-right: 8px;
 }
 
 #addService,
@@ -577,6 +603,10 @@ li {
   height: 17px;
   width: 17px;
   margin: 7px;
+}
+
+#addServiceLink {
+  margin-left: 7px;
 }
 
 .auction ::placeholder {
@@ -588,7 +618,7 @@ li {
 
 h5 {
   font-family: "Quicksand", sans-serif;
-  font-size: 10pt;
+  font-size: 12pt;
   color: rgb(240, 240, 240);
 }
 
@@ -654,7 +684,8 @@ h5 {
 
   .topResults,
   .auctionDetail,
-  .filter {
+  .filter,
+  #topResultsHeader h2 {
     width: 60%;
   }
 }
@@ -671,6 +702,7 @@ h5 {
     bottom: 0;
     opacity: 100%;
     z-index: 4;
+    padding: 10px 0;
   }
 
   #profileNav {
@@ -683,7 +715,8 @@ h5 {
 
   .topResults,
   .auctionDetail,
-  .filter {
+  .filter,
+  #topResultsHeader h2 {
     width: 85%;
   }
 
@@ -694,10 +727,6 @@ h5 {
 
   h2 {
     font-size: 12pt;
-  }
-
-  h3 {
-    font-size: 10pt;
   }
 
   #moreBtn {
@@ -745,5 +774,83 @@ h5 {
 
   .watchOption {
     justify-content: center;
+  }
+
+  h3,
+  h5 {
+    font-size: 9pt;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  .filterFields {
+    height: 80px;
+    margin-bottom: 10px;
+  }
+
+  .filterFields .filterRow input {
+    height: 40px;
+    width: 140px;
+    font-size: 10pt;
+  }
+
+  #filterAircraft select,
+  #filterOperator select,
+  #filterCabinSize select {
+    font-size: 10pt;
+    width: 80px;
+  }
+
+  #filterOrigin::placeholder,
+  #filterDestination::placeholder {
+    font-size: 12pt;
+  }
+
+  #filterContainer {
+    padding: 0;
+  }
+
+  .filterBody {
+    margin: 5px;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  #addService,
+  #addPremiumBar,
+  #addWiFi {
+    height: 15px;
+    width: 15px;
+    margin: 5px auto;
+  }
+
+  #auctionBody {
+    padding: 10px;
+  }
+
+  .termsContainer {
+    justify-content: start;
+  }
+
+  #result {
+    height: 240px;
+  }
+
+  #resultsHeader {
+    margin: 0;
+  }
+
+  #resultsHeader h2 {
+    padding-top: -15px;
+  }
+
+  #origin,
+  #destination,
+  #searchBtn,
+  #signupBtn,
+  #loginBtn,
+  #submitBtn {
+    padding: 10px;
+    width: 200px;
   }
 }

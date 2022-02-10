@@ -1,8 +1,8 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import AuctionMap from "../components/AuctionMap";
 import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
-import { QUERY_AUCTION } from "../utils/queries"
+import { QUERY_AUCTION } from "../utils/queries";
 function AuctionDetail() {
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
@@ -10,12 +10,14 @@ function AuctionDetail() {
   const pathArray = window.location.pathname.split("/");
   const auctionId = pathArray[pathArray.length - 1];
   // console.log(auctionId)
-  const { loading, data } = useQuery(QUERY_AUCTION, { variables: { _id: auctionId } });
+  const { loading, data } = useQuery(QUERY_AUCTION, {
+    variables: { _id: auctionId },
+  });
 
   const auctionData = data?.auction || {};
 
   const [bid, setBid] = useState("");
-  
+
   const [updateBid, { error }] = useMutation(UPDATE_BID);
 
   const handleInputChange = (e) => {
@@ -23,39 +25,38 @@ function AuctionDetail() {
     const { target } = e;
     // const inputType = target.name;
     const inputValue = target.value;
-    setBid(inputValue)
+    setBid(inputValue);
 
-    console.log(bid)
+    console.log(bid);
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!(+bid)) {
-      console.log('Not a number');
-      setBid('');
+    if (!+bid) {
+      console.log("Not a number");
+      setBid("");
       return;
     }
     try {
       const response = await updateBid({
-        variables: { currentBid: (+bid), _id: auctionId },
+        variables: { currentBid: +bid, _id: auctionId },
       });
 
       if (!response) {
-        throw new Error('something went wrong!');
+        throw new Error("something went wrong!");
       }
     } catch (err) {
       console.error(error);
     }
 
-    setBid('');
-  }
+    setBid("");
+  };
 
   return (
     <div>
-
       <div className="auction">
         <div className="auctionDetail">
-          <div id="myPlane"></div>
+          <div id="myPlane">{auctionData.image}</div>
 
           <div id="auctionHeader">
             <div id="trip">
@@ -68,34 +69,39 @@ function AuctionDetail() {
           <AuctionMap />
           <div id="auctionBody">
             <div className="auctionBodyColumn">
-              <h3>
-                Date:
+              <div className="auctionRow">
+                <h3>Date:</h3>
                 {auctionData.flightDate}
-              </h3>
-              <h3>
-                Time:
+              </div>
+              <div className="auctionRow">
+                <h3>Time:</h3>
                 {auctionData.flightTime}
-              </h3>
-              <h3>
-                Aircraft:  
+              </div>
+              <div className="auctionRow">
+                <h3>Aircraft:</h3>
                 {auctionData.aircraft}
-              </h3>
-              <h3>
-                Flight Num:   
+              </div>
+
+              <div className="auctionRow">
+                <h3>Flight Num:</h3>
                 {auctionData.flightNum}
-              </h3>
-              <h3>
-                Cabin Size:  
+              </div>
+
+              <div className="auctionRow">
+                <h3>Cabin Size:</h3>
                 {auctionData.cabinSize}
-              </h3>
-              <h3>Operator: {auctionData.operator}</h3>
+              </div>
+
+              <div className="auctionRow">
+                <h3>Operator:</h3>
+                {auctionData.operator}
+              </div>
             </div>
             <div className="auctionBodyColumn">
               <div className="leadingBidContainer">
                 Leading Bid:
                 <div id="leadingBid">
-                  $
-                  {auctionData.currentBid}
+                  <h2>${auctionData.currentBid}</h2>
                 </div>
               </div>
               <div className="termsContainer">
@@ -107,7 +113,7 @@ function AuctionDetail() {
               </div>
               <div className="serviceContainer">
                 Service Detail:
-                <a id="addService" href="/servicedetail">
+                <a id="addServiceLink" href="/servicedetail">
                   Read More
                 </a>
               </div>
@@ -151,8 +157,19 @@ function AuctionDetail() {
             <h3>Watch this Auction </h3>
           </div>
           <div className="enterBid">
-            <input id="enterBid" placeholder="enter your bid" value={bid} name="number" onChange={handleInputChange} />
-            <button className="shadow-pop-br" id="submitBtn" type="submit" onClick={handleFormSubmit}>
+            <input
+              id="enterBid"
+              placeholder="enter your bid"
+              value={bid}
+              name="number"
+              onChange={handleInputChange}
+            />
+            <button
+              className="shadow-pop-br"
+              id="submitBtn"
+              type="submit"
+              onClick={handleFormSubmit}
+            >
               <h1>PLACE BID</h1>
             </button>
           </div>

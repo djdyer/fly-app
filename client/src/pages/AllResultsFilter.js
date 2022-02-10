@@ -13,7 +13,7 @@ export default function AllResultsFilter() {
       <div id="filterContainer">
         <div className="filterRow">
           <img id="searchIcon" className="icon" alt="search" src={search} />
-          <h2>Advanced Search </h2>
+          <h2>Search </h2>
         </div>
 
         <div className="filterFields">
@@ -31,9 +31,9 @@ export default function AllResultsFilter() {
         <div className="filterBody">
           <div className="filterRow">
             <div className="filterColumn">
-              <h3>Aircraft:</h3>
-              <h3>Operator:</h3>
-              <h3>Cabin Size:</h3>
+              <h5>Aircraft:</h5>
+              <h5>Operator:</h5>
+              <h5>Cabin Size:</h5>
             </div>
             <div className="filterColumn">
               <form id="filterAircraft">
@@ -79,18 +79,18 @@ export default function AllResultsFilter() {
               </form>
               <form id="filterCabinSize">
                 <select>
-                  <option value="16 or more">20 or more</option>
+                  <option value="16 or more">{`\>`} 20</option>
                   <option value="10-15">11-19</option>
-                  <option value="5-10">10 or less</option>
+                  <option value="5-10">{`\<`} 10 </option>
                 </select>
               </form>
             </div>
           </div>
           <div className="filterRow">
             <div className="filterColumn">
-              <h3>In-Flight Service:</h3>
-              <h3>Premium Bar:</h3>
-              <h3>WiFi:</h3>
+              <h5>In-Flight Service:</h5>
+              <h5>Premium Bar:</h5>
+              <h5>WiFi:</h5>
             </div>
             <div className="filterColumn">
               <input type="checkbox" id="addService"></input>
@@ -100,7 +100,13 @@ export default function AllResultsFilter() {
           </div>
         </div>
 
-        <div id="header1">All Auctions:</div>
+        <button className="shadow-pop-br" id="searchBtn">
+          <h1>SEARCH</h1>
+        </button>
+
+        <div id="resultsHeader">
+          <h2>All Auctions:</h2>
+        </div>
         {data?.auctions.map((auction) => {
           return <Auction key={auction._id} auction={auction} />;
         })}
