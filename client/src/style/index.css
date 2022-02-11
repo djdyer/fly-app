@@ -372,7 +372,8 @@ h3 {
   opacity: 100%;
 }
 
-.auction {
+.auction,
+.profile {
   background-image: url("../assets/images/runway.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -384,6 +385,20 @@ h3 {
   position: fixed;
   padding-top: 25px;
   overflow-y: auto;
+}
+
+.profileBlock {
+  background-color: #0e143e;
+  opacity: 90%;
+  margin: 0 20px 20px 20px;
+  border-radius: 10px;
+  height: 100px;
+  text-align: start;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
 }
 
 #auctionHeader {
@@ -401,7 +416,15 @@ h3 {
   padding: 20px 0 20px 20px;
 }
 
-.auctionDetail {
+.profileBlockHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.auctionDetail,
+.profileDetail {
   display: absolute;
   z-index: 2;
   width: 40%;
@@ -446,10 +469,16 @@ h3 {
   align-items: center;
 }
 
-.filterRow h2 {
+.filterRow h2,
+.profileDetail h2 {
   font-size: 16pt;
   color: #ff4dc4;
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+}
+
+.profileDetail h2 {
+  text-align: left;
+  margin: 25px 0 0 25px;
 }
 
 .filterColumn h5 {
@@ -493,6 +522,16 @@ h3 {
 .filterColumn {
   margin: 10px;
   text-align: right;
+}
+
+.profileColumn {
+  text-align: left;
+  margin: 20px 0 0 40px;
+}
+
+.profileColumn h5 {
+  margin: 3px;
+  color: var(--light);
 }
 
 .filterColumn form select {
@@ -618,7 +657,7 @@ li {
 
 h5 {
   font-family: "Quicksand", sans-serif;
-  font-size: 12pt;
+  font-size: 11pt;
   color: rgb(240, 240, 240);
 }
 
@@ -626,6 +665,27 @@ h5 {
 #watchIcon2 {
   margin: 5px 10px 5px 5px;
   width: 50px;
+}
+
+#userImg {
+  width: 110px;
+  margin: 10px auto 20px auto;
+  opacity: 70%;
+}
+
+.profileBlockHeader img {
+  max-height: 30px;
+  margin: 8px 5px 5px 0;
+  opacity: 70%;
+}
+
+#addUserImg,
+#addUserImg2 {
+  position: absolute;
+  margin: 40px auto;
+  left: 0;
+  right: 0;
+  z-index: 4;
 }
 
 .watchOption {
@@ -684,6 +744,7 @@ h5 {
 
   .topResults,
   .auctionDetail,
+  .profileDetail,
   .filter,
   #topResultsHeader h2 {
     width: 60%;
@@ -702,7 +763,7 @@ h5 {
     bottom: 0;
     opacity: 100%;
     z-index: 4;
-    padding: 10px 0;
+    padding: 10px 20px 10px 0px;
   }
 
   #profileNav {
@@ -715,6 +776,7 @@ h5 {
 
   .topResults,
   .auctionDetail,
+  .profileDetail,
   .filter,
   #topResultsHeader h2 {
     width: 85%;
@@ -852,5 +914,14 @@ h5 {
   #submitBtn {
     padding: 10px;
     width: 200px;
+  }
+
+  #header1,
+  #header2 {
+    height: 50px;
+  }
+
+  #result #header2 {
+    margin-top: 50px;
   }
 }
