@@ -19,6 +19,8 @@ export default function Navigation({ currentPage, handlePageChange }) {
   const documentsHover = require("../../src/assets/icons/documents2.png");
   const more = require("../../src/assets/icons/plus.png");
   const moreHover = require("../../src/assets/icons/plus2.png");
+  const logout = require("../../src/assets/icons/logout2.png");
+  const logoutHover = require("../../src/assets/icons/logout.png");
 
   return (
     <>
@@ -51,7 +53,8 @@ export default function Navigation({ currentPage, handlePageChange }) {
           <>
             <a href="/" onClick={Auth.logout}>
               {" "}
-              Logout
+              <img className="icon default" alt="logout" src={logout} />
+              <img className="icon hover" alt="logoutHover" src={logoutHover} />
             </a>
           </>
         ) : (
@@ -76,10 +79,6 @@ export default function Navigation({ currentPage, handlePageChange }) {
             src={notificationsHover}
           />
         </a>
-        {/* <a href="filter" onClick={() => handlePageChange("Filter")}>
-          <img className="icon default" alt="filter" src={filter} />
-          <img className="icon hover" alt="filterHover" src={filterHover} />
-        </a> */}
       </div>
 
       {/* Main Nav */}
