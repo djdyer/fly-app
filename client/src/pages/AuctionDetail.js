@@ -18,7 +18,6 @@ function AuctionDetail() {
   const { loading, data } = useQuery(QUERY_AUCTION, {
     variables: { _id: auctionId },
   });
-
   const auctionData = data?.auction || {};
 
   const [bid, setBid] = useState("");
@@ -62,8 +61,9 @@ function AuctionDetail() {
     setBid("");
   };
 
-  return (
+  return ( 
     <div>
+      {loading ? ( <p>Loading .....</p> ) : (
       <div className="auction">
         <div className="auctionDetail">
           <div id="myPlane"> 
@@ -201,14 +201,15 @@ function AuctionDetail() {
               >
                 <h1>LOGIN TO BID</h1>
               </a>
+              {error ? <div>
+                <p className="error-text" style={{ color: "red" }}>BID ERROR</p>
+              </div> : null
+              }
             </div>
           )}
         </div>
       </div>
-          {error ? <div>
-            <p className="error-text" style={{ color: "red" }}>BID ERROR</p>
-          </div> : null
-          }
+      )}
     </div>
   );
 }
