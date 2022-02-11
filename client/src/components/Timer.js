@@ -15,6 +15,7 @@ const Timer = (props) => {
     const initialHour = Math.floor((diff(a, b) - initialDays * 60 * 60 * 24) / 60 / 60);
     const initialMinute = Math.floor(((diff(a, b) - initialDays * 60 * 60 * 24) - initialHour * 60 * 60) / 60);;
     const initialSeconds = Math.floor(((diff(a, b) - initialDays * 60 * 60 * 24) - initialHour * 60 * 60) - initialMinute * 60)
+    console.log(initialDays, initialHour, initialMinute, initialSeconds)
 
     const [days, setDays] = useState( initialDays);
     const [hours, setHours] = useState(initialHour);
@@ -54,7 +55,7 @@ const Timer = (props) => {
         <div>
             {hours === 0 && minutes === 0 && seconds === 0
                 ? null
-                : <h1> {days} Days and {hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
+                : <h1> {days === 0 ? `` : days < 2 ? `${days} Day and` : `${days} Days and`} {hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h1>
             }
         </div>
     )
