@@ -65,13 +65,19 @@ function AuctionDetail() {
     <div>
       <div className="auction">
         <div className="auctionDetail">
-          <div id="myPlane">{auctionData.image}</div>
+          <div id="myPlane"> 
+          <img
+            alt="plane"
+            className="plane"
+            src={`/images/planes/${auctionData.image}`}
+          />
+          </div>
 
           <div id="auctionHeader">
             <div id="trip">
-              <h2>Origin</h2>
+              <h2>{auctionData.origin}</h2>
               <img className="planeIcon" alt="plane icon" src={plane} />
-              <h2>Destination</h2>
+              <h2>{auctionData.destination}</h2>
             </div>
             <div id="countdown">00:00:00:00</div>
           </div>
@@ -84,7 +90,7 @@ function AuctionDetail() {
               </div>
               <div className="auctionRow">
                 <h3>Time:</h3>
-                {auctionData.flightTime}
+                {(new Date(+auctionData.flightDate).toLocaleTimeString())}
               </div>
               <div className="auctionRow">
                 <h3>Aircraft:</h3>
@@ -192,16 +198,16 @@ function AuctionDetail() {
                 type="submit"
                 href="/login"
               >
-                <h1>Login To Bid</h1>
+                <h1>LOGIN TO BID</h1>
               </a>
             </div>
           )}
+        </div>
+      </div>
           {error ? <div>
             <p className="error-text" style={{ color: "red" }}>BID ERROR</p>
           </div> : null
           }
-        </div>
-      </div>
     </div>
   );
 }

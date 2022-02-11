@@ -12,8 +12,8 @@ function Home() {
       {/* <AuctionDetail /> */}
       {/* <Signup /> */}
       {/* <Login /> */}
-      <TopResults />
       <SearchFields />
+      <TopResults />
     </div>
   );
 }
