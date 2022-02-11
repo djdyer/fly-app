@@ -5,6 +5,7 @@ import Auth from '../utils/auth';
 import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 import { QUERY_AUCTION } from "../utils/queries";
+import Timer from "../components/Timer";
 
 
 function AuctionDetail() {
@@ -79,14 +80,14 @@ function AuctionDetail() {
               <img className="planeIcon" alt="plane icon" src={plane} />
               <h2>{auctionData.destination}</h2>
             </div>
-            <div id="countdown">00:00:00:00</div>
+            <div id="countdown">00:00:00:00<Timer flightDate={+auctionData.flightDate} /></div>
           </div>
           <AuctionMap />
           <div id="auctionBody">
             <div className="auctionBodyColumn">
               <div className="auctionRow">
                 <h3>Date:</h3>
-                {auctionData.flightDate}
+                {(new Date(+auctionData.flightDate).toLocaleDateString())}
               </div>
               <div className="auctionRow">
                 <h3>Time:</h3>
