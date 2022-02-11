@@ -233,12 +233,13 @@ h1:hover {
   z-index: 2;
   width: 100%;
   right: 0;
-  left: 0;
+  left: 0;  
+  margin-top: 550px;
+
 }
 
 #topResultsHeader h2 {
   text-align: left;
-  margin-top: 550px;
   margin-bottom: 15px;
   width: 40%;
   margin-left: auto;
@@ -292,6 +293,7 @@ h1:hover {
 #result #header2 {
   position: absolute;
   margin-top: 60px;
+  width:calc(40% - 4px);
 }
 
 #trip,
@@ -319,13 +321,14 @@ h1:hover {
 
 .plane {
   width: stretch;
-  height: 208px;
+  height: 206px;
+  object-fit: cover;
+  object-position: center;
 }
 
-#myPlane {
-  width: fit-content;
-  height: 200px;
+#myPlane .plane {
   border-radius: 10px 10px 0 0;
+  margin-bottom: -4px;
 }
 
 #header1 {
@@ -746,8 +749,13 @@ h5 {
   .auctionDetail,
   .profileDetail,
   .filter,
-  #topResultsHeader h2 {
+  #topResultsHeader h2{
     width: 60%;
+
+  }
+
+  #result #header2 {
+    width:calc(60% - 4px);
   }
 }
 
@@ -781,6 +789,13 @@ h5 {
   #topResultsHeader h2 {
     width: 85%;
   }
+  #result #header2 {
+    width:calc(85% - 4px);
+  }
+#myPlane .plane {
+ height: 180px;
+
+}
 
   #auctionBody {
     padding-top: 10px;
@@ -849,6 +864,10 @@ h5 {
     height: 80px;
     margin-bottom: 10px;
   }
+
+  #myPlane .plane {
+    height: 160px;
+   }
 
   .filterFields .filterRow input {
     height: 40px;
@@ -921,7 +940,5 @@ h5 {
     height: 50px;
   }
 
-  #result #header2 {
-    margin-top: 50px;
-  }
+
 }
