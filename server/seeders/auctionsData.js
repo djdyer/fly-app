@@ -1,9 +1,9 @@
 module.exports = [
   {
-    auctionEndDate: new Date(+new Date() + 7 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 7 * 60 * 1000),
     origin: "ATL",
     destination: "VNY",
-    flightDate: new Date(+new Date() + 9 * 24 * 60 * 60 * 1000),
+    flightDate: new Date(+new Date() + 1 * 24 * 60 * 60 * 1000),
     currentBid: 150.0,
     aircraft: "Gulfstream GIV-SP",
     flightNum: "N624PD",
