@@ -40,15 +40,15 @@ function Login() {
         {/* {" "} */}
         Sign-up instead, click <a href="/signup">here</a>
       </h5>
+      <button type="submit" className="shadow-pop-br" id="loginBtn">
+        <h1>LOG-IN</h1>
+      </button>
+    </form>
       {
         error ? <div>
           <p className="error-text" style={{color: "red"}}>The provided credentials are incorrect</p>
         </div> : null
       }
-      <button type="submit" className="shadow-pop-br" id="loginBtn">
-        <h1>LOG-IN</h1>
-      </button>
-    </form>
       </div>
   );
 }

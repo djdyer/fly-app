@@ -51,12 +51,11 @@ function App() {
           <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route exact path="/auctiondetail/:id">
-            <AuctionDetail />
-          </Route>
-
           <Route exact path='/search'>
           <AllResultsFilter/>
+          </Route>
+          <Route exact path="/auctiondetail/:id">
+            <AuctionDetail />
           </Route>
           {/* <Route exact path='/settings' component={Settings} />
           <Route exact path='/payment' component={Payment} />
