@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import AuctionMap from "../components/AuctionMap";
+import Auth from '../utils/auth';
+
 import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 import { QUERY_AUCTION } from "../utils/queries";
+
+
 function AuctionDetail() {
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
@@ -32,12 +36,17 @@ function AuctionDetail() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    try {
     if (!+bid) {
       console.log("Not a number");
       setBid("");
       return;
     }
-    try {
+    if ((+bid) <= auctionData.currentBid) {
+      console.log("You cant bid lower");
+      return;
+
+    }
       const response = await updateBid({
         variables: { currentBid: +bid, _id: auctionId },
       });
@@ -46,7 +55,7 @@ function AuctionDetail() {
         throw new Error("something went wrong!");
       }
     } catch (err) {
-      console.error(error);
+      console.error(err);
     }
 
     setBid("");
@@ -156,23 +165,41 @@ function AuctionDetail() {
             </a>
             <h3>Watch this Auction </h3>
           </div>
-          <div className="enterBid">
-            <input
-              id="enterBid"
-              placeholder="enter your bid"
-              value={bid}
-              name="number"
-              onChange={handleInputChange}
-            />
-            <button
-              className="shadow-pop-br"
-              id="submitBtn"
-              type="submit"
-              onClick={handleFormSubmit}
-            >
-              <h1>PLACE BID</h1>
-            </button>
-          </div>
+          {Auth.loggedIn() ? (
+
+            <div className="enterBid">
+              <input
+                id="enterBid"
+                placeholder="enter your bid"
+                value={bid}
+                name="number"
+                onChange={handleInputChange}
+              />
+              <button
+                className="shadow-pop-br"
+                id="submitBtn"
+                type="submit"
+                onClick={handleFormSubmit}
+              >
+                <h1>PLACE BID</h1>
+              </button>
+            </div>
+          ) : (
+            <div className="enterBid">
+              <a
+                className="shadow-pop-br"
+                id="submitBtn"
+                type="submit"
+                href="/login"
+              >
+                <h1>Login To Bid</h1>
+              </a>
+            </div>
+          )}
+          {error ? <div>
+            <p className="error-text" style={{ color: "red" }}>BID ERROR</p>
+          </div> : null
+          }
         </div>
       </div>
     </div>

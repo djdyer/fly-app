@@ -42,7 +42,7 @@ function Login() {
       </h5>
       {
         error ? <div>
-          <p className="error-text" >The provided credentials are incorrect</p>
+          <p className="error-text" style={{color: "red"}}>The provided credentials are incorrect</p>
         </div> : null
       }
       <button type="submit" className="shadow-pop-br" id="loginBtn">
