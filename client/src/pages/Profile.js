@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Auth from "../utils/auth";
-// import { useQuery, useMutation } from "@apollo/client";
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_ME } from '../utils/queries';
 // import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 // import { QUERY_AUCTION } from "../utils/queries";
 
@@ -15,14 +16,23 @@ function Profile() {
   const plus = require("../../src/assets/icons/plus2.png");
   const plusHover = require("../../src/assets/icons/plus.png");
 
-  return (
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || {};
+
+  console.log(userData)
+  console.log(userData.auctions)
+
+
+  return (<>
+    {loading ? (<p>Loading....</p> ) : 
+    (
     <div className="auction">
       <div className="profileDetail">
         <h2>Profile</h2>
         <header>
           <div className="profileColumn">
-            <h5>Name:</h5>
-            <h5>Email:</h5>
+            <h5>Name: {userData.firstName}</h5>
+            <h5>Email: {userData.email}</h5>
             <h5>Home City:</h5>
             <a href="/signup">
               <h5>Update Password</h5>
@@ -54,6 +64,9 @@ function Profile() {
             <div className="profileBlockHeader">
               <img alt="notificationslist" src={notificationsList} />
               <h3>Open Bids</h3>
+              {userData.auctions.map((auction) => {
+          return <a href={`auctiondetail/${auction._id}`} key={auction._id}>  From: {auction.origin} To: {auction.destination} </a>;
+        })}
             </div>
           </div>
 
@@ -87,6 +100,8 @@ function Profile() {
         </div>
       </div>
     </div>
+    )}
+    </>
   );
 }
 
