@@ -755,7 +755,7 @@ h5 {
   }
 
   #result #header2 {
-    width:calc(60% - 4px);
+    width: calc(60% - 4px);
   }
 }
 
@@ -789,7 +789,9 @@ h5 {
   #topResultsHeader h2 {
     width: 85%;
   }
+
   #result #header2 {
+    margin-top:50px ;
     width:calc(85% - 4px);
   }
 #myPlane .plane {

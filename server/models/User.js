@@ -25,6 +25,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  homeCity: {
+    type: String,
+    trim: true
+  },
   auctions: [Auction.schema]
 });
 
