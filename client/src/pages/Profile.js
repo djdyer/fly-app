@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Auth from "../utils/auth";
-import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
+import { useQuery, useMutation } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
 // import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 // import { QUERY_AUCTION } from "../utils/queries";
 
@@ -19,88 +19,105 @@ function Profile() {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
 
-  console.log(userData)
-  console.log(userData.auctions)
+  console.log(userData);
+  console.log(userData.auctions);
 
+  return (
+    <>
+      {loading ? (
+        <p>Loading....</p>
+      ) : (
+        <div className="auction">
+          <div className="profileDetail">
+            <h2>Profile</h2>
+            <header>
+              <div className="profileColumn">
+                <h5>Name: </h5>
+                <h5>Email: </h5>
+                <h5>Home City:</h5>
+                <div id="profileLinks">
+                  <a href="/editprofile">
+                    <h6>Edit Profile</h6>
+                  </a>
+                  <a href="/signup">
+                    <h6>Update Password</h6>
+                  </a>
+                  <a href="/signup">
+                    <h6>Logout</h6>
+                  </a>
+                </div>
+              </div>
+              <div className="profileColumn">
+                <h3>{userData.firstName}</h3>
+                <h3>{userData.email}</h3>
+                <h3>{userData.homeCity}</h3>
+              </div>
+              <div>
+                <img
+                  id="addUserImg"
+                  className="icon default"
+                  alt="plus"
+                  src={plus}
+                />
+                <img
+                  id="addUserImg2"
+                  className="icon hover"
+                  alt="plus hover"
+                  src={plusHover}
+                />
+                <img id="userImg" alt="userImg" src={userImg} />
+              </div>
+            </header>
+            <div>
+              <div className="profileBlock">
+                <div className="profileBlockHeader">
+                  <img alt="notificationslist" src={notificationsList} />
+                  <h3>Open Bids</h3>
+                  {userData.auctions.map((auction) => {
+                    return (
+                      <a
+                        href={`auctiondetail/${auction._id}`}
+                        key={auction._id}
+                      >
+                        {" "}
+                        From: {auction.origin} To: {auction.destination}{" "}
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
 
-  return (<>
-    {loading ? (<p>Loading....</p> ) : 
-    (
-    <div className="auction">
-      <div className="profileDetail">
-        <h2>Profile</h2>
-        <header>
-          <div className="profileColumn">
-            <h5>Name: {userData.firstName}</h5>
-            <h5>Email: {userData.email}</h5>
-            <h5>Home City: {userData.homeCity}</h5>
-            <a href="/signup">
-              <h5>Update Password</h5>
-            </a>
-          </div>
-          <div className="profileColumn">
-            <h5>username</h5>
-            <h5>email</h5>
-            <h5>Atlanta</h5>
-          </div>
-          <div>
-            <img
-              id="addUserImg"
-              className="icon default"
-              alt="plus"
-              src={plus}
-            />
-            <img
-              id="addUserImg2"
-              className="icon hover"
-              alt="plus hover"
-              src={plusHover}
-            />
-            <img id="userImg" alt="userImg" src={userImg} />
-          </div>
-        </header>
-        <div>
-          <div className="profileBlock">
-            <div className="profileBlockHeader">
-              <img alt="notificationslist" src={notificationsList} />
-              <h3>Open Bids</h3>
-              {userData.auctions.map((auction) => {
-          return <a href={`auctiondetail/${auction._id}`} key={auction._id}>  From: {auction.origin} To: {auction.destination} </a>;
-        })}
-            </div>
-          </div>
+              <div className="profileBlock">
+                <div className="profileBlockHeader">
+                  <img alt="watchlist" src={watchList} />
+                  <h3>Watchlist</h3>
+                </div>
+              </div>
 
-          <div className="profileBlock">
-            <div className="profileBlockHeader">
-              <img alt="watchlist" src={watchList} />
-              <h3>Watchlist</h3>
-            </div>
-          </div>
+              <div className="profileBlock">
+                <div className="profileBlockHeader">
+                  <img alt="settingsPreference" src={settingsList} />
+                  <h3>Settings</h3>
+                </div>
+              </div>
 
-          <div className="profileBlock">
-            <div className="profileBlockHeader">
-              <img alt="settingsPreference" src={settingsList} />
-              <h3>Settings</h3>
-            </div>
-          </div>
+              <div className="profileBlock">
+                <div className="profileBlockHeader">
+                  <img alt="paymentlist" src={paymentsList} />
+                  <h3>Payment</h3>
+                </div>
+              </div>
 
-          <div className="profileBlock">
-            <div className="profileBlockHeader">
-              <img alt="paymentlist" src={paymentsList} />
-              <h3>Payment</h3>
-            </div>
-          </div>
-
-          <div className="profileBlock">
-            <div className="profileBlockHeader">
-              <img alt="documents" src={documentsList} />
-              <h3>Documents</h3>
+              <div className="profileBlock">
+                <div className="profileBlockHeader">
+                  <img alt="documents" src={documentsList} />
+                  <h3>Documents</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    )}
+      )}
     </>
   );
 }
