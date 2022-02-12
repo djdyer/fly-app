@@ -9,6 +9,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+import Auth from './utils/auth';
 import Home from "./pages/Home";
 import Navigation from "./pages/Navigation";
 import Login from "./pages/Login";
@@ -16,7 +17,7 @@ import Signup from "./pages/Signup";
 import AuctionDetail from "./pages/AuctionDetail";
 import AllResultsFilter from "./pages/AllResultsFilter";
 import FlyMap from "./components/FlyMap";
-
+import Profile from "./pages/Profile";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -44,7 +45,11 @@ function App() {
         <Navigation />
         <FlyMap />
         <Switch>
-          <Route exact path="/" component={Home} />
+          {Auth.loggedIn() ? (
+            <Route exact path="/">
+              <Profile />
+            </Route>) : (
+            <Route exact path="/" component={Home} />)}
           <Route exact path="/login">
             <Login />
           </Route>
@@ -52,7 +57,7 @@ function App() {
             <Signup />
           </Route>
           <Route exact path='/search'>
-          <AllResultsFilter/>
+            <AllResultsFilter />
           </Route>
           <Route exact path="/auctiondetail/:id">
             <AuctionDetail />

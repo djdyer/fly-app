@@ -9,13 +9,13 @@ import Profile from "./Profile";
 function Home() {
   return (
     <div>
-      <Profile />
+      {/* <Profile /> */}
       {/* <AllResultsFilter /> */}
       {/* <AuctionDetail /> */}
       {/* <Signup /> */}
       {/* <Login /> */}
-      {/* <SearchFields />
-      <TopResults /> */}
+      {/* <SearchFields /> */}
+      <TopResults />
     </div>
   );
 }

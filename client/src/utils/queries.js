@@ -39,17 +39,17 @@ query user{
       email
       auctions {
         _id
-      auctionEndDate
-      destination
-      origin
-      flightDate
-      image
-      currentBid
-      aircraft
-      flightNum
-      cabinSize
-      operator
-      termsConfirm
+        auctionEndDate
+        destination
+        origin
+        flightDate
+        image
+        currentBid
+        aircraft
+        flightNum
+        cabinSize
+        operator
+        termsConfirm
       }
     }
   }
