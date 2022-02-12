@@ -4,20 +4,27 @@ import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
 
 function TopResults() {
-  const { data } = useQuery(QUERY_AUCTIONS);
+  const { loading, data } = useQuery(QUERY_AUCTIONS);
 
-  return (
-    <div className="topResultsContainer">
-      <div id="topResultsHeader">
-        <h2>TOP RESULTS:</h2>
+  const oneDay = 24*60*60*1000;
+if (loading) {
+  return <p>Loading ....</p>
+} else {
+  console.log(data.auctions)
+  return (<>
+      <div className="topResultsContainer">
+        <div id="topResultsHeader">
+          <h2>LEAVING SOON:</h2>
+        </div>
+        <div className="topResults">
+          {data.auctions.map((auction) => {
+            if (auction.auctionEndDate > (new Date()) && auction.auctionEndDate < (+new Date() + oneDay)){
+            return <Auction key={auction._id} auction={auction} />;
+            } 
+          })}
+        </div>
       </div>
-      <div className="topResults">
-        {data?.auctions.map((auction) => {
-          return <Auction key={auction._id} auction={auction} />;
-        })}
-      </div>
-    </div>
-  );
+  </>);
 }
-
+}
 export default TopResults;
