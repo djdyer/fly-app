@@ -76,3 +76,10 @@ query auction($_id: ID!) {
 }
 `;
 
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($flight: ID!) {
+    checkout(flight: $flight) {
+      session
+    }
+  }
+`;
