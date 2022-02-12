@@ -73,6 +73,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  margin-right: -20px;
 }
 
 #profileNav .icon {
@@ -92,6 +93,7 @@ body {
 
 #navBlock {
   padding: 10px 20px;
+  margin-left: -25px;
 }
 
 #searchFields {
@@ -233,15 +235,14 @@ h1:hover {
   z-index: 2;
   width: 100%;
   right: 0;
-  left: 0;  
+  left: 0;
   margin-top: 550px;
-
 }
 
 #topResultsHeader h2 {
   text-align: left;
   margin-bottom: 15px;
-  width: 40%;
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
   font-size: 16pt;
@@ -253,7 +254,7 @@ h1:hover {
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   border-radius: 10px;
   margin-bottom: 100px;
-  width: 40%;
+  width: 45%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -293,7 +294,7 @@ h1:hover {
 #result #header2 {
   position: absolute;
   margin-top: 60px;
-  width:calc(40% - 4px);
+  width: calc(45% - 4px);
 }
 
 #trip,
@@ -393,7 +394,7 @@ h3 {
 .profileBlock {
   background-color: #0e143e;
   opacity: 90%;
-  margin: 0 20px 20px 20px;
+  margin: 20px;
   border-radius: 10px;
   height: 100px;
   text-align: start;
@@ -402,6 +403,7 @@ h3 {
 header {
   display: flex;
   flex-direction: row;
+  margin-left: 20px;
 }
 
 #auctionHeader {
@@ -430,7 +432,7 @@ header {
 .profileDetail {
   display: absolute;
   z-index: 2;
-  width: 40%;
+  width: 45%;
   background-color: #262626, transparency 50%;
   margin: 80px auto;
   padding: auto 30px;
@@ -445,7 +447,7 @@ header {
   background-image: none;
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   border-radius: 10px;
-  width: 40%;
+  width: 45%;
   margin: 100px auto;
   right: 0;
   left: 0;
@@ -470,6 +472,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-size: 12pt;
 }
 
 .filterRow h2,
@@ -510,7 +513,7 @@ header {
   align-items: left;
   background-color: 121212;
   color: rgb(240, 240, 240);
-  padding: 20px 20px 10px 20px;
+  padding: 20px;
   align-items: flex-start;
 }
 
@@ -529,12 +532,17 @@ header {
 
 .profileColumn {
   text-align: left;
-  margin: 20px 0 0 40px;
+  margin: 20px 0 0 3px;
+}
+
+#profileLinks {
+  margin: 10px 10px 0 3px;
 }
 
 .profileColumn h5 {
   margin: 3px;
-  color: var(--light);
+  color: #909090;
+  opacity: 70%;
 }
 
 .filterColumn form select {
@@ -664,6 +672,13 @@ h5 {
   color: rgb(240, 240, 240);
 }
 
+h6 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 8pt;
+  color: var(--light);
+  padding: 2px;
+}
+
 #watchIcon,
 #watchIcon2 {
   margin: 5px 10px 5px 5px;
@@ -672,8 +687,9 @@ h5 {
 
 #userImg {
   width: 110px;
-  margin: 10px auto 20px auto;
+  /* margin: 10px auto 20px auto; */
   opacity: 70%;
+  margin-left: 120px;
 }
 
 .profileBlockHeader img {
@@ -685,9 +701,8 @@ h5 {
 #addUserImg,
 #addUserImg2 {
   position: absolute;
-  margin: 40px auto;
-  left: 0;
-  right: 0;
+  margin-left: 160px;
+  margin-top: 27px;
   z-index: 4;
 }
 
@@ -708,7 +723,8 @@ h5 {
 
 .register a:hover,
 .termsContainer a:hover,
-.serviceContainer a:hover {
+.serviceContainer a:hover,
+h6:hover {
   color: #ff4dc4;
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
   font-weight: 900;
@@ -741,17 +757,12 @@ h5 {
     width: 250px;
   }
 
-  .navigation {
-    margin: 60px auto;
-  }
-
   .topResults,
   .auctionDetail,
   .profileDetail,
   .filter,
-  #topResultsHeader h2{
+  #topResultsHeader h2 {
     width: 60%;
-
   }
 
   #result #header2 {
@@ -771,7 +782,11 @@ h5 {
     bottom: 0;
     opacity: 100%;
     z-index: 4;
-    padding: 10px 20px 10px 0px;
+    /* padding: 10px 20px 10px 0px; */
+  }
+
+  .auctionRow {
+    font-size: 10pt;
   }
 
   #profileNav {
@@ -791,13 +806,13 @@ h5 {
   }
 
   #result #header2 {
-    margin-top:50px ;
-    width:calc(85% - 4px);
+    margin-top: 60px;
+    width: calc(85% - 4px);
   }
-#myPlane .plane {
- height: 180px;
 
-}
+  #myPlane .plane {
+    height: 180px;
+  }
 
   #auctionBody {
     padding-top: 10px;
@@ -869,7 +884,7 @@ h5 {
 
   #myPlane .plane {
     height: 160px;
-   }
+  }
 
   .filterFields .filterRow input {
     height: 40px;
@@ -927,7 +942,7 @@ h5 {
     padding-top: -15px;
   }
 
-  #origin,
+  /* #origin,
   #destination,
   #searchBtn,
   #signupBtn,
@@ -935,12 +950,18 @@ h5 {
   #submitBtn {
     padding: 10px;
     width: 200px;
-  }
+  } */
 
   #header1,
   #header2 {
     height: 50px;
   }
 
+  #result #header2 {
+    margin-top: 50px;
+  }
 
+  .auctionRow {
+    font-size: 9pt;
+  }
 }
