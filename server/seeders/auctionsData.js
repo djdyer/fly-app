@@ -13,7 +13,7 @@ module.exports = [
     termsConfirm: false,
   },
   {
-    auctionEndDate: new Date(+new Date() + 8 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() +  2 * 24 * 60 * 60 * 1000),
     origin: "LZU",
     destination: "BNA",
     flightDate: new Date(+new Date() + 10 * 24 * 60 * 60 * 1000),
@@ -26,7 +26,7 @@ module.exports = [
     termsConfirm: false,
   },
   {
-    auctionEndDate: new Date(+new Date() + 9 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() +  24 * 60 * 60 * 1000),
     origin: "FFC",
     destination: "IAD",
     flightDate: new Date(+new Date() + 11 * 24 * 60 * 60 * 1000),
@@ -52,7 +52,7 @@ module.exports = [
     termsConfirm: false,
   },
   {
-    auctionEndDate: new Date(+new Date() + 11 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 22 * 60 * 60 * 1000),
     origin: "CNI",
     destination: "IAD",
     flightDate: new Date(+new Date() + 15 * 24 * 60 * 60 * 1000),
@@ -78,7 +78,7 @@ module.exports = [
     termsConfirm: false,
   },
   {
-    auctionEndDate: new Date(+new Date() + 13 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 15 * 60 * 60 * 1000),
     origin: "TOC",
     destination: "BOS",
     flightDate: new Date(+new Date() + 20 * 24 * 60 * 60 * 1000),
