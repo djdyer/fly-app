@@ -46,7 +46,7 @@ function Signup(props) {
             {/* {" "} */}
             Login instead, click <a href="/login">here</a>
           </h5>
-          <button className="shadow-pop-br" id="signupBtn">
+          <button className="shadow-pop-br" id="signupBtn" type="submit">
             <h1>CREATE ACCOUNT</h1>
           </button>
       </form>

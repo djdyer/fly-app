@@ -57,7 +57,7 @@ const Timer = (props) => {
         <div>
             {hours === 0 && minutes === 0 && seconds === 0 && days < 0
                 ? null
-                : <div> {days === 0 ? `` : days < 2 ? `${days} Day and` : `${days} Days and`} {hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
+                : <div> {days === 0 ? `` :  `${days}:`}{hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
             }
         </div>
     )
