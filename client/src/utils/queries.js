@@ -37,6 +37,20 @@ query user{
       firstName
       lastName
       email
+      auctions {
+        _id
+      auctionEndDate
+      destination
+      origin
+      flightDate
+      image
+      currentBid
+      aircraft
+      flightNum
+      cabinSize
+      operator
+      termsConfirm
+      }
     }
   }
 `;
