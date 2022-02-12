@@ -14,7 +14,7 @@ function Home() {
       {/* <AuctionDetail /> */}
       {/* <Signup /> */}
       {/* <Login /> */}
-      {/* <SearchFields /> */}
+      <SearchFields />
       <TopResults />
     </div>
   );

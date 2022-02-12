@@ -33,7 +33,7 @@ function Profile() {
           <div className="profileColumn">
             <h5>Name: {userData.firstName}</h5>
             <h5>Email: {userData.email}</h5>
-            <h5>Home City:</h5>
+            <h5>Home City: {userData.homeCity}</h5>
             <a href="/signup">
               <h5>Update Password</h5>
             </a>

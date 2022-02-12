@@ -23,6 +23,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     auctions: [Auction]
+    homeCity: String
   }
 
   type Checkout {

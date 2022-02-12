@@ -26,6 +26,7 @@ query user($_id: ID!) {
     firstName
     lastName
     email
+    homeCity
   }
 }
 `;
@@ -37,6 +38,7 @@ query user{
       firstName
       lastName
       email
+      homeCity
       auctions {
         _id
         auctionEndDate

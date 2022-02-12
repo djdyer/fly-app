@@ -45,11 +45,11 @@ function App() {
         <Navigation />
         <FlyMap />
         <Switch>
-          {Auth.loggedIn() ? (
-            <Route exact path="/">
+          
+            <Route exact path="/profile">
               <Profile />
-            </Route>) : (
-            <Route exact path="/" component={Home} />)}
+            </Route> 
+            <Route exact path="/" component={Home} />
           <Route exact path="/login">
             <Login />
           </Route>

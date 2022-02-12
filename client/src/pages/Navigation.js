@@ -17,8 +17,6 @@ export default function Navigation({ currentPage, handlePageChange }) {
   const paymentHover = require("../../src/assets/icons/transfers2.png");
   const documents = require("../../src/assets/icons/documents.png");
   const documentsHover = require("../../src/assets/icons/documents2.png");
-  const more = require("../../src/assets/icons/plus.png");
-  const moreHover = require("../../src/assets/icons/plus2.png");
   const logout = require("../../src/assets/icons/logout2.png");
   const logoutHover = require("../../src/assets/icons/logout.png");
 
@@ -93,18 +91,34 @@ export default function Navigation({ currentPage, handlePageChange }) {
             <h1>Search</h1>
           </div>
         </a>
-
-        <a href="/settings" onClick={() => handlePageChange("Settings")}>
+        {Auth.loggedIn() ? (
+        <a href="/profile" onClick={() => handlePageChange
+          ("Profile")}>
           <div className="navTab">
-            <img className="icon default" alt="settings" src={settings} />
+            <img className="icon default" alt="profile" src={user} />
             <img
               className="icon hover"
-              alt="settingsHover"
-              src={settingsHover}
+              alt="profileHover"
+              src={userHover}
             />
-            <h1>Settings</h1>
+            <h1>Profile</h1>
           </div>
         </a>
+        ):(
+          <a href="/login" onClick={() => handlePageChange
+            ("Login")}>
+            <div className="navTab">
+              <img className="icon default" alt="login" src={user} />
+              <img
+                className="icon hover"
+                alt="profileHover"
+                src={userHover}
+              />
+              <h1>Profile</h1>
+            </div>
+          </a>
+
+        )}
 
         <a href="/payment" onClick={() => handlePageChange("Payment")}>
           <div className="navTab">
@@ -126,11 +140,15 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
 
-        <a href="/more" onClick={() => handlePageChange("More")}>
+        <a href="/settings" onClick={() => handlePageChange("Settings")}>
           <div className="navTab">
-            <img className="icon default" alt="more" src={more} />
-            <img className="icon hover" alt="moreHover" src={moreHover} />
-            <h1>More</h1>
+            <img className="icon default" alt="settings" src={settings} />
+            <img
+              className="icon hover"
+              alt="settingsHover"
+              src={settingsHover}
+            />
+            <h1>Settings</h1>
           </div>
         </a>
       </nav>
