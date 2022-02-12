@@ -7,7 +7,6 @@ import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 import { QUERY_AUCTION } from "../utils/queries";
 import Timer from "../components/Timer";
 
-
 function AuctionDetail() {
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
@@ -80,7 +79,7 @@ function AuctionDetail() {
               <img className="planeIcon" alt="plane icon" src={plane} />
               <h2>{auctionData.destination}</h2>
             </div>
-            <div id="countdown">00:00:00:00<Timer flightDate={+auctionData.flightDate} /></div>
+            <div id="countdown"><Timer auctionEndDate={+auctionData.auctionEndDate} /></div>
           </div>
           <AuctionMap />
           <div id="auctionBody">

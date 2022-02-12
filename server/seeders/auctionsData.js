@@ -1,6 +1,6 @@
 module.exports = [
   {
-    auctionEndDate: new Date(+new Date() + 7 * 60 * 1000),
+    auctionEndDate: new Date(+new Date()),
     origin: "ATL",
     destination: "VNY",
     flightDate: new Date(+new Date() + 1 * 24 * 60 * 60 * 1000),
