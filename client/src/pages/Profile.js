@@ -57,7 +57,7 @@ function Profile() {
                   <a href="/signup">
                     <h6>Update Password</h6>
                   </a>
-                  <a href="/logout">
+                  <a href="/" onClick={() => Auth.logout()}>
                     <h6>Logout</h6>
                   </a>
                 </div>

@@ -47,11 +47,14 @@ const resolvers = {
     },
 
     checkout: async (parent, args, context) => {
-      const url = new URL(context.headers.referer).origin;
       const order = new Order({ flight: args.flight });
+      console.log("1",order)
+      const { flight } = await order.populate('flight').execPopulate();
+      console.log("1",order)
+      const url = new URL(context.headers.referer).origin;
       const line_items = [];
 
-      const { flight } = await flight.populate('auction').execPopulate();
+
 
         const newFlight = await stripe.flight.create({
           aircraft: flight.aircraft,
@@ -61,7 +64,8 @@ const resolvers = {
 
         const price = await stripe.prices.create({
           flight: flight.id,
-          unit_amount: flight.currentBid * 100,
+          unit_amount: 12345,
+          //flight.currentBid * 100,
           currency: 'usd',
         });
 
@@ -82,6 +86,7 @@ const resolvers = {
       return { session: session.id };
     }
   },
+
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
