@@ -92,8 +92,10 @@ body {
 }
 
 #navBlock {
-  padding: 10px 20px;
+  padding: 0 20px;
   margin-left: -25px;
+  margin-top: 80px;
+  align-items: center;
 }
 
 #searchFields {
@@ -253,7 +255,7 @@ h1:hover {
 .topResults {
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   border-radius: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 200px;
   width: 45%;
   margin-left: auto;
   margin-right: auto;
@@ -288,7 +290,7 @@ h1:hover {
   height: 60px;
   background-color: #000000;
   padding: 20px;
-  margin: 5px -20px 20px -20px;
+  margin: 15px -20px 20px -20px;
 }
 
 #result #header2 {
@@ -313,11 +315,6 @@ h1:hover {
   height: 22px;
   width: auto;
   margin: auto 15px;
-}
-
-#filterIcon,
-#filterIcon2 {
-  margin: 0 10px 0 0;
 }
 
 .plane {
@@ -356,6 +353,8 @@ h1:hover {
   background-color: var(--dark);
   opacity: 90%;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
 }
 
 #filterOrigin::placeholder,
@@ -387,8 +386,9 @@ h3 {
   height: 100vh;
   z-index: 3;
   position: fixed;
-  padding-top: 25px;
+  /* padding-top: 25px; */
   overflow-y: auto;
+  padding-left: 50px;
 }
 
 .profileBlock {
@@ -414,7 +414,6 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: 121212;
   color: rgb(240, 240, 240);
   background-color: #0e0e0e;
   opacity: 95%;
@@ -445,12 +444,16 @@ header {
   position: absolute;
   z-index: 3;
   background-image: none;
-  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   border-radius: 10px;
   width: 45%;
   margin: 100px auto;
   right: 0;
   left: 0;
+}
+
+.filter #filterContainer {
+  margin-top: -20px;
+  margin-bottom: 200px;
 }
 
 .filterFields .filterRow input {
@@ -532,7 +535,7 @@ header {
 
 .profileColumn {
   text-align: left;
-  margin: 20px 0 0 3px;
+  margin: 20px 0 0 0;
 }
 
 #profileLinks {
@@ -543,6 +546,10 @@ header {
   margin: 3px;
   color: #909090;
   opacity: 70%;
+}
+
+.profileColumn h3 {
+  margin: 3px;
 }
 
 .filterColumn form select {
@@ -682,14 +689,14 @@ h6 {
 #watchIcon,
 #watchIcon2 {
   margin: 5px 10px 5px 5px;
-  width: 50px;
+  width: 70px;
 }
 
 #userImg {
   width: 110px;
   /* margin: 10px auto 20px auto; */
   opacity: 70%;
-  margin-left: 120px;
+  margin: auto 20px;
 }
 
 .profileBlockHeader img {
@@ -701,7 +708,7 @@ h6 {
 #addUserImg,
 #addUserImg2 {
   position: absolute;
-  margin-left: 160px;
+  margin-left: 60px;
   margin-top: 27px;
   z-index: 4;
 }
@@ -754,7 +761,7 @@ h6:hover {
   #searchBtn,
   #loginBtn,
   #signupBtn {
-    width: 250px;
+    width: 275px;
   }
 
   .topResults,
@@ -777,12 +784,25 @@ h6:hover {
     height: 80px;
     display: flex;
     flex-direction: row;
+    -ms-flex-align: center;
     justify-content: space-around;
     border-radius: 0;
     bottom: 0;
     opacity: 100%;
     z-index: 4;
-    /* padding: 10px 20px 10px 0px; */
+  }
+
+  .auction,
+  .profile {
+    padding-left: 0;
+  }
+
+  #navBlock.navigation .search {
+    margin-left: -25px;
+  }
+
+  #navBlock.navigation .settings {
+    margin-right: 25px;
   }
 
   .auctionRow {
@@ -874,6 +894,12 @@ h6:hover {
   h5 {
     font-size: 9pt;
   }
+
+  #watchIcon,
+  #watchIcon2 {
+    margin: 5px 10px 5px 5px;
+    width: 50px;
+  }
 }
 
 @media screen and (max-width: 505px) {
@@ -882,8 +908,12 @@ h6:hover {
     margin-bottom: 10px;
   }
 
-  #myPlane .plane {
+  #myPlane {
     height: 160px;
+  }
+
+  .plane {
+    height: 186px;
   }
 
   .filterFields .filterRow input {
@@ -942,16 +972,6 @@ h6:hover {
     padding-top: -15px;
   }
 
-  /* #origin,
-  #destination,
-  #searchBtn,
-  #signupBtn,
-  #loginBtn,
-  #submitBtn {
-    padding: 10px;
-    width: 200px;
-  } */
-
   #header1,
   #header2 {
     height: 50px;
@@ -963,5 +983,18 @@ h6:hover {
 
   .auctionRow {
     font-size: 9pt;
+  }
+
+  #userImg {
+    width: 100px;
+    margin: auto 10px;
+  }
+
+  #addUserImg,
+  #addUserImg2 {
+    position: absolute;
+    margin-left: 45px;
+    margin-top: 25px;
+    z-index: 4;
   }
 }

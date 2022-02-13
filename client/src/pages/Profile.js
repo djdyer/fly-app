@@ -32,27 +32,6 @@ function Profile() {
             <h2>Profile</h2>
             <header>
               <div className="profileColumn">
-                <h5>Name: </h5>
-                <h5>Email: </h5>
-                <h5>Home City:</h5>
-                <div id="profileLinks">
-                  <a href="/editprofile">
-                    <h6>Edit Profile</h6>
-                  </a>
-                  <a href="/signup">
-                    <h6>Update Password</h6>
-                  </a>
-                  <a href="/signup">
-                    <h6>Logout</h6>
-                  </a>
-                </div>
-              </div>
-              <div className="profileColumn">
-                <h3>{userData.firstName}</h3>
-                <h3>{userData.email}</h3>
-                <h3>{userData.homeCity}</h3>
-              </div>
-              <div>
                 <img
                   id="addUserImg"
                   className="icon default"
@@ -67,24 +46,42 @@ function Profile() {
                 />
                 <img id="userImg" alt="userImg" src={userImg} />
               </div>
+              <div className="profileColumn">
+                <h5>Name: </h5>
+                <h5>Email: </h5>
+                <h5>Home City:</h5>
+                <div id="profileLinks">
+                  <a href="/editprofile">
+                    <h6>Edit Profile</h6>
+                  </a>
+                  <a href="/signup">
+                    <h6>Update Password</h6>
+                  </a>
+                  <a href="/logout">
+                    <h6>Logout</h6>
+                  </a>
+                </div>
+              </div>
+              <div className="profileColumn">
+                <h3>{userData.firstName}</h3>
+                <h3>{userData.email}</h3>
+                <h3>{userData.homeCity}</h3>
+              </div>
             </header>
             <div>
               <div className="profileBlock">
                 <div className="profileBlockHeader">
                   <img alt="notificationslist" src={notificationsList} />
                   <h3>Open Bids</h3>
-                  {userData.auctions.map((auction) => {
-                    return (
-                      <a
-                        href={`auctiondetail/${auction._id}`}
-                        key={auction._id}
-                      >
-                        {" "}
-                        From: {auction.origin} To: {auction.destination}{" "}
-                      </a>
-                    );
-                  })}
                 </div>
+                {userData.auctions.map((auction) => {
+                  return (
+                    <a href={`auctiondetail/${auction._id}`} key={auction._id}>
+                      {" "}
+                      From: {auction.origin} To: {auction.destination}{" "}
+                    </a>
+                  );
+                })}
               </div>
 
               <div className="profileBlock">
