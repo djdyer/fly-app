@@ -35,13 +35,21 @@ const typeDefs = gql`
     user: User
   }
 
+
+type Order {
+    _id: ID
+    purchaseDate: String
+    flight: Auction
+  }  
+
   type Query {
     users: [User]
     user(_id: ID!): User
     me: User
     auction(_id: ID!): Auction
     auctions: [Auction]
-    checkout(products: [ID]!): Checkout
+    order(_id: ID!): Order
+    checkout(flight: ID!): Checkout
   }
 
   type Mutation {
@@ -50,6 +58,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     saveflight(auction: ID!): User
     updateBid(_id: ID!, currentBid: Float!): Auction
+    addOrder(flight: ID!): Order
+
   }
 `;
 

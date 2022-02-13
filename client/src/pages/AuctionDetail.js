@@ -9,6 +9,7 @@ import { QUERY_AUCTION } from "../utils/queries";
 import Timer from "../components/Timer";
 
 function AuctionDetail() {
+  
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
   const plane = require("../../src/assets/icons/plane.png");
@@ -18,6 +19,8 @@ function AuctionDetail() {
     variables: { _id: auctionId },
   });
   const auctionData = data?.auction || {};
+
+
 
 
   return ( 
@@ -131,7 +134,7 @@ function AuctionDetail() {
             </a>
             <h3>Watch this Auction </h3>
           </div>
-          <AuctionButton auctionData={auctionData}/>
+          <AuctionButton  auctionData={auctionData}/>
         </div>
       </div>
       )}

@@ -1,12 +1,38 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Auth from '../utils/auth';
 import { useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
+import { QUERY_CHECKOUT } from '../utils/queries';
+import { useLazyQuery } from '@apollo/client';
+import { loadStripe } from '@stripe/stripe-js';
+import { idbPromise } from '../utils/helpers';
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
 
 
 function AuctionButton(props) {
     const pathArray = window.location.pathname.split("/");
     const auctionId = pathArray[pathArray.length - 1];
+    const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
+  function submitCheckout() {
+    const flightId=auctionId
+console.log(flightId)
+    getCheckout({
+      variables: { flight: flightId },
+    });
+  }
+
+   
 
     const [bid, setBid] = useState("");
 
@@ -48,11 +74,7 @@ function AuctionButton(props) {
 
         setBid("");
     };
-    console.log('4', props)
 
-    console.log('1', props.auctionData.auctionEndDate < (new Date()))
-    console.log('2', props.auctionEndDate)
-    console.log('3', (new Date()))
 
     if (Auth.loggedIn() && (props.auctionData.auctionEndDate > (new Date()))) {
         return (
@@ -77,14 +99,14 @@ function AuctionButton(props) {
     } else if ((Auth.loggedIn() && (props.auctionData.auctionEndDate < (new Date())))) {
         return (
             <div className="enterBid btnTerms" >
-            <a
+            <button
                 className="shadow-pop-br"
                 id="submitBtn"
                 type="submit"
-                href="/login"
+                onClick= {submitCheckout}
             >
                 <h1>MAKE PAYMENT</h1>
-            </a>
+            </button>
 
         </div>
         )
