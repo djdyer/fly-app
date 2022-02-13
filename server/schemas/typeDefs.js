@@ -26,10 +26,6 @@ const typeDefs = gql`
     homeCity: String
   }
 
-  type Checkout {
-    session: ID
-  }
-
   type Auth {
     token: ID
     user: User
@@ -50,6 +46,10 @@ type Order {
     auctions: [Auction]
     order(_id: ID!): Order
     checkout(flight: ID!): Checkout
+  }
+
+  type Checkout {
+    session: ID
   }
 
   type Mutation {
