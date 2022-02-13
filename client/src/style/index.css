@@ -783,6 +783,15 @@ h6:hover {
   }
 }
 
+#searchFields input,
+#searchFields button {
+  margin: 12px auto;
+}
+
+.topResultsContainer {
+  margin-left: 0px;
+}
+
 @media screen and (max-width: 900px) {
   #navBlock {
     margin: 0;
@@ -875,6 +884,7 @@ h6:hover {
     font-size: 12pt;
     margin-bottom: 5px;
   }
+
   #leadingBid {
     width: 90px;
   }
