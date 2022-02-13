@@ -320,7 +320,7 @@ h1:hover {
 .planeIcon {
   height: 22px;
   width: auto;
-  margin: auto 15px;
+  margin: auto 10px;
 }
 
 .plane {
@@ -505,12 +505,20 @@ header {
   background-color: black;
   font-size: 30pt;
   height: 60px;
+  width: 170px;
   color: #e434a9;
   font-weight: 900;
-  padding: 13px 10px 10px 10px;
+  padding: 13px 8px 8px 8px;
   display: flex;
-  align-items: center;
+  justify-content: center;
   font-family: digital;
+  margin-left: 5px;
+}
+
+#timerBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #auctionBody {
@@ -695,7 +703,7 @@ h6 {
 #watchIcon,
 #watchIcon2 {
   margin: 5px 10px 5px 5px;
-  width: 70px;
+  width: 60px;
 }
 
 #userImg {
@@ -864,11 +872,13 @@ h6:hover {
 
   .planeIcon {
     height: 18px;
-    margin: auto 10px;
+    margin: auto 5px;
   }
 
   #countdown {
     font-size: 25pt;
+    width: 150px;
+    align-items: center;
   }
 
   #enterBid {
@@ -1012,5 +1022,13 @@ h6:hover {
     margin-left: 45px;
     margin-top: 25px;
     z-index: 4;
+  }
+
+  #auctionHeader {
+    padding: 20px 0 20px 10px;
+  }
+
+  #countdown {
+    width: 140px;
   }
 }

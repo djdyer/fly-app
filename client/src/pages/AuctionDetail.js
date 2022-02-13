@@ -40,8 +40,11 @@ function AuctionDetail() {
                 <img className="planeIcon" alt="plane icon" src={plane} />
                 <h2>{auctionData.destination}</h2>
               </div>
-              <div id="countdown">
-                <Timer auctionEndDate={+auctionData.auctionEndDate} />
+              <div id="timerBlock">
+                <h2>CLOSING:</h2>
+                <div id="countdown">
+                  <Timer auctionEndDate={+auctionData.auctionEndDate} />
+                </div>
               </div>
             </div>
             <AuctionMap />
