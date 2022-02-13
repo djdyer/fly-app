@@ -111,6 +111,11 @@ body {
   right: 0;
 }
 
+#searchFields input,
+#searchFields button {
+  margin-left: 80px;
+}
+
 ::placeholder {
   color: var(--light);
   display: inline;
@@ -239,6 +244,7 @@ h1:hover {
   right: 0;
   left: 0;
   margin-top: 550px;
+  margin-left: 40px;
 }
 
 #topResultsHeader h2 {
