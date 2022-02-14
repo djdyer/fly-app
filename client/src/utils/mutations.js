@@ -42,16 +42,12 @@ mutation updateBid($_id: ID!, $currentBid: Float!) {
 `
 export const SAVE_FLIGHT = gql`
   mutation saveflight($_id: ID!) {
-    saveflight(_id: $_id) {
-      _id
-      firstName
-      lastName
-      email
-      auctions{
-        _id
+       saveflight(auctions: $_id) {
+          auctions{
+            _id
+        }
       }
     }
-  }
 `;
 
 export const ADD_ORDER = gql`

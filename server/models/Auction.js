@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 
-const auctionInfo = new Schema({
+const auctionSchema = new Schema({
   auctionEndDate: {
     type: Date,
     default: Date.now,
@@ -48,8 +48,9 @@ const auctionInfo = new Schema({
     type: Boolean,
     required: true,
   },
+ 
 });
 
-const Auction = mongoose.model("Auction", auctionInfo);
+const Auction = mongoose.model("Auction", auctionSchema);
 
 module.exports = Auction;

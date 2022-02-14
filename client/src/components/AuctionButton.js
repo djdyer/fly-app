@@ -37,6 +37,7 @@ console.log(flightId)
     const [bid, setBid] = useState("");
 
     const [updateBid, { error }] = useMutation(UPDATE_BID);
+    const [saveflight] = useMutation(SAVE_FLIGHT);
 
     const handleInputChange = (e) => {
         // Getting the value and name of the input which triggered the change
@@ -64,7 +65,12 @@ console.log(flightId)
             const response = await updateBid({
                 variables: { currentBid: +bid, _id: auctionId },
             });
+console.log(auctionId)
 
+            const responseSaveFlight = await saveflight({
+                variables: { _id: auctionId },
+            });
+console.log(responseSaveFlight)
             if (!response) {
                 throw new Error("something went wrong!");
             }

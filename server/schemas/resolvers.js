@@ -8,7 +8,7 @@ const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate("Auction");
+        const user = await User.findById(context.user._id).populate("auctions");
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -18,11 +18,11 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     users: async () => {
-      return await User.find({}).populate("Auction");
+      return await User.find({}).populate('auctions');
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return await User.findOne({ _id: context.user._id }).populate("Auction");
+        return await User.findOne({ _id: context.user._id }).populate("auctions");
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -35,10 +35,7 @@ const resolvers = {
 
     order: async (parent, { _id }, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.flight',
-          populate: 'auction'
-        });
+        const user = await User.findById(context.user._id).populate("auctions");
 
         return user.orders.id(_id);
       }
@@ -103,11 +100,11 @@ const resolvers = {
       return updatedBidSum;    
       
     },
-    saveflight: async (parent, args, context) => {
+    saveflight: async (parent, {auctions}, context) => {
       if (context.user) {
         const updatedUser =  await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { auctions: args._id } },
+          { _id: context.user._id }, 
+          { $addToSet: { auctions: auctions } },
           { new: true }
         );
   

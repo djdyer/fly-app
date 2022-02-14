@@ -45,12 +45,15 @@ const Timer = (props) => {
                     setMinutes(59);
                     setSeconds(59);
                 }
+                if (seconds === 0 && minutes === 0 && hours === 0 && days === 0) {
+                    window.location.reload();
+                }
 
             }, 1000)
             return () => {
                 clearInterval(myInterval);
             };
-        } else { setDays(0); setHours(0); setMinutes(0); setSeconds(0) }
+        } else { setDays(0); setHours(0); setMinutes(0); setSeconds(0)}
     });
 
     return (
