@@ -60,13 +60,20 @@ export const UPDATE_LATESTBID_USER = gql`
   }
 `;
 
-
 export const DELETE_FLIGHT = gql`
   mutation deleteflight($auctionId: ID!, $remuserId: ID!) {
     deleteflight(auctionId: $auctionId, remuserId: $remuserId) {
           auctions{
           _id
         }
+      }
+    }
+`;
+
+export const UPDATE_BID_HISTORY = gql`
+  mutation updateBidHistory($auctionId: ID!, $bidAmount: Float!) {
+    updateBidHistory(auctionId: $auctionId, bidAmount: $bidAmount) {
+      currentBid
       }
     }
 `;

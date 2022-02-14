@@ -104,22 +104,15 @@ console.log(auctionData)
             </div>
             <div className="bidHistory">
               <div id="bidHeader">Bid History</div>
-              <div className="otherBid">
-                <h5>Username: {auctionData.bidsHistory[0].bidUser.firstName}</h5>
-                <h5>Time Stamp: {new Date(+auctionData.bidsHistory[0].bidTime).toLocaleTimeString()}</h5>
-                <h5>Bid Amount: ${auctionData.bidsHistory[0].bidAmount}</h5>
+              {auctionData?.bidsHistory.map((history) => {
+            return (
+              <div className="otherBid" key={history._id}>
+                <h5>Username: {history.bidUser.firstName}</h5>
+                <h5>Time Stamp: {new Date(+history.bidTime).toLocaleTimeString()}</h5>
+                <h5>Bid Amount: ${history.bidAmount}</h5>
               </div>
-              <div className="otherBid">
-                <h5>Username</h5>
-                <h5>Time Stamp</h5>
-                <h5>Bid Amount</h5>
-              </div>
-              <div className="otherBid">
-                <h5>Username</h5>
-                <h5>Time Stamp</h5>
-                <h5>Bid Amount</h5>
-              </div>
-            </div>
+              )})}
+               </div>
             <div className="watchOption">
               <a href="/watchlist">
                 <img

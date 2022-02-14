@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Auction, Order } = require('../models');
+const { User, Auction, Order, Bid } = require('../models');
 
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -148,6 +148,22 @@ const resolvers = {
       return remUserAucion;
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+
+    updateBidHistory: async (parent, args, context) => {
+      if (context.user) {
+        const bidHistory = await Bid.create({ bidAmount: args.bidAmount, bidUser: context.user._id });
+        const addBidHistory =  await Auction.findByIdAndUpdate(
+          { _id: args.auctionId },
+          { $push: { bidsHistory: bidHistory } },
+          { new: true }
+        );
+  
+      return addBidHistory;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+      
     },
 
     updateUser: async (parent, args, context) => {
