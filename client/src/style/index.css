@@ -53,7 +53,7 @@ body {
 
 #mobileLogo {
   position: absolute;
-  margin: 10px auto;
+  margin: 20px auto;
   width: 80px;
   z-index: 1;
   left: 0;
@@ -62,7 +62,7 @@ body {
 
 .icon {
   display: block;
-  margin: 20px 10px;
+  margin: 25px 10px;
   width: 30px;
 }
 
@@ -171,13 +171,16 @@ input:focus {
   background-image: url("../assets/images/runway.png");
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
   width: 100vw;
   height: 100vh;
   z-index: 3;
   position: fixed;
   padding-top: 100px;
+}
+.registerFields {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
 }
 
 .register input,
@@ -416,6 +419,7 @@ h3 {
 }
 
 .profileOpenBids a h2 {
+  font-size: 12pt;
   margin: 0 0 8px 25px;
 }
 
@@ -774,6 +778,10 @@ h6:hover {
     display: none;
   }
 
+  .enterBid h1 {
+    display: inline;
+  }
+
   button h1 {
     display: inline;
   }
@@ -838,10 +846,6 @@ h6:hover {
 
   .auctionRow {
     font-size: 10pt;
-  }
-
-  #profileNav {
-    display: none;
   }
 
   #mobileNav {
