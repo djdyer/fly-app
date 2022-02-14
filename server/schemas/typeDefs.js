@@ -69,8 +69,8 @@ type Order {
     updateBid(_id: ID!, currentBid: Float!): Auction
     updateLatestBidUser(auctions: ID!): Auction
     deleteflight(auctionId: ID!, remuserId: ID!): User
+    updateBidHistory(bidAmount: Float!, auctionId: ID!): Auction
     addOrder(flight: ID!): Order
-    
   }
 `;
 

@@ -6,6 +6,7 @@ import {
   SAVE_FLIGHT,
   DELETE_FLIGHT,
   UPDATE_LATESTBID_USER,
+  UPDATE_BID_HISTORY,
 } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
@@ -20,6 +21,7 @@ function AuctionButton(props) {
   const [saveflight] = useMutation(SAVE_FLIGHT);
   const [deleteflight] = useMutation(DELETE_FLIGHT);
   const [updateLatestBidUser] = useMutation(UPDATE_LATESTBID_USER);
+  const [updateBidHistory] = useMutation(UPDATE_BID_HISTORY);
   const handleInputChange = (e) => {
     // Getting the value and name of the input which triggered the change
     const { target } = e;
@@ -54,6 +56,10 @@ function AuctionButton(props) {
       const responseSaveFlight = await saveflight({
         variables: { _id: auctionId },
       });
+      console.log(auctionId, +bid)
+      await updateBidHistory({
+        variables: { auctionId: auctionId, bidAmount: +bid },
+      });
       console.log(responseSaveFlight, responseDeleteFlight);
       if (!response) {
         throw new Error("something went wrong!");
@@ -63,8 +69,6 @@ function AuctionButton(props) {
     }
     setBid("");
   };
-console.log(userData._id, "1")
-console.log(props.auctionData.latestBidUser._id, "2")
 
   if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date()) {
     return (
