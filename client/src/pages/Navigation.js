@@ -5,10 +5,6 @@ export default function Navigation({ currentPage, handlePageChange }) {
   const logo = require("../../src/assets/icons/fly_logo.png");
   const user = require("../../src/assets/icons/user.png");
   const userHover = require("../../src/assets/icons/user2.png");
-  const notifications = require("../../src/assets/icons/notifications.png");
-  const notificationsHover = require("../../src/assets/icons/notifications2.png");
-  // const filter = require("../../src/assets/icons/filter.png");
-  // const filterHover = require("../../src/assets/icons/filter2.png");
   const search = require("../../src/assets/icons/search.png");
   const searchHover = require("../../src/assets/icons/search2.png");
   const settings = require("../../src/assets/icons/settings.png");
@@ -22,62 +18,11 @@ export default function Navigation({ currentPage, handlePageChange }) {
 
   return (
     <>
-      {/* Side Nav (Mobile) */}
-      {/* <div id="mobileNav">
-        <a href="/signup" onClick={() => handlePageChange("Signup")}>
-          <img className="icon default" alt="signup" src={user} />
-          <img className="icon hover" alt="userHover" src={userHover} />
+      <div id="mobileNav">
+        <a href="/" onClick={() => handlePageChange("Home")}>
+          <img id="mobileLogo" alt="home" src={logo} />
         </a>
-        <a
-          href="/notifications"
-          onClick={() => handlePageChange("Notifications")}
-        >
-          <img
-            className="icon default"
-            alt="notifications"
-            src={notifications}
-          />
-          <img
-            className="icon hover"
-            alt="notificationsHover"
-            src={notificationsHover}
-          />
-        </a>
-      </div> */}
-
-      {/* Side Nav (Desktop) */}
-      {/* <div id="profileNav" className="navigation slide-left">
-        {Auth.loggedIn() ? (
-          <>
-            <a href="/" onClick={Auth.logout}>
-              {" "}
-              <img className="icon default" alt="logout" src={logout} />
-              <img className="icon hover" alt="logoutHover" src={logoutHover} />
-            </a>
-          </>
-        ) : (
-          <a href="/signup" onClick={() => handlePageChange("Signup")}>
-            <img className="icon default" alt="signup" src={user} />
-            <img className="icon hover" alt="signupHover" src={userHover} />
-          </a>
-        )}
-
-        <a
-          href="/notifications"
-          onClick={() => handlePageChange("Notifications")}
-        >
-          <img
-            className="icon default"
-            alt="notifications"
-            src={notifications}
-          />
-          <img
-            className="icon hover"
-            alt="notificationsHover"
-            src={notificationsHover}
-          />
-        </a>
-      </div> */}
+      </div>
 
       {/* Main Nav */}
       <nav id="navBlock" className="navigation slide-right">

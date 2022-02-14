@@ -4,6 +4,7 @@
     forwards;
   animation: shadow-pop-br 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) 2s forwards;
 }
+
 @-webkit-keyframes shadow-pop-br {
   0% {
     -webkit-box-shadow: 0 0 var(--light), 0 0 var(--light), 0 0 var(--light),
@@ -84,22 +85,22 @@
 }
 @-webkit-keyframes slide-left {
   0% {
-    -webkit-transform: translateX(500px);
-    transform: translateX(500px);
+    -webkit-transform: translateX(1200px);
+    transform: translateX(1200px);
   }
   100% {
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 @keyframes slide-left {
   0% {
-    -webkit-transform: translateX(500px);
-    transform: translateX(500px);
+    -webkit-transform: translateX(1200px);
+    transform: translateX(1200px);
   }
   100% {
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 
@@ -111,8 +112,8 @@
 
 @-webkit-keyframes slide-top {
   0% {
-    -webkit-transform: translateY(500px);
-    transform: translateY(500px);
+    -webkit-transform: translateY(600px);
+    transform: translateY(600px);
   }
   100% {
     -webkit-transform: translateY(0px);
@@ -121,8 +122,8 @@
 }
 @keyframes slide-top {
   0% {
-    -webkit-transform: translateY(500px);
-    transform: translateY(500px);
+    -webkit-transform: translateY(600px);
+    transform: translateY(600px);
   }
   100% {
     -webkit-transform: translateY(0px);
@@ -139,5 +140,19 @@
   .slide-left {
     -webkit-animation: none !important;
     animation: none !important;
+  }
+}
+
+.fade-in {
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

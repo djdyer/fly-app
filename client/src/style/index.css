@@ -51,6 +51,15 @@ body {
   text-align: center;
 }
 
+#mobileLogo {
+  position: absolute;
+  margin: 10px auto;
+  width: 80px;
+  z-index: 1;
+  left: 0;
+  right: 0;
+}
+
 .icon {
   display: block;
   margin: 20px 10px;
@@ -103,7 +112,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 100px auto;
+  margin: 120px auto;
   width: fit-content;
   z-index: 1;
   opacity: 90%;
@@ -392,7 +401,6 @@ h3 {
   height: 100vh;
   z-index: 3;
   position: fixed;
-  /* padding-top: 25px; */
   overflow-y: auto;
   padding-left: 50px;
 }
@@ -402,8 +410,13 @@ h3 {
   opacity: 90%;
   margin: 20px;
   border-radius: 10px;
-  height: 100px;
+  min-height: 80px;
   text-align: start;
+  padding-bottom: 10px;
+}
+
+.profileOpenBids a h2 {
+  margin: 0 0 8px 25px;
 }
 
 header {
@@ -553,17 +566,13 @@ header {
 }
 
 #profileLinks {
-  margin: 10px 10px 0 3px;
+  margin: 10px 10px 0 2px;
 }
 
 .profileColumn h5 {
   margin: 3px;
   color: #909090;
   opacity: 70%;
-}
-
-.profileColumn h3 {
-  margin: 3px;
 }
 
 .filterColumn form select {
@@ -703,12 +712,11 @@ h6 {
 #watchIcon,
 #watchIcon2 {
   margin: 5px 10px 5px 5px;
-  width: 60px;
+  width: 50px;
 }
 
 #userImg {
   width: 110px;
-  /* margin: 10px auto 20px auto; */
   opacity: 70%;
   margin: auto 20px;
 }
@@ -789,15 +797,15 @@ h6:hover {
   #result #header2 {
     width: calc(60% - 4px);
   }
-}
 
-#searchFields input,
-#searchFields button {
-  margin: 12px auto;
-}
+  #searchFields input,
+  #searchFields button {
+    margin: 12px auto;
+  }
 
-.topResultsContainer {
-  margin-left: 0px;
+  .topResultsContainer {
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 900px) {

@@ -13,8 +13,8 @@ function Profile() {
 
   const documentsList = require("../../src/assets/icons/documentslist.png");
   const userImg = require("../../src/assets/icons/loaduser.png");
-  const plus = require("../../src/assets/icons/plus2.png");
-  const plusHover = require("../../src/assets/icons/plus.png");
+  const plus = require("../../src/assets/icons/plus.png");
+  const plusHover = require("../../src/assets/icons/plus2.png");
 
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
@@ -24,24 +24,25 @@ function Profile() {
       {loading ? (
         <p>Loading....</p>
       ) : (
-        <div className="auction">
-          <div className="profileDetail">
+        <div className="profile">
+          <div className="profileDetail fade-in">
             <h2>Profile</h2>
             <header>
               <div className="profileColumn">
-               <a><img
-                  id="addUserImg"
-                  className="icon default"
-                  alt="plus"
-                  src={plus}
-                />
-                <img
-                  id="addUserImg2"
-                  className="icon hover"
-                  alt="plus hover"
-                  src={plusHover}
-                />
-                </a> 
+                <a>
+                  <img
+                    id="addUserImg"
+                    className="icon default"
+                    alt="plus"
+                    src={plus}
+                  />
+                  <img
+                    id="addUserImg2"
+                    className="icon hover"
+                    alt="plus hover"
+                    src={plusHover}
+                  />
+                </a>
                 <img id="userImg" alt="userImg" src={userImg} />
               </div>
               <div className="profileColumn">
@@ -74,10 +75,18 @@ function Profile() {
                 </div>
                 {userData.auctions.map((auction) => {
                   return (
-                    <a href={`auctiondetail/${auction._id}`} key={auction._id}>
-                      {" "}
-                     <h3> From: {auction.origin} To: {auction.destination}{" "}</h3>
-                    </a>
+                    <div className="profileOpenBids">
+                      <a
+                        href={`auctiondetail/${auction._id}`}
+                        key={auction._id}
+                      >
+                        {" "}
+                        <h2>
+                          {" "}
+                          From: {auction.origin} To: {auction.destination}{" "}
+                        </h2>
+                      </a>
+                    </div>
                   );
                 })}
               </div>
