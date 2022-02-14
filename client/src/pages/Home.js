@@ -1,3 +1,4 @@
+import React from "react";
 import TopResults from "./TopResults";
 import SearchFields from "./SearchFields";
 import Signup from "./Signup";
