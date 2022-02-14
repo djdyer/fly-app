@@ -50,6 +50,17 @@ export const SAVE_FLIGHT = gql`
     }
 `;
 
+export const UPDATE_LATESTBID_USER = gql`
+  mutation updateLatestBidUser($_id: ID!) {
+    updateLatestBidUser(auctions: $_id) {
+      latestBidUser{
+        _id
+      }
+    }
+  }
+`;
+
+
 export const DELETE_FLIGHT = gql`
   mutation deleteflight($auctionId: ID!, $remuserId: ID!) {
     deleteflight(auctionId: $auctionId, remuserId: $remuserId) {
