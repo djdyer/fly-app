@@ -15,9 +15,6 @@ function AuctionButton(props) {
     const pathArray = window.location.pathname.split("/");
     const auctionId = pathArray[pathArray.length - 1];
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-    console.log(auctionId)
-
-
 
     useEffect(() => {
         if (data) {
@@ -65,14 +62,12 @@ function AuctionButton(props) {
             const response = await updateBid({
                 variables: { currentBid: +bid, _id: auctionId },
             });
-            // console.log(auctionId, props.latestBidUser._id)
-console.log(auctionId)
             const responseSaveFlight = await saveflight({
                 variables: { _id: auctionId },
             });
 
             const responseDeleteFlight = await deleteflight({
-                variables: { auctionId: auctionId, remuserId: props.latestBidUser._id },
+                variables: { auctionId: auctionId, remuserId: props.auctionData.latestBidUser._id },
             });
             console.log(responseSaveFlight, responseDeleteFlight)
             if (!response) {
