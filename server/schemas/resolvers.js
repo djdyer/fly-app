@@ -119,6 +119,20 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
       
     },
+    updateLatestBidUser: async (parent, {auctions}, context) => {
+      if (context.user) {
+        const updatedAuctionUser =  await Auction.findByIdAndUpdate(
+          { _id: auctions },
+          { latestBidUser: context.user._id },
+          { new: true }
+        );
+  
+      return updatedAuctionUser;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+      
+    },
 
     deleteflight: async (parent, args, context) => {
       if (context.user) {

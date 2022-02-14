@@ -67,6 +67,7 @@ type Order {
     login(email: String!, password: String!): Auth
     saveflight(auctions: ID!): User
     updateBid(_id: ID!, currentBid: Float!): Auction
+    updateLatestBidUser(auctions: ID!): Auction
     deleteflight(auctionId: ID!, remuserId: ID!): User
     addOrder(flight: ID!): Order
     
