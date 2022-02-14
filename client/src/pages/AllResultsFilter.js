@@ -108,9 +108,11 @@ export default function AllResultsFilter() {
           <h2>All Auctions:</h2>
         </div>
 
-        {data?.auctions.map((auction) => {
-          return <Auction key={auction._id} auction={auction} />;
-        })}
+        <div id="filteredResults">
+          {data?.auctions.map((auction) => {
+            return <Auction key={auction._id} auction={auction} />;
+          })}
+        </div>
       </div>
     </div>
   );
