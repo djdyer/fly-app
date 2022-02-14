@@ -1,34 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Auth from "../utils/auth";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import {
   UPDATE_BID,
   SAVE_FLIGHT,
   DELETE_FLIGHT,
   UPDATE_LATESTBID_USER,
 } from "../utils/mutations";
-import { QUERY_CHECKOUT } from "../utils/queries";
-import { useLazyQuery } from "@apollo/client";
-import { loadStripe } from "@stripe/stripe-js";
-import { idbPromise } from "../utils/helpers";
-const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+import { QUERY_ME } from "../utils/queries";
+
 function AuctionButton(props) {
   const pathArray = window.location.pathname.split("/");
   const auctionId = pathArray[pathArray.length - 1];
-  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
-  useEffect(() => {
-    if (data) {
-      stripePromise.then((res) => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
-      });
-    }
-  }, [data]);
-  function submitCheckout() {
-    const flightId = auctionId;
-    getCheckout({
-      variables: { flight: flightId },
-    });
-  }
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || {};
+
   const [bid, setBid] = useState("");
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
@@ -77,6 +63,9 @@ function AuctionButton(props) {
     }
     setBid("");
   };
+console.log(userData._id, "1")
+console.log(props.auctionData.latestBidUser._id, "2")
+
   if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date()) {
     return (
       <div className="enterBid">
@@ -97,25 +86,32 @@ function AuctionButton(props) {
         </button>
       </div>
     );
-  } else if (Auth.loggedIn() && props.auctionData.auctionEndDate < new Date()) {
+  } else if (Auth.loggedIn() && props.auctionData.auctionEndDate < new Date() && (userData._id === props.auctionData.latestBidUser._id)) {
     return (
       <div className="enterBid btnTerms">
-        <button
+        <h1>YOU WIN</h1>
+        <a
           className="shadow-pop-br"
           id="submitBtn"
           type="submit"
-          onClick={submitCheckout}
+          href="/payment"
         >
           <h1>MAKE PAYMENT</h1>
-        </button>
+        </a>
       </div>
     );
-  } else {
+  } else if (!Auth.loggedIn()){
     return (
       <div className="enterBid">
         <a className="shadow-pop-br" id="submitBtn" type="submit" href="/login">
           <h1>LOGIN TO BID</h1>
         </a>
+      </div>
+    );
+  } else {
+    return (
+      <div className="enterBid">
+          <h1>AUCTION IS CLOSED</h1>
         {error ? (
           <div>
             <p className="error-text" style={{ color: "red" }}>

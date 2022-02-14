@@ -18,6 +18,7 @@ import AuctionDetail from "./pages/AuctionDetail";
 import AllResultsFilter from "./pages/AllResultsFilter";
 import FlyMap from "./components/FlyMap";
 import Profile from "./pages/Profile";
+import Payment from "./pages/Payment";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -61,6 +62,9 @@ function App() {
           </Route>
           <Route exact path="/auctiondetail/:id">
             <AuctionDetail />
+          </Route>
+          <Route exact path="/payment">
+            <Payment />
           </Route>
           {/* <Route exact path='/settings' component={Settings} />
           <Route exact path='/payment' component={Payment} />
