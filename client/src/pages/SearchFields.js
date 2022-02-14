@@ -3,8 +3,13 @@ import React from "react";
 function SearchFields() {
   return (
     <div>
-      <div id="searchFields" className="slide-down">
-        <input className="shadow-pop-br" placeholder="ATLANTA" id="origin"  type="text"/>
+      <div id="searchFields">
+        <input
+          className="shadow-pop-br"
+          placeholder="ATLANTA"
+          id="origin"
+          type="text"
+        />
 
         <input
           className="shadow-pop-br"

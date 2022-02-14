@@ -25,7 +25,7 @@ function AuctionDetail() {
         <p>Loading .....</p>
       ) : (
         <div className="auction">
-          <div className="auctionDetail">
+          <div className="auctionDetail fade-in">
             <div id="myPlane">
               <img
                 alt="plane"

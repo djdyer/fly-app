@@ -9,7 +9,7 @@ export default function AllResultsFilter() {
   const search = require("../../src/assets/icons/search2.png");
 
   return (
-    <div className="filter">
+    <div className="filter slide-left">
       <div id="filterContainer">
         <div className="filterRow">
           <img id="searchIcon" className="icon" alt="search" src={search} />

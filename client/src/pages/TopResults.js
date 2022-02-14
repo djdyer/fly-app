@@ -13,7 +13,7 @@ function TopResults() {
     console.log(data.auctions);
     return (
       <>
-        <div className="topResultsContainer">
+        <div className="topResultsContainer slide-top">
           <div id="topResultsHeader">
             <h2>DEPARTING SOON:</h2>
           </div>
