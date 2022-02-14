@@ -1,6 +1,16 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
+type User {
+  _id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  auctions: [Auction]
+  homeCity: String
+}
+
   type Auction {
     _id: ID!
     auctionEndDate: String
@@ -9,21 +19,20 @@ const typeDefs = gql`
     flightDate: String
     image: String
     currentBid: Float
+    bidsHistory: [Bid]
     aircraft: String
     flightNum: String
     cabinSize: String
     operator: String
     termsConfirm: Boolean
+    latestBidUser: User
   }
 
-  type User {
-    _id: ID!
-    firstName: String!
-    lastName: String!
-    email: String!
-    password: String!
-    auctions: [Auction]
-    homeCity: String
+  
+  type Bid {
+    bidTime: String!
+    bidAmount: Float
+    bidUser: User
   }
 
   type Auth {
@@ -58,8 +67,9 @@ type Order {
     login(email: String!, password: String!): Auth
     saveflight(auctions: ID!): User
     updateBid(_id: ID!, currentBid: Float!): Auction
+    deleteflight(auctionId: ID!, remuserId: ID!): User
     addOrder(flight: ID!): Order
-
+    
   }
 `;
 
