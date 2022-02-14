@@ -4,10 +4,10 @@ import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
 
 export default function AllResultsFilter() {
-  const { data } = useQuery(QUERY_AUCTIONS);
+  const {loading, data } = useQuery(QUERY_AUCTIONS);
 
   const search = require("../../src/assets/icons/search2.png");
-
+console.log(data)
   return (
     <div className="filter slide-left">
       <div id="filterContainer">

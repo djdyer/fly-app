@@ -23,6 +23,7 @@ const Timer = (props) => {
         if (initialDays >= 0 && initialHour >= 0 && initialMinute >= 0 && initialSeconds >= 0) {
             let myInterval = setInterval(() => {
                 if (seconds <= 0 && minutes <= 0 && hours <= 0 && days <= 0) {
+                    window.location.reload();
                     return () => {
                         clearInterval(myInterval);
                     }
@@ -44,9 +45,6 @@ const Timer = (props) => {
                     setHours(23);
                     setMinutes(59);
                     setSeconds(59);
-                }
-                if (seconds === 0 && minutes === 0 && hours === 0 && days === 0) {
-                    window.location.reload();
                 }
 
             }, 1000)
