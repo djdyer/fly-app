@@ -573,6 +573,10 @@ header {
   margin: 10px 10px 0 2px;
 }
 
+.profileColumn h3 {
+  margin: 2px auto;
+}
+
 .profileColumn h5 {
   margin: 3px;
   color: #909090;
@@ -1042,5 +1046,9 @@ h6:hover {
 
   #countdown {
     width: 140px;
+  }
+
+  .profileColumn h3 {
+    margin: 3px auto;
   }
 }
