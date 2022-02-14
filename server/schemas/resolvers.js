@@ -35,7 +35,10 @@ const resolvers = {
       });
     },
     auction: async (parent, args) => {
-        return await Auction.findOne({ _id: args._id }).populate("bidsHistory").populate("latestBidUser");
+        return await Auction.findOne({ _id: args._id }).populate("bidsHistory").populate({
+          path: 'bidsHistory',
+          populate: 'bidUser'
+        });
     },
 
     order: async (parent, { _id }, context) => {

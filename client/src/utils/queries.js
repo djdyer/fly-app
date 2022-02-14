@@ -10,6 +10,13 @@ query auctions {
     flightDate
     image
     currentBid
+    bidsHistory{
+      bidTime
+      bidAmount
+      bidUser{
+        firstName
+      }
+    }
     aircraft
     flightNum
     cabinSize
@@ -18,7 +25,7 @@ query auctions {
     latestBidUser{
       _id
     }
-      }
+  }
 }
 `
 
@@ -73,6 +80,13 @@ query auction($_id: ID!) {
     flightDate
     image
     currentBid
+    bidsHistory{
+      bidTime
+      bidAmount
+      bidUser{
+        firstName
+      }
+    }
     aircraft
     flightNum
     cabinSize

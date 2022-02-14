@@ -75,11 +75,10 @@ function Profile() {
                 </div>
                 {userData.auctions.map((auction) => {
                   return (
-                    <div className="profileOpenBids">
+                    <div key={auction._id} className="profileOpenBids">
                       <a
                         href={`auctiondetail/${auction._id}`}
-                        key={auction._id}
-                      >
+                       >
                         {" "}
                         <h2>
                           {" "}
