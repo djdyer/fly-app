@@ -508,6 +508,10 @@ header {
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
 
+#filteredResults #result #header2 {
+  width: calc(100% - 44px);
+}
+
 .profileDetail h2 {
   text-align: left;
   margin: 25px 0 0 25px;
@@ -942,6 +946,11 @@ h6:hover {
     margin: 5px 10px 5px 5px;
     width: 50px;
   }
+
+  .filterFields .filterRow input {
+    width: 170px;
+    font-size: 10pt;
+  }
 }
 
 @media screen and (max-width: 505px) {
@@ -960,7 +969,6 @@ h6:hover {
 
   .filterFields .filterRow input {
     height: 40px;
-    width: 140px;
     font-size: 10pt;
   }
 
