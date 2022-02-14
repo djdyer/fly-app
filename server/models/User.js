@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
-const Auction = require('./Auction');
+// const Auction = require('./Auction');
 
 const userSchema = new Schema({
   firstName: {
@@ -18,7 +18,8 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email address'],
   },
   password: {
     type: String,
@@ -29,8 +30,19 @@ const userSchema = new Schema({
     type: String,
     trim: true
   },
-  auctions: [Auction.schema]
-});
+  auctions: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Auction'
+    }
+  ]
+},
+{
+  toJSON: {
+    virtuals: true,
+  },
+}
+);
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
@@ -46,6 +58,10 @@ userSchema.pre('save', async function(next) {
 userSchema.methods.isCorrectPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
+
+userSchema.virtual('auctionsCount').get(function () {
+  return this.auctions.length;
+});
 
 const User = mongoose.model('User', userSchema);
 

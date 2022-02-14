@@ -19,9 +19,6 @@ function Profile() {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
 
-  console.log(userData);
-  console.log(userData.auctions);
-
   return (
     <>
       {loading ? (
@@ -32,7 +29,7 @@ function Profile() {
             <h2>Profile</h2>
             <header>
               <div className="profileColumn">
-                <img
+               <a><img
                   id="addUserImg"
                   className="icon default"
                   alt="plus"
@@ -44,6 +41,7 @@ function Profile() {
                   alt="plus hover"
                   src={plusHover}
                 />
+                </a> 
                 <img id="userImg" alt="userImg" src={userImg} />
               </div>
               <div className="profileColumn">
@@ -78,7 +76,7 @@ function Profile() {
                   return (
                     <a href={`auctiondetail/${auction._id}`} key={auction._id}>
                       {" "}
-                      From: {auction.origin} To: {auction.destination}{" "}
+                     <h3> From: {auction.origin} To: {auction.destination}{" "}</h3>
                     </a>
                   );
                 })}
