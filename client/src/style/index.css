@@ -1059,4 +1059,8 @@ h6:hover {
   .profileColumn h3 {
     margin: 3px auto;
   }
+
+  #filteredResults #result #header2 {
+    width: calc(100% - 4px);
+  }
 }
