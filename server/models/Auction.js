@@ -24,6 +24,12 @@ const auctionSchema = new Schema({
     type: Number,
     required: true,
   },
+  bidsHistory: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Bid'
+    }
+  ],
   aircraft: {
     type: String,
     required: true,
@@ -48,7 +54,10 @@ const auctionSchema = new Schema({
     type: Boolean,
     required: true,
   },
- 
+  latestBidUser: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+}
 });
 
 const Auction = mongoose.model("Auction", auctionSchema);

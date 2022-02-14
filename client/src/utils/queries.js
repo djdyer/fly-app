@@ -15,6 +15,9 @@ query auctions {
     cabinSize
     operator
     termsConfirm
+    latestBidUser{
+      _id
+    }
       }
 }
 `
@@ -52,6 +55,9 @@ query user{
         cabinSize
         operator
         termsConfirm
+        latestBidUser{
+          _id
+        }
       }
     }
   }
@@ -72,6 +78,9 @@ query auction($_id: ID!) {
     cabinSize
     operator
     termsConfirm
+    latestBidUser{
+      _id
+    }
   }
 }
 `;

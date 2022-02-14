@@ -50,6 +50,16 @@ export const SAVE_FLIGHT = gql`
     }
 `;
 
+export const DELETE_FLIGHT = gql`
+  mutation deleteflight($auctionId: ID!, $remuserId: ID!) {
+    deleteflight(auctionId: $auctionId, remuserId: $remuserId) {
+          auctions{
+          _id
+        }
+      }
+    }
+`;
+
 export const ADD_ORDER = gql`
   mutation addOrder($products: [ID]!) {
     addOrder(products: $products) {

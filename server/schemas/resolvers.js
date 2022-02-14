@@ -18,7 +18,9 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     users: async () => {
-      return await User.find({}).populate('auctions');
+      return await User.find({}).populate('auctions').populate({
+        path: 'auctions', populate: 'bidsHistory'}).populate({
+          path: 'auctions.bidsHistory', populate: 'bidUser'});
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -27,10 +29,13 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     auctions: async () => {
-      return await Auction.find({});
+      return await Auction.find({}).populate("bidsHistory").populate({
+        path: 'bidsHistory',
+        populate: 'bidUser'
+      });
     },
     auction: async (parent, args) => {
-        return await Auction.findOne({ _id: args._id });
+        return await Auction.findOne({ _id: args._id }).populate("bidsHistory").populate("latestBidUser");
     },
 
     order: async (parent, { _id }, context) => {
@@ -113,6 +118,19 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
       
+    },
+
+    deleteflight: async (parent, args, context) => {
+      if (context.user) {
+
+        const remUserAucion =  await User.findOneAndUpdate(
+        { _id: args.remuserId },
+        { $pull: { auctions: args.auctionId } },
+        { new: true }
+      );
+      return remUserAucion;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
 
     updateUser: async (parent, args, context) => {

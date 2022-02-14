@@ -18,6 +18,6 @@ const bidSchema = new Schema({
     }
 });
 
-const Auction = mongoose.model("Bid", bidSchema);
+const Bid = mongoose.model("Bid", bidSchema);
 
-module.exports = Auction;
+module.exports = Bid;

@@ -1,7 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Auth from '../utils/auth';
 import { useMutation } from "@apollo/client";
-import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
+import { UPDATE_BID, SAVE_FLIGHT, DELETE_FLIGHT } from "../utils/mutations";
 import { QUERY_CHECKOUT } from '../utils/queries';
 import { useLazyQuery } from '@apollo/client';
 import { loadStripe } from '@stripe/stripe-js';
@@ -15,29 +15,30 @@ function AuctionButton(props) {
     const pathArray = window.location.pathname.split("/");
     const auctionId = pathArray[pathArray.length - 1];
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+    console.log(auctionId)
 
-  useEffect(() => {
-    if (data) {
-      stripePromise.then((res) => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
-      });
+
+
+    useEffect(() => {
+        if (data) {
+            stripePromise.then((res) => {
+                res.redirectToCheckout({ sessionId: data.checkout.session });
+            });
+        }
+    }, [data]);
+
+    function submitCheckout() {
+        const flightId = auctionId
+        getCheckout({
+            variables: { flight: flightId },
+        });
     }
-  }, [data]);
-
-  function submitCheckout() {
-    const flightId=auctionId
-console.log(flightId)
-    getCheckout({
-      variables: { flight: flightId },
-    });
-  }
-
-   
 
     const [bid, setBid] = useState("");
 
     const [updateBid, { error }] = useMutation(UPDATE_BID);
     const [saveflight] = useMutation(SAVE_FLIGHT);
+    const [deleteflight] = useMutation(DELETE_FLIGHT);
 
     const handleInputChange = (e) => {
         // Getting the value and name of the input which triggered the change
@@ -46,7 +47,6 @@ console.log(flightId)
         const inputValue = target.value;
         setBid(inputValue);
 
-        console.log(bid);
     };
 
     const handleFormSubmit = async (e) => {
@@ -65,12 +65,16 @@ console.log(flightId)
             const response = await updateBid({
                 variables: { currentBid: +bid, _id: auctionId },
             });
+            // console.log(auctionId, props.latestBidUser._id)
 console.log(auctionId)
-
             const responseSaveFlight = await saveflight({
                 variables: { _id: auctionId },
             });
-console.log(responseSaveFlight)
+
+            const responseDeleteFlight = await deleteflight({
+                variables: { auctionId: auctionId, remuserId: props.latestBidUser._id },
+            });
+            console.log(responseSaveFlight, responseDeleteFlight)
             if (!response) {
                 throw new Error("something went wrong!");
             }
@@ -105,16 +109,16 @@ console.log(responseSaveFlight)
     } else if ((Auth.loggedIn() && (props.auctionData.auctionEndDate < (new Date())))) {
         return (
             <div className="enterBid btnTerms" >
-            <button
-                className="shadow-pop-br"
-                id="submitBtn"
-                type="submit"
-                onClick= {submitCheckout}
-            >
-                <h1>MAKE PAYMENT</h1>
-            </button>
+                <button
+                    className="shadow-pop-br"
+                    id="submitBtn"
+                    type="submit"
+                    onClick={submitCheckout}
+                >
+                    <h1>MAKE PAYMENT</h1>
+                </button>
 
-        </div>
+            </div>
         )
     } else {
         return (

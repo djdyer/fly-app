@@ -11,6 +11,7 @@ module.exports = [
     cabinSize: 16,
     operator: "NetJets Inc.",
     termsConfirm: false,
+    latestBidUser: "000000000000000000000000"
   },
   {
     auctionEndDate: new Date(+new Date() +  2 * 24 * 60 * 60 * 1000),
@@ -24,6 +25,7 @@ module.exports = [
     cabinSize: 8,
     operator: "Vista Global Holding",
     termsConfirm: false,
+    latestBidUser: "000000000000000000000000"
   },
   {
     auctionEndDate: new Date(+new Date() +  24 * 60 * 60 * 1000),
@@ -37,6 +39,7 @@ module.exports = [
     cabinSize: 12,
     operator: "Jet Linx",
     termsConfirm: false,
+    latestBidUser: "000000000000000000000000"
   },
   {
     auctionEndDate: new Date(+new Date() + 10 * 24 * 60 * 60 * 1000),
@@ -50,6 +53,7 @@ module.exports = [
     cabinSize: 8,
     operator: "Solairus Aviation",
     termsConfirm: false,
+    latestBidUser: "000000000000000000000000"
   },
   {
     auctionEndDate: new Date(+new Date() + 22 * 60 * 60 * 1000),
@@ -63,6 +67,7 @@ module.exports = [
     cabinSize: 8,
     operator: "Airshare",
     termsConfirm: false,
+    latestBidUser: "000000000000000000000000"
   },
   {
     auctionEndDate: new Date(+new Date() + 12 * 24 * 60 * 60 * 1000),
@@ -76,6 +81,7 @@ module.exports = [
     cabinSize: 10,
     operator: "Worldwide Jet Charter",
     termsConfirm: false,
+    latestBidUser: "000000000000000000000000"
   },
   {
     auctionEndDate: new Date(+new Date() + 15 * 60 * 60 * 1000),
@@ -89,6 +95,7 @@ module.exports = [
     cabinSize: 12,
     operator: "Nicholas Air",
     termsConfirm: false,
+    latestBidUser: "000000000000000000000000"
   },
   {
     auctionEndDate: new Date(+new Date() + 14 * 24 * 60 * 60 * 1000),
@@ -102,5 +109,6 @@ module.exports = [
     cabinSize: 8,
     operator: "Jet Edge",
     termsConfirm: false,
+    latestBidUser: "6209dcbbc9661314fcfc1912"
   },
 ];
