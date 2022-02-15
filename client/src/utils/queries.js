@@ -1,48 +1,49 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-export const QUERY_AUCTIONS= gql`
-query auctions {
-  auctions {
-    _id
-    auctionEndDate
-    destination
-    origin
-    flightDate
-    image
-    currentBid
-    bidsHistory{
-      bidTime
-      bidAmount
-      bidUser{
-        firstName
+export const QUERY_AUCTIONS = gql`
+  query auctions {
+    auctions {
+      _id
+      auctionEndDate
+      destination
+      origin
+      flightDate
+      image
+      currentBid
+      bidsHistory {
+        bidTime
+        bidAmount
+        bidUser {
+          firstName
+          lastName
+        }
+      }
+      aircraft
+      flightNum
+      cabinSize
+      operator
+      termsConfirm
+      latestBidUser {
+        _id
       }
     }
-    aircraft
-    flightNum
-    cabinSize
-    operator
-    termsConfirm
-    latestBidUser{
-      _id
-    }
   }
-}
-`
+`;
 
 export const QUERY_USER = gql`
-query user($_id: ID!) {
-  user(_id: $_id) {
-    _id
-    firstName
-    lastName
-    email
-    homeCity
+  query user($_id: ID!) {
+    user(_id: $_id) {
+      _id
+      firstName
+      lastName
+      email
+      homeCity
+    }
   }
-}
 `;
 
 export const QUERY_ME = gql`
-query user{
+  query user {
     me {
       _id
       firstName
@@ -62,7 +63,7 @@ query user{
         cabinSize
         operator
         termsConfirm
-        latestBidUser{
+        latestBidUser {
           _id
         }
       }
@@ -71,32 +72,33 @@ query user{
 `;
 
 export const QUERY_AUCTION = gql`
-query auction($_id: ID!) {
-  auction(_id: $_id) {
-    _id
-    auctionEndDate
-    destination
-    origin
-    flightDate
-    image
-    currentBid
-    bidsHistory{
-      bidTime
-      bidAmount
-      bidUser{
-        firstName
+  query auction($_id: ID!) {
+    auction(_id: $_id) {
+      _id
+      auctionEndDate
+      destination
+      origin
+      flightDate
+      image
+      currentBid
+      bidsHistory {
+        bidTime
+        bidAmount
+        bidUser {
+          firstName
+          lastName
+        }
+      }
+      aircraft
+      flightNum
+      cabinSize
+      operator
+      termsConfirm
+      latestBidUser {
+        _id
       }
     }
-    aircraft
-    flightNum
-    cabinSize
-    operator
-    termsConfirm
-    latestBidUser{
-      _id
-    }
   }
-}
 `;
 
 export const QUERY_CHECKOUT = gql`

@@ -616,7 +616,7 @@ header {
 }
 
 .bidHistory {
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   background-color: #161616;
   display: flex;
   flex-direction: column;
@@ -706,6 +706,10 @@ li {
   text-align: right;
   font-size: 12pt;
   padding-right: 15px;
+}
+
+.auctionMessage {
+  margin: 25px auto;
 }
 
 h5 {
