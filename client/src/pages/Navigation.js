@@ -1,25 +1,25 @@
 import React from "react";
 import Auth from "../utils/auth";
 
-export default function Navigation({ currentPage, handlePageChange }) {
-  const logo = require("../../src/assets/icons/fly_logo.png");
-  const user = require("../../src/assets/icons/user.png");
-  const userHover = require("../../src/assets/icons/user2.png");
-  const search = require("../../src/assets/icons/search.png");
-  const searchHover = require("../../src/assets/icons/search2.png");
-  const settings = require("../../src/assets/icons/settings.png");
-  const settingsHover = require("../../src/assets/icons/settings2.png");
-  const payment = require("../../src/assets/icons/transfers.png");
-  const paymentHover = require("../../src/assets/icons/transfers2.png");
-  const documents = require("../../src/assets/icons/documents.png");
-  const documentsHover = require("../../src/assets/icons/documents2.png");
-  const logout = require("../../src/assets/icons/logout2.png");
-  const logoutHover = require("../../src/assets/icons/logout.png");
+const logo = require("../../src/assets/icons/fly_logo.png");
+const user = require("../../src/assets/icons/user.png");
+const userHover = require("../../src/assets/icons/user2.png");
+const search = require("../../src/assets/icons/search.png");
+const searchHover = require("../../src/assets/icons/search2.png");
+const settings = require("../../src/assets/icons/settings.png");
+const settingsHover = require("../../src/assets/icons/settings2.png");
+const payment = require("../../src/assets/icons/transfers.png");
+const paymentHover = require("../../src/assets/icons/transfers2.png");
+const documents = require("../../src/assets/icons/documents.png");
+const documentsHover = require("../../src/assets/icons/documents2.png");
+const logout = require("../../src/assets/icons/logout2.png");
+const logoutHover = require("../../src/assets/icons/logout.png");
 
+export default function Navigation() {
   return (
     <>
       <div id="mobileNav">
-        <a href="/" onClick={() => handlePageChange("Home")}>
+        <a href="/" >
           <img id="mobileLogo" alt="home" src={logo} />
         </a>
       </div>
@@ -29,7 +29,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
         <a href="/">
           <img id="logo" alt="fly-logo" src={logo} />
         </a>
-        <a href="/search" onClick={() => handlePageChange("Search")}>
+        <a href="/search" >
           <div className="navTab">
             <img className="icon default search" alt="search" src={search} />
             <img
@@ -41,7 +41,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
         {Auth.loggedIn() ? (
-          <a href="/profile" onClick={() => handlePageChange("Profile")}>
+          <a href="/profile">
             <div className="navTab">
               <img className="icon default" alt="profile" src={logout} />
               <img
@@ -53,7 +53,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
             </div>
           </a>
         ) : (
-          <a href="/login" onClick={() => handlePageChange("Login")}>
+          <a href="/login" >
             <div className="navTab">
               <img className="icon default" alt="login" src={user} />
               <img className="icon hover" alt="profileHover" src={userHover} />
@@ -62,7 +62,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </a>
         )}
 
-        <a href="/payment" onClick={() => handlePageChange("Payment")}>
+        <a href="/payment">
           <div className="navTab">
             <img className="icon default" alt="payment" src={payment} />
             <img className="icon hover" alt="paymentHover" src={paymentHover} />
@@ -70,7 +70,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
 
-        <a href="/documents" onClick={() => handlePageChange("Documents")}>
+        <a href="/documents" >
           <div className="navTab">
             <img className="icon default" alt="documents" src={documents} />
             <img
@@ -82,7 +82,7 @@ export default function Navigation({ currentPage, handlePageChange }) {
           </div>
         </a>
 
-        <a href="/settings" onClick={() => handlePageChange("Settings")}>
+        <a href="/settings" >
           <div className="navTab">
             <img
               className="icon default settings"

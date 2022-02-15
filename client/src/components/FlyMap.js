@@ -86,6 +86,6 @@ export default function FlyMap() {
       </GoogleMap>
     </div>
   ) : (
-    <>Loading map .....</>
+    null
   );
 }
