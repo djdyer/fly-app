@@ -15,7 +15,7 @@ const center = {
 };
 
 export default function FlyMap() {
-  console.log(process.env);
+  // console.log(process.env);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",

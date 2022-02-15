@@ -103,22 +103,22 @@ function AuctionDetail() {
             <div className="bidHistory">
               <div id="bidHeader">Bid History</div>
               {auctionData?.bidsHistory.map((history) => {
-                return (
-                  <table className="otherBid" key={history._id}>
-                    <tr>
+                (
+                  <div key={history.bidUser._id} className="otherBid" >
+                    {/* <tr> */}
                       <h5>
                         {history.bidUser.firstName} {history.bidUser.lastName}
                       </h5>
-                    </tr>
-                    <tr>
+                    {/* </tr> */}
+                    {/* <tr> */}
                       <h5>
                         Time: {new Date(+history.bidTime).toLocaleTimeString()}
                       </h5>
-                    </tr>
-                    <tr>
+                    {/* </tr> */}
+                    {/* <tr> */}
                       <h5>Bid: ${history.bidAmount}</h5>
-                    </tr>
-                  </table>
+                    {/* </tr> */}
+                  </div>
                 );
               })}
             </div>
