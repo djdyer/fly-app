@@ -111,12 +111,10 @@ function AuctionDetail() {
                       </h5>
                     </tr>
                     <tr>
-                      <h5>
-                        Time: {new Date(+history.bidTime).toLocaleTimeString()}
-                      </h5>
+                      <h5>{new Date(+history.bidTime).toLocaleTimeString()}</h5>
                     </tr>
                     <tr>
-                      <h5>Bid: ${history.bidAmount}</h5>
+                      <h5>${history.bidAmount}</h5>
                     </tr>
                   </table>
                 );
