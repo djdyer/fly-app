@@ -17,7 +17,13 @@ function AuctionButton(props) {
   const auctionId = pathArray[pathArray.length - 1];
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
+
+  console.log("111", props.auctionData.currentBid)
+
   const [bid, setBid] = useState("");
+  // const [history, setHistory] =useState([props.auctionData.bidsHistory])
+
+  // console.log("111", history)
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
   const [deleteflight] = useMutation(DELETE_FLIGHT);
@@ -38,39 +44,37 @@ function AuctionButton(props) {
       if (!+bid) {
         console.log("Not a number");
         setBid("");
-        return;
-      }
-      if (+bid <= props.currentBid) {
+        throw new Error("Not a number!");
+      } else if (+bid <= props.auctionData.currentBid) {
         console.log("You cant bid lower");
-        return;
-      }
-      const response = await updateBid({
-        variables: { currentBid: +bid, _id: auctionId },
-      });
-      const responseDeleteFlight = await deleteflight({
-        variables: {
-          auctionId: auctionId,
-          remuserId: props.auctionData.latestBidUser._id,
-        },
-      });
-      await updateLatestBidUser({
-        variables: { _id: auctionId },
-      });
-      const responseSaveFlight = await saveflight({
-        variables: { _id: auctionId },
-      });
-      console.log(auctionId, +bid);
+        throw new Error("You cant bid lower!");
+      } else {
+        await updateBid({
+          variables: { currentBid: +bid, _id: auctionId },
+        });
 
-      await updateBidHistory({
-        variables: { auctionId: auctionId, bidAmount: +bid },
-      });
+        await deleteflight({
+          variables: {
+            auctionId: auctionId,
+            remuserId: props.auctionData.latestBidUser._id,
+          },
+        });
+        await updateLatestBidUser({
+          variables: { _id: auctionId },
+        });
+        await saveflight({
+          variables: { _id: auctionId },
+        });
 
-      console.log(responseSaveFlight, responseDeleteFlight);
-      if (!response) {
-        throw new Error("something went wrong!");
+        await updateBidHistory({
+          variables: { auctionId: auctionId, bidAmount: +bid },
+        });
       }
-    } catch (err) {
-      console.error(err);
+      // if (!response) {
+      //   throw new Error("something went wrong!");
+      // }
+    } catch (error) {
+      console.error(error);
     }
     setBid("");
   };
@@ -112,6 +116,13 @@ function AuctionButton(props) {
             <h1>PLACE BID</h1>
           </button>
         </div>
+        {error ? (
+          <div>
+            <p className="error-text" style={{ color: "red" }}>
+              BID ERROR
+            </p>
+          </div>
+        ) : null}
       </>
     );
   } else if (

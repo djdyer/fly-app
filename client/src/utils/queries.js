@@ -14,6 +14,7 @@ export const QUERY_AUCTIONS = gql`
         bidTime
         bidAmount
         bidUser {
+          _id
           firstName
           lastName
         }
@@ -85,6 +86,7 @@ export const QUERY_AUCTION = gql`
         bidTime
         bidAmount
         bidUser {
+          _id
           firstName
           lastName
         }
