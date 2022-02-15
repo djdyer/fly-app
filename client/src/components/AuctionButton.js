@@ -18,11 +18,11 @@ function AuctionButton(props) {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
 
-  console.log("111", props.auctionData.currentBid)
+  // console.log("111", props.auctionData.currentBid)
 
   const [bid, setBid] = useState("");
-  // const [history, setHistory] =useState([props.auctionData.bidsHistory])
-
+  const [historystate, setHistory] = useState(props.auctionData.bidsHistory)
+  console.log(userData)
   // console.log("111", history)
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
@@ -70,9 +70,12 @@ function AuctionButton(props) {
           variables: { auctionId: auctionId, bidAmount: +bid },
         });
       }
+      let test = { __typename: 'Bid', bidTime: +(new Date()), bidAmount: +bid, bidUser: { firstName: userData.firstName, lastName: userData.lastName } };
       // if (!response) {
       //   throw new Error("something went wrong!");
       // }
+      console.log([...historystate, test])
+      setHistory([test])
     } catch (error) {
       console.error(error);
     }
@@ -82,6 +85,28 @@ function AuctionButton(props) {
   if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date()) {
     return (
       <>
+        <div className="bidHistory">
+          <div id="bidHeader">Bid History</div>
+          {historystate.slice(0).reverse().slice(0, 3).map((history) => {
+            return (
+              <div className="otherBid" key={history.bidUser._id}>
+                {/* <tr> */}
+                <h5>
+                  {history.bidUser.firstName} {history.bidUser.lastName}
+                </h5>
+                {/* </tr> */}
+                {/* <tr> */}
+                <h5>
+                  Time: {new Date(+history.bidTime).toLocaleTimeString()}
+                </h5>
+                {/* </tr> */}
+                {/* <tr> */}
+                <h5>Bid: ${history.bidAmount}</h5>
+                {/* </tr> */}
+              </div>
+            );
+          })}
+        </div>
         <div className="watchOption">
           <a href="/watchlist">
             <img
