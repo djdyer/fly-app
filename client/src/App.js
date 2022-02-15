@@ -42,9 +42,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <Navigation />
+      <FlyMap />
       <Router>
-        <Navigation />
-        <FlyMap />
         <Switch>
           <Route exact path="/profile">
             <Profile />
