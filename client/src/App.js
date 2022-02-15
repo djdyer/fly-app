@@ -61,10 +61,9 @@ function App() {
           </Route>
           <Route exact path="/auctiondetail/:id">
             <AuctionDetail />
-          </Route>
-          <Route exact path="/payment">
-            <Payment />
-          </Route>
+            </Route>
+          <Route exact path="/payment" component={Payment}/>
+ 
           {/* <Route exact path='/settings' component={Settings} />
           <Route exact path='/payment' component={Payment} />
           <Route exact path='/documents' component={Documents} />

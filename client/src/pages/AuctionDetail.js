@@ -15,7 +15,6 @@ function AuctionDetail() {
     variables: { _id: auctionId },
   });
   const auctionData = data?.auction || {};
-  console.log(auctionData);
 
   return (
     <div>
