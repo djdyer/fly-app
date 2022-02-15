@@ -542,6 +542,10 @@ header {
   align-items: center;
 }
 
+#timerBlock h2 {
+  display: inline;
+}
+
 #auctionBody {
   font-family: "Quicksand", sans-serif;
   font-size: 12pt;
@@ -620,14 +624,14 @@ header {
   background-color: #161616;
   display: flex;
   flex-direction: column;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
 }
 
 .otherBid {
   margin: 5px 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .auction input {
@@ -929,11 +933,11 @@ h6:hover {
   }
 
   .serviceContainer {
-    font-size: 10pt;
+    font-size: 9pt;
   }
 
   li {
-    font-size: 6pt;
+    font-size: 5pt;
   }
 
   .watchOption {
@@ -958,6 +962,14 @@ h6:hover {
 }
 
 @media screen and (max-width: 505px) {
+  .topResultsContainer {
+    margin-top: 500px;
+  }
+
+  .register input {
+    width: 300px;
+  }
+
   .filterFields {
     height: 80px;
     margin-bottom: 10px;
@@ -973,6 +985,7 @@ h6:hover {
 
   .filterFields .filterRow input {
     height: 40px;
+    width: 150px;
     font-size: 10pt;
   }
 
@@ -1006,8 +1019,12 @@ h6:hover {
     margin: 5px auto;
   }
 
+  #timerBlock h2 {
+    display: none;
+  }
+
   #auctionBody {
-    padding: 10px;
+    padding: 5px;
   }
 
   .termsContainer {
@@ -1020,6 +1037,7 @@ h6:hover {
 
   #resultsHeader {
     margin: 0;
+    margin-top: 10px;
   }
 
   #resultsHeader h2 {
@@ -1040,20 +1058,26 @@ h6:hover {
   }
 
   #userImg {
-    width: 100px;
-    margin: auto 10px;
+    width: 70px;
+    margin: 0 8px 0 0;
   }
 
   #addUserImg,
   #addUserImg2 {
+    width: 20px;
     position: absolute;
-    margin-left: 45px;
-    margin-top: 25px;
+    margin-left: 25px;
+    margin-top: 18px;
     z-index: 4;
   }
 
+  .profileOpenBids a h2 {
+    font-size: 10pt;
+    margin-left: 20px;
+  }
+
   #auctionHeader {
-    padding: 20px 0 20px 10px;
+    padding: 20px 0 20px 15px;
   }
 
   #countdown {
@@ -1061,10 +1085,52 @@ h6:hover {
   }
 
   .profileColumn h3 {
-    margin: 3px auto;
+    font-size: 8pt;
+    margin: 4px auto;
   }
 
   #filteredResults #result #header2 {
     width: calc(100% - 4px);
+  }
+
+  #navBlock.navigation .search {
+    margin-left: 0;
+  }
+
+  #navBlock.navigation .settings {
+    margin-right: 15px;
+  }
+
+  #profileLinks h6 {
+    font-size: 8pt;
+  }
+
+  #submitBtn,
+  #searchBtn,
+  #origin,
+  #destination {
+    width: 220px;
+    margin-bottom: 10px;
+  }
+
+  #submitBtn h1,
+  #searchBtn h1 {
+    font-size: 13pt;
+  }
+
+  .bidHistory {
+    margin-bottom: 0;
+  }
+
+  .leadingBidContainer {
+    font-size: 10pt;
+  }
+
+  #leadingBid {
+    width: 70px;
+  }
+
+  .auctionBodyColumn h3 {
+    font-size: 8pt;
   }
 }
