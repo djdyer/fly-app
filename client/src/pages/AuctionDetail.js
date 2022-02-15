@@ -100,20 +100,6 @@ function AuctionDetail() {
                 <li>Bar stocked with non-alcoholic beverages.</li>
               </div>
             </div>
-            <div className="bidHistory">
-              <div id="bidHeader">Bid History</div>
-              {auctionData?.bidsHistory.map((history) => {
-                (
-                  <div key={history.bidUser._id} className="otherBid" >
-                      <h5>
-                        {history.bidUser.firstName} {history.bidUser.lastName}
-                      </h5>
-                      <h5>{new Date(+history.bidTime).toLocaleTimeString()}</h5>
-                      <h5>${history.bidAmount}</h5>
-                  </div>
-                );
-              })}
-            </div>
             <AuctionButton auctionData={auctionData} />
           </div>
         </div>
