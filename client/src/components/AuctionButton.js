@@ -34,7 +34,6 @@ function AuctionButton(props) {
     const inputValue = target.value;
     setBid(inputValue);
   };
-  let fakeId = 0;
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -67,8 +66,8 @@ function AuctionButton(props) {
           variables: { auctionId: auctionId, bidAmount: +bid },
         });
       }
-      fakeId++;
-      let addToHistory = { __typename: 'Bid', bidTime: +(new Date()), bidAmount: +bid, bidUser: { firstName: userData.firstName, lastName: userData.lastName, _id: fakeId } };
+
+      let addToHistory = { __typename: 'Bid', bidTime: +(new Date()), bidAmount: +bid, bidUser: { firstName: userData.firstName, lastName: userData.lastName} };
       // if (!response) {
       //   throw new Error("something went wrong!");
       // }
@@ -84,7 +83,7 @@ function AuctionButton(props) {
       <div id="bidHeader">Bid History</div>
       {historystate.slice(0).reverse().slice(0, 3).map((history) => {
         return (
-          <div className="otherBid" key={history.bidUser._id}>
+          <div className="otherBid" key={history.bidTime}>
             <h5>
               {history.bidUser.firstName} {history.bidUser.lastName}
             </h5>
