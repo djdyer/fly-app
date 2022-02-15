@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import "./auctionMap.css";
+import env from "react-dotenv";
 
 const styles = require("../assets/styles/backgroundmap");
 
@@ -56,7 +57,7 @@ export default function AuctionMap() {
         // onUnmount={onUnmount}
       >
         {airports.map((marker) => (
-          <Marker key={marker.lat + marker.lng} position={marker} icon={icon}/>
+          <Marker key={marker.lat + marker.lng} position={marker} icon={icon} />
         ))}
       </GoogleMap>
     </div>

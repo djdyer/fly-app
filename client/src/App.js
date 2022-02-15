@@ -9,7 +9,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import Auth from './utils/auth';
+import Auth from "./utils/auth";
 import Home from "./pages/Home";
 import Navigation from "./pages/Navigation";
 import Login from "./pages/Login";
@@ -46,18 +46,17 @@ function App() {
         <Navigation />
         <FlyMap />
         <Switch>
-          
-            <Route exact path="/profile">
-              <Profile />
-            </Route> 
-            <Route exact path="/" component={Home} />
+          <Route exact path="/profile">
+            <Profile />
+          </Route>
+          <Route exact path="/" component={Home} />
           <Route exact path="/login">
             <Login />
           </Route>
           <Route exact path="/signup">
             <Signup />
           </Route>
-          <Route exact path='/search'>
+          <Route exact path="/search">
             <AllResultsFilter />
           </Route>
           <Route exact path="/auctiondetail/:id">

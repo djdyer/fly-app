@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import AuctionMap from "../components/AuctionMap";
 import AuctionButton from "../components/AuctionButton";
 import Auth from "../utils/auth";
-
 import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 import { QUERY_AUCTION } from "../utils/queries";
 import Timer from "../components/Timer";
 
 function AuctionDetail() {
-  const watch = require("../../src/assets/icons/watch.png");
-  const watchHover = require("../../src/assets/icons/watch2.png");
   const plane = require("../../src/assets/icons/plane.png");
   const pathArray = window.location.pathname.split("/");
   const auctionId = pathArray[pathArray.length - 1];
@@ -18,7 +15,8 @@ function AuctionDetail() {
     variables: { _id: auctionId },
   });
   const auctionData = data?.auction || {};
-console.log(auctionData)
+  console.log(auctionData);
+
   return (
     <div>
       {loading ? (
@@ -105,30 +103,24 @@ console.log(auctionData)
             <div className="bidHistory">
               <div id="bidHeader">Bid History</div>
               {auctionData?.bidsHistory.map((history) => {
-            return (
-              <div className="otherBid" key={history._id}>
-                <h5>Username: {history.bidUser.firstName}</h5>
-                <h5>Time Stamp: {new Date(+history.bidTime).toLocaleTimeString()}</h5>
-                <h5>Bid Amount: ${history.bidAmount}</h5>
-              </div>
-              )})}
-               </div>
-            <div className="watchOption">
-              <a href="/watchlist">
-                <img
-                  id="watchIcon"
-                  className="icon default"
-                  alt="watch"
-                  src={watch}
-                />
-                <img
-                  id="watchIcon2"
-                  className="icon hover"
-                  alt="watch hover"
-                  src={watchHover}
-                />
-              </a>
-              <h2>Watch this Auction </h2>
+                return (
+                  <table className="otherBid" key={history._id}>
+                    <tr>
+                      <h5>
+                        {history.bidUser.firstName} {history.bidUser.lastName}
+                      </h5>
+                    </tr>
+                    <tr>
+                      <h5>
+                        Time: {new Date(+history.bidTime).toLocaleTimeString()}
+                      </h5>
+                    </tr>
+                    <tr>
+                      <h5>Bid: ${history.bidAmount}</h5>
+                    </tr>
+                  </table>
+                );
+              })}
             </div>
             <AuctionButton auctionData={auctionData} />
           </div>
