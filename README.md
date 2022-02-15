@@ -131,7 +131,7 @@ Vince Momot
 
 <br />
 
-Todd Turlock  
+Todd Trulock  
 email:toddstrulock@gmail.com
 
 <a href= "https://github.com/ttrulock1"><img src=
