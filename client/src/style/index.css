@@ -1113,6 +1113,8 @@ h6:hover {
     margin-bottom: 10px;
   }
 
+  #origin::placeholder,
+  #destination::placeholder,
   #submitBtn h1,
   #searchBtn h1 {
     font-size: 13pt;
