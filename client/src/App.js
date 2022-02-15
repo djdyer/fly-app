@@ -42,40 +42,21 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Navigation />
-      <FlyMap />
       <Router>
-        <Switch>
-          <Route exact path="/profile">
-            <Profile />
-          </Route>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/search">
-            <AllResultsFilter />
-          </Route>
-          <Route exact path="/auctiondetail/:id">
-            <AuctionDetail />
-            </Route>
-          <Route exact path="/payment" component={Payment}/>
- 
-          {/* <Route exact path='/settings' component={Settings} />
-          <Route exact path='/payment' component={Payment} />
-          <Route exact path='/documents' component={Documents} />
-          <Route exact path='/more' component={More} />
-          <Route exact path='/notifications' component={Notifications} />
-          <Route exact path='/filter' component={Filter} /> */}
-          <Route
-            render={function () {
-              return <h1>Not Found</h1>;
-            }}
-          />
-        </Switch>
+        <div>
+          <FlyMap />
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/search" component={AllResultsFilter} />
+            <Route exact path="/auctiondetail/:id" component={AuctionDetail} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/payment" component={Payment} />
+            <Route render={() => <h1>Not Found!</h1>} />
+          </Switch>
+        </div>
       </Router>
     </ApolloProvider>
   );

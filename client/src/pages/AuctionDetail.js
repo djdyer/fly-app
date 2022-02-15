@@ -19,7 +19,7 @@ function AuctionDetail() {
   return (
     <div>
       {loading ? (
-        <p>Loading .....</p>
+        null
       ) : (
         <div className="auction">
           <div className="auctionDetail fade-in">

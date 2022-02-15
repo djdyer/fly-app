@@ -29,10 +29,15 @@ function AuctionButton(props) {
   const [updateBidHistory] = useMutation(UPDATE_BID_HISTORY);
 
   const handleInputChange = (e) => {
+    e.preventDefault();
+    try {
     // Getting the value and name of the input which triggered the change
     const { target } = e;
     const inputValue = target.value;
     setBid(inputValue);
+    } catch (error){
+      console.error(error);
+    }
   };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -73,7 +78,7 @@ function AuctionButton(props) {
       // }
       setHistory([...historystate, addToHistory])
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
     setBid("");
   };
@@ -137,7 +142,7 @@ function AuctionButton(props) {
         </div>
         {error ? (
           <div>
-            <p className="error-text" style={{ color: "red" }}>
+            <p style={{ color: "red" }}>
               BID ERROR
             </p>
           </div>

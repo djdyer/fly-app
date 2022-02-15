@@ -5,10 +5,11 @@ import { ADD_USER } from "../utils/mutations";
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [addUser] = useMutation(ADD_USER);
+  const [addUser, {error} ] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    try {
     const mutationResponse = await addUser({
       variables: {
         email: formState.email,
@@ -19,6 +20,9 @@ function Signup(props) {
     });
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
+  } catch (e){
+    console.log(e);
+  }
   };
 
   const handleChange = (event) => {
@@ -68,6 +72,13 @@ function Signup(props) {
           <h1>CREATE ACCOUNT</h1>
         </button>
       </form>
+      {error ? (
+        <div>
+          <p className="error-text" style={{ color: "red" }}>
+            The provided credentials are incorrect
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }

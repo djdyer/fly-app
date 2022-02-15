@@ -22,7 +22,7 @@ function Profile() {
   return (
     <>
       {loading ? (
-        <p>Loading....</p>
+        null
       ) : (
         <div className="profile">
           <div className="profileDetail fade-in">
