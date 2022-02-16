@@ -1117,6 +1117,7 @@ h6:hover {
   #destination {
     width: 220px;
     margin-bottom: 10px;
+    padding: 8px;
   }
 
   #origin::placeholder,
@@ -1125,7 +1126,7 @@ h6:hover {
   #searchBtn h1,
   #loginBtn h1,
   #signupBtn h1 {
-    font-size: 13pt;
+    font-size: 12pt;
   }
 
   .bidHistory {
@@ -1145,7 +1146,7 @@ h6:hover {
   }
 
   .registerFields {
-    margin-top: 25px;
+    margin-top: 20px;
   }
 
   .register input,
@@ -1158,6 +1159,7 @@ h6:hover {
 
   #signupBtn,
   #loginBtn {
+    height: 42px;
     margin-top: 20px;
   }
 }
