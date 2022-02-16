@@ -17,7 +17,7 @@ const center = {
 export default function AuctionMap() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyD-RuWSCkmZwh_RKF5GZKhWWkbbwVKkrdQ",
+    googleMapsApiKey: process.env.REACT_APP_FLY_API_KEY,
   });
 
   const mapRef = useRef(null);
