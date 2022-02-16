@@ -38,10 +38,10 @@ SO THAT I can experience a new level of luxury and convenience
 
 ## Demo
 
-[<img src="./assets/images/...png" width="1200px">](https://youtu.be/.../)
+[<img src="./assets/demo/youtube.png" width="1100px">](https://youtu.be/Z6M4T_MW84c)
 
-<img width="1200" src="./assets/demo/flyapp_mockup2.png">
-<img width="1200" src="./assets/demo/flyapp_mockup1.png">
+<img width="1100" src="./assets/demo/flyapp_mockup2.png">
+<img width="1100" src="./assets/demo/flyapp_mockup1.png">
 
 <br />
 <br />
