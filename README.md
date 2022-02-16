@@ -48,7 +48,7 @@ SO THAT I can experience a new level of luxury and convenience
 
 ## Deployment
 
-**Visit Materials Trader on Heroku:**
+**Visit Fly App on Heroku:**
 
 [<img src="./assets/badges/heroku.png" height="80px">](https://fly--app.herokuapp.com/)
 
