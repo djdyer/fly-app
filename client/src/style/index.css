@@ -180,7 +180,7 @@ input:focus {
 .registerFields {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin: 50px auto;
 }
 
 .register input,
@@ -192,12 +192,15 @@ input:focus {
   margin: 20px auto;
   border-radius: 5px;
   align-items: left;
+  background-color: #11193c;
+  opacity: 70%;
+  border: none;
 }
 
 .register input,
 select,
 textarea {
-  color: var(--dark);
+  color: rgb(255, 255, 255);
   font-family: "Quicksand", sans-serif;
   font-size: 14pt;
   text-align: left;
@@ -207,6 +210,7 @@ textarea {
 #signupBtn,
 #loginBtn {
   margin-top: 30px;
+  opacity: 100% !important;
 }
 
 #submitBtn {
@@ -780,7 +784,7 @@ h6:hover {
 }
 
 .register ::placeholder {
-  color: rgb(155, 155, 155);
+  color: rgb(104, 104, 104);
   text-align: left;
   font-size: 12pt;
 }
@@ -1105,6 +1109,8 @@ h6:hover {
     font-size: 8pt;
   }
 
+  #loginBtn,
+  #signupBtn,
   #submitBtn,
   #searchBtn,
   #origin,
@@ -1116,7 +1122,9 @@ h6:hover {
   #origin::placeholder,
   #destination::placeholder,
   #submitBtn h1,
-  #searchBtn h1 {
+  #searchBtn h1,
+  #loginBtn h1,
+  #signupBtn h1 {
     font-size: 13pt;
   }
 
@@ -1144,7 +1152,12 @@ h6:hover {
   .register button {
     width: 300px;
     height: 45px;
-    margin: 12px auto;
+    margin: 10px auto;
     border-radius: 5px;
+  }
+
+  #signupBtn,
+  #loginBtn {
+    margin-top: 20px;
   }
 }
