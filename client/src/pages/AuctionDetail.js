@@ -11,7 +11,7 @@ function AuctionDetail() {
   const plane = require("../../src/assets/icons/plane.png");
   const pathArray = window.location.pathname.split("/");
   const auctionId = pathArray[pathArray.length - 1];
-  const { loading, data } = useQuery(QUERY_AUCTION, {
+  const { loading, data, refetch : refechAuction } = useQuery(QUERY_AUCTION, {
     variables: { _id: auctionId },
   });
   const auctionData = data?.auction || {};
@@ -99,7 +99,7 @@ function AuctionDetail() {
                 <li>Bar stocked with non-alcoholic beverages.</li>
               </div>
             </div>
-            <AuctionButton auctionData={auctionData} />
+            <AuctionButton auctionData={auctionData} refechAuction={refechAuction} />
           </div>
         </div>
       )}

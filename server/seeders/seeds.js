@@ -18,7 +18,8 @@ db.once('open', async () => {
       lastName: "Momot",
       email: "vincemomot@gmail.com",
       password: "Password1",
-      auctions: [auctionsinsert[0]._id, auctionsinsert[2]._id, auctionsinsert[6]._id],
+      winingAuctions: [auctionsinsert[0]._id, auctionsinsert[2]._id, auctionsinsert[6]._id],
+      watchlistAuctions: [auctionsinsert[0]._id, auctionsinsert[2]._id, auctionsinsert[6]._id],
       homeCity: "Atlanta"
     }));
     
@@ -28,7 +29,8 @@ db.once('open', async () => {
       lastName: "Dyer",
       email: "davidrossdyer@gmail.com",
       password: "Password2",
-      auctions: [auctionsinsert[1]._id, auctionsinsert[3]._id],
+      winingAuctions: [auctionsinsert[1]._id, auctionsinsert[3]._id],
+      watchlistAuctions: [auctionsinsert[1]._id, auctionsinsert[3]._id],
       homeCity: "Atlanta"
     }));
 
@@ -38,7 +40,8 @@ db.once('open', async () => {
       lastName: "Markauskas",
       email: "juliusmarkauskas@gmail.com",
       password: "12345678",
-      auctions: [auctionsinsert[5]._id],
+      winingAuctions: [auctionsinsert[5]._id],
+      watchlistAuctions: [auctionsinsert[5]._id],
       homeCity: "Atlanta"
     }));
 
@@ -48,7 +51,8 @@ db.once('open', async () => {
       lastName: "Trulock",
       email: "toddtrulock@gmail.com",
       password: "Password4",
-      auctions: [auctionsinsert[4]._id, auctionsinsert[7]._id],
+      winingAuctions: [auctionsinsert[4]._id, auctionsinsert[7]._id],
+      watchlistAuctions: [auctionsinsert[4]._id, auctionsinsert[7]._id],
       homeCity: "Atlanta"
     }));
   
