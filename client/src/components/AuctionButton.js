@@ -19,7 +19,7 @@ function AuctionButton(props) {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
 
-
+  console.log(userData)
   const [bid, setBid] = useState("");
 
   const [updateBid, { error }] = useMutation(UPDATE_BID);
@@ -29,7 +29,7 @@ function AuctionButton(props) {
   const [updateBidHistory] = useMutation(UPDATE_BID_HISTORY);
   const [saveToWatchlist] = useMutation(SAVE_TO_WATCHLIST);
 
-  
+
 
   const handleInputChange = (e) => {
     e.preventDefault();
@@ -121,28 +121,30 @@ function AuctionButton(props) {
       })}
     </div>
   })
-
   if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date()) {
-    return (
-      <>
+    return (<>
+      {loading ? null : (<>
         {historyBlock()}
         <div className="watchOption">
-          <a href="/watchlist">
-            <img
-              id="watchIcon"
-              className="icon default"
-              alt="watch"
-              src={watch}
-            />
-            <img
-              id="watchIcon2"
-              className="icon hover"
-              alt="watch hover"
-              src={watchHover}
-              onClick={saveToWatch}
-            />
-          <h2 >Watch this Auction </h2>
-          </a>
+          {userData.watchlistAuctions.find(x => x._id === auctionId) ? (<a href="/profile" ><h2>It's on your watch list</h2></a>) : (
+            <>
+              <a href="/watchlist">
+                <img
+                  id="watchIcon"
+                  className="icon default"
+                  alt="watch"
+                  src={watch}
+                />
+                <img
+                  id="watchIcon2"
+                  className="icon hover"
+                  alt="watch hover"
+                  src={watchHover}
+                  onClick={saveToWatch}
+                />
+              <h2 >Watch this Auction </h2>
+              </a>
+            </>)}
         </div>
         <div className="enterBid">
           <input
@@ -168,7 +170,7 @@ function AuctionButton(props) {
             </p>
           </div>
         ) : null}
-      </>
+      </>)}</>
     );
   } else if (
     Auth.loggedIn() &&
