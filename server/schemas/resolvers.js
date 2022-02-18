@@ -8,7 +8,7 @@ const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate("auctions");
+        const user = await User.findById(context.user._id).populate('winingauctions').populate('watchlistauctions');
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
 
@@ -18,13 +18,13 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     users: async () => {
-      return await User.find({}).populate('auctions').populate({
+      return await User.find({}).populate('winingAuctions').populate('watchlistAuctions').populate({
         path: 'auctions', populate: 'bidsHistory'}).populate({
           path: 'auctions.bidsHistory', populate: 'bidUser'});
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return await User.findOne({ _id: context.user._id }).populate("auctions");
+        return await User.findOne({ _id: context.user._id }).populate('winingAuctions').populate('watchlistAuctions');
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -108,11 +108,11 @@ const resolvers = {
       return updatedBidSum;    
       
     },
-    saveflight: async (parent, {auctions}, context) => {
+    saveflight: async (parent, {winingAuctions}, context) => {
       if (context.user) {
         const updatedUser =  await User.findByIdAndUpdate(
           { _id: context.user._id }, 
-          { $addToSet: { auctions: auctions } },
+          { $addToSet: { winingAuctions: winingAuctions } },
           { new: true }
         );
   
@@ -122,6 +122,37 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
       
     },
+
+    saveToWatchlist: async (parent, {watchAuctions}, context) => {
+      if (context.user) {
+        const updatedUser =  await User.findByIdAndUpdate(
+          { _id: context.user._id }, 
+          { $addToSet: { watchlistAuctions: watchAuctions } },
+          { new: true }
+        );
+  
+      return updatedUser;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+      
+    },
+
+    deleteFromWatchlist: async (parent, {_id}, context) => {
+       if (context.user) {
+        const updatedUser =  await User.findByIdAndUpdate(
+          { _id: context.user._id }, 
+          { $pull: { watchlistAuctions: _id } },
+          { new: true }
+        );
+  
+      return updatedUser;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+      
+    },
+
     updateLatestBidUser: async (parent, {auctions}, context) => {
       if (context.user) {
         const updatedAuctionUser =  await Auction.findByIdAndUpdate(
@@ -142,7 +173,7 @@ const resolvers = {
 
         const remUserAucion =  await User.findOneAndUpdate(
         { _id: args.remuserId },
-        { $pull: { auctions: args.auctionId } },
+        { $pull: { winingAuctions: args.auctionId } },
         { new: true }
       );
       return remUserAucion;

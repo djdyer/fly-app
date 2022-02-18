@@ -51,7 +51,24 @@ export const QUERY_ME = gql`
       lastName
       email
       homeCity
-      auctions {
+      winingAuctions {
+        _id
+        auctionEndDate
+        destination
+        origin
+        flightDate
+        image
+        currentBid
+        aircraft
+        flightNum
+        cabinSize
+        operator
+        termsConfirm
+        latestBidUser {
+          _id
+        }
+      }
+      watchlistAuctions {
         _id
         auctionEndDate
         destination

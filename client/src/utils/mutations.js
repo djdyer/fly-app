@@ -42,12 +42,33 @@ mutation updateBid($_id: ID!, $currentBid: Float!) {
 `
 export const SAVE_FLIGHT = gql`
   mutation saveflight($_id: ID!) {
-       saveflight(auctions: $_id) {
-          auctions{
+       saveflight(winingAuctions: $_id) {
+        winingAuctions{
             _id
         }
       }
     }
+`;
+
+export const SAVE_TO_WATCHLIST = gql`
+  mutation saveToWatchlist($_id: ID!) {
+    saveToWatchlist(watchAuctions: $_id) {
+      watchlistAuctions{
+          _id
+        }
+      }
+    }
+`;
+
+export const DELETE_FROM_WATCHLIST = gql`
+  mutation deleteFromWatchlist($_id: ID!) {
+    deleteFromWatchlist(_id: $_id) {
+      firstName
+      watchlistAuctions {
+        _id
+    }
+  }
+}
 `;
 
 export const UPDATE_LATESTBID_USER = gql`
@@ -63,7 +84,7 @@ export const UPDATE_LATESTBID_USER = gql`
 export const DELETE_FLIGHT = gql`
   mutation deleteflight($auctionId: ID!, $remuserId: ID!) {
     deleteflight(auctionId: $auctionId, remuserId: $remuserId) {
-          auctions{
+      winingAuctions{
           _id
         }
       }

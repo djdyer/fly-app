@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import Auth from "../utils/auth";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery} from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
-// import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
-// import { QUERY_AUCTION } from "../utils/queries";
+import Profilewatchlist from "../components/Profilewatchlist"
+
 
 function Profile() {
-  const watchList = require("../../src/assets/icons/watchlist.png");
   const notificationsList = require("../../src/assets/icons/notificationslist.png");
   const settingsList = require("../../src/assets/icons/settingslist.png");
   const paymentsList = require("../../src/assets/icons/paymentslist.png");
-
   const documentsList = require("../../src/assets/icons/documentslist.png");
   const userImg = require("../../src/assets/icons/loaduser.png");
   const plus = require("../../src/assets/icons/plus.png");
   const plusHover = require("../../src/assets/icons/plus2.png");
 
-  const { loading, data } = useQuery(QUERY_ME);
+  const { loading, data, error, refetch: refechMe } = useQuery(QUERY_ME);
   const userData = data?.me || {};
+
 
   return (
     <>
@@ -73,7 +72,7 @@ function Profile() {
                   <img alt="notificationslist" src={notificationsList} />
                   <h3>Open Bids</h3>
                 </div>
-                {userData.auctions.map((auction) => {
+                {userData.winingAuctions.map((auction) => {
                   return (
                     <div key={auction._id} className="profileOpenBids">
                       <a href={`auctiondetail/${auction._id}`}>
@@ -88,12 +87,7 @@ function Profile() {
                 })}
               </div>
 
-              <div className="profileBlock">
-                <div className="profileBlockHeader">
-                  <img alt="watchlist" src={watchList} />
-                  <h3>Watchlist</h3>
-                </div>
-              </div>
+              <Profilewatchlist userData={userData} refechMe={refechMe}/>
 
               <div className="profileBlock">
                 <div className="profileBlockHeader">

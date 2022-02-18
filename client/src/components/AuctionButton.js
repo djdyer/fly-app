@@ -7,6 +7,7 @@ import {
   DELETE_FLIGHT,
   UPDATE_LATESTBID_USER,
   UPDATE_BID_HISTORY,
+  SAVE_TO_WATCHLIST
 } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
@@ -20,26 +21,42 @@ function AuctionButton(props) {
 
 
   const [bid, setBid] = useState("");
-  const [historystate, setHistory] = useState(props.auctionData.bidsHistory)
-  
+
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
   const [deleteflight] = useMutation(DELETE_FLIGHT);
   const [updateLatestBidUser] = useMutation(UPDATE_LATESTBID_USER);
   const [updateBidHistory] = useMutation(UPDATE_BID_HISTORY);
+  const [saveToWatchlist] = useMutation(SAVE_TO_WATCHLIST);
+
+  
 
   const handleInputChange = (e) => {
     e.preventDefault();
     try {
-    // Getting the value and name of the input which triggered the change
-    const { target } = e;
-    const inputValue = target.value;
-    setBid(inputValue);
-    } catch (error){
+      // Getting the value and name of the input which triggered the change
+      const { target } = e;
+      const inputValue = target.value;
+      setBid(inputValue);
+    } catch (error) {
       console.error(error);
     }
   };
-  const handleFormSubmit = async (e) => {
+
+  const saveToWatch = async (e) => {
+    e.preventDefault();
+    try {
+      await saveToWatchlist({
+        variables: { _id: auctionId },
+      });
+    }
+    catch (error) {
+      console.error(error)
+    }
+  };
+
+
+  const handlePlaceBid = async (e) => {
     e.preventDefault();
     try {
       if (!+bid) {
@@ -49,9 +66,15 @@ function AuctionButton(props) {
       } else if (+bid <= props.auctionData.currentBid) {
         console.log("You cant bid lower");
         throw new Error("You cant bid lower!");
+      } else if (userData._id === props.auctionData.latestBidUser._id) {
+        console.log("Your bid is already highest");
+        throw new Error("Your bid is already highest!");
       } else {
         await updateBid({
           variables: { currentBid: +bid, _id: auctionId },
+        });
+        await saveToWatchlist({
+          variables: { _id: auctionId },
         });
 
         await deleteflight({
@@ -70,15 +93,12 @@ function AuctionButton(props) {
         await updateBidHistory({
           variables: { auctionId: auctionId, bidAmount: +bid },
         });
+
+        props.refechAuction();
       }
 
-      let addToHistory = { __typename: 'Bid', bidTime: +(new Date()), bidAmount: +bid, bidUser: { firstName: userData.firstName, lastName: userData.lastName} };
-      // if (!response) {
-      //   throw new Error("something went wrong!");
-      // }
-      setHistory([...historystate, addToHistory])
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
     setBid("");
   };
@@ -86,7 +106,7 @@ function AuctionButton(props) {
   const historyBlock = (() => {
     return <div className="bidHistory">
       <div id="bidHeader">Bid History</div>
-      {historystate.slice(0).reverse().slice(0, 3).map((history) => {
+      {props.auctionData.bidsHistory.slice(0).reverse().slice(0, 3).map((history) => {
         return (
           <div className="otherBid" key={history.bidTime}>
             <h5>
@@ -119,9 +139,10 @@ function AuctionButton(props) {
               className="icon hover"
               alt="watch hover"
               src={watchHover}
+              onClick={saveToWatch}
             />
+          <h2 >Watch this Auction </h2>
           </a>
-          <h2>Watch this Auction </h2>
         </div>
         <div className="enterBid">
           <input
@@ -135,7 +156,7 @@ function AuctionButton(props) {
             className="shadow-pop-br"
             id="submitBtn"
             type="submit"
-            onClick={handleFormSubmit}
+            onClick={handlePlaceBid}
           >
             <h1>PLACE BID</h1>
           </button>
@@ -184,13 +205,6 @@ function AuctionButton(props) {
       <>{historyBlock()}
         <div className="enterBid">
           <h2 className="auctionMessage">AUCTION IS CLOSED</h2>
-          {error ? (
-            <div>
-              <p className="error-text" style={{ color: "red" }}>
-                BID ERROR
-              </p>
-            </div>
-          ) : null}
         </div>
       </>
     );
