@@ -70,7 +70,7 @@ function Profile() {
               <div className="profileBlock">
                 <div className="profileBlockHeader">
                   <img alt="notificationslist" src={notificationsList} />
-                  <h3>Open Bids</h3>
+                  <h3>Winning Bids</h3>
                 </div>
                 {userData.winingAuctions.map((auction) => {
                   return (
