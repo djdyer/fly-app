@@ -43,7 +43,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
           <FlyMap />
           <Navigation />
           <Switch>
@@ -56,7 +55,6 @@ function App() {
             <Route exact path="/payment" component={Payment} />
             <Route render={() => <h1>Not Found!</h1>} />
           </Switch>
-        </div>
       </Router>
     </ApolloProvider>
   );

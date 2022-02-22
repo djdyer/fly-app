@@ -1,12 +1,31 @@
-import React from "react";
+import React, {useState} from "react";
 import Auction from "../components/Auction";
 import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
 
 export default function AllResultsFilter() {
-  const { loading, data } = useQuery(QUERY_AUCTIONS);
+  const { loading, data, error } = useQuery(QUERY_AUCTIONS);
+  // const auctionsData = data?.auctions || {};
+// console.log(auctionsData)
 
   const search = require("../../src/assets/icons/search2.png");
+  const [filter, setFilter] = useState({filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: ""});
+ 
+  const handleInputSearchChange = (e) => {
+    e.preventDefault();
+      const { name, value } = e.target;
+      setFilter({
+        ...filter,
+        [name]: value,
+      });
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+
+  }
+
+console.log(filter)
 
   return (
     <>
@@ -22,13 +41,13 @@ export default function AllResultsFilter() {
 
             <div className="filterFields">
               <div className="filterRow">
-                <input id="filterOrigin" placeholder="Origin"></input>
-                <input type="date"></input>
+                <input id="filterOrigin" name="filterOrigin" placeholder="Origin" value={filter.origin} onChange={handleInputSearchChange}></input>
+                <input type="date" name="dateOrigin" value={filter.originDate} onChange={handleInputSearchChange}></input>
               </div>
 
               <div className="filterRow">
-                <input id="filterDestination" placeholder="Destination"></input>
-                <input type="date"></input>
+                <input id="filterDestination" name="filterDestination" placeholder="Destination" value={filter.destination} onChange={handleInputSearchChange}></input>
+                <input type="date" name="dateDestination" value={filter.destiantionDate} onChange={handleInputSearchChange}></input>
               </div>
             </div>
 
@@ -104,7 +123,7 @@ export default function AllResultsFilter() {
               </div>
             </div>
 
-            <button className="shadow-pop-br" id="searchBtn">
+            <button className="shadow-pop-br" id="searchBtn"  onClick={handleSearchSubmit}>
               <h1>SEARCH</h1>
             </button>
 
