@@ -14,7 +14,7 @@ module.exports = [
     latestBidUser: "000000000000000000000000",
   },
   {
-    auctionEndDate: new Date(+new Date() + 2 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 3 * 60 * 1000),
     origin: "LZU",
     destination: "BNA",
     flightDate: new Date(+new Date() + 10 * 24 * 60 * 60 * 1000),
