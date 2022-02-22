@@ -192,6 +192,14 @@ function AuctionButton(props) {
         </div>
       </>
     );
+  } else if (props.auctionData.auctionEndDate < new Date() && !Auth.loggedIn()){
+    return (
+      <>{historyBlock()}
+        <div className="enterBid">
+          <h2 className="auctionMessage">AUCTION IS CLOSED</h2>
+        </div>
+      </>
+    );
   } else if (!Auth.loggedIn()) {
     return (
       <>{historyBlock()}
@@ -203,13 +211,7 @@ function AuctionButton(props) {
       </>
     );
   } else {
-    return (
-      <>{historyBlock()}
-        <div className="enterBid">
-          <h2 className="auctionMessage">AUCTION IS CLOSED</h2>
-        </div>
-      </>
-    );
+    return 
   }
 }
 export default AuctionButton;
