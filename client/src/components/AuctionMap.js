@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import "./auctionMap.css";
-import env from "react-dotenv";
 
 const styles = require("../assets/styles/backgroundmap");
 
