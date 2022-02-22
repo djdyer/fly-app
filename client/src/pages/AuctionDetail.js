@@ -40,7 +40,7 @@ function AuctionDetail() {
               <div id="timerBlock">
                 <h2>CLOSING:</h2>
                 <div id="countdown">
-                  <Timer auctionEndDate={+auctionData.auctionEndDate} />
+                  <Timer auctionEndDate={+auctionData.auctionEndDate} refechAuction={refechAuction} />
                 </div>
               </div>
             </div>

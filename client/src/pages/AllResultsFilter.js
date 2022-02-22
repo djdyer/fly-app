@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import Auction from "../components/Auction";
 import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
 
 export default function AllResultsFilter() {
-  const { loading, data } = useQuery(QUERY_AUCTIONS);
+  const { loading, data, error } = useQuery(QUERY_AUCTIONS);
+  // const auctionsData = data?.auctions || {};
+  // console.log(auctionsData)
 
   const search = require("../../src/assets/icons/search2.png");
+  const [filter, setFilter] = useState({ filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: "" });
 
+  const handleInputSearchChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setFilter({
+      ...filter,
+      [name]: value.trim(),
+    });
+  };
+
+  // const handleSearchSubmit = (e) => {
+  //   e.preventDefault();
+
+  // }
+  const handleClearSearch = () => {
+    setFilter({ filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: "" })
+  }
+  
   return (
     <>
       {loading ? (
@@ -22,13 +42,13 @@ export default function AllResultsFilter() {
 
             <div className="filterFields">
               <div className="filterRow">
-                <input id="filterOrigin" placeholder="Origin"></input>
-                <input type="date"></input>
+                <input id="filterOrigin" name="filterOrigin" placeholder="Origin" value={filter.filterOrigin} onChange={handleInputSearchChange}></input>
+                <input type="date" name="dateOrigin" value={filter.dateOrigin} onChange={handleInputSearchChange}></input>
               </div>
 
               <div className="filterRow">
-                <input id="filterDestination" placeholder="Destination"></input>
-                <input type="date"></input>
+                <input id="filterDestination" name="filterDestination" placeholder="Destination" value={filter.filterDestination} onChange={handleInputSearchChange}></input>
+                <input type="date" name="dateDestination" value={filter.dateDestination} onChange={handleInputSearchChange}></input>
               </div>
             </div>
 
@@ -104,9 +124,12 @@ export default function AllResultsFilter() {
               </div>
             </div>
 
-            <button className="shadow-pop-br" id="searchBtn">
-              <h1>SEARCH</h1>
+            <button className="shadow-pop-br" id="searchBtn" onClick={handleClearSearch}>
+              <h1>CLEAR SEARCH</h1>
             </button>
+            {/* <button onClick={handleClearSearch}>
+              <h1>Clear search</h1>
+            </button> */}
 
             <div id="resultsHeader">
               <h2>All Auctions:</h2>
@@ -114,7 +137,15 @@ export default function AllResultsFilter() {
 
             <div id="filteredResults">
               {data?.auctions.map((auction) => {
-                return <Auction key={auction._id} auction={auction} />;
+                if (Object.values(filter).every(item => item === "")) {
+                  return <Auction key={auction._id} auction={auction} />;
+                } else if ((filter.filterOrigin === auction.origin) ||
+                  (filter.filterDestination === auction.destination) ||
+                  (new Date(filter.dateOrigin).toLocaleDateString() === new Date(+auction.flightDate).toLocaleDateString()) ||
+                  (new Date(filter.dateDestination).toLocaleDateString() === new Date(+auction.flightDate).toLocaleDateString())
+                ) {
+                  return <Auction key={auction._id} auction={auction} />;
+                }
               })}
             </div>
           </div>
