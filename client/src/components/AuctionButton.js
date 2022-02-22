@@ -21,6 +21,7 @@ function AuctionButton(props) {
 
   console.log(userData)
   const [bid, setBid] = useState("");
+  const [errorMessage, setErrorMessage] = useState('');
 
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
@@ -62,13 +63,13 @@ function AuctionButton(props) {
       if (!+bid) {
         console.log("Not a number");
         setBid("");
-        throw new Error("Not a number!");
+        setErrorMessage("Not a number!");
       } else if (+bid <= props.auctionData.currentBid) {
         console.log("You cant bid lower");
-        throw new Error("You cant bid lower!");
+        setErrorMessage("You cant bid lower!");
       } else if (userData._id === props.auctionData.latestBidUser._id) {
         console.log("Your bid is already highest");
-        throw new Error("Your bid is already highest!");
+        setErrorMessage("Your bid is already highest!");
       } else {
         await updateBid({
           variables: { currentBid: +bid, _id: auctionId },
@@ -163,10 +164,10 @@ function AuctionButton(props) {
             <h1>PLACE BID</h1>
           </button>
         </div>
-        {error ? (
+        {errorMessage ? (
           <div>
             <p style={{ color: "red" }}>
-              BID ERROR
+              {errorMessage}
             </p>
           </div>
         ) : null}

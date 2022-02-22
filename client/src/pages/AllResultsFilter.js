@@ -24,6 +24,10 @@ export default function AllResultsFilter() {
     e.preventDefault();
 
   }
+  const handleClearSearch = (e) => {
+    e.preventDefault();
+    setFilter({filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: ""})
+  }
 
 console.log(filter)
 
@@ -126,7 +130,10 @@ console.log(filter)
             <button className="shadow-pop-br" id="searchBtn"  onClick={handleSearchSubmit}>
               <h1>SEARCH</h1>
             </button>
-
+            <button onClick={handleClearSearch}>
+              <h1>Clear search</h1>
+            </button>
+            
             <div id="resultsHeader">
               <h2>All Auctions:</h2>
             </div>
