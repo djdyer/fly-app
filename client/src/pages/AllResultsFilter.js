@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Auction from "../components/Auction";
 import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
@@ -9,25 +9,45 @@ export default function AllResultsFilter() {
   // console.log(auctionsData)
 
   const search = require("../../src/assets/icons/search2.png");
-  const [filter, setFilter] = useState({ filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: "" });
+  const [filter, setFilter] = useState({ filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: "", operator: "", aircraft: "", cabinSize: "" });
+  const [filterExtraOptions, setFilterExtraOptions] = useState({ addService: false, addPremiumBar: false, addWiFi: false });
 
   const handleInputSearchChange = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const { name, value, options, selectedIndex } = e.target;
     setFilter({
       ...filter,
       [name]: value.trim(),
     });
+    setFilter({
+      ...filter,
+      [name]: options[selectedIndex].value,
+    });
   };
 
-  // const handleSearchSubmit = (e) => {
-  //   e.preventDefault();
-
-  // }
   const handleClearSearch = () => {
-    setFilter({ filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: "" })
+    document.getElementById("operatorDefaultOption").options.selectedIndex = 0;
+    document.getElementById("aircraftDefaultOption").options.selectedIndex = 0;
+    document.getElementById("cabinSizeDefaultOption").options.selectedIndex = 0;
+    document.getElementById("addService").checked = false;
+    document.getElementById("addPremiumBar").checked = false;
+    document.getElementById("addWiFi").checked = false;
+    setFilterExtraOptions({ addService: false, addPremiumBar: false, addWiFi: false });
+    setFilter({ filterOrigin: "", dateOrigin: "", filterDestination: "", dateDestination: "", operator: "", aircraft: "", cabinSize: "" });
   }
-  
+
+  const handleFilterExtraOptions = (e) => {
+
+    const { name, checked } = e.target;
+    setFilterExtraOptions({
+      ...filterExtraOptions,
+      [name]: checked
+    });
+  };
+
+  console.log(filterExtraOptions)
+  console.log(filter)
+
   return (
     <>
       {loading ? (
@@ -61,51 +81,26 @@ export default function AllResultsFilter() {
                 </div>
                 <div className="filterColumn">
                   <form id="filterAircraft">
-                    <select>
-                      <option value="Aerion">Aerion</option>
-                      <option value="Airbus">Airbus</option>
-                      <option value="Bombardier">Bombardier</option>
-                      <option value="Cessna">Cessna</option>
-                      <option value="Cirrus">Cirrus</option>
-                      <option value="Dassault Falcon">Dassault Falcon</option>
-                      <option value="Eclipse">Eclipse</option>
-                      <option value="Embraer Legacy">Embraer Legacy</option>
-                      <option value="Gulfstream">Gulfstream</option>
-                      <option value="Hawker">Hawker</option>
-                      <option value="Honda Jet">Honda Jet</option>
-                      <option value="King Air">King Air</option>
-                      <option value="Learjet">Learjet</option>
-                      <option value="Pilatus">Pilatus</option>
+                    <select onChange={handleInputSearchChange} id="aircraftDefaultOption" name="aircraft">
+                      <option value="" >All</option>
+                      {data?.auctions.map(auction => <option key={auction._id} value={auction.aircraft}>{auction.aircraft}</option>)
+                        .filter((value, index, self) => self.indexOf(value) === index)}
                     </select>
                   </form>
                   <form id="filterOperator">
-                    <select>
-                      <option value="NetJets Inc.">NetJets Inc.</option>
-                      <option value="Flexjet">Flexjet</option>
-                      <option value="Vista Global Holding">
-                        Vista Global Holding
-                      </option>
-                      <option value="Fly Exclusive">Fly Exclusive</option>
-                      <option value="Jet Linx">Jet Linx</option>
-                      <option value="PlaneSense">PlaneSense</option>
-                      <option value="Jet Edge">Jet Edge</option>
-                      <option value="Solairus Aviation">Solairus Aviation</option>
-                      <option value="Airshare">Airshare</option>
-                      <option value="Nicholas Air">Nicholas Air</option>
-                      <option value="AirSprint">AirSprint</option>
-                      <option value="Thrive Aviation">Thrive Aviation</option>
-                      <option value="Aero Air">Aero Air</option>
-                      <option value="Worldwide Jet Charter">
-                        Worldwide Jet Charter
-                      </option>
+                    <select onChange={handleInputSearchChange} id="operatorDefaultOption" name="operator">
+                      <option value="">All</option>
+                      {data?.auctions.map(auction => <option key={auction._id} value={auction.operator}>{auction.operator}</option>)
+                        .filter((value, index, self) => self.indexOf(value) === index)}
                       <option value="Jet Access">Jet Access</option>
                     </select>
                   </form>
                   <form id="filterCabinSize">
-                    <select>
-                      <option value="16 or more">{`\>`} 20</option>
-                      <option value="10-15">11-19</option>
-                      <option value="5-10">{`\<`} 10 </option>
+                    <select onChange={handleInputSearchChange} id="cabinSizeDefaultOption" name="cabinSize">
+                      <option value="">All</option>
+                      <option value=">20">{`\>`} 20</option>
+                      <option value="11-19">11-19</option>
+                      <option value="<10">{`\<`} 10 </option>
                     </select>
                   </form>
                 </div>
@@ -117,9 +112,9 @@ export default function AllResultsFilter() {
                   <h5>WiFi:</h5>
                 </div>
                 <div className="filterColumn">
-                  <input type="checkbox" id="addService"></input>
-                  <input type="checkbox" id="addPremiumBar"></input>
-                  <input type="checkbox" id="addWiFi"></input>
+                  <input type="checkbox" id="addService" name="addService" onChange={handleFilterExtraOptions}></input>
+                  <input type="checkbox" id="addPremiumBar" name="addPremiumBar" onChange={handleFilterExtraOptions}></input>
+                  <input type="checkbox" id="addWiFi" name="addWiFi" onChange={handleFilterExtraOptions}></input>
                 </div>
               </div>
             </div>
@@ -127,9 +122,6 @@ export default function AllResultsFilter() {
             <button className="shadow-pop-br" id="searchBtn" onClick={handleClearSearch}>
               <h1>CLEAR SEARCH</h1>
             </button>
-            {/* <button onClick={handleClearSearch}>
-              <h1>Clear search</h1>
-            </button> */}
 
             <div id="resultsHeader">
               <h2>All Auctions:</h2>
@@ -139,8 +131,10 @@ export default function AllResultsFilter() {
               {data?.auctions.map((auction) => {
                 if (Object.values(filter).every(item => item === "")) {
                   return <Auction key={auction._id} auction={auction} />;
-                } else if ((filter.filterOrigin === auction.origin) ||
-                  (filter.filterDestination === auction.destination) ||
+                } else if ((filter.filterOrigin.toLowerCase() === auction.origin.toLowerCase()) ||
+                  (filter.filterDestination.toLowerCase() === auction.destination.toLowerCase()) ||
+                  (filter.aircraft === auction.aircraft) ||
+                  (filter.operator === auction.operator) ||
                   (new Date(filter.dateOrigin).toLocaleDateString() === new Date(+auction.flightDate).toLocaleDateString()) ||
                   (new Date(filter.dateDestination).toLocaleDateString() === new Date(+auction.flightDate).toLocaleDateString())
                 ) {
