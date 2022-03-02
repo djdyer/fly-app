@@ -19,6 +19,7 @@ const Timer = (props) => {
     const [hours, setHours] = useState(initialHour);
     const [minutes, setMinutes] = useState(initialMinute);
     const [seconds, setSeconds] = useState(initialSeconds);
+
     useEffect(() => {
         if (initialDays >= 0 && initialHour >= 0 && initialMinute >= 0 && initialSeconds >= 0) {
             let myInterval = setInterval(() => {
@@ -51,14 +52,17 @@ const Timer = (props) => {
             return () => {
                 clearInterval(myInterval);
             };
-        } else { setDays(0); setHours(0); setMinutes(0); setSeconds(0)}
+        } else {
+            setDays(0); setHours(0); setMinutes(0); setSeconds(0);
+            // props.refechAuction()
+        }
     });
 
     return (
         <div>
             {hours === 0 && minutes === 0 && seconds === 0 && days < 0
                 ? null
-                : <div> {days === 0 ? `` :  `${days}:`}{hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
+                : <div> {days === 0 ? `` : `${days}:`}{hours}:{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</div>
             }
         </div>
     )
