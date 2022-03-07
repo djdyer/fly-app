@@ -134,6 +134,11 @@ body {
   padding-bottom: 2px;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+}
+
 input,
 select,
 textarea {
@@ -425,6 +430,7 @@ h3 {
 .profileOpenBids a h2 {
   font-size: 12pt;
   margin: 0 0 8px 25px;
+  margin-top: 5px;
 }
 
 header {
@@ -735,8 +741,15 @@ h6 {
 
 #watchIcon,
 #watchIcon2 {
-  margin: 5px 10px 5px 5px;
+  margin: 5px 0px 5px 5px;
   width: 50px;
+}
+
+.watching {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
 }
 
 #userImg {
@@ -760,10 +773,24 @@ h6 {
 }
 
 .watchOption {
+  margin: 5px 15px 15px 15px;
+}
+
+.watchOption h2 {
+  margin-left: 10px;
+  font-size: 12pt;
+}
+
+#forceFlex {
   display: flex;
   flex-direction: row;
-  margin: 5px 15px;
   align-items: center;
+}
+
+#deleteWatch,
+#deleteWatch2 {
+  transform: rotate(45deg);
+  width: 25px;
 }
 
 .register a,
@@ -948,6 +975,11 @@ h6:hover {
     justify-content: center;
   }
 
+  .watchOption h2 {
+    margin-left: 0px;
+    font-size: 11pt;
+  }
+
   h3,
   h5 {
     font-size: 9pt;
@@ -962,6 +994,10 @@ h6:hover {
   .filterFields .filterRow input {
     width: 170px;
     font-size: 10pt;
+  }
+
+  #forceFlex {
+    justify-content: center;
   }
 }
 
@@ -1080,6 +1116,10 @@ h6:hover {
     margin-left: 20px;
   }
 
+  .profileOpenBids button a img {
+    color: red;
+  }
+
   #auctionHeader {
     padding: 20px 0 20px 15px;
   }
@@ -1161,5 +1201,14 @@ h6:hover {
   #loginBtn {
     height: 42px;
     margin-top: 20px;
+  }
+
+  #submitBtn {
+    margin-top: 5px;
+  }
+
+  #deleteWatch,
+  #deleteWatch2 {
+    width: 18px;
   }
 }
