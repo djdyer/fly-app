@@ -229,6 +229,17 @@ textarea {
   align-items: center;
 }
 
+#alert {
+  position: relative;
+  color: rgb(255, 255, 255);
+  font-family: "Quicksand", sans-serif;
+  font-size: 12pt;
+  text-align: left;
+  margin-top: -20px;
+  padding-left: 27px;
+  margin-bottom: 3px;
+}
+
 #enterBid {
   text-align: center;
 }
@@ -635,6 +646,7 @@ header {
   display: flex;
   flex-direction: column;
   padding-bottom: 10px;
+  height: 140px;
 }
 
 .otherBid {
@@ -667,7 +679,7 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: 10px;
 }
 
@@ -776,15 +788,16 @@ h6 {
   margin: 5px 15px 15px 15px;
 }
 
-.watchOption h2 {
-  margin-left: 10px;
-  font-size: 12pt;
-}
-
-#forceFlex {
+#watchOption {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.watchOption h2 {
+  margin-left: 10px;
+  font-size: 12pt;
+  text-align: left;
 }
 
 #deleteWatch,
@@ -916,11 +929,6 @@ h6:hover {
     height: 180px;
   }
 
-  #auctionBody {
-    padding-top: 10px;
-    padding-bottom: 5px;
-  }
-
   h2 {
     font-size: 12pt;
   }
@@ -940,15 +948,6 @@ h6:hover {
     align-items: center;
   }
 
-  #enterBid {
-    margin-bottom: 25px;
-  }
-
-  .enterBid {
-    flex-direction: column;
-    justify-content: left;
-  }
-
   .leadingBidContainer {
     font-size: 12pt;
     margin-bottom: 5px;
@@ -965,10 +964,11 @@ h6:hover {
 
   .serviceContainer {
     font-size: 9pt;
+    margin-bottom: 5px;
   }
 
   li {
-    font-size: 5pt;
+    font-size: 5.5pt;
   }
 
   .watchOption {
@@ -998,6 +998,10 @@ h6:hover {
 
   #forceFlex {
     justify-content: center;
+  }
+
+  .bidHistory {
+    height: 125px;
   }
 }
 
@@ -1067,10 +1071,6 @@ h6:hover {
     padding: 5px;
   }
 
-  .termsContainer {
-    justify-content: start;
-  }
-
   #result {
     height: 240px;
   }
@@ -1094,7 +1094,7 @@ h6:hover {
   }
 
   .auctionRow {
-    font-size: 9pt;
+    font-size: 8pt;
   }
 
   #userImg {
@@ -1181,6 +1181,32 @@ h6:hover {
     width: 70px;
   }
 
+  .enterBid input {
+    height: 45px;
+    width: 100px;
+    margin-right: 5px;
+  }
+
+  #enterBid {
+    padding: 0 0 0 3px;
+  }
+
+  .enterBid {
+    display: flex;
+    flex-direction: row;
+    margin: 0 15px 15px 15px;
+    align-items: baseline;
+  }
+
+  #leadingBid {
+    margin-right: -5px;
+    margin-top: -5px;
+  }
+
+  .auctionBodyColumn {
+    margin-left: 3px;
+  }
+
   .auctionBodyColumn h3 {
     font-size: 8pt;
   }
@@ -1204,11 +1230,23 @@ h6:hover {
   }
 
   #submitBtn {
-    margin-top: 5px;
+    margin: 5px auto 0px auto;
   }
 
   #deleteWatch,
   #deleteWatch2 {
     width: 18px;
+  }
+
+  #alert {
+    font-size: 10pt;
+    text-align: left;
+    margin-top: -15px;
+    padding-left: 20px;
+    margin-bottom: 5px;
+  }
+
+  li {
+    margin-top: 3px;
   }
 }

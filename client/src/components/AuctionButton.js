@@ -57,15 +57,12 @@ function AuctionButton(props) {
     e.preventDefault();
     try {
       if (!+bid) {
-        console.log("Not a number");
         setBid("");
-        setErrorMessage("Not a number!");
+        setErrorMessage("invalid");
       } else if (+bid <= props.auctionData.currentBid) {
-        console.log("You cant bid lower");
-        setErrorMessage("You cant bid lower!");
+        setErrorMessage("cannot bid lower");
       } else if (userData._id === props.auctionData.latestBidUser._id) {
-        console.log("Your bid is already highest");
-        setErrorMessage("Your bid is already highest!");
+        setErrorMessage("holding lead bid");
       } else {
         await updateBid({
           variables: { currentBid: +bid, _id: auctionId },
@@ -130,11 +127,11 @@ function AuctionButton(props) {
             <div className="watchOption">
               {userData.watchlistAuctions.find((x) => x._id === auctionId) ? (
                 <a href="/profile">
-                  <h2>On your Watchlist</h2>
+                  <h2>* on your watchlist</h2>
                 </a>
               ) : (
                 <>
-                  <div id="forceFlex">
+                  <div id="watchOption">
                     <a href="/watchlist">
                       <img
                         id="watchIcon"
@@ -174,7 +171,7 @@ function AuctionButton(props) {
             </div>
             {errorMessage ? (
               <div>
-                <p style={{ color: "red" }}>{errorMessage}</p>
+                <p id="alert">{errorMessage}</p>
               </div>
             ) : null}
           </>
