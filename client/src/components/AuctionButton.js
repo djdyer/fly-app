@@ -7,7 +7,7 @@ import {
   DELETE_FLIGHT,
   UPDATE_LATESTBID_USER,
   UPDATE_BID_HISTORY,
-  SAVE_TO_WATCHLIST
+  SAVE_TO_WATCHLIST,
 } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 
@@ -19,9 +19,9 @@ function AuctionButton(props) {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
 
-  console.log(userData)
+  console.log(userData);
   const [bid, setBid] = useState("");
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
@@ -29,8 +29,6 @@ function AuctionButton(props) {
   const [updateLatestBidUser] = useMutation(UPDATE_LATESTBID_USER);
   const [updateBidHistory] = useMutation(UPDATE_BID_HISTORY);
   const [saveToWatchlist] = useMutation(SAVE_TO_WATCHLIST);
-
-
 
   const handleInputChange = (e) => {
     e.preventDefault();
@@ -50,12 +48,10 @@ function AuctionButton(props) {
       await saveToWatchlist({
         variables: { _id: auctionId },
       });
-    }
-    catch (error) {
-      console.error(error)
+    } catch (error) {
+      console.error(error);
     }
   };
-
 
   const handlePlaceBid = async (e) => {
     e.preventDefault();
@@ -97,81 +93,93 @@ function AuctionButton(props) {
 
         props.refechAuction();
       }
-
     } catch (error) {
       console.error(error);
     }
     setBid("");
   };
 
-  const historyBlock = (() => {
-    return <div className="bidHistory">
-      <div id="bidHeader">Bid History</div>
-      {props.auctionData.bidsHistory.slice(0).reverse().slice(0, 3).map((history) => {
-        return (
-          <div className="otherBid" key={history.bidTime}>
-            <h5>
-              {history.bidUser.firstName} {history.bidUser.lastName}
-            </h5>
-            <h5>
-              Time: {new Date(+history.bidTime).toLocaleTimeString()}
-            </h5>
-            <h5>Bid: ${history.bidAmount}</h5>
-          </div>
-        );
-      })}
-    </div>
-  })
+  const historyBlock = () => {
+    return (
+      <div className="bidHistory">
+        <div id="bidHeader">Bid History</div>
+        {props.auctionData.bidsHistory
+          .slice(0)
+          .reverse()
+          .slice(0, 3)
+          .map((history) => {
+            return (
+              <div className="otherBid" key={history.bidTime}>
+                <h5>
+                  {history.bidUser.firstName} {history.bidUser.lastName}
+                </h5>
+                <h5>Time: {new Date(+history.bidTime).toLocaleTimeString()}</h5>
+                <h5>Bid: ${history.bidAmount}</h5>
+              </div>
+            );
+          })}
+      </div>
+    );
+  };
   if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date()) {
-    return (<>
-      {loading ? null : (<>
-        {historyBlock()}
-        <div className="watchOption">
-          {userData.watchlistAuctions.find(x => x._id === auctionId) ? (<a href="/profile" ><h2>It's on your watch list</h2></a>) : (
-            <>
-              <a href="/watchlist">
-                <img
-                  id="watchIcon"
-                  className="icon default"
-                  alt="watch"
-                  src={watch}
-                />
-                <img
-                  id="watchIcon2"
-                  className="icon hover"
-                  alt="watch hover"
-                  src={watchHover}
-                  onClick={saveToWatch}
-                />
-              <h2 >Watch this Auction </h2>
-              </a>
-            </>)}
-        </div>
-        <div className="enterBid">
-          <input
-            id="enterBid"
-            placeholder="enter your bid"
-            value={bid}
-            name="number"
-            onChange={handleInputChange}
-          />
-          <button
-            className="shadow-pop-br"
-            id="submitBtn"
-            type="submit"
-            onClick={handlePlaceBid}
-          >
-            <h1>PLACE BID</h1>
-          </button>
-        </div>
-        {errorMessage ? (
-          <div>
-            <p style={{ color: "red" }}>
-              {errorMessage}
-            </p>
-          </div>
-        ) : null}
-      </>)}</>
+    return (
+      <>
+        {loading ? null : (
+          <>
+            {historyBlock()}
+            <div className="watchOption">
+              {userData.watchlistAuctions.find((x) => x._id === auctionId) ? (
+                <a href="/profile">
+                  <h2>On your Watchlist</h2>
+                </a>
+              ) : (
+                <>
+                  <div id="forceFlex">
+                    <a href="/watchlist">
+                      <img
+                        id="watchIcon"
+                        className="icon default"
+                        alt="watch"
+                        src={watch}
+                      />
+                      <img
+                        id="watchIcon2"
+                        className="icon hover"
+                        alt="watch hover"
+                        src={watchHover}
+                        onClick={saveToWatch}
+                      />
+                    </a>
+                    <h2>Watch this Auction </h2>
+                  </div>
+                </>
+              )}
+            </div>
+            <div className="enterBid">
+              <input
+                id="enterBid"
+                placeholder="enter your bid"
+                value={bid}
+                name="number"
+                onChange={handleInputChange}
+              />
+              <button
+                className="shadow-pop-br"
+                id="submitBtn"
+                type="submit"
+                onClick={handlePlaceBid}
+              >
+                <h1>PLACE BID</h1>
+              </button>
+            </div>
+            {errorMessage ? (
+              <div>
+                <p style={{ color: "red" }}>{errorMessage}</p>
+              </div>
+            ) : null}
+          </>
+        )}
+      </>
     );
   } else if (
     Auth.loggedIn() &&
@@ -179,7 +187,8 @@ function AuctionButton(props) {
     userData._id === props.auctionData.latestBidUser._id
   ) {
     return (
-      <>{historyBlock()}
+      <>
+        {historyBlock()}
         <div className="enterBid btnTerms">
           <h2 className="auctionMessage">YOU WIN!</h2>
           <a
@@ -193,9 +202,13 @@ function AuctionButton(props) {
         </div>
       </>
     );
-  } else if (props.auctionData.auctionEndDate < new Date() && !Auth.loggedIn()){
+  } else if (
+    props.auctionData.auctionEndDate < new Date() &&
+    !Auth.loggedIn()
+  ) {
     return (
-      <>{historyBlock()}
+      <>
+        {historyBlock()}
         <div className="enterBid">
           <h2 className="auctionMessage">AUCTION IS CLOSED</h2>
         </div>
@@ -203,16 +216,22 @@ function AuctionButton(props) {
     );
   } else if (!Auth.loggedIn()) {
     return (
-      <>{historyBlock()}
+      <>
+        {historyBlock()}
         <div className="enterBid">
-          <a className="shadow-pop-br" id="submitBtn" type="submit" href="/login">
+          <a
+            className="shadow-pop-br"
+            id="submitBtn"
+            type="submit"
+            href="/login"
+          >
             <h1>LOGIN TO BID</h1>
           </a>
         </div>
       </>
     );
   } else {
-    return 
+    return;
   }
 }
 export default AuctionButton;
