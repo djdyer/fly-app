@@ -58,6 +58,7 @@ function AuctionButton(props) {
   const handlePlaceBid = async (e) => {
     e.preventDefault();
     try {
+      setErrorMessage("");
       if (!+bid) {
         setBid("");
         setErrorMessage("invalid");
@@ -72,7 +73,7 @@ function AuctionButton(props) {
         await saveToWatchlist({
           variables: { _id: auctionId },
         });
-
+        setwatchOrWatching(true)
         await deleteflight({
           variables: {
             auctionId: auctionId,
@@ -89,7 +90,6 @@ function AuctionButton(props) {
         await updateBidHistory({
           variables: { auctionId: auctionId, bidAmount: +bid },
         });
-
         props.refechAuction();
       }
     } catch (error) {
