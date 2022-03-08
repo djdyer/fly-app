@@ -22,6 +22,7 @@ function AuctionButton(props) {
   console.log(userData);
   const [bid, setBid] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [watchOrWatching, setwatchOrWatching] = useState(false)
 
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
@@ -48,6 +49,7 @@ function AuctionButton(props) {
       await saveToWatchlist({
         variables: { _id: auctionId },
       });
+      setwatchOrWatching(true)
     } catch (error) {
       console.error(error);
     }
@@ -125,7 +127,7 @@ function AuctionButton(props) {
           <>
             {historyBlock()}
             <div className="watchOption">
-              {userData.watchlistAuctions.find((x) => x._id === auctionId) ? (
+              { watchOrWatching || userData.watchlistAuctions.find((AuctionOnWathList) => AuctionOnWathList._id === auctionId) ? (
                 <a href="/profile">
                   <h2>* on your watchlist</h2>
                 </a>
@@ -200,8 +202,7 @@ function AuctionButton(props) {
       </>
     );
   } else if (
-    props.auctionData.auctionEndDate < new Date() &&
-    !Auth.loggedIn()
+    props.auctionData.auctionEndDate < new Date() 
   ) {
     return (
       <>
@@ -211,7 +212,7 @@ function AuctionButton(props) {
         </div>
       </>
     );
-  } else if (!Auth.loggedIn()) {
+  } else  {
     return (
       <>
         {historyBlock()}
@@ -227,8 +228,6 @@ function AuctionButton(props) {
         </div>
       </>
     );
-  } else {
-    return;
   }
 }
 export default AuctionButton;
