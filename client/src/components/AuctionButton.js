@@ -120,7 +120,7 @@ function AuctionButton(props) {
       </div>
     );
   };
-  if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date()) {
+  if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date() && !props.endTimer) {
     return (
       <>
         {loading ? null : (
@@ -183,7 +183,8 @@ function AuctionButton(props) {
   } else if (
     Auth.loggedIn() &&
     props.auctionData.auctionEndDate < new Date() &&
-    userData._id === props.auctionData.latestBidUser._id
+    userData._id === props.auctionData.latestBidUser._id &&
+    props.endTimer
   ) {
     return (
       <>
@@ -202,7 +203,8 @@ function AuctionButton(props) {
       </>
     );
   } else if (
-    props.auctionData.auctionEndDate < new Date() 
+    props.auctionData.auctionEndDate < new Date() &&
+    props.endTimer
   ) {
     return (
       <>

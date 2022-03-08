@@ -14,6 +14,8 @@ function AuctionDetail() {
   const { loading, data, refetch : refechAuction } = useQuery(QUERY_AUCTION, {
     variables: { _id: auctionId },
   });
+  const [endTimer, setEndTimer] = useState(false);
+
   const auctionData = data?.auction || {};
 
   return (
@@ -40,7 +42,7 @@ function AuctionDetail() {
               <div id="timerBlock">
                 <h2>CLOSING:</h2>
                 <div id="countdown">
-                  <Timer auctionEndDate={+auctionData.auctionEndDate} refechAuction={refechAuction} />
+                  <Timer auctionEndDate={+auctionData.auctionEndDate} setEndTimer={setEndTimer} refechAuction={refechAuction}/>
                 </div>
               </div>
             </div>
@@ -99,7 +101,7 @@ function AuctionDetail() {
                 <li>Bar stocked with non-alcoholic beverages.</li>
               </div>
             </div>
-            <AuctionButton auctionData={auctionData} refechAuction={refechAuction} />
+            <AuctionButton auctionData={auctionData} refechAuction={refechAuction} endTimer={endTimer} />
           </div>
         </div>
       )}
