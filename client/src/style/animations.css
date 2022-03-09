@@ -81,15 +81,15 @@
 
 /* Side Nav animation */
 .slide-left {
-  -webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s
+  -webkit-animation: slide-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s
     both;
-  animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s both;
+  animation: slide-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s both;
   animation-iteration-count: 1;
 }
 @-webkit-keyframes slide-left {
   0% {
-    -webkit-transform: translateX(1200px);
-    transform: translateX(1200px);
+    -webkit-transform: translateX(2100px);
+    transform: translateX(2100px);
   }
   100% {
     -webkit-transform: translateX(0px);
@@ -98,8 +98,8 @@
 }
 @keyframes slide-left {
   0% {
-    -webkit-transform: translateX(1200px);
-    transform: translateX(1200px);
+    -webkit-transform: translateX(2100px);
+    transform: translateX(2100px);
   }
   100% {
     -webkit-transform: translateX(0px);
