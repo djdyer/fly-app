@@ -136,17 +136,28 @@ function AuctionButton(props) {
           <>
             {historyBlock()}
             <div className="watchOption">
-              {watchOrWatching ||
-              userData.watchlistAuctions.find(
-                (AuctionOnWathList) => AuctionOnWathList._id === auctionId
-              ) ? (
-                <a href="/profile">
+              {watchOrWatching || userData.watchlistAuctions.find((AuctionOnWathList) => AuctionOnWathList._id === auctionId) ? (
+                <div id="watchOption">
+                  <a href="/profile">
+                    <img
+                      id="watchIcon"
+                      className="icon default"
+                      alt="watch"
+                      src={watch}
+                    />
+                    <img
+                      id="watchIcon2"
+                      className="icon hover"
+                      alt="watch hover"
+                      src={watchHover}
+                    />
+                  </a>
                   <h2>* on your watchlist</h2>
-                </a>
+                </div>
               ) : (
                 <>
                   <div id="watchOption">
-                    <a href="/watchlist">
+                    <a onClick={saveToWatch} href="">
                       <img
                         id="watchIcon"
                         className="icon default"
@@ -158,7 +169,6 @@ function AuctionButton(props) {
                         className="icon hover"
                         alt="watch hover"
                         src={watchHover}
-                        onClick={saveToWatch}
                       />
                     </a>
                     <h2>Watch this Auction </h2>
