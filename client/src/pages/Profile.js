@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Auth from "../utils/auth";
-import { useQuery} from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
-import Profilewatchlist from "../components/Profilewatchlist"
-
+import Profilewatchlist from "../components/Profilewatchlist";
+import { uploadAvatar } from "../utils/uploadAvatar";
 
 function Profile() {
   const notificationsList = require("../../src/assets/icons/notificationslist.png");
@@ -17,18 +17,36 @@ function Profile() {
   const { loading, data, error, refetch: refechMe } = useQuery(QUERY_ME);
   const userData = data?.me || {};
 
+  // const [imageUrl, setImageUrl] = useState({
+  //   imageUrl: "",
+  // });
+
+  // function showWidget() {
+  //   let widget = window.cloudinary.createUploadWidget(
+  //     {
+  //       cloudName: "dzjvfg4wt",
+  //       uploadPreset: "ml_default",
+  //     },
+  //     (error, result) => {
+  //       if (!error && result && result.event === "success") {
+  //         console.log("RESULT.INFO.URL", result.info.url);
+  //         // setImageUrl(result.info.secure_url);
+  //         setImageUrl("");
+  //       }
+  //     }
+  //   );
+  //   widget.open();
+  // }
 
   return (
     <>
-      {loading ? (
-        null
-      ) : (
+      {loading ? null : (
         <div className="profile">
           <div className="profileDetail fade-in">
             <h2>Profile</h2>
             <header>
               <div className="profileColumn">
-                <a>
+                <a onClick={uploadAvatar()}>
                   <img
                     id="addUserImg"
                     className="icon default"
@@ -41,6 +59,22 @@ function Profile() {
                     alt="plus hover"
                     src={plusHover}
                   />
+                  {/* <input
+                    type="file"
+                    id="avatar"
+                    name="avatar"
+                    accept="image/png, image/jpeg"
+                  ></input> */}
+
+                  {/* <figure className="inputField">
+                    <label htmlFor="Image">Image :</label>
+                    <button
+                      id="uploadbtn"
+                      onClick={showWidget}
+                      type="button"
+                      className=""
+                    ></button>
+                  </figure> */}
                 </a>
                 <img id="userImg" alt="userImg" src={userImg} />
               </div>
@@ -87,7 +121,7 @@ function Profile() {
                 })}
               </div>
 
-              <Profilewatchlist userData={userData} refechMe={refechMe}/>
+              <Profilewatchlist userData={userData} refechMe={refechMe} />
 
               <div className="profileBlock">
                 <div className="profileBlockHeader">

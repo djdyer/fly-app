@@ -132,7 +132,10 @@ function AuctionButton(props) {
           <>
             {historyBlock()}
             <div className="watchOption">
-              {watchOrWatching || userData.watchlistAuctions.find((AuctionOnWathList) => AuctionOnWathList._id === auctionId) ? (
+              {watchOrWatching ||
+              userData.watchlistAuctions.find(
+                (AuctionOnWathList) => AuctionOnWathList._id === auctionId
+              ) ? (
                 <div id="watchOption">
                   <a href="/profile">
                     <img
@@ -148,7 +151,7 @@ function AuctionButton(props) {
                       src={watchHover}
                     />
                   </a>
-                  <h2>* on your watchlist</h2>
+                  <h2>On your watchlist</h2>
                 </div>
               ) : (
                 <>
