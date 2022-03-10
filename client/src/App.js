@@ -9,7 +9,7 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
-import Auth from "./utils/auth";
+// import Auth from "./utils/auth";
 import Home from "./pages/Home";
 import Navigation from "./pages/Navigation";
 import Login from "./pages/Login";
