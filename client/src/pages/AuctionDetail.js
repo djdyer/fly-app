@@ -11,7 +11,11 @@ function AuctionDetail() {
   const plane = require("../../src/assets/icons/plane.png");
   const pathArray = window.location.pathname.split("/");
   const auctionId = pathArray[pathArray.length - 1];
-  const { loading, data, refetch : refechAuction } = useQuery(QUERY_AUCTION, {
+  const {
+    loading,
+    data,
+    refetch: refechAuction,
+  } = useQuery(QUERY_AUCTION, {
     variables: { _id: auctionId },
   });
   const [endTimer, setEndTimer] = useState(false);
@@ -20,9 +24,7 @@ function AuctionDetail() {
 
   return (
     <div>
-      {loading ? (
-        null
-      ) : (
+      {loading ? null : (
         <div className="auction">
           <div className="auctionDetail fade-in">
             <div id="myPlane">
@@ -42,7 +44,11 @@ function AuctionDetail() {
               <div id="timerBlock">
                 <h2>CLOSING:</h2>
                 <div id="countdown">
-                  <Timer auctionEndDate={+auctionData.auctionEndDate} setEndTimer={setEndTimer} refechAuction={refechAuction}/>
+                  <Timer
+                    auctionEndDate={+auctionData.auctionEndDate}
+                    setEndTimer={setEndTimer}
+                    refechAuction={refechAuction}
+                  />
                 </div>
               </div>
             </div>
@@ -101,7 +107,11 @@ function AuctionDetail() {
                 <li>Bar stocked with non-alcoholic beverages.</li>
               </div>
             </div>
-            <AuctionButton auctionData={auctionData} refechAuction={refechAuction} endTimer={endTimer} />
+            <AuctionButton
+              auctionData={auctionData}
+              refechAuction={refechAuction}
+              endTimer={endTimer}
+            />
           </div>
         </div>
       )}

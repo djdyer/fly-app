@@ -108,17 +108,13 @@ function AuctionButton(props) {
           .slice(0, 3)
           .map((history) => {
             return (
-              <div className="historyColumn">
-                <div className="otherBid" key={history.bidTime}>
-                  <h5>
-                    {history.bidUser.firstName} {history.bidUser.lastName}
-                  </h5>
+              <div className="otherBid" key={history.bidTime}>
+                <h5>
+                  {history.bidUser.firstName} {history.bidUser.lastName}
+                </h5>
 
-                  <h5>
-                    Time: {new Date(+history.bidTime).toLocaleTimeString()}
-                  </h5>
-                  <h5>Bid: ${history.bidAmount}</h5>
-                </div>
+                <h5>Time: {new Date(+history.bidTime).toLocaleTimeString()}</h5>
+                <h5>Bid: ${history.bidAmount}</h5>
               </div>
             );
           })}

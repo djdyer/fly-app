@@ -657,12 +657,6 @@ header {
   justify-content: space-between;
 }
 
-.historyColumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .auction input {
   width: 150px;
   height: 50px;
