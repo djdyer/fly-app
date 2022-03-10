@@ -22,7 +22,7 @@ function AuctionButton(props) {
   console.log(userData);
   const [bid, setBid] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [watchOrWatching, setwatchOrWatching] = useState(false)
+  const [watchOrWatching, setwatchOrWatching] = useState(false);
 
   const [updateBid, { error }] = useMutation(UPDATE_BID);
   const [saveflight] = useMutation(SAVE_FLIGHT);
@@ -49,7 +49,7 @@ function AuctionButton(props) {
       await saveToWatchlist({
         variables: { _id: auctionId },
       });
-      setwatchOrWatching(true)
+      setwatchOrWatching(true);
     } catch (error) {
       console.error(error);
     }
@@ -73,7 +73,7 @@ function AuctionButton(props) {
         await saveToWatchlist({
           variables: { _id: auctionId },
         });
-        setwatchOrWatching(true)
+        setwatchOrWatching(true);
         await deleteflight({
           variables: {
             auctionId: auctionId,
@@ -108,19 +108,28 @@ function AuctionButton(props) {
           .slice(0, 3)
           .map((history) => {
             return (
-              <div className="otherBid" key={history.bidTime}>
-                <h5>
-                  {history.bidUser.firstName} {history.bidUser.lastName}
-                </h5>
-                <h5>Time: {new Date(+history.bidTime).toLocaleTimeString()}</h5>
-                <h5>Bid: ${history.bidAmount}</h5>
+              <div className="historyColumn">
+                <div className="otherBid" key={history.bidTime}>
+                  <h5>
+                    {history.bidUser.firstName} {history.bidUser.lastName}
+                  </h5>
+
+                  <h5>
+                    Time: {new Date(+history.bidTime).toLocaleTimeString()}
+                  </h5>
+                  <h5>Bid: ${history.bidAmount}</h5>
+                </div>
               </div>
             );
           })}
       </div>
     );
   };
-  if (Auth.loggedIn() && props.auctionData.auctionEndDate > new Date() && !props.endTimer) {
+  if (
+    Auth.loggedIn() &&
+    props.auctionData.auctionEndDate > new Date() &&
+    !props.endTimer
+  ) {
     return (
       <>
         {loading ? null : (
@@ -215,15 +224,12 @@ function AuctionButton(props) {
         </div>
       </>
     );
-  } else if (
-    props.auctionData.auctionEndDate < new Date() &&
-    props.endTimer
-  ) {
+  } else if (props.auctionData.auctionEndDate < new Date() && props.endTimer) {
     return (
       <>
         {historyBlock()}
         <div className="enterBid">
-          <h2 className="auctionMessage">AUCTION IS CLOSED</h2>
+          <h1 className="auctionMessage">AUCTION CLOSED</h1>
         </div>
       </>
     );
