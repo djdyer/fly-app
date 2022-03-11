@@ -10,6 +10,7 @@ import {
   SAVE_TO_WATCHLIST,
 } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
+import { Link } from "react-router-dom";
 
 function AuctionButton(props) {
   const watch = require("../../src/assets/icons/watch.png");
@@ -137,7 +138,7 @@ function AuctionButton(props) {
                 (AuctionOnWathList) => AuctionOnWathList._id === auctionId
               ) ? (
                 <div id="watchOption">
-                  <a href="/profile">
+                  <Link to="/profile">
                     <img
                       id="watchIcon"
                       className="icon default"
@@ -150,7 +151,7 @@ function AuctionButton(props) {
                       alt="watch hover"
                       src={watchHover}
                     />
-                  </a>
+                  </Link>
                   <h2>On your watchlist</h2>
                 </div>
               ) : (
@@ -212,14 +213,14 @@ function AuctionButton(props) {
         {historyBlock()}
         <div className="enterBid btnTerms">
           <h2 className="auctionMessage">YOU WIN!</h2>
-          <a
+          <Link
             className="shadow-pop-br"
             id="submitBtn"
             type="submit"
-            href="/payment"
+            to="/payment"
           >
             <h1>MAKE PAYMENT</h1>
-          </a>
+          </Link>
         </div>
       </>
     );
