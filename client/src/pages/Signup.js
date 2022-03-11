@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
+import { Link } from "react-router-dom";
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -66,7 +67,7 @@ function Signup(props) {
         />
         <h5>
           {/* {" "} */}
-          Login instead, click <a href="/login">here</a>
+          Login instead, click <Link to="/login">here</Link>
         </h5>
         <button className="shadow-pop-br" id="signupBtn" type="submit">
           <h1>CREATE ACCOUNT</h1>

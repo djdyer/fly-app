@@ -1,5 +1,6 @@
 import React from "react";
 import Auth from "../utils/auth";
+import { Link } from "react-router-dom";
 
 const logo = require("../../src/assets/icons/fly_logo.png");
 const user = require("../../src/assets/icons/user.png");
@@ -19,83 +20,95 @@ export default function Navigation() {
   return (
     <>
       <div id="mobileNav">
-        <a href="/" >
+        <Link to="/" >
           <img id="mobileLogo" alt="home" src={logo} />
-        </a>
+        </Link>
       </div>
 
       {/* Main Nav */}
       <nav id="navBlock" className="navigation slide-right">
-        <a href="/">
+        <Link to="/">
           <img id="logo" alt="fly-logo" src={logo} />
-        </a>
-        <a href="/search" >
-          <div className="navTab">
-            <img className="icon default search" alt="search" src={search} />
-            <img
-              className="icon hover search"
-              alt="searchHover"
-              src={searchHover}
-            />
-            <h1>Search</h1>
-          </div>
+        </Link>
+        <a >
+          <Link to="/search">
+            <div className="navTab">
+              <img className="icon default search" alt="search" src={search} />
+              <img
+                className="icon hover search"
+                alt="searchHover"
+                src={searchHover}
+              />
+              <h1>Search</h1>
+            </div>
+          </Link>
         </a>
         {Auth.loggedIn() ? (
-          <a href="/profile">
-            <div className="navTab">
-              <img className="icon default" alt="profile" src={logout} />
-              <img
-                className="icon hover"
-                alt="profileHover"
-                src={logoutHover}
-              />
-              <h1>Profile</h1>
-            </div>
+          <a>
+            <Link to="/profile">
+              <div className="navTab">
+                <img className="icon default" alt="profile" src={logout} />
+                <img
+                  className="icon hover"
+                  alt="profileHover"
+                  src={logoutHover}
+                />
+                <h1>Profile</h1>
+              </div>
+            </Link>
           </a>
         ) : (
-          <a href="/login" >
-            <div className="navTab">
-              <img className="icon default" alt="login" src={user} />
-              <img className="icon hover" alt="profileHover" src={userHover} />
-              <h1>Profile</h1>
-            </div>
+          <a>
+            <Link to="/login">
+              <div className="navTab">
+                <img className="icon default" alt="login" src={user} />
+                <img className="icon hover" alt="profileHover" src={userHover} />
+                <h1>Profile</h1>
+              </div>
+            </Link>
           </a>
         )}
 
-        <a href="/payment">
-          <div className="navTab">
-            <img className="icon default" alt="payment" src={payment} />
-            <img className="icon hover" alt="paymentHover" src={paymentHover} />
-            <h1>Payment</h1>
-          </div>
+        <a>
+          <Link to="/payment">
+            <div className="navTab">
+              <img className="icon default" alt="payment" src={payment} />
+              <img className="icon hover" alt="paymentHover" src={paymentHover} />
+              <h1>Payment</h1>
+            </div>
+          </Link>
         </a>
 
-        <a href="/documents" >
-          <div className="navTab">
-            <img className="icon default" alt="documents" src={documents} />
-            <img
-              className="icon hover"
-              alt="documentsHover"
-              src={documentsHover}
-            />
-            <h1>Documents</h1>
-          </div>
+        <a>
+          <Link to="/documents">
+            <div className="navTab">
+              <img className="icon default" alt="documents" src={documents} />
+              <img
+                className="icon hover"
+                alt="documentsHover"
+                src={documentsHover}
+              />
+              <h1>Documents</h1>
+            </div>
+          </Link>
         </a>
 
-        <a href="/settings" >
-          <div className="navTab">
-            <img
-              className="icon default settings"
-              alt="settings"
-              src={settings}
-            />
-            <img
-              className="icon hover settings"
-              alt="settingsHover"
-              src={settingsHover}
-            />
-            <h1>Settings</h1>
-          </div>
+        <a>
+          <Link to="/settings">
+            <div className="navTab">
+              <img
+                className="icon default settings"
+                alt="settings"
+                src={settings}
+              />
+              <img
+                className="icon hover settings"
+                alt="settingsHover"
+                src={settingsHover}
+              />
+              <h1>Settings</h1>
+            </div>
+          </Link>
         </a>
       </nav>
     </>
