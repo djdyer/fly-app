@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import Profilewatchlist from "../components/Profilewatchlist";
 import { uploadAvatar } from "../utils/uploadAvatar";
+import { Link } from "react-router-dom";
 
 function Profile() {
   const notificationsList = require("../../src/assets/icons/notificationslist.png");
@@ -83,12 +84,12 @@ function Profile() {
                 <h5>Email: </h5>
                 <h5>Home City:</h5>
                 <div id="profileLinks">
-                  <a href="/editprofile">
+                  <Link to="/editprofile">
                     <h6>Edit Profile</h6>
-                  </a>
-                  <a href="/signup">
+                  </Link>
+                  <Link to="/signup">
                     <h6>Update Password</h6>
-                  </a>
+                  </Link>
                   <a href="/" onClick={() => Auth.logout()}>
                     <h6>Logout</h6>
                   </a>
