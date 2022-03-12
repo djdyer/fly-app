@@ -1,4 +1,5 @@
 import decode from "jwt-decode";
+import { Link } from "react-router-dom";
 
 class AuthService {
   getProfile() {

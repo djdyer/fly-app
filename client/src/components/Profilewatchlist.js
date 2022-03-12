@@ -2,6 +2,7 @@ import React from "react";
 // import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { DELETE_FROM_WATCHLIST } from "../utils/mutations";
+import { Link } from "react-router-dom";
 
 const watchList = require("../../src/assets/icons/watchlist.png");
 
@@ -32,13 +33,13 @@ function Profilewatchlist({ userData, refechMe }) {
       {userData.watchlistAuctions.map((auction) => {
         return (
           <div key={auction._id} className="profileOpenBids watching">
-            <a href={`auctiondetail/${auction._id}`}>
+            <Link to={`auctiondetail/${auction._id}`}>
               {" "}
               <h2>
                 {" "}
                 From: {auction.origin} To: {auction.destination}{" "}
               </h2>
-            </a>
+            </Link>
             <button onClick={() => handleDeleteWatch(auction._id)}>
               <a>
                 <img

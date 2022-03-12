@@ -90,9 +90,9 @@ function Profile() {
                   <Link to="/signup">
                     <h6>Update Password</h6>
                   </Link>
-                  <a href="/" onClick={() => Auth.logout()}>
+                  <Link to="/" onClick={() => Auth.logout()}>
                     <h6>Logout</h6>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="profileColumn">
@@ -110,13 +110,13 @@ function Profile() {
                 {userData.winingAuctions.map((auction) => {
                   return (
                     <div key={auction._id} className="profileOpenBids">
-                      <a href={`auctiondetail/${auction._id}`}>
+                      <Link to={`auctiondetail/${auction._id}`}>
                         {" "}
                         <h2>
                           {" "}
                           From: {auction.origin} To: {auction.destination}{" "}
                         </h2>
-                      </a>
+                      </Link>
                     </div>
                   );
                 })}

@@ -1,0 +1,8 @@
+#inputPlaceholderColorRed::placeholder {
+    color: red;
+    opacity: 1;
+}
+#inputPlaceholderColorBlack::placeholder {
+    color: Black;
+    opacity: 1;
+}
