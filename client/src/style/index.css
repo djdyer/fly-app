@@ -164,7 +164,6 @@ input:focus {
   width: 300px;
   height: 50px;
   background: #212121;
-  box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
   border-top: 0.5px inset var(--light);
   border-left: 0.5px inset var(--light);
   border-right: 3px inset var(--light);
@@ -389,7 +388,7 @@ h1:hover {
 
 #filterContainer {
   background-color: var(--dark);
-  opacity: 90%;
+  opacity: 96%;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
@@ -507,6 +506,10 @@ header {
   color: var(--dark);
 }
 
+.filterRow .filterColumn {
+  margin-left: 0px;
+}
+
 .filterBody {
   display: flex;
   flex-direction: row;
@@ -530,18 +533,35 @@ header {
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
 
+.filterRow h2 {
+  margin: 10px 10px 20px 10px;
+}
+
+.profileDetail .profileOpenBids h2 {
+  color: rgb(121, 237, 255);
+}
+
+.profileDetail .profileOpenBids h2:hover {
+  color: rgb(255, 4, 217);
+  font-weight: 900;
+}
+
+.filterRow h5 {
+  margin-left: 10px;
+}
+
 #filteredResults #result #header2 {
   width: calc(100% - 44px);
 }
 
 .profileDetail h2 {
   text-align: left;
-  margin: 25px 0 0 25px;
+  margin: 30px 30px 10px 30px;
 }
 
 .filterColumn h5 {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 #countdown {
@@ -1013,7 +1033,12 @@ h6:hover {
 
   h3,
   h5 {
-    font-size: 9pt;
+    font-size: 10pt;
+  }
+
+  .filterRow h5 {
+    margin-bottom: 5px;
+    margin-top: 5px;
   }
 
   #watchIcon,
