@@ -11,8 +11,15 @@ import {
 } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 import { Link } from "react-router-dom";
+import "./auctionButtonPlaceholder.css";
 
 function AuctionButton(props) {
+  const inputStyles = {
+    color: 'black',
+  };
+  const placeholderStyles = {
+    color: 'red',
+  };
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
   const pathArray = window.location.pathname.split("/");
@@ -22,7 +29,7 @@ function AuctionButton(props) {
 
   console.log(userData);
   const [bid, setBid] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("enter your bid");
   const [watchOrWatching, setwatchOrWatching] = useState(false);
 
   const [updateBid, { error }] = useMutation(UPDATE_BID);
@@ -59,7 +66,7 @@ function AuctionButton(props) {
   const handlePlaceBid = async (e) => {
     e.preventDefault();
     try {
-      setErrorMessage("");
+      setErrorMessage("enter your bid");
       if (!+bid) {
         setBid("");
         setErrorMessage("invalid");
@@ -92,6 +99,7 @@ function AuctionButton(props) {
           variables: { auctionId: auctionId, bidAmount: +bid },
         });
         props.refechAuction();
+        // document.getElementById('#enterBid').placeholder = errorMessage;
       }
     } catch (error) {
       console.error(error);
@@ -134,9 +142,9 @@ function AuctionButton(props) {
             {historyBlock()}
             <div className="watchOption">
               {watchOrWatching ||
-              userData.watchlistAuctions.find(
-                (AuctionOnWathList) => AuctionOnWathList._id === auctionId
-              ) ? (
+                userData.watchlistAuctions.find(
+                  (AuctionOnWathList) => AuctionOnWathList._id === auctionId
+                ) ? (
                 <div id="watchOption">
                   <Link to="/profile">
                     <img
@@ -178,8 +186,9 @@ function AuctionButton(props) {
             </div>
             <div className="enterBid">
               <input
-                id="enterBid"
-                placeholder="enter your bid"
+                // id="enterBid"
+                id={(errorMessage === "enter your bid") ? "inputPlaceholderColorBlack" : "inputPlaceholderColorRed"}
+                placeholder={errorMessage}
                 value={bid}
                 name="number"
                 onChange={handleInputChange}
@@ -193,11 +202,11 @@ function AuctionButton(props) {
                 <h1>PLACE BID</h1>
               </button>
             </div>
-            {errorMessage ? (
+            {/* {errorMessage ? (
               <div>
                 <p id="alert">{errorMessage}</p>
               </div>
-            ) : null}
+            ) : null} */}
           </>
         )}
       </>
