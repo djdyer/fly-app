@@ -23,7 +23,7 @@
       6px 6px var(--light), 7px 7px var(--light), 8px 8px var(--light);
     box-shadow: 1px 1px var(--light), 2px 2px var(--light), 3px 3px var(--light),
       4px 4px var(--light), 5px 5px var(--light), 6px 6px var(--light),
-      7px 7px var(--light), 8px 8px var(--light);
+      7px 7px var(--light), 8px 8px var(--light), -6px -9px 18px #161616;
     -webkit-transform: translateX(-8px) translateY(-8px);
     transform: translateX(-8px) translateY(-8px);
   }
@@ -45,7 +45,7 @@
       6px 6px var(--light), 7px 7px var(--light), 8px 8px var(--light);
     box-shadow: 1px 1px var(--light), 2px 2px var(--light), 3px 3px var(--light),
       4px 4px var(--light), 5px 5px var(--light), 6px 6px var(--light),
-      7px 7px var(--light), 8px 8px var(--light);
+      7px 7px var(--light), 8px 8px var(--light), -6px -9px 18px #161616;
     -webkit-transform: translateX(-8px) translateY(-8px);
     transform: translateX(-8px) translateY(-8px);
   }

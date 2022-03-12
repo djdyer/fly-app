@@ -101,7 +101,7 @@ function Profile() {
                 <h3>{userData.homeCity}</h3>
               </div>
             </header>
-            <div>
+            <div className="profileBody">
               <div className="profileBlock">
                 <div className="profileBlockHeader">
                   <img alt="notificationslist" src={notificationsList} />

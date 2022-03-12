@@ -77,7 +77,7 @@ export default function FlyMap() {
         //defaultCenter={{ lat: 33.749, lng: -84.388 }}
         options={{ styles, disableDefaultUI: true }}
         mapContainerStyle={containerStyle}
-        zoom={9}
+        zoom={8}
         // onUnmount={onUnmount}
       >
         {airports.map((marker) => (
