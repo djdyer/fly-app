@@ -27,7 +27,7 @@ function Profilewatchlist({ userData, refechMe }) {
   return (
     <div className="profileBlock">
       <div className="profileBlockHeader">
-        <img alt="watchlist" src={watchList} />
+        <img id="profileWatchIcon" alt="watchlist" src={watchList} />
         <h3>Watchlist</h3>
       </div>
       {userData.watchlistAuctions.map((auction) => {
@@ -37,7 +37,7 @@ function Profilewatchlist({ userData, refechMe }) {
               {" "}
               <h2>
                 {" "}
-                From: {auction.origin} To: {auction.destination}{" "}
+                {auction.origin} {">"} {auction.destination}{" "}
               </h2>
             </Link>
             <button onClick={() => handleDeleteWatch(auction._id)}>

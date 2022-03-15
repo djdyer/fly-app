@@ -79,34 +79,6 @@
   }
 }
 
-/* Side Nav animation */
-.slide-left {
-  -webkit-animation: slide-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s
-    both;
-  animation: slide-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.5s both;
-  animation-iteration-count: 1;
-}
-@-webkit-keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(2100px);
-    transform: translateX(2100px);
-  }
-  100% {
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
-  }
-}
-@keyframes slide-left {
-  0% {
-    -webkit-transform: translateX(2100px);
-    transform: translateX(2100px);
-  }
-  100% {
-    -webkit-transform: translateX(0px);
-    transform: translateX(0px);
-  }
-}
-
 /* Results Animation slide up */
 .slide-top {
   -webkit-animation: slide-top 1s ease-in-out 2s both;

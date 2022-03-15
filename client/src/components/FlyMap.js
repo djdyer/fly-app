@@ -78,6 +78,13 @@ export default function FlyMap() {
         options={{ styles, disableDefaultUI: true }}
         mapContainerStyle={containerStyle}
         zoom={8}
+        // scaleControl={false}
+        // zoomControl={false}
+        // mapTypeControl={false}
+        // rotateControl={false}
+        // fullscreenConrol={false}
+        // draggable={false}
+        // gestureHandling={false}
         // onUnmount={onUnmount}
       >
         {airports.map((marker) => (

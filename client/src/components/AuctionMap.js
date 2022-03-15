@@ -54,6 +54,11 @@ export default function AuctionMap() {
         mapContainerStyle={containerStyle}
         zoom={12}
         // onUnmount={onUnmount}
+        // scaleControl={false}
+        // zoomControl={false}
+        // mapTypeControl={false}
+        // rotateControl={false}
+        // fullscreenConrol={false}
       >
         {airports.map((marker) => (
           <Marker key={marker.lat + marker.lng} position={marker} icon={icon} />

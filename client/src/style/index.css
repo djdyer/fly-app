@@ -362,6 +362,7 @@ h1:hover {
 }
 
 #myPlane .plane {
+  height: 250px;
   border-radius: 10px 10px 0 0;
   margin-bottom: -4px;
 }
@@ -374,7 +375,7 @@ h1:hover {
 #header2,
 #auctionBody {
   background: #212121;
-  opacity: 70%;
+  opacity: 80%;
 }
 
 .filterFields {
@@ -601,6 +602,10 @@ header {
   align-items: flex-start;
 }
 
+span {
+  color: white;
+}
+
 .auctionBodyColumn,
 .filterColumn {
   display: flex;
@@ -616,7 +621,7 @@ header {
 
 .profileColumn {
   text-align: left;
-  margin: 20px 0 0 0;
+  margin: 20px 5px 0 0;
 }
 
 #profileLinks {
@@ -624,7 +629,7 @@ header {
 }
 
 .profileColumn h3 {
-  margin: 2px auto;
+  margin: 3px auto;
 }
 
 .profileColumn h5 {
@@ -635,7 +640,7 @@ header {
 
 .filterColumn form select {
   width: 100px;
-  margin: 4px auto;
+  margin: 3px auto;
 }
 
 #auctionBody h3 {
@@ -792,7 +797,7 @@ h6 {
 }
 
 .profileBlockHeader img {
-  max-height: 30px;
+  height: 25px;
   margin: 8px 5px 5px 0;
   opacity: 70%;
 }
@@ -853,6 +858,32 @@ h6:hover {
 @media screen and (min-width: 2300px) {
   #searchFields {
     margin-left: 32%;
+  }
+
+  #result {
+    height: 350px;
+  }
+
+  .plane {
+    height: 286px;
+  }
+
+  #myPlane .plane {
+    height: 330px;
+  }
+
+  .auctionRow,
+  h3,
+  h5,
+  .leadingBidContainer,
+  .serviceContainer,
+  #bidHeader {
+    font-size: 14pt;
+  }
+
+  li {
+    font-size: 9pt;
+    margin-top: 12px;
   }
 }
 
@@ -977,7 +1008,7 @@ h6:hover {
   }
 
   #myPlane .plane {
-    height: 180px;
+    height: 210px;
   }
 
   h2 {
@@ -1081,6 +1112,7 @@ h6:hover {
 
   .plane {
     height: 186px;
+    object-fit: unset;
   }
 
   .filterFields .filterRow input {
@@ -1264,7 +1296,7 @@ h6:hover {
   }
 
   .auctionBodyColumn h3 {
-    font-size: 8pt;
+    font-size: 9pt;
   }
 
   .registerFields {
@@ -1304,5 +1336,32 @@ h6:hover {
 
   li {
     margin-top: 3px;
+  }
+
+  #bidHeader {
+    font-size: 9pt;
+    padding-left: 15px;
+    padding-top: 12px;
+    margin-bottom: 0px;
+  }
+
+  h5,
+  h3,
+  .leadingBidContainer,
+  .serviceContainer {
+    font-size: 9pt;
+  }
+
+  .auctionMessage {
+    margin: 15px auto;
+  }
+
+  #profileWatchIcon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .profileBlockHeader h3 {
+    margin-left: 5px;
   }
 }
