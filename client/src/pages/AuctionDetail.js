@@ -93,7 +93,8 @@ function AuctionDetail() {
                 <div className="termsContainer">
                   <input type="checkbox" id="termsConfirm"></input>
                   <h3>
-                    Agree to <a href="/termsandcondtions">Terms+Conditions</a>
+                    <span>Agree to:</span>
+                    <a href="/termsandcondtions">Terms</a>
                     {auctionData.termsConfirm}
                   </h3>
                 </div>

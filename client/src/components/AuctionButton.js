@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 import "./auctionButtonPlaceholder.css";
 
 function AuctionButton(props) {
-
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
   const pathArray = window.location.pathname.split("/");
@@ -103,7 +102,7 @@ function AuctionButton(props) {
   const historyBlock = () => {
     return (
       <div className="bidHistory">
-        <div id="bidHeader">Bid History</div>
+        <div id="bidHeader">BID HISTORY</div>
         {props.auctionData.bidsHistory
           .slice(0)
           .reverse()
@@ -135,9 +134,9 @@ function AuctionButton(props) {
             {historyBlock()}
             <div className="watchOption">
               {watchOrWatching ||
-                userData.watchlistAuctions.find(
-                  (AuctionOnWathList) => AuctionOnWathList._id === auctionId
-                ) ? (
+              userData.watchlistAuctions.find(
+                (AuctionOnWathList) => AuctionOnWathList._id === auctionId
+              ) ? (
                 <div id="watchOption">
                   <Link to="/profile">
                     <img
@@ -153,7 +152,7 @@ function AuctionButton(props) {
                       src={watchHover}
                     />
                   </Link>
-                  <h2>On your watchlist</h2>
+                  <h2>On your Watchlist</h2>
                 </div>
               ) : (
                 <>
@@ -180,7 +179,11 @@ function AuctionButton(props) {
             <div className="enterBid">
               <input
                 // id="enterBid"
-                id={(errorMessage === "enter your bid") ? "inputPlaceholderColorBlack" : "inputPlaceholderColorRed"}
+                id={
+                  errorMessage === "enter your bid"
+                    ? "inputPlaceholderColorBlack"
+                    : "inputPlaceholderColorRed"
+                }
                 placeholder={errorMessage}
                 value={bid}
                 name="number"

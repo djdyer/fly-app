@@ -5,6 +5,7 @@ import { QUERY_ME } from "../utils/queries";
 import Profilewatchlist from "../components/Profilewatchlist";
 import { uploadAvatar } from "../utils/uploadAvatar";
 import { Link } from "react-router-dom";
+// import Timer from "../components/Timer";
 
 function Profile() {
   const notificationsList = require("../../src/assets/icons/notificationslist.png");
@@ -86,10 +87,7 @@ function Profile() {
                 <h5>Home City:</h5>
                 <div id="profileLinks">
                   <Link to="/editprofile">
-                    <h6>Edit Profile</h6>
-                  </Link>
-                  <Link to="/signup">
-                    <h6>Update Password</h6>
+                    <h6>Edit</h6>
                   </Link>
                   <Link to="/" onClick={() => Auth.logout()}>
                     <h6>Logout</h6>
@@ -115,7 +113,12 @@ function Profile() {
                         {" "}
                         <h2>
                           {" "}
-                          From: {auction.origin} To: {auction.destination}{" "}
+                          {auction.origin} {" > "} {auction.destination}{" "}
+                          {/* <Timer
+                            auctionEndDate={+auctionData.auctionEndDate}
+                            setEndTimer={setEndTimer}
+                            refechAuction={refechAuction}
+                          /> */}
                         </h2>
                       </Link>
                     </div>
@@ -124,13 +127,6 @@ function Profile() {
               </div>
 
               <Profilewatchlist userData={userData} refechMe={refechMe} />
-
-              <div className="profileBlock">
-                <div className="profileBlockHeader">
-                  <img alt="settingsPreference" src={settingsList} />
-                  <h3>Settings</h3>
-                </div>
-              </div>
 
               <div className="profileBlock">
                 <div className="profileBlockHeader">
@@ -143,6 +139,13 @@ function Profile() {
                 <div className="profileBlockHeader">
                   <img alt="documents" src={documentsList} />
                   <h3>Documents</h3>
+                </div>
+              </div>
+
+              <div className="profileBlock">
+                <div className="profileBlockHeader">
+                  <img alt="settingsPreference" src={settingsList} />
+                  <h3>Settings</h3>
                 </div>
               </div>
             </div>

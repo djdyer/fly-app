@@ -74,7 +74,7 @@ export default function AllResultsFilter() {
   return (
     <>
       {loading ? null : (
-        <div className="filter slide-left">
+        <div className="filter fade-in">
           <div id="filterContainer">
             <div className="filterRow">
               <h2>Search </h2>
@@ -211,7 +211,7 @@ export default function AllResultsFilter() {
             </button>
 
             <div id="resultsHeader">
-              <h2>All Auctions:</h2>
+              <h2>AUCTIONS:</h2>
             </div>
 
             <div id="filteredResults">
