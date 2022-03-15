@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ad5e18a4.css",
-    "main.js": "/static/js/main.bc506757.js",
+    "main.css": "/static/css/main.ef57e45c.css",
+    "main.js": "/static/js/main.a0d6aefa.js",
     "static/media/runway.png": "/static/media/runway.988decb12dd424c07d3d.png",
     "static/media/fly_logo.png": "/static/media/fly_logo.83b6d1ef686379a9764d.png",
     "static/media/logout2.png": "/static/media/logout2.ff9972637f2319717c66.png",
@@ -26,11 +26,11 @@
     "static/media/plus2.png": "/static/media/plus2.95805ac2988a05e03b31.png",
     "static/media/more2.png": "/static/media/more2.920540aa66db51b29661.png",
     "index.html": "/index.html",
-    "main.ad5e18a4.css.map": "/static/css/main.ad5e18a4.css.map",
-    "main.bc506757.js.map": "/static/js/main.bc506757.js.map"
+    "main.ef57e45c.css.map": "/static/css/main.ef57e45c.css.map",
+    "main.a0d6aefa.js.map": "/static/js/main.a0d6aefa.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad5e18a4.css",
-    "static/js/main.bc506757.js"
+    "static/css/main.ef57e45c.css",
+    "static/js/main.a0d6aefa.js"
   ]
 }
