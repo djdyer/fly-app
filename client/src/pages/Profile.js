@@ -17,6 +17,7 @@ function Profile() {
 
   const { loading, data, error, refetch: refechMe } = useQuery(QUERY_ME);
   const userData = data?.me || {};
+  refechMe();
 
   // const [imageUrl, setImageUrl] = useState({
   //   imageUrl: "",
@@ -101,7 +102,7 @@ function Profile() {
                 <h3>{userData.homeCity}</h3>
               </div>
             </header>
-            <div className="profileBody">
+            <div>
               <div className="profileBlock">
                 <div className="profileBlockHeader">
                   <img alt="notificationslist" src={notificationsList} />

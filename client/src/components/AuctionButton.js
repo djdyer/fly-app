@@ -14,12 +14,7 @@ import { Link } from "react-router-dom";
 import "./auctionButtonPlaceholder.css";
 
 function AuctionButton(props) {
-  const inputStyles = {
-    color: 'black',
-  };
-  const placeholderStyles = {
-    color: 'red',
-  };
+
   const watch = require("../../src/assets/icons/watch.png");
   const watchHover = require("../../src/assets/icons/watch2.png");
   const pathArray = window.location.pathname.split("/");
@@ -27,7 +22,6 @@ function AuctionButton(props) {
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me || {};
 
-  console.log(userData);
   const [bid, setBid] = useState("");
   const [errorMessage, setErrorMessage] = useState("enter your bid");
   const [watchOrWatching, setwatchOrWatching] = useState(false);
@@ -99,7 +93,6 @@ function AuctionButton(props) {
           variables: { auctionId: auctionId, bidAmount: +bid },
         });
         props.refechAuction();
-        // document.getElementById('#enterBid').placeholder = errorMessage;
       }
     } catch (error) {
       console.error(error);
