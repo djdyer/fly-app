@@ -19,6 +19,12 @@ function AuctionDetail() {
     variables: { _id: auctionId },
   });
   const [endTimer, setEndTimer] = useState(false);
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
+
+  const handleAgreeToTerms = (e) => {
+    const { checked } = e.target;
+    setAgreeToTerms(checked);
+  };
 
   const auctionData = data?.auction || {};
 
@@ -91,7 +97,7 @@ function AuctionDetail() {
                   </div>
                 </div>
                 <div className="termsContainer">
-                  <input type="checkbox" id="termsConfirm"></input>
+                  <input type="checkbox" id="termsConfirm" onChange={handleAgreeToTerms}></input>
                   <h3>
                     <span>Agree to:</span>
                     <a href="/termsandcondtions">Terms</a>
@@ -112,6 +118,7 @@ function AuctionDetail() {
               auctionData={auctionData}
               refechAuction={refechAuction}
               endTimer={endTimer}
+              agreeToTerms={agreeToTerms}
             />
           </div>
         </div>
