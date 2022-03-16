@@ -10,29 +10,15 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 33.749,
+  lat: 33.515,
   lng: -84.388,
 };
 
 export default function FlyMap() {
-  // console.log(process.env);
-
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_FLY_API_KEY,
   });
-
-  // const [map, setMap] = useState(null);
-
-  // const onLoad = useCallback(function callback(map) {
-  //   const bounds = new window.google.maps.LatLngBounds();
-  //   map.fitBounds(bounds);
-  //   setMap(map);
-  // }, []);
-
-  // const onUnmount = useCallback(function callback(map) {
-  //   setMap(null);
-  // }, []);
 
   const mapRef = useRef(null);
   const [position, setPosition] = useState(center);
@@ -73,19 +59,13 @@ export default function FlyMap() {
         onLoad={handleLoad}
         center={position}
         onDragEnd={handleCenter}
-        // className={mapStyle}
-        //defaultCenter={{ lat: 33.749, lng: -84.388 }}
-        options={{ styles, disableDefaultUI: true }}
+        options={{
+          styles,
+          disableDefaultUI: true,
+          draggable: false,
+        }}
         mapContainerStyle={containerStyle}
         zoom={8}
-        // scaleControl={false}
-        // zoomControl={false}
-        // mapTypeControl={false}
-        // rotateControl={false}
-        // fullscreenConrol={false}
-        // draggable={false}
-        // gestureHandling={false}
-        // onUnmount={onUnmount}
       >
         {airports.map((marker) => (
           <Marker key={marker.lat + marker.lng} position={marker} icon={icon} />

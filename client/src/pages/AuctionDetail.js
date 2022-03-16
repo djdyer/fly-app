@@ -97,10 +97,14 @@ function AuctionDetail() {
                   </div>
                 </div>
                 <div className="termsContainer">
-                  <input type="checkbox" id="termsConfirm" onChange={handleAgreeToTerms}></input>
+                  <input
+                    type="checkbox"
+                    id="termsConfirm"
+                    onChange={handleAgreeToTerms}
+                  ></input>
                   <h3>
-                    <span>Agree to:</span>
-                    <a href="/termsandcondtions">Terms</a>
+                    <span>Agree:</span>
+                    <a href="/termsandcondtions">Terms+Conditions</a>
                     {auctionData.termsConfirm}
                   </h3>
                 </div>
