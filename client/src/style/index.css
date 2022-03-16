@@ -45,7 +45,7 @@ body {
 #logo {
   top: 30px;
   display: block;
-  margin: 30px;
+  margin: 30px 30px 10px 30px;
   width: auto;
   height: 130px;
   text-align: center;
@@ -629,7 +629,8 @@ span {
 }
 
 .profileColumn h3 {
-  margin: 3px auto;
+  margin: 3px;
+  font-size: 11pt;
 }
 
 .profileColumn h5 {
@@ -644,7 +645,7 @@ span {
 }
 
 #auctionBody h3 {
-  margin: 4px 7px 4px 0;
+  margin: 4px 7px 4px 0px;
   color: var(--light);
 }
 
@@ -1292,7 +1293,7 @@ h6:hover {
   }
 
   .auctionBodyColumn {
-    margin-left: 3px;
+    margin-left: 10px;
   }
 
   .auctionBodyColumn h3 {

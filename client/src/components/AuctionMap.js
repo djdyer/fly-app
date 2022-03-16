@@ -48,17 +48,9 @@ export default function AuctionMap() {
         onLoad={handleLoad}
         center={position}
         onDragEnd={handleCenter}
-        // className={mapStyle}
-        //defaultCenter={{ lat: 33.749, lng: -84.388 }}
-        options={{ styles, disableDefaultUI: true }}
+        options={{ styles, disableDefaultUI: true, draggable: false }}
         mapContainerStyle={containerStyle}
-        zoom={12}
-        // onUnmount={onUnmount}
-        // scaleControl={false}
-        // zoomControl={false}
-        // mapTypeControl={false}
-        // rotateControl={false}
-        // fullscreenConrol={false}
+        zoom={13}
       >
         {airports.map((marker) => (
           <Marker key={marker.lat + marker.lng} position={marker} icon={icon} />

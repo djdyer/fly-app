@@ -222,12 +222,17 @@ function AuctionButton(props) {
             className="shadow-pop-br"
             id="submitBtn"
             type="submit"
-            style={props.agreeToTerms ? null : {pointerEvents: "none"}}
+            style={props.agreeToTerms ? null : { pointerEvents: "none" }}
             to="/payment"
           >
             <h1>MAKE PAYMENT</h1>
           </Link>
-          {props.agreeToTerms ? null : <div className="enterBid btnTerms"> <p style={{color: "red"}}>You have to agree to terms</p></div>}
+          {props.agreeToTerms ? null : (
+            <div className="enterBid btnTerms">
+              {" "}
+              <p style={{ color: "red" }}>You have to agree to terms</p>
+            </div>
+          )}
         </div>
       </>
     );
@@ -245,14 +250,14 @@ function AuctionButton(props) {
       <>
         {historyBlock()}
         <div className="enterBid">
-          <a
+          <Link
+            to="/login"
             className="shadow-pop-br"
             id="submitBtn"
             type="submit"
-            href="/login"
           >
             <h1>LOGIN TO BID</h1>
-          </a>
+          </Link>
         </div>
       </>
     );
