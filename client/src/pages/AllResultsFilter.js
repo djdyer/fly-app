@@ -5,9 +5,8 @@ import { QUERY_AUCTIONS } from "../utils/queries";
 
 export default function AllResultsFilter() {
   const { loading, data, error } = useQuery(QUERY_AUCTIONS);
-  // const auctionsData = data?.auctions || {};
-  // console.log(auctionsData)
-
+  const auctionsData = data?.auctions || {};
+  const [searchPressed, setsearchPressed] = useState(false);
   const search = require("../../src/assets/icons/search2.png");
   const [filter, setFilter] = useState({
     filterOrigin: "",
@@ -58,6 +57,7 @@ export default function AllResultsFilter() {
       aircraft: "",
       cabinSize: "",
     });
+    setsearchPressed(false);
   };
 
   const handleFilterExtraOptions = (e) => {
@@ -67,10 +67,20 @@ export default function AllResultsFilter() {
       [name]: checked,
     });
   };
+  const handleSeachButton = () => {
+    (Object.values(filter).every((item) => item === "")) ? setsearchPressed(false) : setsearchPressed(true)
+  }
 
-  console.log(filterExtraOptions);
-  console.log(filter);
-
+  const searchFilterData = (auctionsData, filter, loading) => {
+    if (loading) {
+      return
+    } else {
+      const afterSearch = auctionsData.filter(obj => obj.origin.toLowerCase() === filter.filterOrigin.toLowerCase())
+      console.log(afterSearch)
+      return afterSearch
+    }
+  }
+console.log(1111,searchFilterData(auctionsData, filter, loading))
   return (
     <>
       {loading ? null : (
@@ -129,7 +139,7 @@ export default function AllResultsFilter() {
                       name="aircraft"
                     >
                       <option value="">All</option>
-                      {data?.auctions
+                      {auctionsData
                         .map((auction) => (
                           <option key={auction._id} value={auction.aircraft}>
                             {auction.aircraft}
@@ -147,7 +157,7 @@ export default function AllResultsFilter() {
                       name="operator"
                     >
                       <option value="">All</option>
-                      {data?.auctions
+                      {auctionsData
                         .map((auction) => (
                           <option key={auction._id} value={auction.operator}>
                             {auction.operator}
@@ -203,11 +213,21 @@ export default function AllResultsFilter() {
             </div>
 
             <button
+              style={{ cursor: 'pointer' }}
+              className="shadow-pop-br"
+              id="searchBtn"
+              onClick={handleSeachButton}
+            >
+              <h1>SEARCH</h1>
+            </button>
+
+            <button
+              style={{ cursor: 'pointer' }}
               className="shadow-pop-br"
               id="searchBtn"
               onClick={handleClearSearch}
             >
-              <h1>CLEAR SEARCH</h1>
+              <h1>CLEAR</h1>
             </button>
 
             <div id="resultsHeader">
@@ -215,24 +235,30 @@ export default function AllResultsFilter() {
             </div>
 
             <div id="filteredResults">
-              {data?.auctions.map((auction) => {
-                if (Object.values(filter).every((item) => item === "")) {
-                  return <Auction key={auction._id} auction={auction} />;
-                } else if (
-                  filter.filterOrigin.toLowerCase() ===
-                    auction.origin.toLowerCase() ||
-                  filter.filterDestination.toLowerCase() ===
-                    auction.destination.toLowerCase() ||
-                  filter.aircraft === auction.aircraft ||
-                  filter.operator === auction.operator ||
-                  new Date(filter.dateOrigin).toLocaleDateString() ===
-                    new Date(+auction.flightDate).toLocaleDateString() ||
-                  new Date(filter.dateDestination).toLocaleDateString() ===
-                    new Date(+auction.flightDate).toLocaleDateString()
-                ) {
-                  return <Auction key={auction._id} auction={auction} />;
-                }
-              })}
+              {/* {searchPressed ? auctionsData.map((auction) => { 
+                return <Auction key={auction._id} auction={auction}}) :  */}
+
+              {!searchPressed ? auctionsData.map((auction) => {
+                return <Auction key={auction._id} auction={auction} />
+                // if (Object.values(filter).every((item) => item === "")) {
+                //   return <Auction key={auction._id} auction={auction} />;
+                // } else if (
+                //   // filter.filterOrigin.toLowerCase() ===
+                //   // auction.origin.toLowerCase() ||
+                //   // filter.filterDestination.toLowerCase() ===
+                //   // auction.destination.toLowerCase() ||
+                //   // filter.aircraft === auction.aircraft ||
+                //   // filter.operator === auction.operator ||
+                //   // new Date(filter.dateOrigin).toLocaleDateString() ===
+                //   // new Date(+auction.flightDate).toLocaleDateString() ||
+                //   // new Date(filter.dateDestination).toLocaleDateString() ===
+                //   // new Date(+auction.flightDate).toLocaleDateString()
+                // ) {
+                //   return <Auction key={auction._id} auction={auction} />;
+                // }
+              }) : true ? (searchFilterData(auctionsData, filter, loading).map((auction) => {
+                return <Auction key={auction._id} auction={auction} />
+              })) : <h1 style={{ color: "red" }}>No results</h1>}
             </div>
           </div>
         </div>

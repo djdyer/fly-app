@@ -193,16 +193,12 @@ function AuctionButton(props) {
                 className="shadow-pop-br"
                 id="submitBtn"
                 type="submit"
+                style={props.agreeToTerms ? null : { pointerEvents: "none" }}
                 onClick={handlePlaceBid}
               >
-                <h1>PLACE BID</h1>
+                {props.agreeToTerms ? <h1 style={{ cursor:'pointer' }}>PLACE BID</h1> : <h4 style={{ color: "red" }}>You have to agree to terms</h4>}
               </button>
             </div>
-            {/* {errorMessage ? (
-              <div>
-                <p id="alert">{errorMessage}</p>
-              </div>
-            ) : null} */}
           </>
         )}
       </>
@@ -222,17 +218,10 @@ function AuctionButton(props) {
             className="shadow-pop-br"
             id="submitBtn"
             type="submit"
-            style={props.agreeToTerms ? null : { pointerEvents: "none" }}
             to="/payment"
           >
             <h1>MAKE PAYMENT</h1>
           </Link>
-          {props.agreeToTerms ? null : (
-            <div className="enterBid btnTerms">
-              {" "}
-              <p style={{ color: "red" }}>You have to agree to terms</p>
-            </div>
-          )}
         </div>
       </>
     );
