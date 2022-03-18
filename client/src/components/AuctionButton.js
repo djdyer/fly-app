@@ -55,9 +55,7 @@ function AuctionButton(props) {
       console.error(error);
     }
   };
-
-  const handlePlaceBid = async (e) => {
-    e.preventDefault();
+  async function doLogicToEnterBid() {
     try {
       setErrorMessage("enter your bid");
       if (!+bid) {
@@ -97,6 +95,18 @@ function AuctionButton(props) {
       console.error(error);
     }
     setBid("");
+  }
+
+  const handlePlaceBid =  (e) => {
+    e.preventDefault();
+    doLogicToEnterBid();
+  };
+
+  const handlePlaceBidEnter =  (e) => {
+    e.preventDefault();
+    if (e.key === 'Enter' && props.agreeToTerms) {
+      doLogicToEnterBid();
+    }
   };
 
   const historyBlock = () => {
@@ -134,9 +144,9 @@ function AuctionButton(props) {
             {historyBlock()}
             <div className="watchOption">
               {watchOrWatching ||
-              userData.watchlistAuctions.find(
-                (AuctionOnWathList) => AuctionOnWathList._id === auctionId
-              ) ? (
+                userData.watchlistAuctions.find(
+                  (AuctionOnWathList) => AuctionOnWathList._id === auctionId
+                ) ? (
                 <div id="watchOption">
                   <Link to="/profile">
                     <img
@@ -188,6 +198,7 @@ function AuctionButton(props) {
                 value={bid}
                 name="number"
                 onChange={handleInputChange}
+                onKeyUp={handlePlaceBidEnter}
               />
               <button
                 className="shadow-pop-br"
@@ -196,7 +207,7 @@ function AuctionButton(props) {
                 style={props.agreeToTerms ? null : { pointerEvents: "none" }}
                 onClick={handlePlaceBid}
               >
-                {props.agreeToTerms ? <h1 style={{ cursor:'pointer' }}>PLACE BID</h1> : <h4 style={{ color: "red" }}>You have to agree to terms</h4>}
+                {props.agreeToTerms ? <h1 style={{ cursor: 'pointer' }}>PLACE BID</h1> : <h4 style={{ color: "red" }}>You have to agree to terms</h4>}
               </button>
             </div>
           </>
