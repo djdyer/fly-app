@@ -97,14 +97,14 @@ function AuctionButton(props) {
     setBid("");
   }
 
-  const handlePlaceBid =  (e) => {
+  const handlePlaceBid = (e) => {
     e.preventDefault();
     doLogicToEnterBid();
   };
 
-  const handlePlaceBidEnter =  (e) => {
+  const handlePlaceBidEnter = (e) => {
     e.preventDefault();
-    if (e.key === 'Enter' && props.agreeToTerms) {
+    if (e.key === "Enter" && props.agreeToTerms) {
       doLogicToEnterBid();
     }
   };
@@ -144,9 +144,9 @@ function AuctionButton(props) {
             {historyBlock()}
             <div className="watchOption">
               {watchOrWatching ||
-                userData.watchlistAuctions.find(
-                  (AuctionOnWathList) => AuctionOnWathList._id === auctionId
-                ) ? (
+              userData.watchlistAuctions.find(
+                (AuctionOnWathList) => AuctionOnWathList._id === auctionId
+              ) ? (
                 <div id="watchOption">
                   <Link to="/profile">
                     <img
@@ -207,7 +207,11 @@ function AuctionButton(props) {
                 style={props.agreeToTerms ? null : { pointerEvents: "none" }}
                 onClick={handlePlaceBid}
               >
-                {props.agreeToTerms ? <h1 style={{ cursor: 'pointer' }}>PLACE BID</h1> : <h4 style={{ color: "red" }}>You have to agree to terms</h4>}
+                {props.agreeToTerms ? (
+                  <h1 style={{ cursor: "pointer" }}>PLACE BID</h1>
+                ) : (
+                  <h1>AGREE TO TERMS</h1>
+                )}
               </button>
             </div>
           </>

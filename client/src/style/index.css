@@ -129,11 +129,19 @@ body {
   display: flex;
   flex-direction: row-reverse;
   align-items: baseline;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-#searchClear button h2 {
-  font-size: 12pt;
-  margin-left: -150px;
+#clearFlex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 30px 0 20px;
+}
+
+#clearFlex h2 {
+  margin-bottom: 3px;
 }
 
 ::placeholder {
@@ -181,6 +189,10 @@ input:focus {
   border-right: 3px inset var(--light);
   border-bottom: 3px inset var(--light);
   border-radius: 5px;
+}
+
+#searchBtn {
+  margin: 0;
 }
 
 .register {
@@ -547,7 +559,7 @@ header {
 }
 
 .filterRow h2 {
-  margin: 10px 10px 20px 10px;
+  margin: 20px 20px 30px 20px;
 }
 
 .profileDetail .profileOpenBids h2 {
@@ -845,12 +857,51 @@ h6 {
   width: 25px;
 }
 
+#clearSearch,
+#clearSearch2 {
+  transform: rotate(45deg);
+  width: 30px;
+  margin: 3px;
+}
+
 .register a,
 .termsContainer a,
 .serviceContainer a {
   text-decoration: none;
   color: var(--light);
   margin-left: 3px;
+}
+
+.termsContainer input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid var(--light);
+  border-radius: 3px;
+  outline: none;
+  transition-duration: 0.3s;
+  background-color: #38373f;
+  cursor: pointer;
+}
+
+.termsContainer > input:checked {
+  border: 1px solid #e434a9;
+  background-color: #3f5468;
+}
+
+.termsContainer > input:checked + span::before {
+  content: "\2713";
+  display: block;
+  text-align: center;
+  color: #e434a9;
+  position: absolute;
+  left: 0.7rem;
+  top: 0.2rem;
+}
+
+.checkbox > input:active {
+  border: 2px solid #34495e;
 }
 
 .register a:hover,
@@ -947,25 +998,6 @@ h6:hover {
   #loginBtn,
   #signupBtn {
     width: 275px;
-  }
-
-  #searchClear {
-    flex-direction: column-re;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  #searchClear button {
-    margin-bottom: 20px;
-  }
-
-  #searchClear button h2 {
-    margin: 0 0 15px 0;
-  }
-
-  #searchClear button h2:hover {
-    color: #e434a9;
-    text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
   }
 
   .topResults,
@@ -1102,6 +1134,11 @@ h6:hover {
   .filterRow h5 {
     margin-bottom: 5px;
     margin-top: 5px;
+  }
+
+  #clearSearch,
+  #clearSearch2 {
+    width: 25px;
   }
 
   #watchIcon,
@@ -1351,6 +1388,21 @@ h6:hover {
   #deleteWatch,
   #deleteWatch2 {
     width: 18px;
+  }
+
+  #clearSearch,
+  #clearSearch2 {
+    width: 20px;
+  }
+
+  #searchClear {
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  #clearFlex {
+    margin: 5px 0;
   }
 
   #alert {

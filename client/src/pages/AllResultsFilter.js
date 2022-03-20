@@ -7,7 +7,8 @@ export default function AllResultsFilter() {
   const { loading, data, error } = useQuery(QUERY_AUCTIONS);
   const auctionsData = data?.auctions || {};
   const [searchPressed, setsearchPressed] = useState(false);
-  const search = require("../../src/assets/icons/search2.png");
+  const plus = require("../../src/assets/icons/plus.png");
+  const plusHover = require("../../src/assets/icons/plus2.png");
   const [filter, setFilter] = useState({
     filterOrigin: "",
     dateOrigin: "",
@@ -217,7 +218,24 @@ export default function AllResultsFilter() {
             </div>
             <div id="searchClear">
               <button onClick={handleClearSearch}>
-                <h2>Clear Results X</h2>
+                <div id="clearFlex">
+                  <h3>CLEAR</h3>
+                  <a>
+                    <img
+                      id="clearSearch"
+                      className="icon default"
+                      alt="plus"
+                      src={plus}
+                    />
+                    <img
+                      id="clearSearch2"
+                      className="icon hover"
+                      alt="plus hover"
+                      src={plusHover}
+                    />
+                    {/* <FontAwesomeIcon icon="fa-solid fa-x" /> */}
+                  </a>
+                </div>
               </button>
 
               <button
