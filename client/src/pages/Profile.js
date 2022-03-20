@@ -5,7 +5,7 @@ import { QUERY_ME } from "../utils/queries";
 import Profilewatchlist from "../components/Profilewatchlist";
 import { uploadAvatar } from "../utils/uploadAvatar";
 import { Link } from "react-router-dom";
-// import Timer from "../components/Timer";
+import Timer from "../components/Timer";
 
 function Profile() {
   const notificationsList = require("../../src/assets/icons/notificationslist.png");
@@ -19,6 +19,7 @@ function Profile() {
   const { loading, data, error, refetch: refechMe } = useQuery(QUERY_ME);
   const userData = data?.me || {};
   refechMe();
+  console.log(userData)
 
   // const [imageUrl, setImageUrl] = useState({
   //   imageUrl: "",
@@ -114,11 +115,11 @@ function Profile() {
                         <h2>
                           {" "}
                           {auction.origin} {" > "} {auction.destination}{" "}
-                          {/* <Timer
-                            auctionEndDate={+auctionData.auctionEndDate}
-                            setEndTimer={setEndTimer}
-                            refechAuction={refechAuction}
-                          /> */}
+                          <div className="profileBlockHeader"> Auction ends in:&nbsp;&nbsp;
+                          <Timer
+                            auctionEndDate={+auction.auctionEndDate}
+                          />
+                          </div>
                         </h2>
                       </Link>
                     </div>
