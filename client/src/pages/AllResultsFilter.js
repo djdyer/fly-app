@@ -68,19 +68,23 @@ export default function AllResultsFilter() {
     });
   };
   const handleSeachButton = () => {
-    (Object.values(filter).every((item) => item === "")) ? setsearchPressed(false) : setsearchPressed(true)
-  }
+    Object.values(filter).every((item) => item === "")
+      ? setsearchPressed(false)
+      : setsearchPressed(true);
+  };
 
   const searchFilterData = (auctionsData, filter, loading) => {
     if (loading) {
-      return
+      return;
     } else {
-      const afterSearch = auctionsData.filter(obj => obj.origin.toLowerCase() === filter.filterOrigin.toLowerCase())
-      console.log(afterSearch)
-      return afterSearch
+      const afterSearch = auctionsData.filter(
+        (obj) => obj.origin.toLowerCase() === filter.filterOrigin.toLowerCase()
+      );
+      console.log(afterSearch);
+      return afterSearch;
     }
-  }
-console.log(1111,searchFilterData(auctionsData, filter, loading))
+  };
+  console.log(1111, searchFilterData(auctionsData, filter, loading));
   return (
     <>
       {loading ? null : (
@@ -211,24 +215,19 @@ console.log(1111,searchFilterData(auctionsData, filter, loading))
                 </div>
               </div>
             </div>
+            <div id="searchClear">
+              <button onClick={handleClearSearch}>
+                <h2>Clear Results X</h2>
+              </button>
 
-            <button
-              style={{ cursor: 'pointer' }}
-              className="shadow-pop-br"
-              id="searchBtn"
-              onClick={handleSeachButton}
-            >
-              <h1>SEARCH</h1>
-            </button>
-
-            <button
-              style={{ cursor: 'pointer' }}
-              className="shadow-pop-br"
-              id="searchBtn"
-              onClick={handleClearSearch}
-            >
-              <h1>CLEAR</h1>
-            </button>
+              <button
+                className="shadow-pop-br"
+                id="searchBtn"
+                onClick={handleSeachButton}
+              >
+                <h1>SEARCH</h1>
+              </button>
+            </div>
 
             <div id="resultsHeader">
               <h2>AUCTIONS:</h2>
@@ -238,27 +237,35 @@ console.log(1111,searchFilterData(auctionsData, filter, loading))
               {/* {searchPressed ? auctionsData.map((auction) => { 
                 return <Auction key={auction._id} auction={auction}}) :  */}
 
-              {!searchPressed ? auctionsData.map((auction) => {
-                return <Auction key={auction._id} auction={auction} />
-                // if (Object.values(filter).every((item) => item === "")) {
-                //   return <Auction key={auction._id} auction={auction} />;
-                // } else if (
-                //   // filter.filterOrigin.toLowerCase() ===
-                //   // auction.origin.toLowerCase() ||
-                //   // filter.filterDestination.toLowerCase() ===
-                //   // auction.destination.toLowerCase() ||
-                //   // filter.aircraft === auction.aircraft ||
-                //   // filter.operator === auction.operator ||
-                //   // new Date(filter.dateOrigin).toLocaleDateString() ===
-                //   // new Date(+auction.flightDate).toLocaleDateString() ||
-                //   // new Date(filter.dateDestination).toLocaleDateString() ===
-                //   // new Date(+auction.flightDate).toLocaleDateString()
-                // ) {
-                //   return <Auction key={auction._id} auction={auction} />;
-                // }
-              }) : true ? (searchFilterData(auctionsData, filter, loading).map((auction) => {
-                return <Auction key={auction._id} auction={auction} />
-              })) : <h1 style={{ color: "red" }}>No results</h1>}
+              {!searchPressed ? (
+                auctionsData.map((auction) => {
+                  return <Auction key={auction._id} auction={auction} />;
+                  // if (Object.values(filter).every((item) => item === "")) {
+                  //   return <Auction key={auction._id} auction={auction} />;
+                  // } else if (
+                  //   // filter.filterOrigin.toLowerCase() ===
+                  //   // auction.origin.toLowerCase() ||
+                  //   // filter.filterDestination.toLowerCase() ===
+                  //   // auction.destination.toLowerCase() ||
+                  //   // filter.aircraft === auction.aircraft ||
+                  //   // filter.operator === auction.operator ||
+                  //   // new Date(filter.dateOrigin).toLocaleDateString() ===
+                  //   // new Date(+auction.flightDate).toLocaleDateString() ||
+                  //   // new Date(filter.dateDestination).toLocaleDateString() ===
+                  //   // new Date(+auction.flightDate).toLocaleDateString()
+                  // ) {
+                  //   return <Auction key={auction._id} auction={auction} />;
+                  // }
+                })
+              ) : true ? (
+                searchFilterData(auctionsData, filter, loading).map(
+                  (auction) => {
+                    return <Auction key={auction._id} auction={auction} />;
+                  }
+                )
+              ) : (
+                <h1 style={{ color: "red" }}>No results</h1>
+              )}
             </div>
           </div>
         </div>

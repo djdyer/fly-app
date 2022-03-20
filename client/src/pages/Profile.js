@@ -19,7 +19,7 @@ function Profile() {
   const { loading, data, error, refetch: refechMe } = useQuery(QUERY_ME);
   const userData = data?.me || {};
   refechMe();
-  console.log(userData)
+  console.log(userData);
 
   // const [imageUrl, setImageUrl] = useState({
   //   imageUrl: "",
@@ -114,12 +114,9 @@ function Profile() {
                         {" "}
                         <h2>
                           {" "}
-                          {auction.origin} {" > "} {auction.destination}{" "}
-                          <div className="profileBlockHeader"> Auction ends in:&nbsp;&nbsp;
-                          <Timer
-                            auctionEndDate={+auction.auctionEndDate}
-                          />
-                          </div>
+                          {auction.origin} {" > "} {auction.destination} Auction
+                          ends in:&nbsp;&nbsp;
+                          <Timer auctionEndDate={+auction.auctionEndDate} />
                         </h2>
                       </Link>
                     </div>

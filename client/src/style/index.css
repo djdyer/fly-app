@@ -125,6 +125,17 @@ body {
   margin-left: 80px;
 }
 
+#searchClear {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+}
+
+#searchClear button h2 {
+  font-size: 12pt;
+  margin-left: -150px;
+}
+
 ::placeholder {
   color: var(--light);
   display: inline;
@@ -137,6 +148,7 @@ body {
 button {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 input,
@@ -727,7 +739,7 @@ li {
 }
 
 #leadingBid {
-  background-color: #484848;
+  background-color: #323234;
   padding: 8px;
   margin-left: 8px;
   margin-bottom: 6px;
@@ -937,6 +949,25 @@ h6:hover {
     width: 275px;
   }
 
+  #searchClear {
+    flex-direction: column-re;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #searchClear button {
+    margin-bottom: 20px;
+  }
+
+  #searchClear button h2 {
+    margin: 0 0 15px 0;
+  }
+
+  #searchClear button h2:hover {
+    color: #e434a9;
+    text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+  }
+
   .topResults,
   .auctionDetail,
   .profileDetail,
@@ -1000,12 +1031,12 @@ h6:hover {
   .profileDetail,
   .filter,
   #topResultsHeader h2 {
-    width: 85%;
+    width: 93%;
   }
 
   #result #header2 {
     margin-top: 60px;
-    width: calc(85% - 4px);
+    width: calc(93% - 4px);
   }
 
   #myPlane .plane {
@@ -1112,8 +1143,7 @@ h6:hover {
   }
 
   .plane {
-    height: 186px;
-    object-fit: unset;
+    height: 167px;
   }
 
   .filterFields .filterRow input {
@@ -1161,7 +1191,7 @@ h6:hover {
   }
 
   #result {
-    height: 240px;
+    height: 220px;
   }
 
   #resultsHeader {
@@ -1264,10 +1294,6 @@ h6:hover {
 
   .leadingBidContainer {
     font-size: 10pt;
-  }
-
-  #leadingBid {
-    width: 70px;
   }
 
   .enterBid input {
