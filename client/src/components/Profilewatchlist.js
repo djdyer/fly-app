@@ -3,6 +3,7 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 import { DELETE_FROM_WATCHLIST } from "../utils/mutations";
 import { Link } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const watchList = require("../../src/assets/icons/watchlist.png");
 
@@ -54,6 +55,7 @@ function Profilewatchlist({ userData, refechMe }) {
                   alt="plus hover"
                   src={plusHover}
                 />
+                {/* <FontAwesomeIcon icon="fa-solid fa-x" /> */}
               </a>
             </button>
           </div>
