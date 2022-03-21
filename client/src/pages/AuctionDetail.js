@@ -6,6 +6,8 @@ import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 import { QUERY_AUCTION } from "../utils/queries";
 import Timer from "../components/Timer";
+import { Link } from "react-router-dom";
+import Popup from "reactjs-popup";
 
 function AuctionDetail() {
   const plane = require("../../src/assets/icons/plane.png");
@@ -102,17 +104,16 @@ function AuctionDetail() {
                     id="termsConfirm"
                     onChange={handleAgreeToTerms}
                   ></input>
-                  <h3>
-                    <span>Agree:</span>
-                    <a href="/termsandcondtions">Terms+Conditions</a>
-                    {auctionData.termsConfirm}
-                  </h3>
+                  <label for="termsConfirm">Agree: </label>
+                  <Link to="/termsandcondtions">Terms+Conditions</Link>
+                  <Popup />
+                  {auctionData.termsConfirm}
                 </div>
                 <div className="serviceContainer">
                   Service Detail:
-                  <a id="addServiceLink" href="/servicedetail">
+                  <Link to="/servicedetail" id="addServiceLink">
                     Read More
-                  </a>
+                  </Link>
                 </div>
                 <li>In-flight attendence available.</li>
                 <li>Bar stocked with non-alcoholic beverages.</li>
