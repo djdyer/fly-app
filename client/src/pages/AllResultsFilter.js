@@ -104,12 +104,6 @@ export default function AllResultsFilter() {
                   value={filter.filterOrigin}
                   onChange={handleInputSearchChange}
                 ></input>
-                <input
-                  type="date"
-                  name="dateOrigin"
-                  value={filter.dateOrigin}
-                  onChange={handleInputSearchChange}
-                ></input>
               </div>
 
               <div className="filterRow">
@@ -120,8 +114,13 @@ export default function AllResultsFilter() {
                   value={filter.filterDestination}
                   onChange={handleInputSearchChange}
                 ></input>
+              </div>
+
+              <div className="filterRow">
                 <input
                   type="date"
+                  placeholder="Date"
+                  className="calendar"
                   name="dateDestination"
                   value={filter.dateDestination}
                   onChange={handleInputSearchChange}
@@ -171,7 +170,6 @@ export default function AllResultsFilter() {
                         .filter(
                           (value, index, self) => self.indexOf(value) === index
                         )}
-                      <option value="Jet Access">Jet Access</option>
                     </select>
                   </form>
                   <form id="filterCabinSize">
