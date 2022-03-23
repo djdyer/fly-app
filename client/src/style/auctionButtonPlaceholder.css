@@ -1,0 +1,14 @@
+#inputPlaceholderColorRed::placeholder {
+  color: #ea39af;
+  opacity: 1;
+  padding-left: 15px;
+  text-align: left;
+  font-weight: 900;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+}
+#inputPlaceholderColorBlack::placeholder {
+  color: white;
+  opacity: 1;
+  padding-left: 15px;
+  text-align: left;
+}

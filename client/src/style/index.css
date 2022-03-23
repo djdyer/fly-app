@@ -1,6 +1,6 @@
 @font-face {
   font-family: digital;
-  src: url(../assets/fonts/digital.ttf);
+  src: url(../assets/fonts/Digital_Dismay.otf);
 }
 
 :root {
@@ -250,6 +250,7 @@ textarea {
   flex-direction: row;
   margin: 0 25px 25px 25px;
   align-items: center;
+  text-align: center;
 }
 
 #alert {
@@ -261,10 +262,6 @@ textarea {
   margin-top: -20px;
   padding-left: 35px;
   margin-bottom: 5px;
-}
-
-#enterBid {
-  text-align: center;
 }
 
 .navTab {
@@ -536,6 +533,8 @@ header {
 input.calendar {
   cursor: pointer;
   font-size: 12pt;
+  color: white;
+  /* text-transform: capitalize !important; */
 }
 
 .filterRow .filterColumn {
@@ -548,10 +547,10 @@ input.calendar {
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-  background-color: #1c223c;
   cursor: pointer;
   font-size: 16pt;
-  text-decoration: rgb(255, 255, 255);
+  margin: 0 10px 0 -25px;
+  filter: invert(1);
 }
 
 .filterBody {
@@ -610,12 +609,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #countdown {
   background-color: black;
-  font-size: 30pt;
+  font-size: 26pt;
   height: 60px;
   width: 170px;
   color: #e434a9;
   font-weight: 900;
-  padding: 13px 8px 8px 8px;
+  padding: 12px;
   display: flex;
   justify-content: center;
   font-family: digital;
@@ -646,7 +645,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 label {
-  color: white;
+  color: rgb(240, 240, 240);
+  font-family: "Quicksand", sans-serif;
 }
 
 .auctionBodyColumn,
@@ -739,6 +739,7 @@ label {
   right: 0;
   left: 0;
   border-radius: 5px;
+  border: none;
   padding-right: 10px;
 }
 
@@ -749,7 +750,8 @@ textarea {
   font-family: "Quicksand", sans-serif;
   font-size: 12pt;
   text-align: center;
-  background-color: #1c223c;
+  background-color: #191f35;
+  opacity: 80%;
 }
 
 .termsContainer,
@@ -765,11 +767,13 @@ textarea {
   position: relative;
 }
 
-.termsContainer input {
+.termsContainer input,
+.filterColumn input {
   display: none;
 }
 
-.termsContainer label {
+.termsContainer label,
+.filterColumn label {
   display: flex;
   position: relative;
   align-items: center;
@@ -777,7 +781,8 @@ textarea {
   cursor: pointer;
 }
 
-.termsContainer label:before {
+.termsContainer label:before,
+.filterColumn label:before {
   display: flex;
   content: " ";
   height: 15px;
@@ -788,7 +793,8 @@ textarea {
   margin-right: 10px;
 }
 
-.termsContainer label:after {
+.termsContainer label:after,
+.filterColumn label:after {
   position: absolute;
   content: "\2713";
   height: 15px;
@@ -800,9 +806,16 @@ textarea {
   transition: transform 0.3s ease;
 }
 
-.termsContainer input:checked + label:after {
+.termsContainer input:checked + label:after,
+.filterColumn input:checked + label:after {
   transform: scale(1);
   border: 1px solid #e434a9;
+}
+
+.filterColumn label {
+  margin: 6px;
+  font-size: 11pt;
+  margin-left: 20px;
 }
 
 .leadingBidContainer {
@@ -837,10 +850,6 @@ li {
   height: 17px;
   width: 17px;
   margin: 7px;
-}
-
-#addServiceLink {
-  margin-left: 7px;
 }
 
 .auction ::placeholder {
@@ -930,7 +939,6 @@ h6 {
 }
 
 .register a,
-.termsContainer a,
 .serviceContainer a {
   text-decoration: none;
   color: var(--light);
@@ -938,7 +946,6 @@ h6 {
 }
 
 .register a:hover,
-.termsContainer a:hover,
 .serviceContainer a:hover,
 h6:hover {
   color: #ff4dc4;
@@ -1137,12 +1144,18 @@ h6:hover {
   }
 
   .termsContainer label:before,
-  .termsContainer label:after {
+  .termsContainer label:after,
+  .filterColumn label:before,
+  .filterColumn label:after {
     height: 12px;
     width: 12px;
   }
 
-  .serviceContainer,
+  .serviceContainer {
+    font-size: 10pt;
+    margin-bottom: 5px;
+  }
+
   .termsContainer {
     font-size: 10pt;
     margin-bottom: 10px;
@@ -1407,7 +1420,7 @@ h6:hover {
   }
 
   #submitBtn {
-    margin: 5px auto 0px auto;
+    margin: 5px auto 10px auto;
   }
 
   #deleteWatch,
@@ -1467,5 +1480,14 @@ h6:hover {
 
   .profileBlockHeader h3 {
     margin-left: 5px;
+  }
+
+  label {
+    font-size: 9pt;
+    margin-bottom: 2px;
+  }
+
+  .filterColumn label {
+    font-size: 9pt;
   }
 }

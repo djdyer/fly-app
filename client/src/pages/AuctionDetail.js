@@ -104,13 +104,11 @@ function AuctionDetail() {
                     id="termsConfirm"
                     onChange={handleAgreeToTerms}
                   ></input>
-                  <label htmlFor="termsConfirm">Agree:&nbsp;</label>
-                  {/* <Link to="/termsandcondtions">Terms+Conditions</Link>
-                  <TermsPopUp /> */}
+                  <label htmlFor="termsConfirm">Agree:&nbsp;&nbsp;</label>
                   <Popup />
                 </div>
                 <div className="serviceContainer">
-                  Service Detail:
+                  Service Detail:&nbsp;&nbsp;
                   <Link to="/servicedetail" id="addServiceLink">
                     Read More
                   </Link>

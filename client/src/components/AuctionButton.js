@@ -11,7 +11,7 @@ import {
 } from "../utils/mutations";
 import { QUERY_ME } from "../utils/queries";
 import { Link } from "react-router-dom";
-import "./auctionButtonPlaceholder.css";
+import "../style/auctionButtonPlaceholder.css";
 
 function AuctionButton(props) {
   const watch = require("../../src/assets/icons/watch.png");

@@ -100,7 +100,7 @@ export default function AllResultsFilter() {
                 <input
                   id="filterOrigin"
                   name="filterOrigin"
-                  placeholder="Origin"
+                  placeholder="ORIGIN"
                   value={filter.filterOrigin}
                   onChange={handleInputSearchChange}
                 ></input>
@@ -110,7 +110,7 @@ export default function AllResultsFilter() {
                 <input
                   id="filterDestination"
                   name="filterDestination"
-                  placeholder="Destination"
+                  placeholder="DESTINATION"
                   value={filter.filterDestination}
                   onChange={handleInputSearchChange}
                 ></input>
@@ -119,7 +119,6 @@ export default function AllResultsFilter() {
               <div className="filterRow">
                 <input
                   type="date"
-                  placeholder="Date"
                   className="calendar"
                   name="dateDestination"
                   value={filter.dateDestination}
@@ -131,9 +130,9 @@ export default function AllResultsFilter() {
             <div className="filterBody">
               <div className="filterRow">
                 <div className="filterColumn">
-                  <h5>Aircraft:</h5>
-                  <h5>Operator:</h5>
-                  <h5>Cabin Size:</h5>
+                  <h5>Aircraft</h5>
+                  <h5>Operator</h5>
+                  <h5>Cabin Size</h5>
                 </div>
                 <div className="filterColumn">
                   <form id="filterAircraft">
@@ -188,29 +187,33 @@ export default function AllResultsFilter() {
               </div>
               <div className="filterRow">
                 <div className="filterColumn">
-                  <h5>In-Flight Service:</h5>
-                  <h5>Premium Bar:</h5>
-                  <h5>WiFi:</h5>
-                </div>
-                <div className="filterColumn">
-                  <input
-                    type="checkbox"
-                    id="addService"
-                    name="addService"
-                    onChange={handleFilterExtraOptions}
-                  ></input>
-                  <input
-                    type="checkbox"
-                    id="addPremiumBar"
-                    name="addPremiumBar"
-                    onChange={handleFilterExtraOptions}
-                  ></input>
-                  <input
-                    type="checkbox"
-                    id="addWiFi"
-                    name="addWiFi"
-                    onChange={handleFilterExtraOptions}
-                  ></input>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="addService"
+                      name="addService"
+                      onChange={handleFilterExtraOptions}
+                    ></input>
+                    <label htmlFor="addService">In-Flight Service</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="addPremiumBar"
+                      name="addPremiumBar"
+                      onChange={handleFilterExtraOptions}
+                    ></input>
+                    <label htmlFor="addPremiumBar">Premium Bar</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="addWiFi"
+                      name="addWiFi"
+                      onChange={handleFilterExtraOptions}
+                    ></input>
+                    <label htmlFor="addWiFi">WiFi</label>
+                  </div>
                 </div>
               </div>
             </div>
