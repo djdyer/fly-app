@@ -7,7 +7,7 @@ import { UPDATE_BID, SAVE_FLIGHT } from "../utils/mutations";
 import { QUERY_AUCTION } from "../utils/queries";
 import Timer from "../components/Timer";
 import { Link } from "react-router-dom";
-import Popup from "reactjs-popup";
+import Popup from "../components/TermsPopUp";
 
 function AuctionDetail() {
   const plane = require("../../src/assets/icons/plane.png");
@@ -104,10 +104,10 @@ function AuctionDetail() {
                     id="termsConfirm"
                     onChange={handleAgreeToTerms}
                   ></input>
-                  <label for="termsConfirm">Agree: </label>
-                  <Link to="/termsandcondtions">Terms+Conditions</Link>
+                  <label htmlFor="termsConfirm">Agree:&nbsp;</label>
+                  {/* <Link to="/termsandcondtions">Terms+Conditions</Link>
+                  <TermsPopUp /> */}
                   <Popup />
-                  {auctionData.termsConfirm}
                 </div>
                 <div className="serviceContainer">
                   Service Detail:

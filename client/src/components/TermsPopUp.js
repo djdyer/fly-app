@@ -1,5 +1,6 @@
 import React from "react";
 import Popup from "reactjs-popup";
+import "../style/popup.css";
 
 export default () => (
   <Popup
