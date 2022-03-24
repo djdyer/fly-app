@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Auction from "../components/Auction";
 import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
+import searchFilterData from "../utils/allResultsFilterSearch"
 
 export default function AllResultsFilter() {
   const { loading, data, error } = useQuery(QUERY_AUCTIONS);
@@ -11,7 +12,7 @@ export default function AllResultsFilter() {
   const plusHover = require("../../src/assets/icons/plus2.png");
   const [filter, setFilter] = useState({
     filterOrigin: "",
-    dateOrigin: "",
+    // dateOrigin: "",
     filterDestination: "",
     dateDestination: "",
     operator: "",
@@ -31,12 +32,14 @@ export default function AllResultsFilter() {
       ...filter,
       [name]: value.trim(),
     });
-    setFilter({
-      ...filter,
-      [name]: options[selectedIndex].value,
-    });
+    if (options) {
+      setFilter({
+        ...filter,
+        [name]: options[selectedIndex].value,
+      });
+    }
   };
-
+  console.log("filter", filter)
   const handleClearSearch = () => {
     document.getElementById("operatorDefaultOption").options.selectedIndex = 0;
     document.getElementById("aircraftDefaultOption").options.selectedIndex = 0;
@@ -51,7 +54,7 @@ export default function AllResultsFilter() {
     });
     setFilter({
       filterOrigin: "",
-      dateOrigin: "",
+      // dateOrigin: "",
       filterDestination: "",
       dateDestination: "",
       operator: "",
@@ -74,18 +77,7 @@ export default function AllResultsFilter() {
       : setsearchPressed(true);
   };
 
-  const searchFilterData = (auctionsData, filter, loading) => {
-    if (loading) {
-      return;
-    } else {
-      const afterSearch = auctionsData.filter(
-        (obj) => obj.origin.toLowerCase() === filter.filterOrigin.toLowerCase()
-      );
-      console.log(afterSearch);
-      return afterSearch;
-    }
-  };
-  console.log(1111, searchFilterData(auctionsData, filter, loading));
+  // console.log(1111, searchFilterData(auctionsData, filter, loading));
   return (
     <>
       {loading ? null : (
@@ -234,7 +226,6 @@ export default function AllResultsFilter() {
                       alt="plus hover"
                       src={plusHover}
                     />
-                    {/* <FontAwesomeIcon icon="fa-solid fa-x" /> */}
                   </a>
                 </div>
               </button>
@@ -276,11 +267,12 @@ export default function AllResultsFilter() {
                   //   return <Auction key={auction._id} auction={auction} />;
                   // }
                 })
-              ) : true ? (
-                searchFilterData(auctionsData, filter, loading).map(
-                  (auction) => {
+              ) : searchPressed ? (
+                auctionsData.map((auction) => {
+                  if (searchFilterData(auctionsData, filter, loading).includes(auction._id)) {
                     return <Auction key={auction._id} auction={auction} />;
                   }
+                }
                 )
               ) : (
                 <h1 style={{ color: "red" }}>No results</h1>
