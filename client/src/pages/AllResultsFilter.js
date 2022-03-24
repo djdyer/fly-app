@@ -27,6 +27,7 @@ export default function AllResultsFilter() {
 
   const handleInputSearchChange = (e) => {
     e.preventDefault();
+    setsearchPressed(false);
     const { name, value, options, selectedIndex } = e.target;
     setFilter({
       ...filter,
@@ -65,6 +66,7 @@ export default function AllResultsFilter() {
   };
 
   const handleFilterExtraOptions = (e) => {
+    setsearchPressed(false);
     const { name, checked } = e.target;
     setFilterExtraOptions({
       ...filterExtraOptions,
