@@ -3,6 +3,9 @@ import Auction from "../components/Auction";
 import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
 import searchFilterData from "../utils/allResultsFilterSearch";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../style/datePicker.css";
 
 export default function AllResultsFilter() {
   const { loading, data, error } = useQuery(QUERY_AUCTIONS);
@@ -10,11 +13,15 @@ export default function AllResultsFilter() {
   const [searchPressed, setsearchPressed] = useState(false);
   const plus = require("../../src/assets/icons/plus.png");
   const plusHover = require("../../src/assets/icons/plus2.png");
+
+  const calendar = require("../../src/assets/icons/calendar.png");
+  const calendarHover = require("../../src/assets/icons/calendar2.png");
+
   const [filter, setFilter] = useState({
     filterOrigin: "",
     // dateOrigin: "",
     filterDestination: "",
-    dateDestination: "",
+    // dateDestination: "",
     operator: "",
     aircraft: "",
     cabinSize: "",
@@ -24,6 +31,7 @@ export default function AllResultsFilter() {
     addPremiumBar: false,
     addWiFi: false,
   });
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const handleInputSearchChange = (e) => {
     e.preventDefault();
@@ -56,7 +64,7 @@ export default function AllResultsFilter() {
       filterOrigin: "",
       // dateOrigin: "",
       filterDestination: "",
-      dateDestination: "",
+      // dateDestination: "",
       operator: "",
       aircraft: "",
       cabinSize: "",
@@ -110,13 +118,35 @@ export default function AllResultsFilter() {
               </div>
 
               <div className="filterRow">
-                <input
-                  type="date"
-                  className="calendar"
-                  name="dateDestination"
-                  value={filter.dateDestination}
-                  onChange={handleInputSearchChange}
-                ></input>
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={(date) => setSelectedDate(date)}
+                  minDate={new Date()}
+                  calendarIcon={
+                    <a>
+                      <img
+                        id="calendarIcon"
+                        className="icon default"
+                        alt="calendar"
+                        src={calendar}
+                      />
+                      <img
+                        id="calendarIcon"
+                        className="icon hover"
+                        alt="calendar hover"
+                        src={calendarHover}
+                      />
+                    </a>
+                  }
+                />
+
+                {/* <input
+                type="date"
+                className="calendar"
+                name="dateDestination"
+                value={filter.dateDestination}
+                onChange={handleInputSearchChange}
+                ></input> */}
               </div>
             </div>
 
@@ -187,7 +217,9 @@ export default function AllResultsFilter() {
                       name="addService"
                       onChange={handleFilterExtraOptions}
                     ></input>
-                    <label htmlFor="addService">In-Flight Service</label>
+                    <label htmlFor="addService">
+                      <h5>In-Flight Service</h5>
+                    </label>
                   </div>
                   <div>
                     <input
@@ -196,7 +228,9 @@ export default function AllResultsFilter() {
                       name="addPremiumBar"
                       onChange={handleFilterExtraOptions}
                     ></input>
-                    <label htmlFor="addPremiumBar">Premium Bar</label>
+                    <label htmlFor="addPremiumBar">
+                      <h5>Premium Bar</h5>
+                    </label>
                   </div>
                   <div>
                     <input
@@ -205,7 +239,9 @@ export default function AllResultsFilter() {
                       name="addWiFi"
                       onChange={handleFilterExtraOptions}
                     ></input>
-                    <label htmlFor="addWiFi">WiFi</label>
+                    <label htmlFor="addWiFi">
+                      <h5>WiFi</h5>
+                    </label>
                   </div>
                 </div>
               </div>

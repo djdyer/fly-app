@@ -110,7 +110,7 @@ function AuctionDetail() {
                 <div className="serviceContainer">
                   Service Detail:&nbsp;&nbsp;
                   <Link to="/servicedetail" id="addServiceLink">
-                    Read More
+                    <h3>Read More</h3>
                   </Link>
                 </div>
                 <li>In-flight attendence available.</li>
