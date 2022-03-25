@@ -589,10 +589,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-weight: 900;
 }
 
-.filterRow h5 {
-  margin-left: 10px;
-}
-
 #filteredResults #result #header2 {
   width: calc(100% - 44px);
 }
@@ -688,6 +684,7 @@ label {
   background-color: #1c223c;
   border: none;
   cursor: pointer;
+  color: #a0f9fe;
 }
 
 .filterColumn form select:focus {
@@ -813,7 +810,6 @@ textarea {
 }
 
 .filterColumn label {
-  margin: 6px;
   font-size: 11pt;
   margin-left: 20px;
 }
@@ -987,7 +983,6 @@ h6:hover {
 
   li {
     font-size: 9pt;
-    margin-top: 12px;
   }
 }
 
@@ -1158,11 +1153,11 @@ h6:hover {
 
   .termsContainer {
     font-size: 10pt;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   li {
-    font-size: 5.5pt;
+    font-size: 6.5pt;
   }
 
   .watchOption {
@@ -1177,11 +1172,6 @@ h6:hover {
   h3,
   h5 {
     font-size: 10pt;
-  }
-
-  .filterRow h5 {
-    margin-bottom: 5px;
-    margin-top: 5px;
   }
 
   #clearSearch,
@@ -1467,6 +1457,10 @@ h6:hover {
   .leadingBidContainer,
   .serviceContainer {
     font-size: 9pt;
+  }
+
+  .serviceContainer {
+    margin-bottom: 0;
   }
 
   .auctionMessage {
