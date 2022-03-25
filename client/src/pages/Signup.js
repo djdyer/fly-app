@@ -6,24 +6,24 @@ import { Link } from "react-router-dom";
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [addUser, {error} ] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-  } catch (e){
-    console.log(e);
-  }
+      const mutationResponse = await addUser({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+        },
+      });
+      const token = mutationResponse.data.addUser.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const handleChange = (event) => {
@@ -75,9 +75,7 @@ function Signup(props) {
       </form>
       {error ? (
         <div>
-          <p className="error-text" style={{ color: "red" }}>
-            The provided credentials are incorrect
-          </p>
+          <h2 className="error-text">provided credentials are incorrect</h2>
         </div>
       ) : null}
     </div>

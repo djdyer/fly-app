@@ -189,6 +189,16 @@ input:focus {
   border-right: 3px inset var(--light);
   border-bottom: 3px inset var(--light);
   border-radius: 5px;
+  text-shadow: var(--light) 0 0 2px;
+}
+
+#origin:focus,
+#destination:focus,
+#searchBtn:focus,
+#signupBtn:focus,
+#loginBtn:focus,
+#submitBtn:focus {
+  outline: none;
 }
 
 #searchBtn {
@@ -229,10 +239,20 @@ input:focus {
 select,
 textarea {
   color: rgb(255, 255, 255);
+  background-color: #11193c;
   font-family: "Quicksand", sans-serif;
   font-size: 14pt;
   text-align: left;
   padding-left: 15px;
+  border: none;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #11193c inset !important;
+  -webkit-text-fill-color: white !important;
+  font-family: "Quicksand", sans-serif;
 }
 
 #signupBtn,
@@ -573,7 +593,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .profileDetail h2 {
   font-size: 16pt;
   color: #ff4dc4;
-  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 4px;
 }
 
 .filterRow h2 {
@@ -582,10 +602,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .profileDetail .profileOpenBids h2 {
   color: rgb(121, 237, 255);
+  text-shadow: var(--light) 0 0 4px;
 }
 
 .profileDetail .profileOpenBids h2:hover {
   color: rgb(255, 4, 217);
+  text-shadow: rgb(255, 4, 217) 0 0 4px;
   font-weight: 900;
 }
 
@@ -609,10 +631,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 60px;
   width: 170px;
   color: #e434a9;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 4px;
   font-weight: 900;
   padding: 12px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   font-family: digital;
   margin-left: 5px;
 }
@@ -623,8 +646,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   align-items: center;
 }
 
+#timerHeader {
+  position: absolute;
+  margin-top: -35px;
+  margin-left: -15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-bottom: 3px;
+}
+
+#timerHeader h6 {
+  margin-left: 27px;
+  padding-right: 10px;
+  color: rgb(140, 140, 140);
+  font-weight: 900;
+}
+
 #timerBlock h2 {
   display: inline;
+}
+
+#timerStack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #auctionBody {
@@ -694,12 +740,17 @@ label {
 #auctionBody h3 {
   margin: 4px 7px 4px 0px;
   color: var(--light);
+  text-shadow: var(--light) 0px 0px 1px;
 }
 
 .auctionBodyColumn h3 {
   color: rgb(240, 240, 240);
   opacity: 100% !important;
   margin-right: 3px;
+}
+
+.serviceContainer h3 {
+  margin-right: 0px;
 }
 
 #bidHeader {
@@ -758,6 +809,10 @@ textarea {
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 10px;
+}
+
+#leadBidTitle {
+  margin-bottom: 5px;
 }
 
 .termsContainer {
@@ -835,9 +890,15 @@ li {
   padding: 8px;
   margin-left: 8px;
   margin-bottom: 6px;
-  width: 127px;
+  width: 150px;
   align-items: right;
   text-align: end;
+}
+
+#leadingBid h2 {
+  color: #ff4dc4;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+  font-size: 16pt;
 }
 
 #addService,
@@ -857,6 +918,7 @@ li {
 
 .auctionMessage {
   margin: 25px auto;
+  text-shadow: var(--light) 0 0 3px;
 }
 
 h5 {
@@ -935,7 +997,8 @@ h6 {
 }
 
 .register a,
-.serviceContainer a {
+.serviceContainer a,
+.termsContainer a {
   text-decoration: none;
   color: var(--light);
   margin-left: 3px;
@@ -945,8 +1008,15 @@ h6 {
 .serviceContainer a:hover,
 h6:hover {
   color: #ff4dc4;
-  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 4px;
   font-weight: 900;
+}
+
+.error-text {
+  position: relative;
+  margin: -40px auto 0 auto;
+  color: #ff4dc4;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 4px;
 }
 
 .register ::placeholder {
@@ -975,7 +1045,6 @@ h6:hover {
   .auctionRow,
   h3,
   h5,
-  .leadingBidContainer,
   .serviceContainer,
   #bidHeader {
     font-size: 14pt;
@@ -1010,7 +1079,7 @@ h6:hover {
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
   #logo {
     display: none;
   }
@@ -1125,25 +1194,32 @@ h6:hover {
 
   #countdown {
     font-size: 25pt;
-    width: 150px;
+    width: 170px;
     align-items: center;
+    margin-left: 10px;
+  }
+
+  #timerHeader {
+    margin-left: -8px;
+    padding-right: 0px;
   }
 
   .leadingBidContainer {
-    font-size: 12pt;
     margin-bottom: 5px;
   }
 
   #leadingBid {
     width: 90px;
+    margin-left: 0;
   }
 
   .termsContainer label:before,
   .termsContainer label:after,
   .filterColumn label:before,
   .filterColumn label:after {
-    height: 12px;
-    width: 12px;
+    height: 10px;
+    width: 10px;
+    margin-right: 4px;
   }
 
   .serviceContainer {
@@ -1308,10 +1384,6 @@ h6:hover {
     padding: 20px 0 20px 15px;
   }
 
-  #countdown {
-    width: 140px;
-  }
-
   .profileColumn h3 {
     font-size: 8pt;
     margin: 4px auto;
@@ -1355,10 +1427,6 @@ h6:hover {
 
   .bidHistory {
     margin-bottom: 15px;
-  }
-
-  .leadingBidContainer {
-    font-size: 10pt;
   }
 
   .enterBid input {
@@ -1454,7 +1522,6 @@ h6:hover {
 
   h5,
   h3,
-  .leadingBidContainer,
   .serviceContainer {
     font-size: 9pt;
   }
@@ -1478,10 +1545,13 @@ h6:hover {
 
   label {
     font-size: 9pt;
-    margin-bottom: 2px;
   }
 
   .filterColumn label {
     font-size: 9pt;
+  }
+
+  #timerHeader h6 {
+    margin-left: 26px;
   }
 }

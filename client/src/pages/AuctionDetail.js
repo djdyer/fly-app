@@ -51,12 +51,20 @@ function AuctionDetail() {
               </div>
               <div id="timerBlock">
                 <h2>CLOSING:</h2>
-                <div id="countdown">
-                  <Timer
-                    auctionEndDate={+auctionData.auctionEndDate}
-                    setEndTimer={setEndTimer}
-                    refetchAuction={refetchAuction}
-                  />
+                <div id="timerStack">
+                  <div id="timerHeader">
+                    <h6>D</h6>
+                    <h6>H</h6>
+                    <h6>M</h6>
+                    <h6>S</h6>
+                  </div>
+                  <div id="countdown">
+                    <Timer
+                      auctionEndDate={+auctionData.auctionEndDate}
+                      setEndTimer={setEndTimer}
+                      refetchAuction={refetchAuction}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -93,7 +101,7 @@ function AuctionDetail() {
               </div>
               <div className="auctionBodyColumn">
                 <div className="leadingBidContainer">
-                  Leading Bid:
+                  <h2 id="leadBidTitle">LEAD BID:</h2>
                   <div id="leadingBid">
                     <h2>${auctionData.currentBid}</h2>
                   </div>
@@ -104,11 +112,11 @@ function AuctionDetail() {
                     id="termsConfirm"
                     onChange={handleAgreeToTerms}
                   ></input>
-                  <label htmlFor="termsConfirm">Agree:&nbsp;&nbsp;</label>
+                  <label htmlFor="termsConfirm">Agree:&nbsp;</label>
                   <Popup />
                 </div>
                 <div className="serviceContainer">
-                  Service Detail:&nbsp;&nbsp;
+                  Service Detail:&nbsp;
                   <Link to="/servicedetail" id="addServiceLink">
                     <h3>Read More</h3>
                   </Link>
