@@ -89,7 +89,7 @@ function AuctionButton(props) {
         await updateBidHistory({
           variables: { auctionId: auctionId, bidAmount: +bid },
         });
-        props.refechAuction();
+        props.refetchAuction();
       }
     } catch (error) {
       console.error(error);

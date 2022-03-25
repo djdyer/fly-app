@@ -16,9 +16,9 @@ function Profile() {
   const plus = require("../../src/assets/icons/plus.png");
   const plusHover = require("../../src/assets/icons/plus2.png");
 
-  const { loading, data, error, refetch: refechMe } = useQuery(QUERY_ME);
+  const { loading, data, error, refetch: refetchMe } = useQuery(QUERY_ME);
   const userData = data?.me || {};
-  refechMe();
+  refetchMe();
   console.log(userData);
 
   // const [imageUrl, setImageUrl] = useState({
@@ -124,7 +124,7 @@ function Profile() {
                 })}
               </div>
 
-              <Profilewatchlist userData={userData} refechMe={refechMe} />
+              <Profilewatchlist userData={userData} refetchMe={refetchMe} />
 
               <div className="profileBlock">
                 <div className="profileBlockHeader">

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const watchList = require("../../src/assets/icons/watchlist.png");
 
-function Profilewatchlist({ userData, refechMe }) {
+function Profilewatchlist({ userData, refetchMe }) {
   const plus = require("../../src/assets/icons/plus.png");
   const plusHover = require("../../src/assets/icons/plus2.png");
 
@@ -18,7 +18,7 @@ function Profilewatchlist({ userData, refechMe }) {
       await deleteFromWatchlist({
         variables: { _id: auctionId },
       });
-      refechMe();
+      refetchMe();
     } catch (error) {
       console.log("2", auctionId);
       console.error(error);

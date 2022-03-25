@@ -534,7 +534,7 @@ input.calendar {
   cursor: pointer;
   font-size: 12pt;
   color: white;
-  /* text-transform: capitalize !important; */
+  text-transform: uppercase;
 }
 
 .filterRow .filterColumn {

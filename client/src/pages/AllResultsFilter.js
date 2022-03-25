@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Auction from "../components/Auction";
 import { useQuery } from "@apollo/client";
 import { QUERY_AUCTIONS } from "../utils/queries";
-import searchFilterData from "../utils/allResultsFilterSearch"
+import searchFilterData from "../utils/allResultsFilterSearch";
 
 export default function AllResultsFilter() {
   const { loading, data, error } = useQuery(QUERY_AUCTIONS);
@@ -249,12 +249,13 @@ export default function AllResultsFilter() {
                 auctionsData.map((auction) => {
                   return <Auction key={auction._id} auction={auction} />;
                 })
-              ) : (searchPressed && (searchFilterData(auctionsData, filter).length > 0)) ? (
+              ) : searchPressed &&
+                searchFilterData(auctionsData, filter).length > 0 ? (
                 searchFilterData(auctionsData, filter).map((auction) => {
                   return <Auction key={auction._id} auction={auction} />;
                 })
               ) : (
-              <div style={{ color: "red" }}>No results</div>
+                <div style={{ color: "red" }}>No results</div>
               )}
             </div>
           </div>

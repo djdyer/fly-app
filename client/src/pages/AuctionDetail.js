@@ -16,7 +16,7 @@ function AuctionDetail() {
   const {
     loading,
     data,
-    refetch: refechAuction,
+    refetch: refetchAuction,
   } = useQuery(QUERY_AUCTION, {
     variables: { _id: auctionId },
   });
@@ -55,7 +55,7 @@ function AuctionDetail() {
                   <Timer
                     auctionEndDate={+auctionData.auctionEndDate}
                     setEndTimer={setEndTimer}
-                    refechAuction={refechAuction}
+                    refetchAuction={refetchAuction}
                   />
                 </div>
               </div>
@@ -119,7 +119,7 @@ function AuctionDetail() {
             </div>
             <AuctionButton
               auctionData={auctionData}
-              refechAuction={refechAuction}
+              refetchAuction={refetchAuction}
               endTimer={endTimer}
               agreeToTerms={agreeToTerms}
             />
