@@ -27,6 +27,7 @@ export default function AllResultsFilter() {
 
   const handleInputSearchChange = (e) => {
     e.preventDefault();
+    setsearchPressed(false);
     const { name, value, options, selectedIndex } = e.target;
     setFilter({
       ...filter,
@@ -39,7 +40,6 @@ export default function AllResultsFilter() {
       });
     }
   };
-  console.log("filter", filter)
   const handleClearSearch = () => {
     document.getElementById("operatorDefaultOption").options.selectedIndex = 0;
     document.getElementById("aircraftDefaultOption").options.selectedIndex = 0;
@@ -65,6 +65,8 @@ export default function AllResultsFilter() {
   };
 
   const handleFilterExtraOptions = (e) => {
+    e.preventDefault();
+    setsearchPressed(false);
     const { name, checked } = e.target;
     setFilterExtraOptions({
       ...filterExtraOptions,
@@ -77,7 +79,6 @@ export default function AllResultsFilter() {
       : setsearchPressed(true);
   };
 
-  // console.log(1111, searchFilterData(auctionsData, filter, loading));
   return (
     <>
       {loading ? null : (
@@ -244,38 +245,16 @@ export default function AllResultsFilter() {
             </div>
 
             <div id="filteredResults">
-              {/* {searchPressed ? auctionsData.map((auction) => { 
-                return <Auction key={auction._id} auction={auction}}) :  */}
-
               {!searchPressed ? (
                 auctionsData.map((auction) => {
                   return <Auction key={auction._id} auction={auction} />;
-                  // if (Object.values(filter).every((item) => item === "")) {
-                  //   return <Auction key={auction._id} auction={auction} />;
-                  // } else if (
-                  //   // filter.filterOrigin.toLowerCase() ===
-                  //   // auction.origin.toLowerCase() ||
-                  //   // filter.filterDestination.toLowerCase() ===
-                  //   // auction.destination.toLowerCase() ||
-                  //   // filter.aircraft === auction.aircraft ||
-                  //   // filter.operator === auction.operator ||
-                  //   // new Date(filter.dateOrigin).toLocaleDateString() ===
-                  //   // new Date(+auction.flightDate).toLocaleDateString() ||
-                  //   // new Date(filter.dateDestination).toLocaleDateString() ===
-                  //   // new Date(+auction.flightDate).toLocaleDateString()
-                  // ) {
-                  //   return <Auction key={auction._id} auction={auction} />;
-                  // }
                 })
-              ) : searchPressed ? (
-                auctionsData.map((auction) => {
-                  if (searchFilterData(auctionsData, filter, loading).includes(auction._id)) {
-                    return <Auction key={auction._id} auction={auction} />;
-                  }
-                }
-                )
+              ) : (searchPressed && (searchFilterData(auctionsData, filter).length > 0)) ? (
+                searchFilterData(auctionsData, filter).map((auction) => {
+                  return <Auction key={auction._id} auction={auction} />;
+                })
               ) : (
-                <h1 style={{ color: "red" }}>No results</h1>
+              <div style={{ color: "red" }}>No results</div>
               )}
             </div>
           </div>

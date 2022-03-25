@@ -1,38 +1,14 @@
-export default function searchFilterData(auctionsData, filter, loading) {
-    if (loading) {
-        return;
-    } else {
-        const afterSearchIds = [];
-        const filterOriginIds = [];
-        const filterDestinationIds =[];
-        const dateDestinationIds = [];
-        const operatorIds = [];
-        const aircraftIds = [];
-        const cabinSizeIds = [];
+export default function searchFilterData(auctionsData, filter) {
 
+    let filtered = [...auctionsData];
+
+    filtered = filtered
+        .filter(auction => auction.origin.toLowerCase().indexOf(filter.filterOrigin.toLowerCase()) !== -1)
+        .filter(auction => auction.destination.toLowerCase().indexOf(filter.filterDestination.toLowerCase()) !== -1)
+        .filter(auction => auction.flightDate.toString().indexOf(filter.dateDestination.toString()) !== -1)
+        .filter(auction => auction.operator.toLowerCase().indexOf(filter.operator.toLowerCase()) !== -1)
+        .filter(auction => auction.aircraft.toLowerCase().indexOf(filter.aircraft.toLowerCase()) !== -1)
+        .filter(auction => auction.cabinSize.toLowerCase().indexOf(filter.cabinSize.toLowerCase()) !== -1)
         
-        auctionsData.forEach(obj => {
-            if (obj.origin.toLowerCase() === filter.filterOrigin.toLowerCase()) {
-                filterOriginIds.push(obj._id);
-            }
-            if (obj.destination.toLowerCase() === filter.filterDestination.toLowerCase()) {
-                filterDestinationIds.push(obj._id);
-            }
-            if (obj.flightDate.toLowerCase() === filter.dateDestination.toLowerCase()) {
-                dateDestinationIds.push(obj._id);
-            }
-            if (obj.operator.toLowerCase() === filter.operator.toLowerCase()) {
-                operatorIds.push(obj._id);
-            }
-            if (obj.aircraft.toLowerCase() === filter.aircraft.toLowerCase()) {
-                aircraftIds.push(obj._id);
-            }
-            if (obj.cabinSize.toLowerCase() === filter.cabinSize.toLowerCase()) {
-                cabinSizeIds.push(obj._id);
-            }
-        });
-
-
-        return operatorIds;
-    }
+    return filtered;
 };
