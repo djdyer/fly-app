@@ -85,7 +85,7 @@ function Profile() {
               <div className="profileColumn">
                 <h5>Name: </h5>
                 <h5>Email: </h5>
-                <h5>Home City:</h5>
+                <h5>City:</h5>
                 <div id="profileLinks">
                   <Link to="/editprofile">
                     <h6>Edit</h6>
@@ -114,10 +114,14 @@ function Profile() {
                         {" "}
                         <h2>
                           {" "}
-                          {auction.origin} {" > "} {auction.destination} Auction
-                          ends in:&nbsp;&nbsp;
-                          <Timer auctionEndDate={+auction.auctionEndDate} />
+                          {auction.origin} {" > "} {auction.destination}
+                          <span>auction ends in:</span>
                         </h2>
+                        <div id="profileTimer">
+                          <h2>
+                            <Timer auctionEndDate={+auction.auctionEndDate} />
+                          </h2>
+                        </div>
                       </Link>
                     </div>
                   );

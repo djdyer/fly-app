@@ -438,7 +438,7 @@ h1:hover {
 
 #filterOrigin::placeholder,
 #filterDestination::placeholder {
-  color: rgb(255, 255, 255);
+  color: var(--light);
 }
 
 h2 {
@@ -479,16 +479,37 @@ h3 {
   padding-bottom: 10px;
 }
 
-.profileOpenBids a h2 {
-  font-size: 12pt;
-  margin: 0 0 8px 25px;
-  margin-top: 5px;
+.profileOpenBids {
+  justify-content: flex-start;
 }
 
-header {
+.profileOpenBids a h2 {
+  font-size: 12pt;
+  margin: 5px 0 8px 25px;
+}
+
+header,
+.profileOpenBids a {
   display: flex;
   flex-direction: row;
-  margin-left: 20px;
+  margin-left: 25px;
+  width: 100%;
+}
+
+span {
+  color: rgb(152, 152, 152);
+  font-size: 8pt;
+  text-shadow: none;
+  margin-left: 5px;
+}
+
+#profileTimer {
+  margin-left: -15px;
+}
+
+#profileTimer h2 {
+  color: #ff44c1;
+  text-shadow: rgba(255, 86, 230, 0.755) 0px 0px 11px;
 }
 
 #auctionHeader {
@@ -545,9 +566,15 @@ header {
   height: 50px;
   width: 300px;
   margin: 5px;
-  color: rgb(255, 255, 255);
+  color: var(--light);
   background-color: #1c223c;
   border: none;
+}
+
+#filterResultsError h2 {
+  color: #ff44c1;
+  text-shadow: rgba(255, 86, 230, 0.755) 0px 0px 11px;
+  margin: 60px auto 40px auto;
 }
 
 input.calendar {
@@ -720,7 +747,7 @@ label {
 
 .profileColumn h5 {
   margin: 3px;
-  color: #909090;
+  color: rgb(152, 152, 152);
   opacity: 70%;
 }
 
@@ -957,6 +984,10 @@ h6 {
   height: 25px;
   margin: 8px 5px 5px 0;
   opacity: 70%;
+}
+
+.profileBlockHeader h3 {
+  color: rgb(152, 152, 152);
 }
 
 #addUserImg,
@@ -1374,10 +1405,6 @@ h6:hover {
   .profileOpenBids a h2 {
     font-size: 10pt;
     margin-left: 20px;
-  }
-
-  .profileOpenBids button a img {
-    color: red;
   }
 
   #auctionHeader {
