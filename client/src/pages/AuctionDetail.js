@@ -63,6 +63,7 @@ function AuctionDetail() {
                       auctionEndDate={+auctionData.auctionEndDate}
                       setEndTimer={setEndTimer}
                       refetchAuction={refetchAuction}
+                      fromAuctionDetail={true}
                     />
                   </div>
                 </div>

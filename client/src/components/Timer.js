@@ -33,9 +33,9 @@ const Timer = (props) => {
   );
   const initialSeconds = Math.floor(
     diff(a, b) -
-      initialDays * 60 * 60 * 24 -
-      initialHour * 60 * 60 -
-      initialMinute * 60
+    initialDays * 60 * 60 * 24 -
+    initialHour * 60 * 60 -
+    initialMinute * 60
   );
 
   const [days, setDays] = useState(initialDays);
@@ -52,8 +52,11 @@ const Timer = (props) => {
     ) {
       let myInterval = setInterval(() => {
         if (seconds <= 0 && minutes <= 0 && hours <= 0 && days <= 0) {
-          props.refetchAuction();
-          props.setEndTimer(true);
+          if (props.fromAuctionDetail) {
+            console.log("test1")
+            props.refetchAuction();
+            props.setEndTimer(true);
+          }
           clearInterval(myInterval);
         }
         if (seconds > 0) {
@@ -83,8 +86,11 @@ const Timer = (props) => {
       setHours(0);
       setMinutes(0);
       setSeconds(0);
-      props.setEndTimer(true);
-      props.refetchAuction();
+      if (props.fromAuctionDetail) {
+        console.log("test2")
+        props.refetchAuction();
+        props.setEndTimer(true);
+      }
     }
   });
 
