@@ -10,28 +10,39 @@ import "../style/datePicker.css";
 export default function AllResultsFilter() {
   const { loading, data, error } = useQuery(QUERY_AUCTIONS);
   const auctionsData = data?.auctions || {};
-  const [searchPressed, setsearchPressed] = useState(false);
+
   const plus = require("../../src/assets/icons/plus.png");
   const plusHover = require("../../src/assets/icons/plus2.png");
-
   const calendar = require("../../src/assets/icons/calendar.png");
   const calendarHover = require("../../src/assets/icons/calendar2.png");
+
+  const [searchPressed, setsearchPressed] = useState(false);
+  console.log(searchPressed)
 
   const [filter, setFilter] = useState({
     filterOrigin: "",
     // dateOrigin: "",
     filterDestination: "",
-    // dateDestination: "",
+    dateDestination: "",
     operator: "",
     aircraft: "",
     cabinSize: "",
   });
+
+  console.log(filter)
+
   const [filterExtraOptions, setFilterExtraOptions] = useState({
     addService: false,
     addPremiumBar: false,
     addWiFi: false,
   });
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState("");
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+    setsearchPressed(false);
+  }
+  filter.dateDestination = selectedDate;
 
   const handleInputSearchChange = (e) => {
     e.preventDefault();
@@ -64,12 +75,13 @@ export default function AllResultsFilter() {
       filterOrigin: "",
       // dateOrigin: "",
       filterDestination: "",
-      // dateDestination: "",
+      dateDestination: "",
       operator: "",
       aircraft: "",
       cabinSize: "",
     });
     setsearchPressed(false);
+    setSelectedDate("");
   };
 
   const handleFilterExtraOptions = (e) => {
@@ -81,10 +93,12 @@ export default function AllResultsFilter() {
       [name]: checked,
     });
   };
+
   const handleSeachButton = () => {
-    Object.values(filter).every((item) => item === "")
-      ? setsearchPressed(false)
-      : setsearchPressed(true);
+    // Object.values(filter).every((item) => item === "")
+    //   ? setsearchPressed(false)
+      // :
+       setsearchPressed(true);
   };
 
   return (
@@ -119,8 +133,11 @@ export default function AllResultsFilter() {
 
               <div className="filterRow">
                 <DatePicker
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
+                  // selected={selectedDate}
+                  selected={filter.dateDestination}
+                  onSelect={handleDateSelect}
+                  placeholderText="Click to select a date"
+                  // onChange={(date) => setSelectedDate(date)}
                   minDate={new Date()}
                   calendarIcon={
                     <a>
