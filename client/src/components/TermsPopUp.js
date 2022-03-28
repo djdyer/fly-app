@@ -26,14 +26,29 @@ export default () => (
         <button className="close" onClick={close}>
           &times;
         </button>
-        <div className="header"> TERMS + CONDITIONS </div>
+        <div className="header">
+          <h2>TERMS + CONDITIONS</h2>
+        </div>
         <div className="content">
           {" "}
-          <br></br>I HEREBY AGREE TO BE BOUND BY THE FOLLOWING TERMS AND
-          CONDITIONS:
+          <br></br>
+          <h5>
+            I HEREBY AGREE TO BE BOUND BY THE FOLLOWING TERMS AND CONDITIONS:
+          </h5>
+          <br></br>
+          <div className="termsContainer">
+            <input
+              type="checkbox"
+              id="termsConfirm"
+              // onChange={handleAgreeToTerms}
+            ></input>
+            <label htmlFor="termsConfirm">
+              <h5>AGREE TO TERMS</h5>
+            </label>
+          </div>
           <br></br>
           <br></br>
-          BIDDING
+          <h6>BIDDING</h6>
           <br></br>
           You must be a registered user to bid on items. By bidding, you are
           stating that you are ready and willing to purchase the listed flight
@@ -44,7 +59,7 @@ export default () => (
           auction. Your bids are final and non-retractable.
           <br></br>
           <br></br>
-          REGISTRATION
+          <h6>REGISTRATION</h6>
           <br></br>
           All persons who wish to bid in the auction or want to purchase must
           register by creating an online account. To register, the Bidder must
@@ -60,7 +75,7 @@ export default () => (
           until the necessary information is provided to verify the account.
           <br></br>
           <br></br>
-          RESERVE
+          <h6>RESERVE</h6>
           <br></br>
           All flights are being sold with a “reserve” price, which if not met,
           the flight will not be booked. Any bid submitted below the reserve
@@ -68,7 +83,7 @@ export default () => (
           decreased or removed at any time.
           <br></br>
           <br></br>
-          BIDDER RIGHTS
+          <h6>BIDDER RIGHTS</h6>
           <br></br>
           All rights granted herein are personal and exclusive to the registered
           bidder, and may not be assigned or transferred to another person or
@@ -79,7 +94,7 @@ export default () => (
           Auctions immediately.
           <br></br>
           <br></br>
-          DISPUTES
+          <h6>DISPUTES</h6>
           <br></br>In case of any dispute between bidders, Fly App, at its sole
           and complete discretion, may reopen the bidding pursuant to specific
           terms determined by Fly App between the two highest bidders only,
@@ -88,7 +103,7 @@ export default () => (
           respects.
           <br></br>
           <br></br>
-          INTERNET BIDDING
+          <h6>INTERNET BIDDING</h6>
           <br></br>
           (A) Buyer acknowledges that Fly App does not have any responsibility
           or liability for the website(s) used for Internet bidding. Seller
@@ -113,7 +128,7 @@ export default () => (
           Winning bidders will be notified via email at the auction close.
           <br></br>
           <br></br>
-          STOP PAYMENT/INSUFFICIENT FUNDS
+          <h6>STOP PAYMENT/INSUFFICIENT FUNDS</h6>
           <br></br>
           Upon making payment for booking, no stop payment of funds will be
           honored. Any stop payment order shall be deemed by the parties to be
@@ -122,7 +137,7 @@ export default () => (
           defraud.
           <br></br>
           <br></br>
-          SALE BY FLIGHT
+          <h6>SALE BY FLIGHT</h6>
           <br></br>
           Fly App reserves the right to include in the auction any flight and
           the right to withdraw any flight prior to posting for bids at the
@@ -130,7 +145,7 @@ export default () => (
           reorganize any flight auctions.
           <br></br>
           <br></br>
-          PAYMENT
+          <h6>PAYMENT</h6>
           <br></br>
           Payment in full must be paid by Buyer in the form of direct wire,
           major credit card or cypto currency exchange. Buyer shall pay the
@@ -145,7 +160,7 @@ export default () => (
           payment obligations will affect future bidding privileges.
           <br></br>
           <br></br>
-          <b>LIMITATION OF LIABILITY</b>
+          <h6>LIMITATION OF LIABILITY</h6>
           <br></br>
           IN NO EVENT SHALL FLY APP BE LIABLE TO BUYER FOR ANY INDIRECT,
           SPECIAL, OR CONSEQUENTIAL DAMAGES OR LOST PROFITS ARISING OUT OF OR
@@ -156,14 +171,6 @@ export default () => (
           LIABILITY, OR OTHERWISE.
           <br></br>
           <br></br>
-          <div className="termsContainer">
-            <input
-              type="checkbox"
-              id="termsConfirm"
-              // onChange={handleAgreeToTerms}
-            ></input>
-            <label htmlFor="termsConfirm">AGREE TO TERMS</label>
-          </div>
         </div>
       </div>
     )}
