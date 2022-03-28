@@ -1,5 +1,5 @@
 .modal {
-  font-size: 8pt;
+  font-size: 7pt;
   color: white;
   font-family: "Quicksand", sans-serif;
   background-color: rgb(0, 0, 0);
@@ -12,8 +12,12 @@
 }
 
 .modal > .header {
-  width: 70%;
-  border-bottom: 1px solid rgb(255, 255, 255);
+  width: 90%;
+  border-bottom: 1px solid #ff4dc4;
+
+  /* 
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 10px; */
+
   font-size: 18px;
   text-align: center;
   padding-bottom: 30px;
@@ -21,11 +25,11 @@
 }
 .modal > .content {
   overflow-y: scroll;
-  width: 70%;
+  width: 90%;
   height: 100%;
   text-align: left;
   margin: 20px auto;
-  margin-bottom: 2000px;
+  padding-bottom: 200px;
 }
 
 .modal > .close {
@@ -39,6 +43,11 @@
   font-size: 24px;
   background: var(--light);
   border-radius: 18px;
+}
+
+.modal > .close:focus {
+  border: none;
+  outline: none;
 }
 
 .modal > .close:hover {

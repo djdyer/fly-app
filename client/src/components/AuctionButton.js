@@ -22,7 +22,7 @@ function AuctionButton(props) {
   const userData = data?.me || {};
 
   const [bid, setBid] = useState("");
-  const [errorMessage, setErrorMessage] = useState("enter your bid");
+  const [errorMessage, setErrorMessage] = useState("ENTER BID");
   const [watchOrWatching, setwatchOrWatching] = useState(false);
 
   const [updateBid, { error }] = useMutation(UPDATE_BID);
@@ -57,14 +57,14 @@ function AuctionButton(props) {
   };
   async function doLogicToEnterBid() {
     try {
-      setErrorMessage("enter your bid");
+      setErrorMessage("ENTER BID");
       if (!+bid) {
         setBid("");
-        setErrorMessage("invalid");
+        setErrorMessage("INVALID");
       } else if (+bid <= props.auctionData.currentBid) {
-        setErrorMessage("cannot bid lower");
+        setErrorMessage("BID HIGHER");
       } else if (userData._id === props.auctionData.latestBidUser._id) {
-        setErrorMessage("holding lead bid");
+        setErrorMessage("LEADER");
       } else {
         await updateBid({
           variables: { currentBid: +bid, _id: auctionId },
@@ -162,7 +162,7 @@ function AuctionButton(props) {
                       src={watchHover}
                     />
                   </Link>
-                  <h2>On your Watchlist</h2>
+                  <h3>On your Watchlist</h3>
                 </div>
               ) : (
                 <>

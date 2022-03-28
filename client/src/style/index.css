@@ -228,7 +228,7 @@ input:focus {
   right: 0;
   left: 0;
   margin: 20px auto;
-  border-radius: 5px;
+
   align-items: left;
   background-color: #11193c;
   opacity: 90%;
@@ -776,10 +776,6 @@ label {
   margin-right: 3px;
 }
 
-.serviceContainer h3 {
-  margin-right: 0px;
-}
-
 #bidHeader {
   font-family: "Quicksand", sans-serif;
   font-size: 12pt;
@@ -809,12 +805,12 @@ label {
 }
 
 .auction input {
-  width: 150px;
+  width: 160px;
   height: 50px;
   right: 0;
   left: 0;
   border-radius: 5px;
-  border: none;
+  border: 1px solid var(--light);
   padding-right: 10px;
 }
 
@@ -826,7 +822,6 @@ textarea {
   font-size: 12pt;
   text-align: center;
   background-color: #191f35;
-  opacity: 80%;
 }
 
 .termsContainer,
@@ -907,6 +902,12 @@ textarea {
   justify-content: flex-start;
 }
 
+.serviceContainer #addServiceLink h3:hover {
+  color: #ff4dc4;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 4px;
+  font-weight: 900;
+}
+
 li {
   font-size: 10px;
   margin-top: 8px;
@@ -963,8 +964,8 @@ h6 {
 
 #watchIcon,
 #watchIcon2 {
-  margin: 5px 0px 5px 5px;
-  width: 50px;
+  margin: 0px 5px 0px 5px;
+  width: 45px;
 }
 
 .watching {
@@ -1027,16 +1028,13 @@ h6 {
   margin: 3px;
 }
 
-.register a,
-.serviceContainer a,
-.termsContainer a {
+.register a {
   text-decoration: none;
   color: var(--light);
   margin-left: 3px;
 }
 
 .register a:hover,
-.serviceContainer a:hover,
 h6:hover {
   color: #ff4dc4;
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 4px;
@@ -1054,6 +1052,20 @@ h6:hover {
   color: rgb(104, 104, 104);
   text-align: left;
   font-size: 12pt;
+}
+
+.header h2 {
+  color: #ff4dc4;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 10px;
+}
+
+.content h6 {
+  margin: 5px 0px -10px -2px;
+}
+
+.content h6:hover {
+  color: var(--light);
+  text-shadow: none;
 }
 
 @media screen and (min-width: 2300px) {
@@ -1288,8 +1300,7 @@ h6:hover {
 
   #watchIcon,
   #watchIcon2 {
-    margin: 5px 10px 5px 5px;
-    width: 50px;
+    width: 35px;
   }
 
   #forceFlex {
@@ -1453,13 +1464,13 @@ h6:hover {
   }
 
   .bidHistory {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .enterBid input {
     height: 45px;
-    width: 100px;
-    margin-right: 5px;
+    width: 110px;
+    margin-right: 10px;
   }
 
   #enterBid {
@@ -1469,7 +1480,7 @@ h6:hover {
   .enterBid {
     display: flex;
     flex-direction: row;
-    margin: 0 15px 15px 15px;
+    margin: -5px 15px 10px 15px;
     align-items: baseline;
   }
 
@@ -1580,5 +1591,10 @@ h6:hover {
 
   #timerHeader h6 {
     margin-left: 26px;
+  }
+
+  .auction input {
+    margin-left: 8px;
+    height: 40px;
   }
 }

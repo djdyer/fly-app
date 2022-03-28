@@ -136,6 +136,7 @@ export default function AllResultsFilter() {
                   // selected={selectedDate}
                   selected={filter.dateDestination}
                   onSelect={handleDateSelect}
+                  disabledKeyboardNavigation
                   placeholderText="DATE"
                   // onChange={(date) => setSelectedDate(date)}
                   minDate={new Date()}
