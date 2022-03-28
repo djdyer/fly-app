@@ -6,6 +6,14 @@ import searchFilterData from "../utils/allResultsFilterSearch";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../style/datePicker.css";
+let freezSearchValues = {
+  filterOrigin: "",
+  filterDestination: "",
+  dateDestination: "",
+  operator: "",
+  aircraft: "",
+  cabinSize: "",
+};
 
 export default function AllResultsFilter() {
   const { loading, data, error } = useQuery(QUERY_AUCTIONS);
@@ -17,11 +25,10 @@ export default function AllResultsFilter() {
   const calendarHover = require("../../src/assets/icons/calendar2.png");
 
   const [searchPressed, setsearchPressed] = useState(false);
-  console.log(searchPressed);
+  console.log(searchPressed)
 
   const [filter, setFilter] = useState({
     filterOrigin: "",
-    // dateOrigin: "",
     filterDestination: "",
     dateDestination: "",
     operator: "",
@@ -29,7 +36,7 @@ export default function AllResultsFilter() {
     cabinSize: "",
   });
 
-  console.log(filter);
+  console.log(filter)
 
   const [filterExtraOptions, setFilterExtraOptions] = useState({
     addService: false,
@@ -41,7 +48,7 @@ export default function AllResultsFilter() {
   const handleDateSelect = (date) => {
     setSelectedDate(date);
     setsearchPressed(false);
-  };
+  }
   filter.dateDestination = selectedDate;
 
   const handleInputSearchChange = (e) => {
@@ -73,7 +80,6 @@ export default function AllResultsFilter() {
     });
     setFilter({
       filterOrigin: "",
-      // dateOrigin: "",
       filterDestination: "",
       dateDestination: "",
       operator: "",
@@ -82,6 +88,15 @@ export default function AllResultsFilter() {
     });
     setsearchPressed(false);
     setSelectedDate("");
+
+    freezSearchValues = {
+      filterOrigin: "",
+      filterDestination: "",
+      dateDestination: "",
+      operator: "",
+      aircraft: "",
+      cabinSize: "",
+    };
   };
 
   const handleFilterExtraOptions = (e) => {
@@ -94,12 +109,14 @@ export default function AllResultsFilter() {
     });
   };
 
-  const handleSeachButton = () => {
-    // Object.values(filter).every((item) => item === "")
-    //   ? setsearchPressed(false)
-    // :
-    setsearchPressed(true);
-  };
+  const serachParameters = () => {
+    if (searchPressed) {
+      freezSearchValues = { ...filter };
+      return freezSearchValues
+    } else {
+      return freezSearchValues
+    }
+  }
 
   return (
     <>
@@ -133,29 +150,26 @@ export default function AllResultsFilter() {
 
               <div className="filterRow">
                 <DatePicker
-                  // selected={selectedDate}
                   selected={filter.dateDestination}
                   onSelect={handleDateSelect}
-                  disabledKeyboardNavigation
-                  placeholderText="DATE"
-                  // onChange={(date) => setSelectedDate(date)}
+                  placeholderText="Click to select a date"
                   minDate={new Date()}
-                  // calendarIcon={
-                  //   <a>
-                  //     <img
-                  //       id="calendarIcon"
-                  //       className="icon default"
-                  //       alt="calendar"
-                  //       src={calendar}
-                  //     />
-                  //     <img
-                  //       id="calendarIcon"
-                  //       className="icon hover"
-                  //       alt="calendar hover"
-                  //       src={calendarHover}
-                  //     />
-                  //   </a>
-                  // }
+                  calendarIcon={
+                    <a>
+                      <img
+                        id="calendarIcon"
+                        className="icon default"
+                        alt="calendar"
+                        src={calendar}
+                      />
+                      <img
+                        id="calendarIcon"
+                        className="icon hover"
+                        alt="calendar hover"
+                        src={calendarHover}
+                      />
+                    </a>
+                  }
                 />
 
                 {/* <input
@@ -288,7 +302,7 @@ export default function AllResultsFilter() {
               <button
                 className="shadow-pop-br"
                 id="searchBtn"
-                onClick={handleSeachButton}
+                onClick={() => setsearchPressed(true)}
               >
                 <h1>SEARCH</h1>
               </button>
@@ -300,18 +314,16 @@ export default function AllResultsFilter() {
 
             <div id="filteredResults">
               {!searchPressed ? (
-                auctionsData.map((auction) => {
+                searchFilterData(auctionsData, serachParameters()).map((auction) => {
                   return <Auction key={auction._id} auction={auction} />;
                 })
               ) : searchPressed &&
-                searchFilterData(auctionsData, filter).length > 0 ? (
-                searchFilterData(auctionsData, filter).map((auction) => {
+                searchFilterData(auctionsData, serachParameters()).length > 0 ? (
+                searchFilterData(auctionsData, serachParameters()).map((auction) => {
                   return <Auction key={auction._id} auction={auction} />;
                 })
               ) : (
-                <div id="filterResultsError">
-                  <h2>NO RESULTS</h2>
-                </div>
+                <div style={{ color: "red" }}>No results</div>
               )}
             </div>
           </div>
