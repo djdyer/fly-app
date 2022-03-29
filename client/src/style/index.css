@@ -154,7 +154,7 @@ body {
   color: var(--light);
   display: inline;
   font-family: "Quicksand", sans-serif;
-  font-size: 15pt;
+  font-size: 14pt;
   text-align: center;
   padding-bottom: 2px;
 }
@@ -256,7 +256,7 @@ input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   box-shadow: 0 0 0 1000px #11193c inset !important;
-  -webkit-text-fill-color: white !important;
+  -webkit-text-fill-color: var(--light);
   font-family: "Quicksand", sans-serif;
 }
 
@@ -278,7 +278,7 @@ select:-webkit-autofill {
   text-align: center;
 }
 
-#alert {
+.enterbidinput: #alert {
   position: relative;
   color: rgb(255, 255, 255);
   font-family: "Quicksand", sans-serif;
@@ -439,11 +439,6 @@ h1:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 18px 18px 27px #0e0e0e, -18px -18px 27px #161616;
-}
-
-#filterOrigin::placeholder,
-#filterDestination::placeholder {
-  color: var(--light);
 }
 
 h2 {
@@ -826,9 +821,9 @@ label {
 .auction input,
 select,
 textarea {
-  color: rgb(255, 255, 255);
+  color: var(--light);
   font-family: "Quicksand", sans-serif;
-  font-size: 12pt;
+  font-size: 14pt;
   text-align: center;
   background-color: #191f35;
 }
@@ -946,13 +941,6 @@ li {
   margin: 7px;
 }
 
-.auction ::placeholder {
-  color: var(--dark);
-  text-align: right;
-  font-size: 12pt;
-  padding-right: 15px;
-}
-
 .auctionMessage {
   margin: 20px auto;
   color: #ff4dc4;
@@ -1065,8 +1053,8 @@ h6:hover {
 }
 
 .header h2 {
-  color: #ff4dc4;
-  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 10px;
+  color: var(--light);
+  text-shadow: var(--light) 0px 0px 10px;
 }
 
 .content h6 {
@@ -1352,11 +1340,6 @@ h6:hover {
     width: 80px;
   }
 
-  #filterOrigin::placeholder,
-  #filterDestination::placeholder {
-    font-size: 12pt;
-  }
-
   #filterContainer {
     padding: 0;
   }
@@ -1464,8 +1447,7 @@ h6:hover {
     padding: 8px;
   }
 
-  #origin::placeholder,
-  #destination::placeholder,
+  ::placeholder,
   #submitBtn h1,
   #searchBtn h1,
   #loginBtn h1,

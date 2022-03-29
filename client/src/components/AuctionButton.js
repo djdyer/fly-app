@@ -190,7 +190,7 @@ function AuctionButton(props) {
               <input
                 // id="enterBid"
                 id={
-                  errorMessage === "enter your bid"
+                  errorMessage === "ENTERBID"
                     ? "inputPlaceholderColorBlack"
                     : "inputPlaceholderColorRed"
                 }

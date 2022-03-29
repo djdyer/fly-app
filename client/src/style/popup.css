@@ -13,11 +13,7 @@
 
 .modal > .header {
   width: 90%;
-  border-bottom: 1px solid #ff4dc4;
-
-  /* 
-  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 10px; */
-
+  border-bottom: 1px solid white;
   font-size: 18px;
   text-align: center;
   padding-bottom: 30px;
