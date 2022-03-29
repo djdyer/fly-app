@@ -22,10 +22,9 @@ export default function AllResultsFilter() {
   const plus = require("../../src/assets/icons/plus.png");
   const plusHover = require("../../src/assets/icons/plus2.png");
   const calendar = require("../../src/assets/icons/calendar.png");
-  const calendarHover = require("../../src/assets/icons/calendar2.png");
 
   const [searchPressed, setsearchPressed] = useState(false);
-  console.log(searchPressed)
+  console.log(searchPressed);
 
   const [filter, setFilter] = useState({
     filterOrigin: "",
@@ -36,7 +35,7 @@ export default function AllResultsFilter() {
     cabinSize: "",
   });
 
-  console.log(filter)
+  console.log(filter);
 
   const [filterExtraOptions, setFilterExtraOptions] = useState({
     addService: false,
@@ -48,7 +47,7 @@ export default function AllResultsFilter() {
   const handleDateSelect = (date) => {
     setSelectedDate(date);
     setsearchPressed(false);
-  }
+  };
   filter.dateDestination = selectedDate;
 
   const handleInputSearchChange = (e) => {
@@ -112,11 +111,11 @@ export default function AllResultsFilter() {
   const serachParameters = () => {
     if (searchPressed) {
       freezSearchValues = { ...filter };
-      return freezSearchValues
+      return freezSearchValues;
     } else {
-      return freezSearchValues
+      return freezSearchValues;
     }
-  }
+  };
 
   return (
     <>
@@ -152,33 +151,14 @@ export default function AllResultsFilter() {
                 <DatePicker
                   selected={filter.dateDestination}
                   onSelect={handleDateSelect}
-                  placeholderText="Click to select a date"
+                  placeholderText="DATE"
                   minDate={new Date()}
-                  calendarIcon={
-                    <a>
-                      <img
-                        id="calendarIcon"
-                        className="icon default"
-                        alt="calendar"
-                        src={calendar}
-                      />
-                      <img
-                        id="calendarIcon"
-                        className="icon hover"
-                        alt="calendar hover"
-                        src={calendarHover}
-                      />
-                    </a>
-                  }
+                  calendarIcon={calendar}
                 />
 
-                {/* <input
-                type="date"
-                className="calendar"
-                name="dateDestination"
-                value={filter.dateDestination}
-                onChange={handleInputSearchChange}
-                ></input> */}
+                <div id="calendarIcon">
+                  <img className="icon default" alt="calendar" src={calendar} />
+                </div>
               </div>
             </div>
 
@@ -314,16 +294,23 @@ export default function AllResultsFilter() {
 
             <div id="filteredResults">
               {!searchPressed ? (
-                searchFilterData(auctionsData, serachParameters()).map((auction) => {
-                  return <Auction key={auction._id} auction={auction} />;
-                })
+                searchFilterData(auctionsData, serachParameters()).map(
+                  (auction) => {
+                    return <Auction key={auction._id} auction={auction} />;
+                  }
+                )
               ) : searchPressed &&
-                searchFilterData(auctionsData, serachParameters()).length > 0 ? (
-                searchFilterData(auctionsData, serachParameters()).map((auction) => {
-                  return <Auction key={auction._id} auction={auction} />;
-                })
+                searchFilterData(auctionsData, serachParameters()).length >
+                  0 ? (
+                searchFilterData(auctionsData, serachParameters()).map(
+                  (auction) => {
+                    return <Auction key={auction._id} auction={auction} />;
+                  }
+                )
               ) : (
-                <div style={{ color: "red" }}>No results</div>
+                <div id="filterResultsError">
+                  <h2>NO RESULTS</h2>
+                </div>
               )}
             </div>
           </div>

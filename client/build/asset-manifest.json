@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.fdeaee4b.css",
-    "main.js": "/static/js/main.31bf8c9b.js",
+    "main.css": "/static/css/main.b52c438d.css",
+    "main.js": "/static/js/main.53d10b8c.js",
     "static/media/runway.png": "/static/media/runway.988decb12dd424c07d3d.png",
     "static/media/fly_logo.png": "/static/media/fly_logo.83b6d1ef686379a9764d.png",
     "static/media/logout2.png": "/static/media/logout2.ff9972637f2319717c66.png",
@@ -18,19 +18,21 @@
     "static/media/watchlist.png": "/static/media/watchlist.bcb3d3398fc880c893cf.png",
     "static/media/plus.png": "/static/media/plus.6c84efc8306233e0d3f0.png",
     "static/media/documents2.png": "/static/media/documents2.d1994a15cbae532aa7fe.png",
-    "static/media/digital.ttf": "/static/media/digital.f6dd6680475ed7760a09.ttf",
+    "static/media/calendar.png": "/static/media/calendar.b3ad07cc7eab0ed4baeb.png",
     "static/media/transfers.png": "/static/media/transfers.64b34e14f2f6ab5ca689.png",
+    "static/media/Digital_Dismay.otf": "/static/media/Digital_Dismay.8a8838f38696eb20b243.otf",
     "static/media/more.png": "/static/media/more.c6dbecf85a591a033fd3.png",
     "static/media/transfers2.png": "/static/media/transfers2.fe3219ab2533262bf488.png",
+    "static/media/calendar2.png": "/static/media/calendar2.45010c438dfe561d3de9.png",
     "static/media/loaduser.png": "/static/media/loaduser.cf28c7aecef7b7a74e27.png",
     "static/media/plus2.png": "/static/media/plus2.95805ac2988a05e03b31.png",
     "static/media/more2.png": "/static/media/more2.920540aa66db51b29661.png",
     "index.html": "/index.html",
-    "main.fdeaee4b.css.map": "/static/css/main.fdeaee4b.css.map",
-    "main.31bf8c9b.js.map": "/static/js/main.31bf8c9b.js.map"
+    "main.b52c438d.css.map": "/static/css/main.b52c438d.css.map",
+    "main.53d10b8c.js.map": "/static/js/main.53d10b8c.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdeaee4b.css",
-    "static/js/main.31bf8c9b.js"
+    "static/css/main.b52c438d.css",
+    "static/js/main.53d10b8c.js"
   ]
 }
