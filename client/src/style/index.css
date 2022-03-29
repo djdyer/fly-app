@@ -256,8 +256,12 @@ input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   box-shadow: 0 0 0 1000px #11193c inset !important;
-  -webkit-text-fill-color: var(--light);
+  -webkit-text-fill-color: white;
   font-family: "Quicksand", sans-serif;
+}
+
+.auction input:-webkit-autofill {
+  -webkit-text-fill-color: var(--light);
 }
 
 #signupBtn,
@@ -573,7 +577,6 @@ span {
 
 #filterResultsError {
   margin: 40px auto;
-  padding-bottom: 40px;
 }
 
 #filterResultsError h2 {
