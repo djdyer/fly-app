@@ -32,6 +32,12 @@ a:hover img.default {
   display: none;
 }
 
+#calendarIcon {
+  position: absolute;
+  margin-left: 10px;
+  pointer-events: none;
+}
+
 html,
 body {
   background-image: linear-gradient(#121212, #121212);
@@ -228,7 +234,6 @@ input:focus {
   right: 0;
   left: 0;
   margin: 20px auto;
-
   align-items: left;
   background-color: #11193c;
   opacity: 90%;
@@ -571,10 +576,14 @@ span {
   border: none;
 }
 
+#filterResultsError {
+  margin: 40px auto;
+  padding-bottom: 40px;
+}
+
 #filterResultsError h2 {
   color: #ff44c1;
   text-shadow: rgba(255, 86, 230, 0.755) 0px 0px 11px;
-  margin: 60px auto 40px auto;
 }
 
 input.calendar {
@@ -945,8 +954,9 @@ li {
 }
 
 .auctionMessage {
-  margin: 25px auto;
-  text-shadow: var(--light) 0 0 3px;
+  margin: 20px auto;
+  color: #ff4dc4;
+  text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
 
 h5 {
@@ -1569,7 +1579,7 @@ h6:hover {
   }
 
   .auctionMessage {
-    margin: 15px auto;
+    margin: auto;
   }
 
   #profileWatchIcon {
