@@ -189,11 +189,13 @@ function AuctionButton(props) {
             <div className="enterBid">
               <input
                 // id="enterBid"
-                id={
-                  errorMessage === "ENTERBID"
-                    ? "inputPlaceholderColorBlack"
-                    : "inputPlaceholderColorRed"
-                }
+                // id={
+                //   errorMessage === "ENTER BID"
+                //     ? "inputPlaceholderColorBlack"
+                //     : "inputPlaceholderColorRed"
+                // }
+                id="enterBidAlert"
+                style={{ color: "#e434a9" }}
                 placeholder={errorMessage}
                 value={bid}
                 name="number"
