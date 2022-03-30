@@ -282,15 +282,11 @@ select:-webkit-autofill {
   text-align: center;
 }
 
-.enterbidinput: #alert {
+.enterBid input {
   position: relative;
-  color: rgb(255, 255, 255);
   font-family: "Quicksand", sans-serif;
-  font-size: 12pt;
+  font-size: 14pt;
   text-align: left;
-  margin-top: -20px;
-  padding-left: 35px;
-  margin-bottom: 5px;
 }
 
 .navTab {
@@ -299,7 +295,8 @@ select:-webkit-autofill {
   align-items: center;
 }
 
-.navTab:hover h1 {
+.navTab:hover h1,
+#enterBidAlert::placeholder {
   color: #e434a9;
   text-shadow: rgba(255, 0, 217, 0.59) 0px 0px 21px;
 }
@@ -1450,7 +1447,7 @@ h6:hover {
     padding: 8px;
   }
 
-  ::placeholder,
+  .auction input::placeholder,
   #submitBtn h1,
   #searchBtn h1,
   #loginBtn h1,
@@ -1466,10 +1463,6 @@ h6:hover {
     height: 45px;
     width: 110px;
     margin-right: 10px;
-  }
-
-  #enterBid {
-    padding: 0 0 0 3px;
   }
 
   .enterBid {
@@ -1532,14 +1525,6 @@ h6:hover {
 
   #clearFlex {
     margin: 5px 0;
-  }
-
-  #alert {
-    font-size: 10pt;
-    text-align: left;
-    margin-top: -15px;
-    padding-left: 20px;
-    margin-bottom: 5px;
   }
 
   li {
