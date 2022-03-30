@@ -195,7 +195,6 @@ function AuctionButton(props) {
                 //     : "inputPlaceholderColorRed"
                 // }
                 id="enterBidAlert"
-                style={{ color: "#e434a9" }}
                 placeholder={errorMessage}
                 value={bid}
                 name="number"
