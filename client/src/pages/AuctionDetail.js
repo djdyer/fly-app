@@ -20,6 +20,7 @@ function AuctionDetail() {
   } = useQuery(QUERY_AUCTION, {
     variables: { _id: auctionId },
   });
+  refetchAuction();
   const [endTimer, setEndTimer] = useState(false);
   const [agreeToTerms, setAgreeToTerms] = useState(false);
 
