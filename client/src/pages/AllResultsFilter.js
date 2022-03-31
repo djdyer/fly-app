@@ -24,7 +24,6 @@ export default function AllResultsFilter() {
   const calendar = require("../../src/assets/icons/calendar.png");
 
   const [searchPressed, setsearchPressed] = useState(false);
-  console.log(searchPressed);
 
   const [filter, setFilter] = useState({
     filterOrigin: "",
@@ -34,8 +33,6 @@ export default function AllResultsFilter() {
     aircraft: "",
     cabinSize: "",
   });
-
-  console.log(filter);
 
   const [filterExtraOptions, setFilterExtraOptions] = useState({
     addService: false,
@@ -214,7 +211,7 @@ export default function AllResultsFilter() {
                     >
                       <option value="">All</option>
                       <option value=">20">{`\>`} 20</option>
-                      <option value="11-19">11-19</option>
+                      <option value="10-20">10-20</option>
                       <option value="<10">{`\<`} 10 </option>
                     </select>
                   </form>
