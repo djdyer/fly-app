@@ -86,7 +86,9 @@ const Timer = (props) => {
       setHours(0);
       setMinutes(0);
       setSeconds(0);
+      console.log("fromAuctionDetail", props.fromAuctionDetail)
       if (props.fromAuctionDetail) {
+        props.setFromAuctionDetail(false)
         console.log("test2");
         props.refetchAuction();
         props.setEndTimer(true);

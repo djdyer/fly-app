@@ -13,6 +13,9 @@ function AuctionDetail() {
   const plane = require("../../src/assets/icons/plane.png");
   const pathArray = window.location.pathname.split("/");
   const auctionId = pathArray[pathArray.length - 1];
+  
+  const [fromAuctionDetail, setFromAuctionDetail] = useState(true)
+
   const {
     loading,
     data,
@@ -64,7 +67,8 @@ function AuctionDetail() {
                       auctionEndDate={+auctionData.auctionEndDate}
                       setEndTimer={setEndTimer}
                       refetchAuction={refetchAuction}
-                      fromAuctionDetail={true}
+                      fromAuctionDetail={fromAuctionDetail}
+                      setFromAuctionDetail={setFromAuctionDetail}
                     />
                   </div>
                 </div>
