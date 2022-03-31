@@ -15,14 +15,23 @@ export default function searchFilterData(auctionsData, filter) {
         const fd = new Date(+date)
         return Date.UTC(fd.getFullYear(), fd.getMonth(), fd.getDate())
     }
-    
+    const cabinSize = (cSize) => {
+        if (+cSize > 20) {
+            return ">20";
+        } else if (+cSize < 10) {
+            return "<10";
+        } else {
+            return "10-20";
+        }
+    }
+
     filtered = filtered
         .filter(auction => auction.origin.toLowerCase().indexOf(filter.filterOrigin.toLowerCase()) !== -1)
         .filter(auction => auction.destination.toLowerCase().indexOf(filter.filterDestination.toLowerCase()) !== -1)
         .filter(auction => flightDay(auction.flightDate).toString().indexOf(searchDate().toString()) !== -1)
         .filter(auction => auction.operator.toLowerCase().indexOf(filter.operator.toLowerCase()) !== -1)
         .filter(auction => auction.aircraft.toLowerCase().indexOf(filter.aircraft.toLowerCase()) !== -1)
-        .filter(auction => auction.cabinSize.toLowerCase().indexOf(filter.cabinSize.toLowerCase()) !== -1)
+        .filter(auction => cabinSize(auction.cabinSize).indexOf(filter.cabinSize) !== -1)
 
     return filtered;
 };
