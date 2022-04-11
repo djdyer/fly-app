@@ -118,6 +118,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   margin: 120px auto;
   width: fit-content;
   z-index: 1;
@@ -129,6 +130,21 @@ body {
 #searchFields input,
 #searchFields button {
   margin-left: 80px;
+}
+
+#searchFields input {
+  border: none;
+  background-color: #121212;
+  border-radius: 0px;
+}
+
+#searchFields input:hover {
+  border: 1.5px solid #e434a9;
+  box-shadow: rgba(255, 0, 217, 0.59) 0px 0px 10px;
+}
+
+#searchFields button {
+  margin-top: 10px;
 }
 
 #searchClear {
@@ -195,7 +211,20 @@ input:focus {
   border-right: 3px inset var(--light);
   border-bottom: 3px inset var(--light);
   border-radius: 5px;
-  text-shadow: var(--light) 0 0 2px;
+  text-shadow: var(--light) 0 0 1px;
+}
+
+#searchBtn {
+  width: 250px;
+}
+
+#destination {
+  margin-bottom: 25px;
+}
+
+#destination::placeholder {
+  color: rgb(71, 70, 70);
+  text-shadow: none;
 }
 
 #origin:focus,
@@ -233,7 +262,7 @@ input:focus {
   height: 50px;
   right: 0;
   left: 0;
-  margin: 20px auto;
+  margin: 0 auto 20px auto;
   align-items: left;
   background-color: #11193c;
   opacity: 90%;
@@ -354,6 +383,7 @@ h1:hover {
 
 #result:hover {
   border: 2px solid #e434a9;
+  box-shadow: rgba(255, 0, 217, 0.59) 0px 0px 10px;
 }
 
 #header1,
@@ -372,7 +402,7 @@ h1:hover {
 
 #resultsHeader {
   height: 60px;
-  background-color: #000000;
+  background-color: #0f0f0f;
   padding: 20px;
   margin: 15px -20px 20px -20px;
 }
@@ -1139,10 +1169,13 @@ h6:hover {
 
   #origin,
   #destination,
-  #searchBtn,
   #loginBtn,
   #signupBtn {
     width: 275px;
+  }
+
+  #searchBtn {
+    width: 200px;
   }
 
   .topResults,
@@ -1159,7 +1192,8 @@ h6:hover {
 
   #searchFields input,
   #searchFields button {
-    margin: 12px auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .topResultsContainer {

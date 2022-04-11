@@ -4,19 +4,9 @@ function SearchFields() {
   return (
     <div>
       <div id="searchFields">
-        <input
-          className="shadow-pop-br"
-          placeholder="ATLANTA"
-          id="origin"
-          type="text"
-        />
+        <input placeholder="ATLANTA" id="origin" type="text" />
 
-        <input
-          className="shadow-pop-br"
-          placeholder="DESTINATION"
-          id="destination"
-          type="text"
-        />
+        <input placeholder="DESTINATION" id="destination" type="text" />
 
         <button className="shadow-pop-br" id="searchBtn">
           <h1>SEARCH</h1>
