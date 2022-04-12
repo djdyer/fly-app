@@ -6,7 +6,7 @@ import { QUERY_AUCTIONS } from "../utils/queries";
 function TopResults() {
   const { loading, data } = useQuery(QUERY_AUCTIONS);
 
-  const oneDay = 24 * 60 * 60 * 1000;
+  const twoWeeks = 14 * 24 * 60 * 60 * 1000;
   if (loading) {
     return <p>Loading ....</p>;
   } else {
@@ -21,7 +21,7 @@ function TopResults() {
             {data.auctions.map((auction) => {
               if (
                 auction.auctionEndDate > new Date() &&
-                auction.auctionEndDate < +new Date() + oneDay
+                auction.auctionEndDate < +new Date() + twoWeeks
               ) {
                 return <Auction key={auction._id} auction={auction} />;
               }
