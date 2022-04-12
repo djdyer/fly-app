@@ -1,9 +1,9 @@
 module.exports = [
   {
-    auctionEndDate: new Date(+new Date() + 2 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 7 * 24 * 60 * 60 * 1000),
     origin: "ATL",
     destination: "VNY",
-    flightDate: new Date(+new Date() + 1 * 24 * 60 * 60 * 1000),
+    flightDate: new Date(+new Date() + 9 * 24 * 60 * 60 * 1000),
     currentBid: 150.0,
     aircraft: "Gulfstream GIV-SP",
     flightNum: "N624PD",
@@ -14,7 +14,7 @@ module.exports = [
     latestBidUser: "000000000000000000000000",
   },
   {
-    auctionEndDate: new Date(+new Date() + 3 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 8 * 24 * 60 * 60 * 1000),
     origin: "LZU",
     destination: "BNA",
     flightDate: new Date(+new Date() + 10 * 24 * 60 * 60 * 1000),
@@ -28,7 +28,7 @@ module.exports = [
     latestBidUser: "000000000000000000000000",
   },
   {
-    auctionEndDate: new Date(+new Date() + 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 9 * 24 * 60 * 60 * 1000),
     origin: "FFC",
     destination: "IAD",
     flightDate: new Date(+new Date() + 11 * 24 * 60 * 60 * 1000),
@@ -56,7 +56,7 @@ module.exports = [
     latestBidUser: "000000000000000000000000",
   },
   {
-    auctionEndDate: new Date(+new Date() + 22 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 12 * 24 * 60 * 60 * 1000),
     origin: "CNI",
     destination: "IAD",
     flightDate: new Date(+new Date() + 15 * 24 * 60 * 60 * 1000),
@@ -70,7 +70,7 @@ module.exports = [
     latestBidUser: "000000000000000000000000",
   },
   {
-    auctionEndDate: new Date(+new Date() + 12 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 14 * 24 * 60 * 60 * 1000),
     origin: "JES",
     destination: "LGA",
     flightDate: new Date(+new Date() + 18 * 24 * 60 * 60 * 1000),
@@ -84,7 +84,7 @@ module.exports = [
     latestBidUser: "000000000000000000000000",
   },
   {
-    auctionEndDate: new Date(+new Date() + 15 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 15 * 24 * 60 * 60 * 1000),
     origin: "TOC",
     destination: "BOS",
     flightDate: new Date(+new Date() + 20 * 24 * 60 * 60 * 1000),
@@ -98,7 +98,7 @@ module.exports = [
     latestBidUser: "000000000000000000000000",
   },
   {
-    auctionEndDate: new Date(+new Date() + 14 * 24 * 60 * 60 * 1000),
+    auctionEndDate: new Date(+new Date() + 17 * 24 * 60 * 60 * 1000),
     origin: "DBN",
     destination: "TPA",
     flightDate: new Date(+new Date() + 21 * 24 * 60 * 60 * 1000),
