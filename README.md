@@ -18,9 +18,9 @@
 
 ## Description
 
-Everyday there is some executive or celebrity booking private air travel. These individuals pay enormous rates for the priviledge of avoiding commercial. However, more than 30% of these bookings result in what is known as an "empty leg". This means a jet travels to the client EMPTY! These Empty legs are currently being marketed at "a discount" by the same brokers booking at market rate. No surprise the cost is not far from retail, and flights often still remain empty in-route to market-rate clients.
+Everyday there is some executive or celebrity booking private air travel. These individuals pay enormous rates for the privilege of avoiding commercial. However, more than 30% of these bookings result in what is known as an "empty leg". This means a jet travels to the client EMPTY! These Empty legs are currently being marketed at "a discount" by the same brokers booking at market rate. No surprise the cost is not far from retail, and flights often still remain empty in-route to market-rate clients.
 
-Fly App seeks to solve this problem by auctioning off empty legs, opening up the industry to a middle-class market that never could have afforded such a travel option. Users can view active auctions, login to place a bid, and as timer expires, can proceed to secure checkout. A simple solution that seeks eliminate the private jet brokeage industry, making luxury travel affordable to a new market sect, while helping to reduce such drastic waste caused by empty leg flights traveling throughout our airspace.
+Fly App seeks to solve this problem by auctioning off empty legs, opening up the industry to a middle-class market that never could have afforded such a travel option. Users can view active auctions, login to place a bid, and as timer expires, can proceed to secure checkout. A simple solution that seeks eliminate the private jet brokerage industry, making luxury travel affordable to a new market sect, while helping to reduce such drastic waste caused by empty leg flights traveling throughout our airspace.
 
 <br />
 <br />
