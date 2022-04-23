@@ -116,6 +116,7 @@ function AuctionDetail() {
                   <input
                     type="checkbox"
                     id="termsConfirm"
+                    checked={agreeToTerms}
                     onChange={handleAgreeToTerms}
                   ></input>
                   <label htmlFor="termsConfirm">Agree:&nbsp;</label>

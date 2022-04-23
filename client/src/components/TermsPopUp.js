@@ -10,7 +10,6 @@ export default (props) => {
     const { checked } = e.target;
     props.setAgreeToTerms(checked);
   };
-  console.log("aggr",props.agreeToTerms);
 
   return (
     <Popup
@@ -40,12 +39,12 @@ export default (props) => {
             </h5>
             <br></br>
             <div 
-            // className="termsContainer" // something is wrong with this "termsContainer"
+            className="termsContainer" // something is wrong with this "termsContainer"
             >
               <input
                 type="checkbox"
                 id="termsConfirm"
-                clicked = {props.agreeToTerms}
+                checked={props.agreeToTerms}
                 onChange={handleAgreeToTerms}
               ></input>
               <label htmlFor="termsConfirm">
