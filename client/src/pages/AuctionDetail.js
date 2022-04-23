@@ -25,7 +25,7 @@ function AuctionDetail() {
   });
   refetchAuction();
   const [endTimer, setEndTimer] = useState(false);
-  const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const [agreeToTerms, setAgreeToTerms] = useState(Boolean);
 
   const handleAgreeToTerms = (e) => {
     const { checked } = e.target;
@@ -116,10 +116,11 @@ function AuctionDetail() {
                   <input
                     type="checkbox"
                     id="termsConfirm"
+                    checked={agreeToTerms}
                     onChange={handleAgreeToTerms}
                   ></input>
                   <label htmlFor="termsConfirm">Agree:&nbsp;</label>
-                  <Popup />
+                  <Popup agreeToTerms={agreeToTerms} setAgreeToTerms={setAgreeToTerms}/>
                 </div>
                 <div className="serviceContainer">
                   Service Detail:&nbsp;
